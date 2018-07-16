@@ -3,8 +3,7 @@
 $left-padding: 20px;
 $header-margin-bottom: 20px;
 $top-padding: 12px;
-$second-column-width: 240px;
-$second-column-left-text-padding: 8px;
+$first-column-width: 240px;
 
 #selectedLayer {
   box-sizing: border-box;
@@ -27,26 +26,26 @@ $second-column-left-text-padding: 8px;
       span:first-child {
         align-self: stretch;
         flex-grow: 0;
-        width: $second-column-width;
+        width: $first-column-width;
       }
 
       span:nth-child(2) {
         align-self: stretch;
         flex-grow: 1;
-        padding-left: $second-column-left-text-padding;
+        padding-left: $tiny-spacing;
       }
     }
   }
 
   button {
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: $sidebar-button-width;
+    height: $sidebar-button-width;
 
-    margin-left: ($sidebar-width / 2) - 40px;
-    margin-top: -40px;
+    margin-left: ($sidebar-width / 2) - ($sidebar-button-width / 2);
+    margin-top: -($sidebar-button-width / 2);
     text-align: center;
-    line-height: 80px;
+    line-height: $sidebar-button-width;
     display: inline-block;
   }
 
@@ -67,13 +66,14 @@ $second-column-left-text-padding: 8px;
 
       label {
         flex-grow: 0;
-        width: $second-column-width;
+        max-width: $first-column-width;
+        width: $first-column-width;
       }
       div {
         align-self: stretch;
         border-left: 1px dotted black;
         flex-grow: 1;
-        padding-left: $second-column-left-text-padding;
+        padding-left: $tiny-spacing;
         text-align: left;
       }
     }
@@ -81,15 +81,34 @@ $second-column-left-text-padding: 8px;
 }
 
 @media screen and (orientation: portrait) {
+  $first-column-width: 300px;
+
   #selectedLayer {
+    button {
+      margin-left: calc(50vw - #{$sidebar-button-width / 2});
+    }
+
     .headerBar {
       height: 60px;
       padding-bottom: $tiny-spacing;
+
+      .headerSubTitle {
+        span:first-child {
+          width: $first-column-width;
+        }
+      }
     }
 
     .information-box {
       font-size: 14px;
       margin-top: -$medium-spacing;
+
+      .row-box {
+        label {
+          width: 50vw;
+          min-width: 300px;
+        }
+      }
 
       .info-section {
         padding-bottom: $tiny-spacing;

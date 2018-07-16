@@ -1,5 +1,7 @@
 @import '../SharedStyles/index.scss';
 
+$collapse-button-width: 80px;
+
 #sidebar {
   background-color: white;
   display: flex;
@@ -40,7 +42,7 @@
     position: absolute;
     top: $small-spacing;
     right: -$medium-spacing;
-    width: 80px;
+    width: $collapse-button-width;
     height: 30px;
     background-color: white;
     border-radius: 8px;
@@ -57,7 +59,7 @@
 
     #sidebar-collapse {
       top: -$tiny-spacing;
-      right: $small-spacing;
+      right: calc(50vw - #{$collapse-button-width / 2});
     }
   }
 }
