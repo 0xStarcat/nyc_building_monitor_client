@@ -1,0 +1,63 @@
+@import '../SharedStyles/index.scss';
+
+#sidebar {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transform: translateX(-500px);
+  transition: transform 0.3s ease-in-out;
+  width: $sidebar-width;
+  z-index: 1000;
+  border-right: 4px double rosybrown;
+
+  a {
+    margin: 12px;
+    padding: 20px;
+    font-size: 22px;
+  }
+
+  .sidebar-button {
+    cursor: pointer;
+    border: 1px solid black;
+    outline-width: 0;
+  }
+
+  .sidebar-button:hover {
+    border: 1px dotted black;
+    box-shadow: 0 0 20px 2px lightgray;
+  }
+
+  .sidebar-button:active {
+    border: 1px inset black;
+    box-shadow: 0 0 4px 2px gray;
+  }
+
+  #sidebar-collapse {
+    position: absolute;
+    top: $small-spacing;
+    right: -$medium-spacing;
+    width: 80px;
+    height: 30px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid black;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  #sidebar {
+    transform: translateX(0);
+    transform: translateY(calc(100vh + 500px));
+    width: 100vw;
+    height: 500px;
+
+    #sidebar-collapse {
+      top: -$tiny-spacing;
+      right: $small-spacing;
+    }
+  }
+}

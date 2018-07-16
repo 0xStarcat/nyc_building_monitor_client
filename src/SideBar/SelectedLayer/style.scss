@@ -1,0 +1,99 @@
+@import '../../SharedStyles/index.scss';
+
+$left-padding: 20px;
+$header-margin-bottom: 20px;
+$top-padding: 12px;
+$second-column-width: 240px;
+$second-column-left-text-padding: 8px;
+
+#selectedLayer {
+  box-sizing: border-box;
+
+  .headerBar {
+    background-color: $primaryBackground;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100px;
+    padding-left: $small-spacing;
+    padding-bottom: $small-spacing;
+
+    .headerSubTitle {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+
+      span:first-child {
+        align-self: stretch;
+        flex-grow: 0;
+        width: $second-column-width;
+      }
+
+      span:nth-child(2) {
+        align-self: stretch;
+        flex-grow: 1;
+        padding-left: $second-column-left-text-padding;
+      }
+    }
+  }
+
+  button {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+
+    margin-left: ($sidebar-width / 2) - 40px;
+    margin-top: -40px;
+    text-align: center;
+    line-height: 80px;
+    display: inline-block;
+  }
+
+  .information-box {
+    padding-left: $small-spacing;
+
+    .info-section {
+      border-bottom: 1px solid black;
+      margin-bottom: $small-spacing;
+      padding-bottom: $small-spacing;
+    }
+
+    .row-box {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      padding-top: $top-padding;
+
+      label {
+        flex-grow: 0;
+        width: $second-column-width;
+      }
+      div {
+        align-self: stretch;
+        border-left: 1px dotted black;
+        flex-grow: 1;
+        padding-left: $second-column-left-text-padding;
+        text-align: left;
+      }
+    }
+  }
+}
+
+@media screen and (orientation: portrait) {
+  #selectedLayer {
+    .headerBar {
+      height: 60px;
+      padding-bottom: $tiny-spacing;
+    }
+
+    .information-box {
+      font-size: 14px;
+      margin-top: -$medium-spacing;
+
+      .info-section {
+        padding-bottom: $tiny-spacing;
+      }
+    }
+  }
+}
