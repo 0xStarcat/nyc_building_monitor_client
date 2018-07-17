@@ -5,8 +5,9 @@ $header-margin-bottom: 20px;
 $top-padding: 12px;
 $first-column-width: 240px;
 
-#selectedLayer {
+.layerInformationBox {
   box-sizing: border-box;
+  overflow: scroll;
 
   .headerBar {
     background-color: $primaryBackground;
@@ -83,7 +84,9 @@ $first-column-width: 240px;
 @media screen and (orientation: portrait) {
   $first-column-width: 300px;
 
-  #selectedLayer {
+  .layerInformationBox {
+    overflow: scroll;
+
     button {
       margin-left: calc(50vw - #{$sidebar-button-width / 2});
     }

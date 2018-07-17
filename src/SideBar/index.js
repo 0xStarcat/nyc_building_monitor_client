@@ -1,37 +1,48 @@
 import React from 'react'
 import { connect } from 'react'
 import AppLink from '../SharedComponents/AppLink'
-import SelectedLayer from './SelectedLayer'
+import LayerInformationBox from './LayerInformationBox'
 
 import { deactivateSideBar } from '../Store/AppState/actions'
 
 import './style.scss'
 
-const SideBar = props => {
-  const getActiveTransform = () => {
-    return props.appState.landscapeOrientation ? 'translateX(0)' : 'translateY(calc(100vh - 500px))'
+class SideBar extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.getActiveTransform = this.getActiveTransform.bind(this)
+    this.getInactiveTransform = this.getInactiveTransform.bind(this)
+    this.storeStyle = this.storeStyle.bind(this)
+    this.collapseSidebar = this.collapseSidebar.bind(this)
   }
 
-  const getInactiveTransform = () => {
-    return props.appState.landscapeOrientation ? 'translateX(-500px)' : 'translateY(calc(100vh + 500px))'
+  getActiveTransform() {
+    return this.props.appState.landscapeOrientation ? 'translateX(0)' : 'translateY(calc(100vh - 500px))'
   }
 
-  const storeStyle = {
-    transform: props.appState.sidebarActive ? getActiveTransform() : getInactiveTransform()
+  getInactiveTransform() {
+    return this.props.appState.landscapeOrientation ? 'translateX(-500px)' : 'translateY(calc(100vh + 500px))'
   }
 
-  const collapseSidebar = () => {
-    props.dispatch(deactivateSideBar())
+  storeStyle() {
+    return { transform: this.props.appState.sidebarActive ? this.getActiveTransform() : this.getInactiveTransform() }
   }
 
-  return (
-    <div id="sidebar" style={storeStyle}>
-      <button className="sidebar-button" id="sidebar-collapse" onClick={collapseSidebar}>
-        X collapse
-      </button>
-      <SelectedLayer selectedLayer={props.appState.selectedLayer} />
-    </div>
-  )
+  collapseSidebar() {
+    this.props.dispatch(deactivateSideBar())
+  }
+
+  render() {
+    return (
+      <div id="sidebar" style={this.storeStyle()}>
+        <button className="sidebar-button" id="sidebar-collapse" onClick={this.collapseSidebar}>
+          X collapse
+        </button>
+        <LayerInformationBox dispatch={this.props.dispatch} selectedLayer={this.props.appState.selectedLayer} />
+      </div>
+    )
+  }
 }
 
 export default SideBar

@@ -4,11 +4,10 @@ export const HANDLE_READ_CENSUS_TRACTS_RESPONSE = 'HANDLE_READ_CENSUS_TRACTS_RES
 export const AWAITING_CENSUS_TRACTS_RESPONSE = 'AWAITING_CENSUS_TRACT_RESPONSE'
 export const HANDLE_ERROR_RESPONSE = 'HANDLE_ERROR_RESPONSE'
 
-const sectionUrl = '/tracts'
+const url = '/census-tracts'
 
 export const awaitingCensusTractsResponse = () => ({
-  type: AWAITING_CENSUS_TRACTS_RESPONSE,
-  data: {}
+  type: AWAITING_CENSUS_TRACTS_RESPONSE
 })
 
 export const handleErrorResponse = response => ({
@@ -18,13 +17,13 @@ export const handleErrorResponse = response => ({
 
 export const handleReadCensusTractsResponse = response => ({
   type: HANDLE_READ_CENSUS_TRACTS_RESPONSE,
-  data: response.data
+  data: response.data || response
 })
 
 export const readCensusTracts = () => dispatch => {
   console.log('******FETCHING CENSUS TRACTS')
   dispatch(awaitingCensusTractsResponse())
-  return Axios.get(sectionUrl)
+  return Axios.get(url)
     .then(response => {
       dispatch(handleReadCensusTractsResponse(response))
     })
