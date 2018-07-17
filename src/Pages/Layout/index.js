@@ -4,13 +4,19 @@ import SideBar from '../../SideBar'
 
 import './style.scss'
 
-const Layout = props => {
-  return (
-    <div id="pageLayout">
-      <SideBar dispatch={props.dispatch} appState={props.appState} />
-      <div id="mainContent">{props.children}</div>
-    </div>
-  )
+class Layout extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <div id="pageLayout">
+        <SideBar dispatch={this.props.dispatch} appState={this.props.appState} />
+        <div id="mainContent">{this.props.children}</div>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {

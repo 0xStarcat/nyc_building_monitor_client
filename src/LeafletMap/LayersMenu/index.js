@@ -32,7 +32,7 @@ import {
   neighborhoodBoundaryStyle
 } from '../GeoJsonStyles'
 
-import GeoJSONBoundaryGroup from './GeoJSONBoundaryGroup'
+import GeoJsonBoundaryGroup from '../GeoJsonBoundaryGroup'
 import CensusTractPopup from '../Popups/CensusTractPopup'
 import { allLayersLoaded } from '../../Store/AppState/actions'
 
@@ -86,7 +86,7 @@ class LayersMenu extends Component {
       <LayersControl collapsed={true} ref={this.layerControlRef} position={this.props.position}>
         {/*<Overlay ref={this.props.neighborhoodOverlayRef} checked name="Neighborhood Boundaries">
           <Pane style={{ zIndex: 400 }}>
-            <GeoJSONBoundaryGroup
+            <GeoJsonBoundaryGroup
               onLoad={this.layerLoaded}
               features={this.props.store.neighborhoods.features}
               interactive={false}
@@ -104,7 +104,8 @@ class LayersMenu extends Component {
           </Pane>
         </Overlay>
         <BaseLayer checked name="Median Income, 2017">
-          <GeoJSONBoundaryGroup
+          <GeoJsonBoundaryGroup
+            setViewCoordinates={this.props.setViewCoordinates}
             onLoad={this.layerLoaded}
             interactive={true}
             features={this.props.store.censusTracts.features}
@@ -112,7 +113,8 @@ class LayersMenu extends Component {
           />
         </BaseLayer>
         <BaseLayer name="Median Rent, 2017">
-          <GeoJSONBoundaryGroup
+          <GeoJsonBoundaryGroup
+            setViewCoordinates={this.props.setViewCoordinates}
             onLoad={this.layerLoaded}
             interactive={true}
             features={this.props.store.censusTracts.features}
@@ -120,7 +122,8 @@ class LayersMenu extends Component {
           />
         </BaseLayer>
         <BaseLayer name="Rent Change, 2011 - 2017">
-          <GeoJSONBoundaryGroup
+          <GeoJsonBoundaryGroup
+            setViewCoordinates={this.props.setViewCoordinates}
             onLoad={this.layerLoaded}
             interactive={true}
             features={this.props.store.censusTracts.features}
@@ -128,7 +131,8 @@ class LayersMenu extends Component {
           />
         </BaseLayer>
         <BaseLayer name="% White 2010">
-          <GeoJSONBoundaryGroup
+          <GeoJsonBoundaryGroup
+            setViewCoordinates={this.props.setViewCoordinates}
             onLoad={this.layerLoaded}
             interactive={true}
             features={this.props.store.censusTracts.features}
@@ -136,7 +140,8 @@ class LayersMenu extends Component {
           />
         </BaseLayer>
         <BaseLayer name="Percent Service Calls Open 1 Month">
-          <GeoJSONBoundaryGroup
+          <GeoJsonBoundaryGroup
+            setViewCoordinates={this.props.setViewCoordinates}
             onLoad={this.layerLoaded}
             interactive={true}
             features={this.props.store.censusTracts.features}

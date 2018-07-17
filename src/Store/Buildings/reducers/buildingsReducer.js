@@ -2,7 +2,6 @@ import * as buildingsActions from '../actions'
 
 export const initialState = {
   awaitingResponse: false,
-  initialFetchCompleted: false,
   features: [],
   errors: []
 }
@@ -23,6 +22,7 @@ export const buildingsReducer = (buildingsState = Object.freeze(initialState), a
 
     case buildingsActions.HANDLE_READ_BUILDINGS_RESPONSE: {
       console.log('buildings data received')
+      console.log(action.data)
       return {
         ...buildingsState,
         features: action.data['features'],
