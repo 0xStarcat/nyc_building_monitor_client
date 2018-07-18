@@ -54,6 +54,13 @@ $collapse-button-width: 80px;
     border-radius: 8px;
     border: 1px solid black;
   }
+
+  .thin-horizontal-row {
+    width: 80%;
+    margin: $tiny-spacing auto;
+    border-bottom: 1px dashed black;
+    box-shadow: 0 2px 4px 1px gray;
+  }
 }
 
 @media screen and (orientation: portrait) {

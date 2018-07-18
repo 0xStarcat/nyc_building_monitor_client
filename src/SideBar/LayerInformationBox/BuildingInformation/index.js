@@ -11,12 +11,22 @@ import {
 } from '../../../Store/AppState/actions'
 
 import { readViolationsByBuilding } from '../../../Store/Violations/actions'
+import { readServiceCallsByBuilding } from '../../../Store/ServiceCalls/actions'
+import { readSalesByBuilding } from '../../../Store/Sales/actions'
 
 import '../SharedStyles/style.scss'
 
 const BoundaryInformation = props => {
   const getViolations = () => {
     return readViolationsByBuilding(props.selectedObject.id.value)
+  }
+
+  const getServiceCalls = () => {
+    return readServiceCallsByBuilding(props.selectedObject.id.value)
+  }
+
+  const getSales = () => {
+    return readSalesByBuilding(props.selectedObject.id.value)
   }
 
   return (
@@ -31,19 +41,17 @@ const BoundaryInformation = props => {
             <div>{props.selectedObject.violationsTotal.value}</div>
           </div>
         </SwitchViewFetchButton>
-        <SwitchViewFetchButton viewSwitch={SIDEBAR_SERVICE_CALL_INFO}>
+        <SwitchViewFetchButton action={getServiceCalls} viewSwitch={SIDEBAR_SERVICE_CALL_INFO}>
           <div className="row-box">
             <label>{props.selectedObject.serviceCallsTotal.label}</label>
             <div>{props.selectedObject.serviceCallsTotal.value}</div>
           </div>
-        </SwitchViewFetchButton>
-        <SwitchViewFetchButton viewSwitch={SIDEBAR_SERVICE_CALL_INFO}>
           <div className="row-box">
             <label>{props.selectedObject.serviceCallsPercentOpenOneMonth.label}</label>
             <div>{props.selectedObject.serviceCallsPercentOpenOneMonth.value}%</div>
           </div>
         </SwitchViewFetchButton>
-        <SwitchViewFetchButton viewSwitch={SIDEBAR_SALE_INFO}>
+        <SwitchViewFetchButton action={getSales} viewSwitch={SIDEBAR_SALE_INFO}>
           <div className="row-box">
             <label>{props.selectedObject.salesTotal.label}</label>
             <div>{props.selectedObject.salesTotal.value}</div>
