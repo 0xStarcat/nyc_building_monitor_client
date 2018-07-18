@@ -27,26 +27,26 @@ const BoundaryInformation = props => {
         </div>
         <SwitchViewFetchButton action={getViolations} viewSwitch={SIDEBAR_VIOLATION_INFO}>
           <div className="row-box">
-            <label>Total Violations</label>
-            <div>{props.selectedObject.violationsTotal}</div>
+            <label>{props.selectedObject.violationsTotal.label}</label>
+            <div>{props.selectedObject.violationsTotal.value}</div>
           </div>
         </SwitchViewFetchButton>
         <SwitchViewFetchButton viewSwitch={SIDEBAR_SERVICE_CALL_INFO}>
           <div className="row-box">
-            <label>Total 311 Calls</label>
-            <div>{props.selectedObject.serviceCallsTotal}</div>
+            <label>{props.selectedObject.serviceCallsTotal.label}</label>
+            <div>{props.selectedObject.serviceCallsTotal.value}</div>
           </div>
         </SwitchViewFetchButton>
         <SwitchViewFetchButton viewSwitch={SIDEBAR_SERVICE_CALL_INFO}>
           <div className="row-box">
-            <label>311 Calls Open ( > 1 Month)</label>
-            <div>{props.selectedObject.serviceCallsPercentOpenOneMonth}%</div>
+            <label>{props.selectedObject.serviceCallsPercentOpenOneMonth.label}</label>
+            <div>{props.selectedObject.serviceCallsPercentOpenOneMonth.value}%</div>
           </div>
         </SwitchViewFetchButton>
         <SwitchViewFetchButton viewSwitch={SIDEBAR_SALE_INFO}>
           <div className="row-box">
-            <label>Total Sales</label>
-            <div>{props.selectedObject.salesTotal}</div>
+            <label>{props.selectedObject.salesTotal.label}</label>
+            <div>{props.selectedObject.salesTotal.value}</div>
           </div>
         </SwitchViewFetchButton>
       </div>

@@ -4,19 +4,14 @@ import { FeatureGroup, LayerGroup, LayersControl, GeoJSON, TileLayer, Pane } fro
 
 import {
   incomeMedianLayerStyle,
-  incomeChangeLayerStyle,
   rentMedianLayerStyle,
   rentChangeLayerStyle,
   violationsPerBuildingLayerStyle,
   serviceCallsTotalLayerStyle,
   serviceCallsPercentViolationLayerStyle,
   salesTotalLayerStyle,
-  salesWithViolationTotalLayerStyle,
-  salesWithViolationPercentLayerStyle,
-  violationsCountBeforeSaleLayerStyle,
   permitsTotalLayerStyle,
   racePercentWhite2010,
-  raceWhitePercentChange,
   serviceCallsPercentOpenOneMonth,
   neighborhoodBoundaryStyle
 } from '../GeoJsonStyles'

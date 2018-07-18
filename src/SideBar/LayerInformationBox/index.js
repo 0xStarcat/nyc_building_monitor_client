@@ -27,7 +27,7 @@ class LayerInformationBox extends React.Component {
   }
 
   onExploreClick(event) {
-    this.props.dispatch(readBuildingsByCensusTract(this.props.selectedObject.id))
+    this.props.dispatch(readBuildingsByCensusTract(this.props.selectedObject.id.value))
   }
 
   displayInformationBox() {

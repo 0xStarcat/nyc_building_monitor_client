@@ -28,8 +28,8 @@ export class GeoJsonBuildingLayer extends Component {
   }
 
   onClick(event) {
-    this.props.dispatch(changeSidebarMode(SIDEBAR_BUILDING_INFO))
     this.props.dispatch(updateSelectedObject(event.target.feature.properties))
+    this.props.dispatch(changeSidebarMode(SIDEBAR_BUILDING_INFO))
     this.props.dispatch(activateSideBar())
   }
 

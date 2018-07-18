@@ -10,14 +10,14 @@ const LayerInformationHeader = props => {
     <div className="headerBar">
       <HeaderBackButton viewSwitch={SIDEBAR_CENSUS_TRACT_INFO} />
       <div className="title">
-        <h3>{props.selectedObject.name}</h3>
+        <h3>{props.selectedObject.name.value}</h3>
       </div>
       <div className="headerSubTitle">
         <span>
-          <h5>{props.selectedObject.parentBoundaryName}</h5>
+          <h5>{props.selectedObject.parentBoundaryName.value}</h5>
         </span>
         <span>
-          <h5>{props.selectedObject.topParentBoundaryName}</h5>
+          <h5>{props.selectedObject.topParentBoundaryName.value}</h5>
         </span>
       </div>
     </div>

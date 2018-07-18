@@ -29,6 +29,7 @@ export const buildingsReducer = (buildingsState = Object.freeze(initialState), a
       }
     }
     case buildingsActions.UPDATE_SELECTED_BUILDING_OBJECT: {
+      console.log(action.data)
       return { ...buildingsState, selectedObject: action.data }
     }
 

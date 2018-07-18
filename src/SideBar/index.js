@@ -36,17 +36,18 @@ class SideBar extends React.Component {
   }
 
   render() {
-    console.log(this.props.store.appState.sidebarMode)
     return (
       <div id="sidebar" style={this.storeStyle()}>
         <button className="collapse-button sidebar-button" onClick={this.collapseSidebar}>
           X collapse
         </button>
-        <LayerInformationBox
-          dispatch={this.props.dispatch}
-          sidebarMode={this.props.store.appState.sidebarMode}
-          selectedObject={this.props.store[this.props.store.appState.sidebarMode].selectedObject}
-        />
+        {Object.keys(this.props.store[this.props.store.appState.sidebarMode].selectedObject).length && (
+          <LayerInformationBox
+            dispatch={this.props.dispatch}
+            sidebarMode={this.props.store.appState.sidebarMode}
+            selectedObject={this.props.store[this.props.store.appState.sidebarMode].selectedObject}
+          />
+        )}
       </div>
     )
   }

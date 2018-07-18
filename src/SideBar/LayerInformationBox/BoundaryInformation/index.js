@@ -11,20 +11,20 @@ const BoundaryInformation = props => {
           <h5>Snapshot</h5>
         </div>
         <div className="row-box">
-          <label>Median Income (2017)</label>
-          <div>${props.selectedObject.incomeMedian2017}</div>
+          <label>{props.selectedObject.incomeMedian2017.label}</label>
+          <div>${props.selectedObject.incomeMedian2017.value}</div>
         </div>
         <div className="row-box">
-          <label>Median Rent (2017)</label>
-          <div>${props.selectedObject.rentMedian2017}</div>
+          <label>{props.selectedObject.rentMedian2017.label}</label>
+          <div>${props.selectedObject.rentMedian2017.value}</div>
         </div>
         <div className="row-box">
-          <label>White Population (2010)</label>
-          <div>{props.selectedObject.racePercentWhite2010}%</div>
+          <label>{props.selectedObject.racePercentWhite2010.label}</label>
+          <div>{props.selectedObject.racePercentWhite2010.value}%</div>
         </div>
         <div className="row-box">
-          <label>Total Residential Buildings</label>
-          <div>{props.selectedObject.buildingsTotal}</div>
+          <label>{props.selectedObject.buildingsTotal.label}</label>
+          <div>{props.selectedObject.buildingsTotal.value}</div>
         </div>
       </div>
       <div className="info-section">
@@ -32,32 +32,32 @@ const BoundaryInformation = props => {
           <h5>2010 - Present</h5>
         </div>
         <div className="row-box">
-          <label>Rent Change</label>
-          <div>${props.selectedObject.rentChange20112017}</div>
+          <label>{props.selectedObject.rentChange20112017.label}</label>
+          <div>${props.selectedObject.rentChange20112017.value}</div>
         </div>
         <div className="row-box">
-          <label>Violation Rate</label>
-          <div>{props.selectedObject.violationsPerBuilding} / bldg</div>
+          <label>{props.selectedObject.violationsPerBuilding.label}</label>
+          <div>{props.selectedObject.violationsPerBuilding.value}</div>
         </div>
         <div className="row-box">
-          <label>Total Violations</label>
-          <div>{props.selectedObject.violationsTotal}</div>
+          <label>{props.selectedObject.violationsTotal.label}</label>
+          <div>{props.selectedObject.violationsTotal.value}</div>
         </div>
         <div className="row-box">
-          <label>Total 311 Calls</label>
-          <div>{props.selectedObject.serviceCallsTotal}</div>
+          <label>{props.selectedObject.serviceCallsTotal.label}</label>
+          <div>{props.selectedObject.serviceCallsTotal.value}</div>
         </div>
         <div className="row-box">
-          <label>311 Calls Open ( > 1 Month)</label>
-          <div>{props.selectedObject.serviceCallsPercentOpenOneMonth}%</div>
+          <label>{props.selectedObject.serviceCallsPercentOpenOneMonth.label}</label>
+          <div>{props.selectedObject.serviceCallsPercentOpenOneMonth.value}%</div>
         </div>
         <div className="row-box">
-          <label>Total Sales</label>
-          <div>{props.selectedObject.salesTotal}</div>
+          <label>{props.selectedObject.salesTotal.label}</label>
+          <div>{props.selectedObject.salesTotal.value}</div>
         </div>
         <div className="row-box">
-          <label>Total New Building Permits</label>
-          <div>{props.selectedObject.permitsTotal}</div>
+          <label>{props.selectedObject.permitsTotal.label}</label>
+          <div>{props.selectedObject.permitsTotal.value}</div>
         </div>
       </div>
     </div>

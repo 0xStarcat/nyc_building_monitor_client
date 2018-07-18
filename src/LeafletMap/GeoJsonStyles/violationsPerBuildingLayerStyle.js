@@ -1,5 +1,5 @@
 const violationsPerBuildingLayerStyle = feature => {
-  if (!feature.properties.violationsPerBuilding || feature.properties.totalBuildings < 55) {
+  if (!feature.properties.violationsPerBuilding.value || feature.properties.buildingsTotal.value < 55) {
     return {
       color: 'white',
       fillColor: 'ffdba5',
@@ -7,7 +7,7 @@ const violationsPerBuildingLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.violationsPerBuilding >= 6) {
+  } else if (feature.properties.violationsPerBuilding.value >= 6) {
     return {
       color: 'white',
       fillColor: '#005a32',
@@ -15,7 +15,7 @@ const violationsPerBuildingLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.violationsPerBuilding >= 5) {
+  } else if (feature.properties.violationsPerBuilding.value >= 5) {
     return {
       color: 'white',
       fillColor: '#238443',
@@ -23,7 +23,7 @@ const violationsPerBuildingLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.violationsPerBuilding >= 4) {
+  } else if (feature.properties.violationsPerBuilding.value >= 4) {
     return {
       color: 'white',
       fillColor: '#41ab5d',
@@ -31,7 +31,7 @@ const violationsPerBuildingLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.violationsPerBuilding >= 3) {
+  } else if (feature.properties.violationsPerBuilding.value >= 3) {
     return {
       color: 'white',
       fillColor: '#addd8e',
@@ -39,7 +39,7 @@ const violationsPerBuildingLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.violationsPerBuilding >= 2) {
+  } else if (feature.properties.violationsPerBuilding.value >= 2) {
     return {
       color: 'white',
       fillColor: '#d9f0a3',
@@ -47,7 +47,7 @@ const violationsPerBuildingLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.violationsPerBuilding >= 1) {
+  } else if (feature.properties.violationsPerBuilding.value >= 1) {
     return {
       color: 'white',
       fillColor: '#ffffcc',
