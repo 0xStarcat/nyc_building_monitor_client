@@ -10,9 +10,11 @@ import { updateSelectedLayer, activateSideBar } from '../../Store/AppState/actio
 export class GeoJsonBuildingLayer extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
-      featuresLength: props.features.length
+      features: props.features
     }
+    this.geoJsonRef = React.createRef()
     this.onClick = this.onClick.bind(this)
     this.onEachFeature = this.onEachFeature.bind(this)
   }
@@ -28,7 +30,10 @@ export class GeoJsonBuildingLayer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ featuresLength: nextProps.features.length })
+    if (this.geoJsonRef.current && this.geoJsonRef.current.leafletElement.getLayers().length) {
+      this.geoJsonRef.current.leafletElement.clearLayers()
+    }
+    this.setState({ features: nextProps.features })
   }
 
   shouldComponentUpdate() {
@@ -42,16 +47,18 @@ export class GeoJsonBuildingLayer extends Component {
   }
 
   render() {
-    console.log('rendering GEOboundary')
+    console.log('rendering building geojson', this.state.features.length)
     return (
       <Pane style={{ zIndex: 420 }}>
-        <LayerGroup ref={this.props.geoJsonRef}>
-          {this.props.features.map((feature, index) => {
+        <LayerGroup ref={this.geoJsonRef}>
+          {this.state.features.map((feature, index) => {
             return (
               <GeoJSON
                 onEachFeature={this.onEachFeature}
                 interactive={this.props.interactive}
-                key={`ct-${index}`}
+                key={`building-geo-${Math.random()
+                  .toString(36)
+                  .substr(2, 9)}`}
                 data={feature}
                 {...this.props.style(feature)}
               />

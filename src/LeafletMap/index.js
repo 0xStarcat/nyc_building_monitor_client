@@ -36,15 +36,6 @@ export default class LeafletMap extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // if (this.buildingLayerRef.current) {
-    //   const buildingLayer = this.buildingLayerRef.current.leafletElement
-    //   if (this.mapRef.current.leafletElement.hasLayer(buildingLayer)) {
-    //     console.log('clearing buildings')
-    //     this.mapRef.current.leafletElement.removeLayer(buildingLayer)
-    //   }
-    // }
-
-    console.log('adding buildingss')
     this.setState({
       buildings: nextProps.store.buildings.features
     })

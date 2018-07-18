@@ -10,9 +10,7 @@ import { updateSelectedLayer, activateSideBar } from '../../Store/AppState/actio
 export class GeoJsonBoundaryGroup extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      featuresLength: props.features.length
-    }
+
     this.onClick = this.onClick.bind(this)
     this.onEachFeature = this.onEachFeature.bind(this)
   }
@@ -27,10 +25,6 @@ export class GeoJsonBoundaryGroup extends Component {
     this.props.setViewCoordinates(event.target.feature.properties.representativePoint)
     this.props.dispatch(activateSideBar())
     this.props.dispatch(updateSelectedLayer(event.target.feature.properties))
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ featuresLength: nextProps.features.length })
   }
 
   shouldComponentUpdate() {
