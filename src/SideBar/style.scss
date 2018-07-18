@@ -30,15 +30,21 @@ $collapse-button-width: 80px;
 
   .sidebar-button:hover {
     border: 1px dotted black;
-    box-shadow: 0 0 20px 2px lightgray;
   }
 
   .sidebar-button:active {
     border: 1px inset black;
+  }
+
+  .hover-shadow:hover {
+    box-shadow: 0 0 20px 2px lightgray;
+  }
+
+  .hover-shadow:active {
     box-shadow: 0 0 4px 2px gray;
   }
 
-  #sidebar-collapse {
+  .collapse-button {
     position: absolute;
     top: $small-spacing;
     right: -$medium-spacing;
@@ -57,7 +63,7 @@ $collapse-button-width: 80px;
     width: 100vw;
     height: 500px;
 
-    #sidebar-collapse {
+    .collapse-button {
       top: -$tiny-spacing;
       right: calc(50vw - #{$collapse-button-width / 2});
     }

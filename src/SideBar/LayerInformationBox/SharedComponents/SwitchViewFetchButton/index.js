@@ -1,0 +1,36 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+import { changeSidebarMode } from '../../../../Store/AppState/actions'
+
+import './style.scss'
+
+export class SwitchViewFetchButton extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.onClick = this.onClick.bind(this)
+  }
+
+  onClick(event) {
+    this.props.dispatch(this.props.action())
+    this.props.dispatch(changeSidebarMode(this.props.viewSwitch))
+  }
+
+  render() {
+    return (
+      <div className="switch-view-fetch-button hover-shadow" onClick={this.onClick}>
+        {this.props.children}
+        <div className="button-row">View Details</div>
+      </div>
+    )
+  }
+}
+
+SwitchViewFetchButton.propTypes = {
+  action: PropTypes.func,
+  viewSwitch: PropTypes.string
+}
+
+export default connect()(SwitchViewFetchButton)

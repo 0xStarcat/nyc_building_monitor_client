@@ -1,0 +1,18 @@
+@import '../../../../SharedStyles/index.scss';
+
+.switch-view-fetch-button {
+  box-sizing: border-box;
+  cursor: pointer;
+  positiom: relative;
+  width: 100%;
+
+  * {
+    cursor: pointer;
+  }
+
+  .button-row {
+    text-align: left;
+    color: $linkColor;
+    padding-left: $small-spacing;
+  }
+}

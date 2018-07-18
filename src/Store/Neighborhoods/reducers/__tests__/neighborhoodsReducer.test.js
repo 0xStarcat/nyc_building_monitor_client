@@ -1,4 +1,4 @@
-import * as reducer from '../neighborhoodsReducer'
+import * as reducer from '../index'
 import * as NeighborhoodsActions from '../../actions'
 
 describe('Neighborhoods reducer', () => {

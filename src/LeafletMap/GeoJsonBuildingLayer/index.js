@@ -5,12 +5,9 @@ import { connect } from 'react-redux'
 import { GeoJSON, LayerGroup, Pane } from 'react-leaflet'
 import CensusTractPopup from '../Popups/CensusTractPopup'
 import { createSelector } from 'reselect'
-import {
-  changeSidebarMode,
-  activateSideBar,
-  updateSelectedLayer,
-  SIDEBAR_BUILDING_INFO
-} from '../../Store/AppState/actions'
+import { changeSidebarMode, activateSideBar, SIDEBAR_BUILDING_INFO } from '../../Store/AppState/actions'
+
+import { updateSelectedObject } from '../../Store/Buildings/actions'
 
 export class GeoJsonBuildingLayer extends Component {
   constructor(props) {
@@ -32,7 +29,7 @@ export class GeoJsonBuildingLayer extends Component {
 
   onClick(event) {
     this.props.dispatch(changeSidebarMode(SIDEBAR_BUILDING_INFO))
-    this.props.dispatch(updateSelectedLayer(event.target.feature.properties))
+    this.props.dispatch(updateSelectedObject(event.target.feature.properties))
     this.props.dispatch(activateSideBar())
   }
 

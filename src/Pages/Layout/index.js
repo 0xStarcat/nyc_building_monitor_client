@@ -12,7 +12,7 @@ class Layout extends React.Component {
   render() {
     return (
       <div id="pageLayout">
-        <SideBar dispatch={this.props.dispatch} appState={this.props.appState} />
+        <SideBar dispatch={this.props.dispatch} store={this.props.store} />
         <div id="mainContent">{this.props.children}</div>
       </div>
     )
@@ -21,7 +21,7 @@ class Layout extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    appState: state.appState
+    store: state
   }
 }
 export default connect(mapStateToProps)(Layout)

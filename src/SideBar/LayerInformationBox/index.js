@@ -1,11 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import BoundaryInformation from '../BoundaryInformation'
-import BuildingInformation from '../BuildingInformation'
+import LayerInformationHeader from './LayerInformationHeader'
+import BoundaryInformation from './BoundaryInformation'
+import BuildingInformation from './BuildingInformation'
+import ViolationInformation from './ViolationInformation'
+import ServiceCallInformation from './ServiceCallInformation'
+import SaleInformation from './SaleInformation'
 
-import LayerInformationHeader from '../LayerInformationHeader'
-import { SIDEBAR_BOUNDARY_INFO, SIDEBAR_BUILDING_INFO } from '../../Store/AppState/actions'
+import {
+  SIDEBAR_CENSUS_TRACT_INFO,
+  SIDEBAR_BUILDING_INFO,
+  SIDEBAR_VIOLATION_INFO,
+  SIDEBAR_SERVICE_CALL_INFO,
+  SIDEBAR_SALE_INFO
+} from '../../Store/AppState/actions'
 import { readBuildingsByCensusTract } from '../../Store/Buildings/actions'
 import './style.scss'
 
@@ -18,24 +27,29 @@ class LayerInformationBox extends React.Component {
   }
 
   onExploreClick(event) {
-    this.props.dispatch(readBuildingsByCensusTract(this.props.selectedLayer.id))
+    this.props.dispatch(readBuildingsByCensusTract(this.props.selectedObject.id))
   }
 
   displayInformationBox() {
     switch (this.props.sidebarMode) {
-      case SIDEBAR_BOUNDARY_INFO:
-        return <BoundaryInformation selectedLayer={this.props.selectedLayer} />
-
+      case SIDEBAR_CENSUS_TRACT_INFO:
+        return <BoundaryInformation selectedObject={this.props.selectedObject} />
       case SIDEBAR_BUILDING_INFO:
-        return <BuildingInformation selectedLayer={this.props.selectedLayer} />
+        return <BuildingInformation selectedObject={this.props.selectedObject} />
+      case SIDEBAR_VIOLATION_INFO:
+        return <ViolationInformation selectedObject={this.props.selectedObject} />
+      case SIDEBAR_SERVICE_CALL_INFO:
+        return <ServiceCallInformation selectedObject={this.props.selectedObject} />
+      case SIDEBAR_SALE_INFO:
+        return <SaleInformation selectedObject={this.props.selectedObject} />
     }
   }
 
   render() {
-    if (!this.props.selectedLayer) return null
+    if (!this.props.selectedObject) return null
     return (
       <div className="layerInformationBox">
-        <LayerInformationHeader selectedLayer={this.props.selectedLayer} />
+        <LayerInformationHeader selectedObject={this.props.selectedObject} sidebarMode={this.props.sidebarMode} />
         <button className="sidebar-button" onClick={this.onExploreClick}>
           Explore
         </button>
@@ -46,7 +60,7 @@ class LayerInformationBox extends React.Component {
 }
 
 LayerInformationBox.propTypes = {
-  selectedLayer: PropTypes.object,
+  selectedObject: PropTypes.object,
   sidebarMode: PropTypes.string
 }
 export default LayerInformationBox

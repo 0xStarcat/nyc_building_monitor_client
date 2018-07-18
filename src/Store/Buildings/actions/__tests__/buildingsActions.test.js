@@ -21,7 +21,7 @@ afterEach(() => {
 describe('readBuildingsByCensusTract', () => {
   it('dispatches AWAITING_BUILDINGS_RESPONSE, HANDLE_READ_BUILDINGS_RESPONSE on success', async () => {
     const response = { data: { features: [] } }
-    moxios.stubRequest('/buildings/census-tract/1', {
+    moxios.stubRequest('/census-tracts/1/buildings', {
       status: 200,
       response: response
     })
@@ -39,7 +39,7 @@ describe('readBuildingsByCensusTract', () => {
   it('dispatches AWAITING_BUILDINGS_RESPONSE and HANDLE_ERROR_RESPONSE on error', async () => {
     const error = { error: '' }
 
-    moxios.stubRequest('/buildings/census-tract/1', {
+    moxios.stubRequest('/census-tracts/1/buildings', {
       status: 500,
       response: error
     })

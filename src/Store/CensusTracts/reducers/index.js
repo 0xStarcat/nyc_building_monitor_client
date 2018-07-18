@@ -4,7 +4,8 @@ export const initialState = {
   awaitingResponse: false,
   initialFetchCompleted: false,
   features: [],
-  errors: []
+  errors: [],
+  selectedObject: {}
 }
 
 export const censusTractsReducer = (censusTractsState = Object.freeze(initialState), action = { data: [] }) => {
@@ -29,6 +30,10 @@ export const censusTractsReducer = (censusTractsState = Object.freeze(initialSta
         awaitingResponse: false,
         initialFetchCompleted: true
       }
+    }
+
+    case censusTractsActions.UPDATE_SELECTED_CENSUS_TRACT_OBJECT: {
+      return { ...censusTractsState, selectedObject: action.data }
     }
 
     default:

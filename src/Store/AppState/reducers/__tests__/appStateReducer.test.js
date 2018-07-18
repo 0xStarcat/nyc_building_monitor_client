@@ -14,16 +14,6 @@ describe('AppState reducer', () => {
     })
   })
 
-  describe('UPDATE_SELECTED_LAYER', () => {
-    const expectedState = { ...reducer.initialState, selectedLayer: { properties: {} } }
-
-    it('sets passes layer data to selectedLayer', () => {
-      expect(reducer.appStateReducer(undefined, AppStateActions.updateSelectedLayer({ properties: {} }))).toEqual(
-        expectedState
-      )
-    })
-  })
-
   describe('ACTIVATE_SIDEBAR', () => {
     const expectedState = { ...reducer.initialState, sidebarActive: true }
 

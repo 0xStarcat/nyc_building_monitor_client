@@ -1,4 +1,4 @@
-import * as reducer from '../buildingsReducer'
+import * as reducer from '../index'
 import * as BuildingsActions from '../../actions'
 
 describe('Buildings reducer', () => {
@@ -29,13 +29,23 @@ describe('Buildings reducer', () => {
   })
 
   describe('HANDLE_READ_BUILDINGS_RESPONSE', () => {
-    const response = { features: [] }
+    const response = { features: [{ building: 1 }] }
     it('fetches the Buildings if present', () => {
       expect(
         reducer.buildingsReducer(undefined, BuildingsActions.handleReadBuildingsResponse({ data: response }))
       ).toEqual({
         ...reducer.initialState,
-        initialFetchCompleted: true
+        ...response
+      })
+    })
+  })
+
+  describe('UPDATE_SELECTED_BUILDING_OBJECT', () => {
+    const object = { properties: {} }
+    it('updates the selectedObject with the new object', () => {
+      expect(reducer.buildingsReducer(undefined, BuildingsActions.updateSelectedObject(object))).toEqual({
+        ...reducer.initialState,
+        selectedObject: object
       })
     })
   })

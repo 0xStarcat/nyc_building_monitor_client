@@ -1,4 +1,4 @@
-@import '../../SharedStyles/index.scss';
+@import '../../../SharedStyles/index.scss';
 
 .headerBar {
   background-color: $primaryBackground;
@@ -27,6 +27,11 @@
       padding-left: $tiny-spacing;
     }
   }
+}
+
+.back-button {
+  position: relative;
+  padding: $tiny-spacing;
 }
 
 @media screen and (orientation: portrait) {

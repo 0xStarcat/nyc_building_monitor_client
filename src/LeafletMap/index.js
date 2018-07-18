@@ -34,7 +34,7 @@ export default class LeafletMap extends Component {
       this.mapRef.current.leafletElement.panTo([latLon[0], latLon[1]], {
         animate: true,
         duration: 0.5,
-        easeLinearity: 12
+        easeLinearity: 1
       })
     }
   }

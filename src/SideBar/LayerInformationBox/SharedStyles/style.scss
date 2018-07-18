@@ -1,18 +1,21 @@
-@import '../../SharedStyles/index.scss';
+@import '../../../SharedStyles/index.scss';
 
 .information-box {
-  padding-left: $small-spacing;
-
   .info-section {
     border-bottom: 1px solid black;
     margin-bottom: $small-spacing;
     padding-bottom: $small-spacing;
   }
 
+  .info-title {
+    padding-left: $small-spacing;
+  }
+
   .row-box {
     align-items: center;
     display: flex;
     flex-direction: row;
+    padding-left: $small-spacing;
     padding-top: $tiny-spacing;
 
     label {

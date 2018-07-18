@@ -18,15 +18,17 @@ class SideBar extends React.Component {
   }
 
   getActiveTransform() {
-    return this.props.appState.landscapeOrientation ? 'translateX(0)' : 'translateY(calc(100vh - 500px))'
+    return this.props.store.appState.landscapeOrientation ? 'translateX(0)' : 'translateY(calc(100vh - 500px))'
   }
 
   getInactiveTransform() {
-    return this.props.appState.landscapeOrientation ? 'translateX(-500px)' : 'translateY(calc(100vh + 500px))'
+    return this.props.store.appState.landscapeOrientation ? 'translateX(-500px)' : 'translateY(calc(100vh + 500px))'
   }
 
   storeStyle() {
-    return { transform: this.props.appState.sidebarActive ? this.getActiveTransform() : this.getInactiveTransform() }
+    return {
+      transform: this.props.store.appState.sidebarActive ? this.getActiveTransform() : this.getInactiveTransform()
+    }
   }
 
   collapseSidebar() {
@@ -34,15 +36,16 @@ class SideBar extends React.Component {
   }
 
   render() {
+    console.log(this.props.store.appState.sidebarMode)
     return (
       <div id="sidebar" style={this.storeStyle()}>
-        <button className="sidebar-button" id="sidebar-collapse" onClick={this.collapseSidebar}>
+        <button className="collapse-button sidebar-button" onClick={this.collapseSidebar}>
           X collapse
         </button>
         <LayerInformationBox
           dispatch={this.props.dispatch}
-          sidebarMode={this.props.appState.sidebarMode}
-          selectedLayer={this.props.appState.selectedLayer}
+          sidebarMode={this.props.store.appState.sidebarMode}
+          selectedObject={this.props.store[this.props.store.appState.sidebarMode].selectedObject}
         />
       </div>
     )

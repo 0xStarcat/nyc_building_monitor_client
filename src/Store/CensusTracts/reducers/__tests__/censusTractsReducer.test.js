@@ -1,4 +1,4 @@
-import * as reducer from '../censusTractsReducer'
+import * as reducer from '../index'
 import * as censusTractsActions from '../../actions'
 
 describe('censusTracts reducer', () => {
@@ -38,6 +38,16 @@ describe('censusTracts reducer', () => {
       ).toEqual({
         ...reducer.initialState,
         initialFetchCompleted: true
+      })
+    })
+  })
+
+  describe('UPDATE_SELECTED_CENSUS_TRACT_OBJECT', () => {
+    const object = { properties: {} }
+    it('updates the selectedObject with the new object', () => {
+      expect(reducer.censusTractsReducer(undefined, censusTractsActions.updateSelectedObject(object))).toEqual({
+        ...reducer.initialState,
+        selectedObject: object
       })
     })
   })
