@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import LayerInformationHeader from './LayerInformationHeader'
 import BoundaryInformation from './BoundaryInformation'
 import BuildingInformation from './BuildingInformation'
-import ViolationInformation from './ViolationInformation'
+import ViolationInformationTable from './ViolationInformationTable'
 import ServiceCallInformation from './ServiceCallInformation'
 import SaleInformation from './SaleInformation'
 
@@ -37,7 +37,7 @@ class LayerInformationBox extends React.Component {
       case SIDEBAR_BUILDING_INFO:
         return <BuildingInformation selectedObject={this.props.selectedObject} />
       case SIDEBAR_VIOLATION_INFO:
-        return <ViolationInformation selectedObject={this.props.selectedObject} />
+        return <ViolationInformationTable features={this.props.features} />
       case SIDEBAR_SERVICE_CALL_INFO:
         return <ServiceCallInformation selectedObject={this.props.selectedObject} />
       case SIDEBAR_SALE_INFO:
@@ -46,7 +46,6 @@ class LayerInformationBox extends React.Component {
   }
 
   render() {
-    if (!this.props.selectedObject) return null
     return (
       <div className="layerInformationBox">
         <LayerInformationHeader selectedObject={this.props.selectedObject} sidebarMode={this.props.sidebarMode} />

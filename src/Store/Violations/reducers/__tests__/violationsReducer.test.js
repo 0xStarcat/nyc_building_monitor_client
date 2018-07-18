@@ -41,4 +41,14 @@ describe('Violations reducer', () => {
       })
     })
   })
+
+  describe('UPDATE_SELECTED_VIOLATION_OBJECT', () => {
+    const object = { properties: {} }
+    it('updates the selectedObject with the new object', () => {
+      expect(reducer.violationsReducer(undefined, ViolationsActions.updateSelectedObject(object))).toEqual({
+        ...reducer.initialState,
+        selectedObject: object
+      })
+    })
+  })
 })

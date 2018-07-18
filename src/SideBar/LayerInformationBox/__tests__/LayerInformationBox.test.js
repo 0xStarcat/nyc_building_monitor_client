@@ -14,7 +14,7 @@ import {
 
 import BoundaryInformation from '../BoundaryInformation'
 import BuildingInformation from '../BuildingInformation'
-import ViolationInformation from '../ViolationInformation'
+import ViolationInformationTable from '../ViolationInformationTable'
 import ServiceCallInformation from '../ServiceCallInformation'
 import SaleInformation from '../SaleInformation'
 
@@ -25,6 +25,7 @@ describe('LayerInformationBox', () => {
   const selectedObject = {
     id: 1
   }
+  const features = []
   const sidebarMode = {}
 
   it('should render my component', () => {
@@ -72,13 +73,12 @@ describe('LayerInformationBox', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
+          features={features}
           sidebarMode={SIDEBAR_VIOLATION_INFO}
           selectedObject={selectedObject}
         />
       )
-      expect(wrapper.instance().displayInformationBox()).toEqual(
-        <ViolationInformation selectedObject={selectedObject} />
-      )
+      expect(wrapper.instance().displayInformationBox()).toEqual(<ViolationInformationTable features={[]} />)
     })
 
     it('returns the matching information box depending on the sidebarMode', () => {

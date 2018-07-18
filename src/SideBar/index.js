@@ -36,18 +36,18 @@ class SideBar extends React.Component {
   }
 
   render() {
+    if (!this.props.store.appState.sidebarActive) return null
     return (
       <div id="sidebar" style={this.storeStyle()}>
         <button className="collapse-button sidebar-button" onClick={this.collapseSidebar}>
           X collapse
         </button>
-        {Object.keys(this.props.store[this.props.store.appState.sidebarMode].selectedObject).length && (
-          <LayerInformationBox
-            dispatch={this.props.dispatch}
-            sidebarMode={this.props.store.appState.sidebarMode}
-            selectedObject={this.props.store[this.props.store.appState.sidebarMode].selectedObject}
-          />
-        )}
+        <LayerInformationBox
+          dispatch={this.props.dispatch}
+          sidebarMode={this.props.store.appState.sidebarMode}
+          features={this.props.store[this.props.store.appState.sidebarMode].features}
+          selectedObject={this.props.store[this.props.store.appState.sidebarMode].selectedObject}
+        />
       </div>
     )
   }

@@ -16,7 +16,7 @@ import '../SharedStyles/style.scss'
 
 const BoundaryInformation = props => {
   const getViolations = () => {
-    return readViolationsByBuilding(props.selectedObject.id)
+    return readViolationsByBuilding(props.selectedObject.id.value)
   }
 
   return (

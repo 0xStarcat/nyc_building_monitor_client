@@ -10,7 +10,18 @@ const ViolationInformation = props => {
         <div className="info-title">
           <h5>2010 - Present</h5>
         </div>
-        <div>Violations</div>
+        <div className="row-box">
+          <label>{props.selectedObject.source.label}</label>
+          <div>{props.selectedObject.source.value}</div>
+        </div>
+        <div className="row-box">
+          <label>{props.selectedObject.date.label}</label>
+          <div>{props.selectedObject.date.value}</div>
+        </div>
+        <div className="row-box">
+          <label>{props.selectedObject.penalty.label}</label>
+          <div>{props.selectedObject.penalty.value}</div>
+        </div>
       </div>
     </div>
   )
