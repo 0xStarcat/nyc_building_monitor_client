@@ -1,4 +1,4 @@
-// http://colorbrewer2.org/#type=diverging&scheme=RdYlGn&n=7
+// http://colorbrewer2.org/#type=sequential&scheme=PuRd&n=7
 const violationBuildingStyle = feature => {
   if (feature.properties.violationsTotal >= 60) {
     return {
