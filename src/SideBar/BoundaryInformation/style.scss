@@ -1,0 +1,49 @@
+@import '../../SharedStyles/index.scss';
+
+.information-box {
+  padding-left: $small-spacing;
+
+  .info-section {
+    border-bottom: 1px solid black;
+    margin-bottom: $small-spacing;
+    padding-bottom: $small-spacing;
+  }
+
+  .row-box {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding-top: $tiny-spacing;
+
+    label {
+      flex-grow: 0;
+      max-width: $first-column-width;
+      width: $first-column-width;
+    }
+    div {
+      align-self: stretch;
+      border-left: 1px dotted black;
+      flex-grow: 1;
+      padding-left: $tiny-spacing;
+      text-align: left;
+    }
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .information-box {
+    font-size: 14px;
+    margin-top: -$medium-spacing;
+
+    .row-box {
+      label {
+        width: 50vw;
+        min-width: 300px;
+      }
+    }
+
+    .info-section {
+      padding-bottom: $tiny-spacing;
+    }
+  }
+}

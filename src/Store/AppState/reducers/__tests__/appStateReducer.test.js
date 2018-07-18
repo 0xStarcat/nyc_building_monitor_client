@@ -39,4 +39,14 @@ describe('AppState reducer', () => {
       expect(reducer.appStateReducer(undefined, AppStateActions.deactivateSideBar())).toEqual(expectedState)
     })
   })
+
+  describe('CHANGE_SIDEBAR_MODE', () => {
+    const expectedState = { ...reducer.initialState, sidebarMode: AppStateActions.SIDEBAR_BUILDING_INFO }
+
+    it('sets sidebarMode to the specific value', () => {
+      expect(
+        reducer.appStateReducer(undefined, AppStateActions.changeSidebarMode(AppStateActions.SIDEBAR_BUILDING_INFO))
+      ).toEqual(expectedState)
+    })
+  })
 })

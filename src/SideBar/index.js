@@ -39,7 +39,11 @@ class SideBar extends React.Component {
         <button className="sidebar-button" id="sidebar-collapse" onClick={this.collapseSidebar}>
           X collapse
         </button>
-        <LayerInformationBox dispatch={this.props.dispatch} selectedLayer={this.props.appState.selectedLayer} />
+        <LayerInformationBox
+          dispatch={this.props.dispatch}
+          sidebarMode={this.props.appState.sidebarMode}
+          selectedLayer={this.props.appState.selectedLayer}
+        />
       </div>
     )
   }

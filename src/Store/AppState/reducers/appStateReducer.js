@@ -4,6 +4,7 @@ export const initialState = {
   allLayersLoaded: false,
   selectedLayer: null,
   sidebarActive: false,
+  sidebarMode: appStateActions.SIDEBAR_BOUNDARY_INFO,
   landscapeOrientation: window.matchMedia('(orientation: landscape)').matches
 }
 
@@ -20,6 +21,9 @@ export const appStateReducer = (appState = Object.freeze(initialState), action =
     }
     case appStateActions.DEACTIVATE_SIDEBAR: {
       return { ...appState, sidebarActive: false }
+    }
+    case appStateActions.CHANGE_SIDEBAR_MODE: {
+      return { ...appState, sidebarMode: action.data }
     }
 
     default:

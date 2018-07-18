@@ -1,0 +1,43 @@
+@import '../../SharedStyles/index.scss';
+
+.headerBar {
+  background-color: $primaryBackground;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100px;
+  padding-left: $small-spacing;
+  padding-bottom: $small-spacing;
+
+  .headerSubTitle {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    span:first-child {
+      align-self: stretch;
+      flex-grow: 0;
+      width: $first-column-width;
+    }
+
+    span:nth-child(2) {
+      align-self: stretch;
+      flex-grow: 1;
+      padding-left: $tiny-spacing;
+    }
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .headerBar {
+    height: 60px;
+    padding-bottom: $tiny-spacing;
+
+    .headerSubTitle {
+      span:first-child {
+        width: $first-column-width;
+      }
+    }
+  }
+}

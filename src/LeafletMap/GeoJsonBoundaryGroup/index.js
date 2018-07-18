@@ -23,8 +23,8 @@ export class GeoJsonBoundaryGroup extends Component {
 
   onClick(event) {
     this.props.setViewCoordinates(event.target.feature.properties.representativePoint)
-    this.props.dispatch(activateSideBar())
     this.props.dispatch(updateSelectedLayer(event.target.feature.properties))
+    this.props.dispatch(activateSideBar())
   }
 
   shouldComponentUpdate() {

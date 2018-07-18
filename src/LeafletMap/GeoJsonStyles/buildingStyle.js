@@ -5,7 +5,7 @@ const buildingStyle = feature => {
     fillColor: 'hotpink',
     opacity: 1,
     fillOpacity: 0.5,
-    weight: 2
+    weight: 1
   }
 }
 
