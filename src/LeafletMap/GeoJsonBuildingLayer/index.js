@@ -80,8 +80,6 @@ export class GeoJsonBuildingLayer extends Component {
 GeoJsonBuildingLayer.propTypes = {
   features: PropTypes.array,
   interactive: PropTypes.bool,
-  onLoad: PropTypes.func,
-  setViewCoordinates: PropTypes.func,
   style: PropTypes.func
 }
 

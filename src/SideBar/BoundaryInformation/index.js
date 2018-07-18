@@ -56,7 +56,7 @@ const BoundaryInformation = props => {
           <div>{props.selectedLayer.salesTotal}</div>
         </div>
         <div className="row-box">
-          <label>Total Permits</label>
+          <label>Total New Building Permits</label>
           <div>{props.selectedLayer.permitsTotal}</div>
         </div>
       </div>

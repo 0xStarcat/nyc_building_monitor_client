@@ -1,17 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {
-  Circle,
-  FeatureGroup,
-  LayerGroup,
-  LayersControl,
-  Marker,
-  Popup,
-  Rectangle,
-  GeoJSON,
-  TileLayer,
-  Pane
-} from 'react-leaflet'
+import { FeatureGroup, LayerGroup, LayersControl, GeoJSON, TileLayer, Pane } from 'react-leaflet'
 
 import {
   incomeMedianLayerStyle,
@@ -38,7 +27,7 @@ import { allLayersLoaded } from '../../Store/AppState/actions'
 
 const { BaseLayer, Overlay } = LayersControl
 
-class LayersMenu extends Component {
+class BoundaryLayersMenu extends Component {
   constructor(props) {
     super(props)
 
@@ -79,9 +68,6 @@ class LayersMenu extends Component {
   }
 
   render() {
-    const center = [51.505, -0.09]
-    const rectangle = [[51.49, -0.08], [51.5, -0.06]]
-
     return (
       <LayersControl collapsed={true} ref={this.layerControlRef} position={this.props.position}>
         {/*<Overlay ref={this.props.neighborhoodOverlayRef} checked name="Neighborhood Boundaries">
@@ -163,4 +149,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(LayersMenu)
+export default connect(mapStateToProps)(BoundaryLayersMenu)
