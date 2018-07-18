@@ -10,7 +10,7 @@ describe('Sidebar', () => {
   const dispatchFn = sinon.spy()
   const store = {
     appState: {
-      sidebarActive: false,
+      sidebarActive: true,
       landscapeOrientation: true,
       sidebarMode: 'censusTracts'
     },
@@ -19,9 +19,18 @@ describe('Sidebar', () => {
     }
   }
 
-  it('should render my component', () => {
-    const wrapper = shallow(<Sidebar store={store} />)
-    expect(wrapper.find('#sidebar').exists()).toBe(true)
+  describe('when appState.sidebarActive', () => {
+    it('should render my component', () => {
+      const wrapper = shallow(<Sidebar store={store} />)
+      expect(wrapper.find('#sidebar').exists()).toBe(true)
+    })
+  })
+
+  describe('when appState.sidebarActive not true', () => {
+    it('should render my component', () => {
+      const wrapper = shallow(<Sidebar store={{ ...store, appState: { ...store.appState, sidebarActive: false } }} />)
+      expect(wrapper.find('#sidebar').exists()).toBe(false)
+    })
   })
 
   describe('#collapseSidebar', () => {
