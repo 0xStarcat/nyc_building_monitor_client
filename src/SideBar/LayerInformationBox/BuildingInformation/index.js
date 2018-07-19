@@ -16,7 +16,7 @@ import { readSalesByBuilding } from '../../../Store/Sales/actions'
 
 import '../SharedStyles/style.scss'
 
-const BoundaryInformation = props => {
+const BuildingInformation = props => {
   const getViolations = () => {
     return readViolationsByBuilding(props.selectedObject.id.value)
   }
@@ -30,7 +30,7 @@ const BoundaryInformation = props => {
   }
 
   return (
-    <div className="information-box">
+    <div className="building-information">
       <div className="info-section">
         <div className="info-title">
           <h5>2010 - Present</h5>
@@ -62,8 +62,8 @@ const BoundaryInformation = props => {
   )
 }
 
-BoundaryInformation.propTypes = {
+BuildingInformation.propTypes = {
   selectedObject: PropTypes.object
 }
 
-export default BoundaryInformation
+export default BuildingInformation

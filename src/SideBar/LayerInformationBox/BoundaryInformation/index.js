@@ -5,7 +5,7 @@ import '../SharedStyles/style.scss'
 
 const BoundaryInformation = props => {
   return (
-    <div className="information-box">
+    <div className="boundary-information">
       <div className="info-section">
         <div className="info-title">
           <h5>Snapshot</h5>
