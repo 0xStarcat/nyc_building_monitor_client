@@ -4,7 +4,7 @@ import { FeatureGroup, LayerGroup, LayersControl, GeoJSON, TileLayer, Pane } fro
 
 import GeoJsonBuildingLayer from '../GeoJsonBuildingLayer'
 
-import { buildingStyle, violationBuildingStyle } from '../GeoJsonBuildingStyles'
+import { buildingStyle, violationBuildingStyle, saleBuildingStyle } from '../GeoJsonBuildingStyles'
 
 const { BaseLayer, Overlay } = LayersControl
 
@@ -23,6 +23,9 @@ class BuildingLayersMenu extends Component {
         </BaseLayer>
         <BaseLayer name="Building Violations">
           <GeoJsonBuildingLayer features={this.props.buildings} interactive={true} style={violationBuildingStyle} />
+        </BaseLayer>
+        <BaseLayer name="Building Sales">
+          <GeoJsonBuildingLayer features={this.props.buildings} interactive={true} style={saleBuildingStyle} />
         </BaseLayer>
       </LayersControl>
     )

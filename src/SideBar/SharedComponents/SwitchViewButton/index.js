@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { changeSidebarMode } from '../../../../Store/AppState/actions'
+import { changeSidebarMode } from '../../../Store/AppState/actions'
 
 export class SwitchViewButton extends React.Component {
   constructor(props) {

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react'
 import AppLink from '../SharedComponents/AppLink'
 import LayerInformationBox from './LayerInformationBox'
+import ControlBar from './ControlBar'
 
 import { deactivateSideBar } from '../Store/AppState/actions'
 
@@ -39,9 +40,7 @@ class SideBar extends React.Component {
     if (!this.props.store.appState.sidebarActive) return null
     return (
       <div id="sidebar" style={this.storeStyle()}>
-        <button className="collapse-button sidebar-button" onClick={this.collapseSidebar}>
-          X collapse
-        </button>
+        <ControlBar dispatch={this.props.dispatch} />
         <LayerInformationBox
           dispatch={this.props.dispatch}
           sidebarMode={this.props.store.appState.sidebarMode}

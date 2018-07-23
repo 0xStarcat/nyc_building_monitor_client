@@ -1,7 +1,7 @@
 // http://colorbrewer2.org/#type=sequential&scheme=Greens&n=7
 
 const permitsTotalLayerStyle = feature => {
-  if (!feature.properties.permitsTotal.value || feature.properties.buildingsTotal.value < 55) {
+  if (!feature.properties.permitsTotal || feature.properties.buildingsTotal < 55) {
     return {
       color: 'white',
       fillColor: '#ffdba5',
@@ -9,7 +9,7 @@ const permitsTotalLayerStyle = feature => {
       fillOpacity: 0.3,
       weight: 1
     }
-  } else if (feature.properties.permitsTotal.value >= 250) {
+  } else if (feature.properties.permitsTotal >= 250) {
     return {
       color: 'white',
       fillColor: '#005a32',
@@ -17,7 +17,7 @@ const permitsTotalLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.permitsTotal.value >= 200) {
+  } else if (feature.properties.permitsTotal >= 200) {
     return {
       color: 'white',
       fillColor: '#238443',
@@ -25,7 +25,7 @@ const permitsTotalLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.permitsTotal.value >= 150) {
+  } else if (feature.properties.permitsTotal >= 150) {
     return {
       color: 'white',
       fillColor: '#41ab5d',
@@ -33,7 +33,7 @@ const permitsTotalLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.permitsTotal.value >= 100) {
+  } else if (feature.properties.permitsTotal >= 100) {
     return {
       color: 'white',
       fillColor: '#addd8e',
@@ -41,7 +41,7 @@ const permitsTotalLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.permitsTotal.value >= 50) {
+  } else if (feature.properties.permitsTotal >= 50) {
     return {
       color: 'white',
       fillColor: '#d9f0a3',
@@ -49,7 +49,7 @@ const permitsTotalLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.permitsTotal.value >= 0) {
+  } else if (feature.properties.permitsTotal >= 0) {
     return {
       color: 'white',
       fillColor: '#ffffcc',

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SwitchViewFetchButton from '../SharedComponents/SwitchViewFetchButton'
+import SwitchViewFetchButton from '../../SharedComponents/SwitchViewFetchButton'
 
 import {
   SIDEBAR_BOUNDARY_INFO,
@@ -18,15 +18,15 @@ import '../SharedStyles/style.scss'
 
 const BuildingInformation = props => {
   const getViolations = () => {
-    return readViolationsByBuilding(props.selectedObject.id.value)
+    return readViolationsByBuilding(props.selectedObject.id)
   }
 
   const getServiceCalls = () => {
-    return readServiceCallsByBuilding(props.selectedObject.id.value)
+    return readServiceCallsByBuilding(props.selectedObject.id)
   }
 
   const getSales = () => {
-    return readSalesByBuilding(props.selectedObject.id.value)
+    return readSalesByBuilding(props.selectedObject.id)
   }
 
   return (
@@ -37,24 +37,18 @@ const BuildingInformation = props => {
         </div>
         <SwitchViewFetchButton action={getViolations} viewSwitch={SIDEBAR_VIOLATION_INFO}>
           <div className="row-box">
-            <label>{props.selectedObject.violationsTotal.label}</label>
-            <div>{props.selectedObject.violationsTotal.value}</div>
+            <label>Total Violations</label>
+            <div>{props.selectedObject.violationsTotal}</div>
           </div>
         </SwitchViewFetchButton>
         <SwitchViewFetchButton action={getServiceCalls} viewSwitch={SIDEBAR_SERVICE_CALL_INFO}>
           <div className="row-box">
-            <label>{props.selectedObject.serviceCallsTotal.label}</label>
-            <div>{props.selectedObject.serviceCallsTotal.value}</div>
+            <label>Total 311 Calls</label>
+            <div>{props.selectedObject.serviceCallsTotal}</div>
           </div>
           <div className="row-box">
-            <label>{props.selectedObject.serviceCallsPercentOpenOneMonth.label}</label>
-            <div>{props.selectedObject.serviceCallsPercentOpenOneMonth.value}%</div>
-          </div>
-        </SwitchViewFetchButton>
-        <SwitchViewFetchButton action={getSales} viewSwitch={SIDEBAR_SALE_INFO}>
-          <div className="row-box">
-            <label>{props.selectedObject.salesTotal.label}</label>
-            <div>{props.selectedObject.salesTotal.value}</div>
+            <label>311 Calls Still Open ( > 1 month)</label>
+            <div>{props.selectedObject.serviceCallsPercentOpenOneMonth}%</div>
           </div>
         </SwitchViewFetchButton>
       </div>

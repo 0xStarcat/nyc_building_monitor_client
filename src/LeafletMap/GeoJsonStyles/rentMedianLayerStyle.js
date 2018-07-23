@@ -1,5 +1,5 @@
 const rentMedianLayerStyle = feature => {
-  if (!feature.properties.rentMedian2017.value || feature.properties.buildingsTotal.value < 55) {
+  if (!feature.properties.rentMedian2017 || feature.properties.buildingsTotal < 55) {
     return {
       color: 'white',
       fillColor: '#ffdba5',
@@ -7,7 +7,7 @@ const rentMedianLayerStyle = feature => {
       fillOpacity: 0.3,
       weight: 1
     }
-  } else if (feature.properties.rentMedian2017.value >= 2000) {
+  } else if (feature.properties.rentMedian2017 >= 2000) {
     return {
       color: 'white',
       fillColor: '#005a32',
@@ -15,7 +15,7 @@ const rentMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.rentMedian2017.value >= 1800) {
+  } else if (feature.properties.rentMedian2017 >= 1800) {
     return {
       color: 'white',
       fillColor: '#238b45',
@@ -23,7 +23,7 @@ const rentMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.rentMedian2017.value >= 1600) {
+  } else if (feature.properties.rentMedian2017 >= 1600) {
     return {
       color: 'white',
       fillColor: '#41ab5d',
@@ -31,7 +31,7 @@ const rentMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.rentMedian2017.value >= 1400) {
+  } else if (feature.properties.rentMedian2017 >= 1400) {
     return {
       color: 'white',
       fillColor: '#74c476',
@@ -39,7 +39,7 @@ const rentMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.rentMedian2017.value >= 1200) {
+  } else if (feature.properties.rentMedian2017 >= 1200) {
     return {
       color: 'white',
       fillColor: '#a1d99b',
@@ -47,7 +47,7 @@ const rentMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.rentMedian2017.value >= 1000) {
+  } else if (feature.properties.rentMedian2017 >= 1000) {
     return {
       color: 'white',
       fillColor: '#c7e9c0',

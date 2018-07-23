@@ -1,5 +1,5 @@
 const rentChangeLayerStyle = feature => {
-  if (!feature.properties.rentChange20112017.value || feature.properties.buildingsTotal.value < 55) {
+  if (!feature.properties.rentChange20112017 || feature.properties.buildingsTotal < 55) {
     return {
       color: 'white',
       fillColor: '#ffdba5',
@@ -7,7 +7,7 @@ const rentChangeLayerStyle = feature => {
       fillOpacity: 0.3,
       weight: 1
     }
-  } else if (feature.properties.rentChange20112017.value >= 500) {
+  } else if (feature.properties.rentChange20112017 >= 500) {
     return {
       color: 'white',
       fillColor: '#005a32',
@@ -15,7 +15,7 @@ const rentChangeLayerStyle = feature => {
       fillOpacity: 0.8,
       weight: 1
     }
-  } else if (feature.properties.rentChange20112017.value >= 400) {
+  } else if (feature.properties.rentChange20112017 >= 400) {
     return {
       color: 'white',
       fillColor: '#238b45',
@@ -23,7 +23,7 @@ const rentChangeLayerStyle = feature => {
       fillOpacity: 0.8,
       weight: 1
     }
-  } else if (feature.properties.rentChange20112017.value >= 300) {
+  } else if (feature.properties.rentChange20112017 >= 300) {
     return {
       color: 'white',
       fillColor: '#41ab5d',
@@ -31,7 +31,7 @@ const rentChangeLayerStyle = feature => {
       fillOpacity: 0.8,
       weight: 1
     }
-  } else if (feature.properties.rentChange20112017.value >= 200) {
+  } else if (feature.properties.rentChange20112017 >= 200) {
     return {
       color: 'white',
       fillColor: '#74c476',
@@ -39,7 +39,7 @@ const rentChangeLayerStyle = feature => {
       fillOpacity: 0.8,
       weight: 1
     }
-  } else if (feature.properties.rentChange20112017.value >= 0) {
+  } else if (feature.properties.rentChange20112017 >= 0) {
     return {
       color: 'white',
       fillColor: '#d9f0a3',
@@ -47,7 +47,7 @@ const rentChangeLayerStyle = feature => {
       fillOpacity: 0.8,
       weight: 1
     }
-  } else if (feature.properties.rentChange20112017.value >= -100) {
+  } else if (feature.properties.rentChange20112017 >= -100) {
     return {
       color: 'white',
       fillColor: '#fc8d59',
@@ -55,7 +55,7 @@ const rentChangeLayerStyle = feature => {
       fillOpacity: 0.8,
       weight: 1
     }
-  } else if (feature.properties.rentChange20112017.value < -100) {
+  } else if (feature.properties.rentChange20112017 < -100) {
     return {
       color: 'white',
       fillColor: '#d73027',

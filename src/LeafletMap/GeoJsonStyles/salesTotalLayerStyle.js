@@ -1,5 +1,5 @@
 const salesTotalLayerStyle = feature => {
-  if (!feature.properties.salesTotal.value || feature.properties.buildingsTotal.value < 55) {
+  if (!feature.properties.salesTotal || feature.properties.buildingsTotal < 55) {
     return {
       color: 'white',
       fillColor: '#ffdba5',
@@ -7,7 +7,7 @@ const salesTotalLayerStyle = feature => {
       fillOpacity: 0.3,
       weight: 1
     }
-  } else if (feature.properties.salesTotal.value >= 300) {
+  } else if (feature.properties.salesTotal >= 300) {
     return {
       color: 'white',
       fillColor: '#005a32',
@@ -15,7 +15,7 @@ const salesTotalLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.salesTotal.value >= 250) {
+  } else if (feature.properties.salesTotal >= 250) {
     return {
       color: 'white',
       fillColor: '#238443',
@@ -23,7 +23,7 @@ const salesTotalLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.salesTotal.value >= 200) {
+  } else if (feature.properties.salesTotal >= 200) {
     return {
       color: 'white',
       fillColor: '#41ab5d',
@@ -31,7 +31,7 @@ const salesTotalLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.salesTotal.value >= 150) {
+  } else if (feature.properties.salesTotal >= 150) {
     return {
       color: 'white',
       fillColor: '#addd8e',
@@ -39,7 +39,7 @@ const salesTotalLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.salesTotal.value >= 100) {
+  } else if (feature.properties.salesTotal >= 100) {
     return {
       color: 'white',
       fillColor: '#d9f0a3',
@@ -47,7 +47,7 @@ const salesTotalLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.salesTotal.value >= 50) {
+  } else if (feature.properties.salesTotal >= 50) {
     return {
       color: 'white',
       fillColor: '#ffffcc',

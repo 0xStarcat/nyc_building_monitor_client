@@ -1,6 +1,6 @@
 // http://colorbrewer2.org/#type=sequential&scheme=Greens&n=7
 const incomeMedianLayerStyle = feature => {
-  if (!feature.properties.incomeMedian2017.value || feature.properties.buildingsTotal.value < 55) {
+  if (!feature.properties.incomeMedian2017 || feature.properties.buildingsTotal < 55) {
     return {
       color: 'white',
       fillColor: '#252525',
@@ -8,7 +8,7 @@ const incomeMedianLayerStyle = feature => {
       fillOpacity: 0.3,
       weight: 1
     }
-  } else if (feature.properties.incomeMedian2017.value >= 110000) {
+  } else if (feature.properties.incomeMedian2017 >= 110000) {
     return {
       color: 'white',
       fillColor: '#005a32',
@@ -16,7 +16,7 @@ const incomeMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.incomeMedian2017.value >= 90000) {
+  } else if (feature.properties.incomeMedian2017 >= 90000) {
     return {
       color: 'white',
       fillColor: '#238443',
@@ -24,7 +24,7 @@ const incomeMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.incomeMedian2017.value >= 70000) {
+  } else if (feature.properties.incomeMedian2017 >= 70000) {
     return {
       color: 'white',
       fillColor: '#41ab5d',
@@ -32,7 +32,7 @@ const incomeMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.incomeMedian2017.value >= 50000) {
+  } else if (feature.properties.incomeMedian2017 >= 50000) {
     return {
       color: 'white',
       fillColor: '#addd8e',
@@ -40,7 +40,7 @@ const incomeMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.incomeMedian2017.value >= 30000) {
+  } else if (feature.properties.incomeMedian2017 >= 30000) {
     return {
       color: 'white',
       fillColor: '#d9f0a3',
@@ -48,7 +48,7 @@ const incomeMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.incomeMedian2017.value >= 10000) {
+  } else if (feature.properties.incomeMedian2017 >= 10000) {
     return {
       color: 'white',
       fillColor: '#ffffcc',

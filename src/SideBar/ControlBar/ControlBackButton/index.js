@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SwitchViewButton from '../SharedComponents/SwitchViewButton'
+import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
 
-const HeaderBackButton = props => {
+const ControlBackButton = props => {
   return (
     <SwitchViewButton viewSwitch={props.viewSwitch}>
       <button className="back-button sidebar-button" onClick={this.collapseSidebar}>
@@ -12,8 +12,8 @@ const HeaderBackButton = props => {
   )
 }
 
-HeaderBackButton.propTypes = {
+ControlBackButton.propTypes = {
   viewSwitch: PropTypes.string
 }
 
-export default HeaderBackButton
+export default ControlBackButton

@@ -1,7 +1,7 @@
 // http://colorbrewer2.org/#type=sequential&scheme=Purples&n=7
 
 const racePercentWhite2010 = feature => {
-  if (!feature.properties.racePercentWhite2010.value) {
+  if (!feature.properties.racePercentWhite2010) {
     return {
       color: 'white',
       fillColor: '#ffdba5',
@@ -9,7 +9,7 @@ const racePercentWhite2010 = feature => {
       fillOpacity: 0.3,
       weight: 1
     }
-  } else if (feature.properties.racePercentWhite2010.value >= 70) {
+  } else if (feature.properties.racePercentWhite2010 >= 70) {
     return {
       color: 'white',
       fillColor: '#f2f0f7',
@@ -17,7 +17,7 @@ const racePercentWhite2010 = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.racePercentWhite2010.value >= 60) {
+  } else if (feature.properties.racePercentWhite2010 >= 60) {
     return {
       color: 'white',
       fillColor: '#dadaeb',
@@ -25,7 +25,7 @@ const racePercentWhite2010 = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.racePercentWhite2010.value >= 50) {
+  } else if (feature.properties.racePercentWhite2010 >= 50) {
     return {
       color: 'white',
       fillColor: '#bcbddc',
@@ -33,7 +33,7 @@ const racePercentWhite2010 = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.racePercentWhite2010.value >= 40) {
+  } else if (feature.properties.racePercentWhite2010 >= 40) {
     return {
       color: 'white',
       fillColor: '#9e9ac8',
@@ -41,7 +41,7 @@ const racePercentWhite2010 = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.racePercentWhite2010.value >= 30) {
+  } else if (feature.properties.racePercentWhite2010 >= 30) {
     return {
       color: 'white',
       fillColor: '#807dba',
@@ -49,7 +49,7 @@ const racePercentWhite2010 = feature => {
       fillOpacity: 0.7,
       weight: 1
     }
-  } else if (feature.properties.racePercentWhite2010.value >= 20) {
+  } else if (feature.properties.racePercentWhite2010 >= 20) {
     return {
       color: 'white',
       fillColor: '#6a51a3',
