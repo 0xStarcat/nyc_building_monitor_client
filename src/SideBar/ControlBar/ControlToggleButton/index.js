@@ -1,19 +1,47 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { deactivateSideBar } from '../../../Store/AppState/actions'
+import { deactivateSidebar, activateSidebar } from '../../../Store/AppState/actions'
 
-const ControlToggleButton = props => {
-  const collapseSidebar = () => {
-    props.dispatch(deactivateSideBar())
+import './style.scss'
+
+export default class ControlToggleButton extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.collapseSidebar = this.collapseSidebar.bind(this)
+    this.activateSidebar = this.activateSidebar.bind(this)
+    this.buttonText = this.buttonText.bind(this)
   }
 
-  return (
-    <button className="collapse-button sidebar-button" onClick={collapseSidebar}>
-      X collapse
-    </button>
-  )
+  activateSidebar() {
+    this.props.dispatch(activateSidebar())
+  }
+
+  collapseSidebar() {
+    this.props.dispatch(deactivateSidebar())
+  }
+
+  buttonText() {
+    return this.props.sidebarActive ? 'X Hide' : 'Open Controls'
+  }
+
+  render() {
+    return (
+      <div>
+        {this.props.sidebarActive ? (
+          <button className="hide-button sidebar-button" onClick={this.collapseSidebar}>
+            {this.buttonText()}
+          </button>
+        ) : (
+          <button className="show-button sidebar-button" onClick={this.activateSidebar}>
+            {this.buttonText()}
+          </button>
+        )}
+      </div>
+    )
+  }
 }
 
-ControlToggleButton.propTypes = {}
-
-export default ControlToggleButton
+ControlToggleButton.propTypes = {
+  sidebarActive: PropTypes.boolean
+}

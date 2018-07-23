@@ -4,7 +4,7 @@ import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import { SwitchViewButton } from '../index.js'
 
-import { SIDEBAR_VIOLATION_INFO } from '../../../../../Store/AppState/actions'
+import { SIDEBAR_SCOPE_VIOLATIONS } from '../../../../../Store/AppState/actions'
 
 configure({ adapter: new Adapter() })
 
@@ -20,7 +20,7 @@ describe('SwitchViewButton', () => {
   })
 
   describe('on click', () => {
-    const wrapper = shallow(<SwitchViewButton dispatch={dispatchFn} viewSwitch={SIDEBAR_VIOLATION_INFO} />)
+    const wrapper = shallow(<SwitchViewButton dispatch={dispatchFn} viewSwitch={SIDEBAR_SCOPE_VIOLATIONS} />)
 
     wrapper.find('.switch-view-button').simulate('click')
     it('calls the dispatch method once', () => {

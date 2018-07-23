@@ -12,7 +12,7 @@ describe('Sidebar', () => {
     appState: {
       sidebarActive: true,
       landscapeOrientation: true,
-      sidebarMode: 'censusTracts'
+      sidebarScope: 'censusTracts'
     },
     censusTracts: {
       selectedObject: {}

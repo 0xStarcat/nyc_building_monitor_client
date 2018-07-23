@@ -9,11 +9,10 @@ import ServiceCallInformation from './ServiceCallInformation'
 import SaleInformation from './SaleInformation'
 
 import {
-  SIDEBAR_CENSUS_TRACT_INFO,
-  SIDEBAR_BUILDING_INFO,
-  SIDEBAR_VIOLATION_INFO,
-  SIDEBAR_SERVICE_CALL_INFO,
-  SIDEBAR_SALE_INFO
+  SIDEBAR_SCOPE_CENSUS_TRACTS,
+  SIDEBAR_SCOPE_BUILDINGS,
+  SIDEBAR_SCOPE_VIOLATIONS,
+  SIDEBAR_SCOPE_SERVICE_CALLS
 } from '../../Store/AppState/actions'
 import { readBuildingsByCensusTract } from '../../Store/Buildings/actions'
 import './style.scss'
@@ -31,24 +30,22 @@ class LayerInformationBox extends React.Component {
   }
 
   displayInformationBox() {
-    switch (this.props.sidebarMode) {
-      case SIDEBAR_CENSUS_TRACT_INFO:
+    switch (this.props.sidebarScope) {
+      case SIDEBAR_SCOPE_CENSUS_TRACTS:
         return <BoundaryInformation selectedObject={this.props.selectedObject} />
-      case SIDEBAR_BUILDING_INFO:
+      case SIDEBAR_SCOPE_BUILDINGS:
         return <BuildingInformation selectedObject={this.props.selectedObject} />
-      case SIDEBAR_VIOLATION_INFO:
+      case SIDEBAR_SCOPE_VIOLATIONS:
         return <ViolationsTable features={this.props.features} />
-      case SIDEBAR_SERVICE_CALL_INFO:
+      case SIDEBAR_SCOPE_SERVICE_CALLS:
         return <ServiceCallInformation selectedObject={this.props.selectedObject} />
-      case SIDEBAR_SALE_INFO:
-        return <SaleInformation selectedObject={this.props.selectedObject} />
     }
   }
 
   render() {
     return (
       <div className="layerInformationBox">
-        <LayerInformationHeader selectedObject={this.props.selectedObject} sidebarMode={this.props.sidebarMode} />
+        <LayerInformationHeader selectedObject={this.props.selectedObject} sidebarScope={this.props.sidebarScope} />
         <button className="sidebar-button" onClick={this.onExploreClick}>
           Explore
         </button>
@@ -60,6 +57,6 @@ class LayerInformationBox extends React.Component {
 
 LayerInformationBox.propTypes = {
   selectedObject: PropTypes.object,
-  sidebarMode: PropTypes.string
+  sidebarScope: PropTypes.string
 }
 export default LayerInformationBox

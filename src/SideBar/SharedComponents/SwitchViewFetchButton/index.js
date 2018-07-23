@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { changeSidebarMode } from '../../../Store/AppState/actions'
+import { changeSidebarScope } from '../../../Store/AppState/actions'
 
 import './style.scss'
 
@@ -15,7 +15,7 @@ export class SwitchViewFetchButton extends React.Component {
 
   onClick(event) {
     this.props.dispatch(this.props.action())
-    this.props.dispatch(changeSidebarMode(this.props.viewSwitch))
+    this.props.dispatch(changeSidebarScope(this.props.viewSwitch))
   }
 
   render() {

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { SIDEBAR_CENSUS_TRACT_INFO, SIDEBAR_BUILDING_INFO } from '../../../Store/AppState/actions'
+import { SIDEBAR_SCOPE_CENSUS_TRACTS, SIDEBAR_SCOPE_BUILDINGS } from '../../../Store/AppState/actions'
 import './style.scss'
 
 const LayerInformationHeader = props => {
@@ -24,7 +24,7 @@ const LayerInformationHeader = props => {
 
 LayerInformationHeader.propTypes = {
   selectedObject: PropTypes.object,
-  sidebarMode: PropTypes.string
+  sidebarScope: PropTypes.string
 }
 
 export default LayerInformationHeader

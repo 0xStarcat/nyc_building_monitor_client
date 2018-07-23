@@ -4,10 +4,8 @@ import SwitchViewFetchButton from '../../SharedComponents/SwitchViewFetchButton'
 
 import {
   SIDEBAR_BOUNDARY_INFO,
-  SIDEBAR_VIOLATION_INFO,
-  SIDEBAR_SERVICE_CALL_INFO,
-  SIDEBAR_SERVICE_CALL_OPEN_INFO,
-  SIDEBAR_SALE_INFO
+  SIDEBAR_SCOPE_VIOLATIONS,
+  SIDEBAR_SCOPE_SERVICE_CALLS
 } from '../../../Store/AppState/actions'
 
 import { readViolationsByBuilding } from '../../../Store/Violations/actions'
@@ -35,13 +33,13 @@ const BuildingInformation = props => {
         <div className="info-title">
           <h5>2010 - Present</h5>
         </div>
-        <SwitchViewFetchButton action={getViolations} viewSwitch={SIDEBAR_VIOLATION_INFO}>
+        <SwitchViewFetchButton action={getViolations} viewSwitch={SIDEBAR_SCOPE_VIOLATIONS}>
           <div className="row-box">
             <label>Total Violations</label>
             <div>{props.selectedObject.violationsTotal}</div>
           </div>
         </SwitchViewFetchButton>
-        <SwitchViewFetchButton action={getServiceCalls} viewSwitch={SIDEBAR_SERVICE_CALL_INFO}>
+        <SwitchViewFetchButton action={getServiceCalls} viewSwitch={SIDEBAR_SCOPE_SERVICE_CALLS}>
           <div className="row-box">
             <label>Total 311 Calls</label>
             <div>{props.selectedObject.serviceCallsTotal}</div>

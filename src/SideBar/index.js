@@ -4,8 +4,6 @@ import AppLink from '../SharedComponents/AppLink'
 import LayerInformationBox from './LayerInformationBox'
 import ControlBar from './ControlBar'
 
-import { deactivateSideBar } from '../Store/AppState/actions'
-
 import './style.scss'
 
 class SideBar extends React.Component {
@@ -15,15 +13,14 @@ class SideBar extends React.Component {
     this.getActiveTransform = this.getActiveTransform.bind(this)
     this.getInactiveTransform = this.getInactiveTransform.bind(this)
     this.storeStyle = this.storeStyle.bind(this)
-    this.collapseSidebar = this.collapseSidebar.bind(this)
   }
 
   getActiveTransform() {
-    return this.props.store.appState.landscapeOrientation ? 'translateX(0)' : 'translateY(calc(100vh - 500px))'
+    return this.props.store.appState.landscapeOrientation ? 'translateX(0)' : 'translateY(calc(100vh - 400px))'
   }
 
   getInactiveTransform() {
-    return this.props.store.appState.landscapeOrientation ? 'translateX(-500px)' : 'translateY(calc(100vh + 500px))'
+    return this.props.store.appState.landscapeOrientation ? 'translateX(-400px)' : 'translateY(calc(100vh + 400px))'
   }
 
   storeStyle() {
@@ -32,20 +29,15 @@ class SideBar extends React.Component {
     }
   }
 
-  collapseSidebar() {
-    this.props.dispatch(deactivateSideBar())
-  }
-
   render() {
-    if (!this.props.store.appState.sidebarActive) return null
     return (
       <div id="sidebar" style={this.storeStyle()}>
-        <ControlBar dispatch={this.props.dispatch} />
+        <ControlBar dispatch={this.props.dispatch} sidebarActive={this.props.store.appState.sidebarActive} />
         <LayerInformationBox
           dispatch={this.props.dispatch}
-          sidebarMode={this.props.store.appState.sidebarMode}
-          features={this.props.store[this.props.store.appState.sidebarMode].features}
-          selectedObject={this.props.store[this.props.store.appState.sidebarMode].selectedObject}
+          sidebarScope={this.props.store.appState.sidebarScope}
+          features={this.props.store[this.props.store.appState.sidebarScope].features}
+          selectedObject={this.props.store[this.props.store.appState.sidebarScope].selectedObject}
         />
       </div>
     )

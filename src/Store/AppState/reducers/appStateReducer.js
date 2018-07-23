@@ -4,7 +4,8 @@ export const initialState = {
   allLayersLoaded: false,
   selectedLayer: null,
   sidebarActive: false,
-  sidebarMode: appStateActions.SIDEBAR_CENSUS_TRACT_INFO,
+  sidebarView: appStateActions.SIDEBAR_VIEW_MENU,
+  sidebarScope: appStateActions.SIDEBAR_SCOPE_CENSUS_TRACTS,
   landscapeOrientation: window.matchMedia('(orientation: landscape)').matches
 }
 
@@ -19,8 +20,11 @@ export const appStateReducer = (appState = Object.freeze(initialState), action =
     case appStateActions.DEACTIVATE_SIDEBAR: {
       return { ...appState, sidebarActive: false }
     }
-    case appStateActions.CHANGE_SIDEBAR_MODE: {
-      return { ...appState, sidebarMode: action.data }
+    case appStateActions.CHANGE_SIDEBAR_VIEW: {
+      return { ...appState, sidebarView: action.data }
+    }
+    case appStateActions.CHANGE_SIDEBAR_SCOPE: {
+      return { ...appState, sidebarScope: action.data }
     }
 
     default:

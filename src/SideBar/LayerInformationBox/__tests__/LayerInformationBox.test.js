@@ -5,11 +5,10 @@ import Adapter from 'enzyme-adapter-react-16'
 import LayerInformationBox from '../index.js'
 
 import {
-  SIDEBAR_CENSUS_TRACT_INFO,
-  SIDEBAR_BUILDING_INFO,
-  SIDEBAR_VIOLATION_INFO,
-  SIDEBAR_SERVICE_CALL_INFO,
-  SIDEBAR_SALE_INFO
+  SIDEBAR_SCOPE_CENSUS_TRACTS,
+  SIDEBAR_SCOPE_BUILDINGS,
+  SIDEBAR_SCOPE_VIOLATIONS,
+  SIDEBAR_SCOPE_SERVICE_CALLS
 } from '../../../Store/AppState/actions'
 
 import BoundaryInformation from '../BoundaryInformation'
@@ -26,7 +25,7 @@ describe('LayerInformationBox', () => {
     id: 1
   }
   const features = []
-  const sidebarMode = {}
+  const sidebarScope = {}
 
   it('should render my component', () => {
     const wrapper = shallow(<LayerInformationBox selectedObject={selectedObject} />)
@@ -43,11 +42,11 @@ describe('LayerInformationBox', () => {
   })
 
   describe('#displayInformationBox', () => {
-    it('returns the matching information box depending on the sidebarMode', () => {
+    it('returns the matching information box depending on the sidebarScope', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
-          sidebarMode={SIDEBAR_CENSUS_TRACT_INFO}
+          sidebarScope={SIDEBAR_SCOPE_CENSUS_TRACTS}
           selectedObject={selectedObject}
         />
       )
@@ -56,11 +55,11 @@ describe('LayerInformationBox', () => {
       )
     })
 
-    it('returns the matching information box depending on the sidebarMode', () => {
+    it('returns the matching information box depending on the sidebarScope', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
-          sidebarMode={SIDEBAR_BUILDING_INFO}
+          sidebarScope={SIDEBAR_SCOPE_BUILDINGS}
           selectedObject={selectedObject}
         />
       )
@@ -69,36 +68,29 @@ describe('LayerInformationBox', () => {
       )
     })
 
-    it('returns the matching information box depending on the sidebarMode', () => {
+    it('returns the matching information box depending on the sidebarScope', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
           features={features}
-          sidebarMode={SIDEBAR_VIOLATION_INFO}
+          sidebarScope={SIDEBAR_SCOPE_VIOLATIONS}
           selectedObject={selectedObject}
         />
       )
       expect(wrapper.instance().displayInformationBox()).toEqual(<ViolationInformationTable features={[]} />)
     })
 
-    it('returns the matching information box depending on the sidebarMode', () => {
+    it('returns the matching information box depending on the sidebarScope', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
-          sidebarMode={SIDEBAR_SERVICE_CALL_INFO}
+          sidebarScope={SIDEBAR_SCOPE_SERVICE_CALLS}
           selectedObject={selectedObject}
         />
       )
       expect(wrapper.instance().displayInformationBox()).toEqual(
         <ServiceCallInformation selectedObject={selectedObject} />
       )
-    })
-
-    it('returns the matching information box depending on the sidebarMode', () => {
-      const wrapper = shallow(
-        <LayerInformationBox dispatch={dispatchFn} sidebarMode={SIDEBAR_SALE_INFO} selectedObject={selectedObject} />
-      )
-      expect(wrapper.instance().displayInformationBox()).toEqual(<SaleInformation selectedObject={selectedObject} />)
     })
   })
 })

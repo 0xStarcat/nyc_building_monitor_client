@@ -1,29 +1,38 @@
 export const ALL_LAYERS_LOADED = 'ALL_LAYERS_LOADED'
 export const ACTIVATE_SIDEBAR = 'ACTIVATE_SIDEBAR'
 export const DEACTIVATE_SIDEBAR = 'DEACTIVATE_SIDEBAR'
-export const CHANGE_SIDEBAR_MODE = 'CHANGE_SIDEBAR_MODE'
+export const CHANGE_SIDEBAR_SCOPE = 'CHANGE_SIDEBAR_SCOPE'
+export const CHANGE_SIDEBAR_VIEW = 'CHANGE_SIDEBAR_VIEW'
+// Views
+export const SIDEBAR_VIEW_MENU = 'SIDEBAR_VIEW_MENU'
+export const SIDEBAR_VIEW_SCOPED_OBJECTS = 'SIDE_VIEW_SCOPED_OBJECTS'
+export const SIDEBAR_VIEW_SCOPED_OBJECT = 'SIDE_VIEW_SCOPED_OBJECT'
 
-// Match store keys
-export const SIDEBAR_CENSUS_TRACT_INFO = 'censusTracts'
-export const SIDEBAR_BUILDING_INFO = 'buildings'
-export const SIDEBAR_VIOLATION_INFO = 'violations'
-export const SIDEBAR_SERVICE_CALL_INFO = 'serviceCalls'
-export const SIDEBAR_SERVICE_CALL_OPEN_INFO = 'serviceCalls'
-export const SIDEBAR_SALE_INFO = 'sales'
+// Scopes
+export const SIDEBAR_NEIGHBORHOOD_INFO = 'neighborhoods'
+export const SIDEBAR_SCOPE_CENSUS_TRACTS = 'censusTracts'
+export const SIDEBAR_SCOPE_BUILDINGS = 'buildings'
+export const SIDEBAR_SCOPE_VIOLATIONS = 'violations'
+export const SIDEBAR_SCOPE_SERVICE_CALLS = 'serviceCalls'
 
 export const allLayersLoaded = event => ({
   type: ALL_LAYERS_LOADED
 })
 
-export const activateSideBar = event => ({
+export const activateSidebar = event => ({
   type: ACTIVATE_SIDEBAR
 })
 
-export const deactivateSideBar = event => ({
+export const deactivateSidebar = event => ({
   type: DEACTIVATE_SIDEBAR
 })
 
-export const changeSidebarMode = event => ({
-  type: CHANGE_SIDEBAR_MODE,
+export const changeSidebarScope = event => ({
+  type: CHANGE_SIDEBAR_SCOPE,
+  data: event
+})
+
+export const changeSidebarView = event => ({
+  type: CHANGE_SIDEBAR_VIEW,
   data: event
 })

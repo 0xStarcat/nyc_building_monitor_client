@@ -1,0 +1,21 @@
+@import '../../../SharedStyles/index.scss';
+
+$hide-button-width: 80px;
+
+.hide-button {
+  position: absolute;
+  top: $small-spacing;
+  right: -$medium-spacing;
+  width: $hide-button-width;
+  height: 30px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+@media screen and (orientation: portrait) {
+  .hide-button {
+    top: -$tiny-spacing;
+    right: calc(50vw - #{$hide-button-width / 2});
+  }
+}

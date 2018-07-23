@@ -1,7 +1,5 @@
 @import '../SharedStyles/index.scss';
 
-$collapse-button-width: 80px;
-
 #sidebar {
   background-color: white;
   display: flex;
@@ -44,17 +42,6 @@ $collapse-button-width: 80px;
     box-shadow: 0 0 4px 2px gray;
   }
 
-  .collapse-button {
-    position: absolute;
-    top: $small-spacing;
-    right: -$medium-spacing;
-    width: $collapse-button-width;
-    height: 30px;
-    background-color: white;
-    border-radius: 8px;
-    border: 1px solid black;
-  }
-
   .thin-horizontal-row {
     width: 80%;
     margin: $tiny-spacing auto;
@@ -69,10 +56,5 @@ $collapse-button-width: 80px;
     transform: translateY(calc(100vh + 500px));
     width: 100vw;
     height: 500px;
-
-    .collapse-button {
-      top: -$tiny-spacing;
-      right: calc(50vw - #{$collapse-button-width / 2});
-    }
   }
 }

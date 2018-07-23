@@ -18,7 +18,7 @@ describe('AppState reducer', () => {
     const expectedState = { ...reducer.initialState, sidebarActive: true }
 
     it('sets sidebarActive to true', () => {
-      expect(reducer.appStateReducer(undefined, AppStateActions.activateSideBar())).toEqual(expectedState)
+      expect(reducer.appStateReducer(undefined, AppStateActions.activateSidebar())).toEqual(expectedState)
     })
   })
 
@@ -26,16 +26,16 @@ describe('AppState reducer', () => {
     const expectedState = { ...reducer.initialState, sidebarActive: false }
 
     it('sets sidebarActive to true', () => {
-      expect(reducer.appStateReducer(undefined, AppStateActions.deactivateSideBar())).toEqual(expectedState)
+      expect(reducer.appStateReducer(undefined, AppStateActions.deactivateSidebar())).toEqual(expectedState)
     })
   })
 
-  describe('CHANGE_SIDEBAR_MODE', () => {
-    const expectedState = { ...reducer.initialState, sidebarMode: AppStateActions.SIDEBAR_BUILDING_INFO }
+  describe('CHANGE_SIDEBAR_SCOPE', () => {
+    const expectedState = { ...reducer.initialState, sidebarScope: AppStateActions.SIDEBAR_SCOPE_BUILDINGS }
 
-    it('sets sidebarMode to the specific value', () => {
+    it('sets sidebarScope to the specific value', () => {
       expect(
-        reducer.appStateReducer(undefined, AppStateActions.changeSidebarMode(AppStateActions.SIDEBAR_BUILDING_INFO))
+        reducer.appStateReducer(undefined, AppStateActions.changeSidebarScope(AppStateActions.SIDEBAR_SCOPE_BUILDINGS))
       ).toEqual(expectedState)
     })
   })
