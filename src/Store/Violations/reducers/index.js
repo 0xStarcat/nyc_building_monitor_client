@@ -4,7 +4,8 @@ export const initialState = {
   awaitingResponse: false,
   features: [],
   errors: [],
-  selectedObject: null
+  selectedObject: null,
+  selectedObjects: null
 }
 
 export const violationsReducer = (violationsState = Object.freeze(initialState), action = { data: [] }) => {
@@ -31,8 +32,11 @@ export const violationsReducer = (violationsState = Object.freeze(initialState),
     }
 
     case violationsActions.UPDATE_SELECTED_VIOLATION_OBJECT: {
-      console.log(action.data)
       return { ...violationsState, selectedObject: action.data }
+    }
+
+    case violationsActions.CLEAR_VIOLATIONS: {
+      return { ...violationsState, selectedObject: null, selectedObjects: null, features: [] }
     }
 
     default:

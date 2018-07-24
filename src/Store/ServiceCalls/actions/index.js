@@ -4,6 +4,7 @@ export const HANDLE_READ_SERVICE_CALLS_RESPONSE = 'HANDLE_READ_SERVICE_CALLS_RES
 export const AWAITING_SERVICE_CALLS_RESPONSE = 'AWAITING_SERVICE_CALLS_RESPONSE'
 export const HANDLE_ERROR_RESPONSE = 'HANDLE_ERROR_RESPONSE'
 export const UPDATE_SELECTED_SERVICE_CALL_OBJECT = 'UPDATE_SELECTED_SERVICE_CALL_OBJECT'
+export const CLEAR_SERVICE_CALLS = 'CLEAR_SERVICE_CALLS'
 
 export const awaitingServiceCallsResponse = () => ({
   type: AWAITING_SERVICE_CALLS_RESPONSE,
@@ -23,6 +24,10 @@ export const handleReadServiceCallsResponse = response => ({
 export const updateSelectedObject = event => ({
   type: UPDATE_SELECTED_SERVICE_CALL_OBJECT,
   data: event
+})
+
+export const clearServiceCalls = event => ({
+  type: CLEAR_SERVICE_CALLS
 })
 
 export const readServiceCallsByBuilding = id => dispatch => {

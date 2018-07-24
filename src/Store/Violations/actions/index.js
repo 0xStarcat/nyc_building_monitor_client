@@ -4,6 +4,7 @@ export const HANDLE_READ_VIOLATIONS_RESPONSE = 'HANDLE_READ_VIOLATIONS_RESPONSE'
 export const AWAITING_VIOLATIONS_RESPONSE = 'AWAITING_VIOLATIONS_RESPONSE'
 export const HANDLE_ERROR_RESPONSE = 'HANDLE_ERROR_RESPONSE'
 export const UPDATE_SELECTED_VIOLATION_OBJECT = 'UPDATE_SELECTED_VIOLATION_OBJECT'
+export const CLEAR_VIOLATIONS = 'CLEAR_VIOLATIONS'
 
 export const awaitingViolationsResponse = () => ({
   type: AWAITING_VIOLATIONS_RESPONSE,
@@ -23,6 +24,10 @@ export const handleReadViolationsResponse = response => ({
 export const updateSelectedObject = event => ({
   type: UPDATE_SELECTED_VIOLATION_OBJECT,
   data: event
+})
+
+export const clearViolations = event => ({
+  type: CLEAR_VIOLATIONS
 })
 
 export const readViolationsByBuilding = id => dispatch => {

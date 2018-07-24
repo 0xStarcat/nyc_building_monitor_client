@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import { clearViolations } from '../../Store/Violations/actions'
+import { clearServiceCalls } from '../../Store/ServiceCalls/actions'
+
 import { GeoJSON, LayerGroup, Pane } from 'react-leaflet'
 import CensusTractPopup from '../Popups/CensusTractPopup'
 import { createSelector } from 'reselect'
@@ -38,6 +41,8 @@ export class GeoJsonBuildingLayer extends Component {
     this.props.dispatch(updateSelectedObject(event.target.feature.properties))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SCOPED_OBJECTS))
     this.props.dispatch(changeSidebarScope(SCOPE_BUILDINGS))
+    this.props.dispatch(clearViolations())
+    this.props.dispatch(clearServiceCalls())
     this.props.dispatch(activateSidebar())
   }
 

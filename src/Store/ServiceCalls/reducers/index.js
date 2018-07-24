@@ -31,8 +31,11 @@ export const serviceCallsReducer = (serviceCallsState = Object.freeze(initialSta
     }
 
     case serviceCallsActions.UPDATE_SELECTED_SERVICE_CALL_OBJECT: {
-      console.log(action.data)
       return { ...serviceCallsState, selectedObject: action.data }
+    }
+
+    case serviceCallsActions.CLEAR_SERVICE_CALLS: {
+      return { ...serviceCallsState, selectedObject: null, selectedObjects: null, features: [] }
     }
 
     default:
