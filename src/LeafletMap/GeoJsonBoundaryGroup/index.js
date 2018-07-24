@@ -16,6 +16,7 @@ import {
 
 import { updateSelectedCTObject } from '../../Store/CensusTracts/actions'
 import { updateSelectedNeighborhoodObject } from '../../Store/Neighborhoods/actions'
+import { clearBuildings } from '../../Store/Buildings/actions'
 
 export class GeoJsonBoundaryGroup extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ export class GeoJsonBoundaryGroup extends Component {
     this.props.dispatch(this.getSelectedObjectFunction()(event.target.feature.properties))
     this.props.dispatch(changeSidebarScope(this.props.scope))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SCOPED_OBJECTS))
+    this.props.dispatch(clearBuildings())
     this.props.dispatch(activateSidebar())
   }
 

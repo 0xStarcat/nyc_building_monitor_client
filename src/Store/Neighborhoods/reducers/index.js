@@ -36,6 +36,10 @@ export const neighborhoodsReducer = (neighborhoodsState = Object.freeze(initialS
       return { ...neighborhoodsState, selectedObject: action.data }
     }
 
+    case neighborhoodsActions.CLEAR_NEIGHBORHOODS: {
+      return { ...neighborhoodsState, selectedObject: null, features: [] }
+    }
+
     default:
       return neighborhoodsState
   }

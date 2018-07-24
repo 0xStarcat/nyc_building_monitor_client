@@ -2,6 +2,7 @@ import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import moxios from 'moxios'
 import { Axios } from '../../../../SharedUtilities/Axios'
+import { clearNeighborhoods } from '../../../Neighborhoods/actions'
 
 import * as censusTractsActions from '../index.js'
 
@@ -30,7 +31,8 @@ describe('readCensusTracts', () => {
     const actions = store.getActions()
     const expectedActions = [
       censusTractsActions.awaitingCensusTractsResponse(),
-      censusTractsActions.handleReadCensusTractsResponse({ data: response })
+      censusTractsActions.handleReadCensusTractsResponse({ data: response }),
+      clearNeighborhoods()
     ]
 
     expect(actions).toEqual(expectedActions)

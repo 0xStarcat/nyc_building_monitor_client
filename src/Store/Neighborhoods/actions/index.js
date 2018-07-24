@@ -1,9 +1,11 @@
 import { Axios } from '../../../SharedUtilities/Axios'
+import { clearCensusTracts } from '../../CensusTracts/actions'
 
 export const HANDLE_READ_NEIGHBORHOODS_RESPONSE = 'HANDLE_READ_NEIGHBORHOODS_RESPONSE'
 export const AWAITING_NEIGHBORHOODS_RESPONSE = 'AWAITING_NEIGHBORHOOD_RESPONSE'
 export const HANDLE_ERROR_RESPONSE = 'HANDLE_ERROR_RESPONSE'
 export const UPDATE_SELECTED_NEIGHBORHOOD_OBJECT = 'UPDATE_SELECTED_NEIGHBORHOOD_OBJECT'
+export const CLEAR_NEIGHBORHOODS = 'CLEAR_NEIGHBORHOODS'
 
 const neighborhoods_url = '/neighborhoods'
 
@@ -27,12 +29,17 @@ export const updateSelectedNeighborhoodObject = event => ({
   data: event
 })
 
+export const clearNeighborhoods = event => ({
+  type: CLEAR_NEIGHBORHOODS
+})
+
 export const readNeighborhoods = () => dispatch => {
   console.log('******FETCHING NEIGHBORHOODS')
   dispatch(awaitingNeighborhoodsResponse())
   return Axios.get(neighborhoods_url)
     .then(response => {
       dispatch(handleReadNeighborhoodsResponse(response))
+      dispatch(clearCensusTracts())
     })
     .catch(error => {
       dispatch(handleErrorResponse(error.response || error))

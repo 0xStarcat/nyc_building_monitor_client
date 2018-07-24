@@ -36,6 +36,10 @@ export const censusTractsReducer = (censusTractsState = Object.freeze(initialSta
       return { ...censusTractsState, selectedObject: action.data }
     }
 
+    case censusTractsActions.CLEAR_CENSUS_TRACTS: {
+      return { ...censusTractsState, selectedObject: null, features: [] }
+    }
+
     default:
       return censusTractsState
   }
