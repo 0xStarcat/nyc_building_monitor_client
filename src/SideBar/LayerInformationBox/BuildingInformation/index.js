@@ -2,11 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SwitchViewFetchButton from '../../SharedComponents/SwitchViewFetchButton'
 
-import {
-  SIDEBAR_BOUNDARY_INFO,
-  SIDEBAR_SCOPE_VIOLATIONS,
-  SIDEBAR_SCOPE_SERVICE_CALLS
-} from '../../../Store/AppState/actions'
+import { SIDEBAR_BOUNDARY_INFO, SCOPE_VIOLATIONS, SCOPE_SERVICE_CALLS } from '../../../Store/AppState/actions'
 
 import { readViolationsByBuilding } from '../../../Store/Violations/actions'
 import { readServiceCallsByBuilding } from '../../../Store/ServiceCalls/actions'
@@ -33,13 +29,13 @@ const BuildingInformation = props => {
         <div className="info-title">
           <h5>2010 - Present</h5>
         </div>
-        <SwitchViewFetchButton action={getViolations} viewSwitch={SIDEBAR_SCOPE_VIOLATIONS}>
+        <SwitchViewFetchButton action={getViolations} viewSwitch={SCOPE_VIOLATIONS}>
           <div className="row-box">
             <label>Total Violations</label>
             <div>{props.selectedObject.violationsTotal}</div>
           </div>
         </SwitchViewFetchButton>
-        <SwitchViewFetchButton action={getServiceCalls} viewSwitch={SIDEBAR_SCOPE_SERVICE_CALLS}>
+        <SwitchViewFetchButton action={getServiceCalls} viewSwitch={SCOPE_SERVICE_CALLS}>
           <div className="row-box">
             <label>Total 311 Calls</label>
             <div>{props.selectedObject.serviceCallsTotal}</div>

@@ -42,10 +42,7 @@ export default class ControlToggleButton extends React.Component {
 
   render() {
     return (
-      <div
-        className={`toggle-button-container toggle-button sidebar-button ${this.buttonClassName()}`}
-        onClick={this.buttonAction()}
-      >
+      <div className={`toggle-button-container toggle-button ${this.buttonClassName()}`} onClick={this.buttonAction()}>
         {this.buttonText()}
       </div>
     )

@@ -5,10 +5,10 @@ import Adapter from 'enzyme-adapter-react-16'
 import LayerInformationBox from '../index.js'
 
 import {
-  SIDEBAR_SCOPE_CENSUS_TRACTS,
-  SIDEBAR_SCOPE_BUILDINGS,
-  SIDEBAR_SCOPE_VIOLATIONS,
-  SIDEBAR_SCOPE_SERVICE_CALLS
+  SCOPE_CENSUS_TRACTS,
+  SCOPE_BUILDINGS,
+  SCOPE_VIOLATIONS,
+  SCOPE_SERVICE_CALLS
 } from '../../../Store/AppState/actions'
 
 import BoundaryInformation from '../BoundaryInformation'
@@ -38,7 +38,7 @@ describe('LayerInformationBox', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
-          appState={{ ...appState, sidebarScope: SIDEBAR_SCOPE_CENSUS_TRACTS }}
+          appState={{ ...appState, sidebarScope: SCOPE_CENSUS_TRACTS }}
           selectedObject={selectedObject}
         />
       )
@@ -51,7 +51,7 @@ describe('LayerInformationBox', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
-          appState={{ ...appState, sidebarScope: SIDEBAR_SCOPE_BUILDINGS }}
+          appState={{ ...appState, sidebarScope: SCOPE_BUILDINGS }}
           selectedObject={selectedObject}
         />
       )
@@ -65,7 +65,7 @@ describe('LayerInformationBox', () => {
         <LayerInformationBox
           dispatch={dispatchFn}
           features={features}
-          appState={{ ...appState, sidebarScope: SIDEBAR_SCOPE_VIOLATIONS }}
+          appState={{ ...appState, sidebarScope: SCOPE_VIOLATIONS }}
           selectedObject={selectedObject}
         />
       )
@@ -76,7 +76,7 @@ describe('LayerInformationBox', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
-          appState={{ ...appState, sidebarScope: SIDEBAR_SCOPE_SERVICE_CALLS }}
+          appState={{ ...appState, sidebarScope: SCOPE_SERVICE_CALLS }}
           selectedObject={selectedObject}
         />
       )

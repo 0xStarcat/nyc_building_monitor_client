@@ -20,28 +20,6 @@
     font-size: 22px;
   }
 
-  .sidebar-button {
-    cursor: pointer;
-    border: 1px solid black;
-    outline-width: 0;
-  }
-
-  .sidebar-button:hover {
-    border: 1px dotted black;
-  }
-
-  .sidebar-button:active {
-    border: 1px inset black;
-  }
-
-  .hover-shadow:hover {
-    box-shadow: 0 0 20px 2px lightgray;
-  }
-
-  .hover-shadow:active {
-    box-shadow: 0 0 4px 2px gray;
-  }
-
   .thin-horizontal-row {
     width: 80%;
     margin: $tiny-spacing auto;

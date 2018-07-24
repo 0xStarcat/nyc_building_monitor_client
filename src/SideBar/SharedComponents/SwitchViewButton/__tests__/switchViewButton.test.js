@@ -4,12 +4,11 @@ import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import { SwitchViewButton } from '../index.js'
 
-import { SIDEBAR_SCOPE_VIOLATIONS } from '../../../../Store/AppState/actions'
+import { SCOPE_VIOLATIONS } from '../../../../Store/AppState/actions'
 
 configure({ adapter: new Adapter() })
 
 describe('SwitchViewButton', () => {
-  const dispatchFn = sinon.spy()
   const selectedLayer = {
     id: 1
   }
@@ -20,11 +19,24 @@ describe('SwitchViewButton', () => {
   })
 
   describe('on click', () => {
-    const wrapper = shallow(<SwitchViewButton dispatch={dispatchFn} viewSwitch={SIDEBAR_SCOPE_VIOLATIONS} />)
+    describe('when disabled', () => {
+      const dispatchFn = sinon.spy()
+      const wrapper = shallow(<SwitchViewButton disabled={true} dispatch={dispatchFn} />)
+      wrapper.find('.switch-view-button').simulate('click')
 
-    wrapper.find('.switch-view-button').simulate('click')
-    it('calls the dispatch method once', () => {
-      expect(dispatchFn.calledOnce).toEqual(true)
+      it('does not call the dispatch method', () => {
+        expect(dispatchFn.calledTwice).toEqual(false)
+      })
+    })
+
+    describe('when not disabled', () => {
+      const dispatchFn = sinon.spy()
+      const wrapper = shallow(<SwitchViewButton disabled={false} dispatch={dispatchFn} />)
+
+      wrapper.find('.switch-view-button').simulate('click')
+      it('calls the dispatch method twice', () => {
+        expect(dispatchFn.calledTwice).toEqual(true)
+      })
     })
   })
 })

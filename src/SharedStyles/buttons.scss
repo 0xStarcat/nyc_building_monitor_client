@@ -1,0 +1,37 @@
+@import './index.scss';
+
+.button {
+  cursor: pointer;
+  outline-width: 0;
+}
+
+.hover-shadow {
+  border: 1px solid black;
+}
+
+.hover-shadow:hover {
+  border: 1px dotted black;
+  box-shadow: 0 0 20px 2px lightgray;
+}
+
+.hover-shadow:active {
+  border: 1px inset black;
+  box-shadow: 0 0 4px 2px gray;
+}
+
+.disabled-button {
+  cursor: initial;
+  border: 1px solid black;
+  box-shadow: none;
+  background-color: $buttonDisabled;
+}
+
+.disabled-button:hover {
+  border: 1px solid black;
+  box-shadow: none;
+}
+
+.disabled-button:active {
+  border: 1px solid black;
+  box-shadow: none;
+}

@@ -7,7 +7,7 @@ import {
   SIDEBAR_VIEW_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_VIEW_SCOPED_OBJECT,
-  SIDEBAR_SCOPE_CENSUS_TRACTS
+  SCOPE_CENSUS_TRACTS
 } from '../../Store/AppState/actions'
 
 import SidebarLayerMenu from '../SidebarLayerMenu'
@@ -22,7 +22,7 @@ describe('Sidebar', () => {
       sidebarActive: true,
       landscapeOrientation: true,
       sidebarView: SIDEBAR_VIEW_MENU,
-      sidebarScope: SIDEBAR_SCOPE_CENSUS_TRACTS
+      sidebarScope: SCOPE_CENSUS_TRACTS
     },
     censusTracts: {
       selectedObject: {}

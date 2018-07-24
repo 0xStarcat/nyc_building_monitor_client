@@ -3,10 +3,11 @@ import * as appStateActions from '../actions'
 export const initialState = {
   allLayersLoaded: false,
   baseLayer: appStateActions.BASE_LAYER_MEDIAN_INCOME,
+  baseLayerScope: appStateActions.SCOPE_CENSUS_TRACTS,
   selectedLayer: null,
   sidebarActive: false,
   sidebarView: appStateActions.SIDEBAR_VIEW_MENU,
-  sidebarScope: appStateActions.SIDEBAR_SCOPE_CENSUS_TRACTS,
+  sidebarScope: appStateActions.SCOPE_CENSUS_TRACTS,
   landscapeOrientation: window.matchMedia('(orientation: landscape)').matches
 }
 
@@ -30,10 +31,11 @@ export const appStateReducer = (appState = Object.freeze(initialState), action =
     case appStateActions.CHANGE_SIDEBAR_SCOPE: {
       return { ...appState, sidebarScope: action.data }
     }
-
     case appStateActions.CHANGE_BASE_LAYER: {
-      console.log(action.data)
       return { ...appState, baseLayer: action.data }
+    }
+    case appStateActions.CHANGE_BASE_LAYER_SCOPE: {
+      return { ...appState, baseLayerScope: action.data }
     }
 
     default:

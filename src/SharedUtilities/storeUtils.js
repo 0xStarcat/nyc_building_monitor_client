@@ -7,7 +7,6 @@ export const initialBoundaryDataLoaded = store => {
 }
 
 export const nothingLoading = store => {
-  console.log(store)
   return !(
     store.censusTracts.awaitingResponse ||
     store.neighborhoods.awaitingResponse ||

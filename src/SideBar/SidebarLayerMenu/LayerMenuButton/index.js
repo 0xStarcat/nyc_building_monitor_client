@@ -6,7 +6,7 @@ const LayerMenuButton = props => {
     props.action(props.layer)
   }
   return (
-    <div className=" sidebar-button layer-menu-button" onClick={switchLayer}>
+    <div className="layer-menu-button" onClick={switchLayer}>
       {props.buttonText}
     </div>
   )

@@ -33,7 +33,7 @@ const ScropedMenu = props => {
               onLoad={props.layerLoaded}
               features={props.store.neighborhoods.features}
               interactive={false}
-              scope={props.appState.sidebarScope}
+              scope={props.appState.baseLayerScope}
               style={neighborhoodBoundaryStyle}
             />
           </Pane>
@@ -52,7 +52,7 @@ const ScropedMenu = props => {
           setViewCoordinates={props.setViewCoordinates}
           onLoad={props.layerLoaded}
           interactive={true}
-          scope={props.appState.sidebarScope}
+          scope={props.appState.baseLayerScope}
           features={props.features}
           style={incomeMedianLayerStyle}
         />
@@ -62,7 +62,7 @@ const ScropedMenu = props => {
           setViewCoordinates={props.setViewCoordinates}
           onLoad={props.layerLoaded}
           interactive={true}
-          scope={props.appState.sidebarScope}
+          scope={props.appState.baseLayerScope}
           features={props.features}
           style={rentMedianLayerStyle}
         />
@@ -72,7 +72,7 @@ const ScropedMenu = props => {
           setViewCoordinates={props.setViewCoordinates}
           onLoad={props.layerLoaded}
           interactive={true}
-          scope={props.appState.sidebarScope}
+          scope={props.appState.baseLayerScope}
           features={props.features}
           style={rentChangeLayerStyle}
         />
@@ -82,7 +82,7 @@ const ScropedMenu = props => {
           setViewCoordinates={props.setViewCoordinates}
           onLoad={props.layerLoaded}
           interactive={true}
-          scope={props.appState.sidebarScope}
+          scope={props.appState.baseLayerScope}
           features={props.features}
           style={racePercentWhite2010}
         />
@@ -92,7 +92,7 @@ const ScropedMenu = props => {
           setViewCoordinates={props.setViewCoordinates}
           onLoad={props.layerLoaded}
           interactive={true}
-          scope={props.appState.sidebarScope}
+          scope={props.appState.baseLayerScope}
           features={props.features}
           style={serviceCallsPercentOpenOneMonth}
         />

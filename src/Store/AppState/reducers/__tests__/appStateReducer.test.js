@@ -31,11 +31,11 @@ describe('AppState reducer', () => {
   })
 
   describe('CHANGE_SIDEBAR_SCOPE', () => {
-    const expectedState = { ...reducer.initialState, sidebarScope: AppStateActions.SIDEBAR_SCOPE_BUILDINGS }
+    const expectedState = { ...reducer.initialState, sidebarScope: AppStateActions.SCOPE_BUILDINGS }
 
     it('sets sidebarScope to the specific value', () => {
       expect(
-        reducer.appStateReducer(undefined, AppStateActions.changeSidebarScope(AppStateActions.SIDEBAR_SCOPE_BUILDINGS))
+        reducer.appStateReducer(undefined, AppStateActions.changeSidebarScope(AppStateActions.SCOPE_BUILDINGS))
       ).toEqual(expectedState)
     })
   })

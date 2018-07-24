@@ -9,8 +9,8 @@ import {
   activateSidebar,
   changeSidebarScope,
   changeSidebarView,
-  SIDEBAR_SCOPE_NEIGHBORHOODS,
-  SIDEBAR_SCOPE_CENSUS_TRACTS,
+  SCOPE_NEIGHBORHOODS,
+  SCOPE_CENSUS_TRACTS,
   SIDEBAR_VIEW_SCOPED_OBJECTS
 } from '../../Store/AppState/actions'
 
@@ -34,9 +34,9 @@ export class GeoJsonBoundaryGroup extends Component {
 
   getSelectedObjectFunction() {
     switch (this.props.scope) {
-      case SIDEBAR_SCOPE_NEIGHBORHOODS:
+      case SCOPE_NEIGHBORHOODS:
         return updateSelectedNeighborhoodObject
-      case SIDEBAR_SCOPE_CENSUS_TRACTS:
+      case SCOPE_CENSUS_TRACTS:
         return updateSelectedCTObject
     }
   }

@@ -9,7 +9,7 @@ import {
   changeSidebarScope,
   changeSidebarView,
   activateSidebar,
-  SIDEBAR_SCOPE_BUILDINGS,
+  SCOPE_BUILDINGS,
   SIDEBAR_VIEW_SCOPED_OBJECTS
 } from '../../Store/AppState/actions'
 
@@ -37,7 +37,7 @@ export class GeoJsonBuildingLayer extends Component {
   onClick(event) {
     this.props.dispatch(updateSelectedObject(event.target.feature.properties))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SCOPED_OBJECTS))
-    this.props.dispatch(changeSidebarScope(SIDEBAR_SCOPE_BUILDINGS))
+    this.props.dispatch(changeSidebarScope(SCOPE_BUILDINGS))
     this.props.dispatch(activateSidebar())
   }
 

@@ -17,8 +17,8 @@ import ScopedMenu from './ScopedMenu'
 import GeoJsonBoundaryGroup from '../GeoJsonBoundaryGroup'
 import {
   allLayersLoaded,
-  SIDEBAR_SCOPE_CENSUS_TRACTS,
-  SIDEBAR_SCOPE_NEIGHBORHOODS,
+  SCOPE_CENSUS_TRACTS,
+  SCOPE_NEIGHBORHOODS,
   BASE_LAYER_MEDIAN_INCOME,
   BASE_LAYER_MEDIAN_RENT,
   BASE_LAYER_MEDIAN_RENT_CHANGE,
@@ -72,7 +72,7 @@ class BoundaryLayersMenu extends Component {
     return (
       <ScopedMenu
         appState={this.props.store.appState}
-        features={this.props.store[this.props.store.appState.sidebarScope].features}
+        features={this.props.store[this.props.store.appState.baseLayerScope].features}
         layerControlRef={this.layerControlRef}
         layerLoaded={this.layerLoaded}
         position={this.props.position}

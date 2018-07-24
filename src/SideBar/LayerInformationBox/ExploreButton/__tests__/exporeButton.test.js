@@ -3,11 +3,7 @@ import { configure, shallow } from 'enzyme'
 import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import ExploreButton from '../index.js'
-import {
-  SIDEBAR_VIEW_MENU,
-  SIDEBAR_VIEW_SCOPED_OBJECTS,
-  SIDEBAR_SCOPE_CENSUS_TRACTS
-} from '../../../../Store/AppState/actions'
+import { SIDEBAR_VIEW_MENU, SIDEBAR_VIEW_SCOPED_OBJECTS, SCOPE_CENSUS_TRACTS } from '../../../../Store/AppState/actions'
 
 configure({ adapter: new Adapter() })
 
@@ -15,7 +11,7 @@ describe('ExploreButton', () => {
   const dispatch = sinon.spy()
   const appState = {
     sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS,
-    sidebarScope: SIDEBAR_SCOPE_CENSUS_TRACTS
+    sidebarScope: SCOPE_CENSUS_TRACTS
   }
 
   const selectedObject = { id: 1 }

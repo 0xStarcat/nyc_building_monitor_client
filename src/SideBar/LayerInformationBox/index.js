@@ -9,10 +9,10 @@ import ViolationsTable from './ViolationsTable'
 import ServiceCallInformation from './ServiceCallInformation'
 
 import {
-  SIDEBAR_SCOPE_CENSUS_TRACTS,
-  SIDEBAR_SCOPE_BUILDINGS,
-  SIDEBAR_SCOPE_VIOLATIONS,
-  SIDEBAR_SCOPE_SERVICE_CALLS
+  SCOPE_CENSUS_TRACTS,
+  SCOPE_BUILDINGS,
+  SCOPE_VIOLATIONS,
+  SCOPE_SERVICE_CALLS
 } from '../../Store/AppState/actions'
 
 import './style.scss'
@@ -30,13 +30,13 @@ class LayerInformationBox extends React.Component {
 
   displayInformationBox() {
     switch (this.props.appState.sidebarScope) {
-      case SIDEBAR_SCOPE_CENSUS_TRACTS:
+      case SCOPE_CENSUS_TRACTS:
         return <BoundaryInformation selectedObject={this.props.selectedObject} />
-      case SIDEBAR_SCOPE_BUILDINGS:
+      case SCOPE_BUILDINGS:
         return <BuildingInformation selectedObject={this.props.selectedObject} />
-      case SIDEBAR_SCOPE_VIOLATIONS:
+      case SCOPE_VIOLATIONS:
         return <ViolationsTable features={this.props.features} />
-      case SIDEBAR_SCOPE_SERVICE_CALLS:
+      case SCOPE_SERVICE_CALLS:
         return <ServiceCallInformation selectedObject={this.props.selectedObject} />
     }
   }

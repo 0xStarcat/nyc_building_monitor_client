@@ -5,6 +5,7 @@ export const CHECK_ORIENTATION = 'CHECK_ORIENTATION'
 export const ALL_LAYERS_LOADED = 'ALL_LAYERS_LOADED'
 export const ACTIVATE_SIDEBAR = 'ACTIVATE_SIDEBAR'
 export const DEACTIVATE_SIDEBAR = 'DEACTIVATE_SIDEBAR'
+export const CHANGE_BASE_LAYER_SCOPE = 'CHANGE_BASE_LAYER_SCOPE'
 export const CHANGE_SIDEBAR_SCOPE = 'CHANGE_SIDEBAR_SCOPE'
 export const CHANGE_SIDEBAR_VIEW = 'CHANGE_SIDEBAR_VIEW'
 export const CHANGE_BASE_LAYER = 'CHANGE_BASE_LAYER'
@@ -15,11 +16,11 @@ export const SIDEBAR_VIEW_SCOPED_OBJECTS = 'SIDE_VIEW_SCOPED_OBJECTS'
 export const SIDEBAR_VIEW_SCOPED_OBJECT = 'SIDE_VIEW_SCOPED_OBJECT'
 
 // Scopes
-export const SIDEBAR_SCOPE_NEIGHBORHOODS = 'neighborhoods'
-export const SIDEBAR_SCOPE_CENSUS_TRACTS = 'censusTracts'
-export const SIDEBAR_SCOPE_BUILDINGS = 'buildings'
-export const SIDEBAR_SCOPE_VIOLATIONS = 'violations'
-export const SIDEBAR_SCOPE_SERVICE_CALLS = 'serviceCalls'
+export const SCOPE_NEIGHBORHOODS = 'neighborhoods'
+export const SCOPE_CENSUS_TRACTS = 'censusTracts'
+export const SCOPE_BUILDINGS = 'buildings'
+export const SCOPE_VIOLATIONS = 'violations'
+export const SCOPE_SERVICE_CALLS = 'serviceCalls'
 
 // BaseLayers
 export const BASE_LAYER_MEDIAN_INCOME = 'BASE_LAYER_MEDIAN_INCOME'
@@ -59,12 +60,17 @@ export const changeBaseLayer = event => ({
   data: event
 })
 
-export const switchScope = event => dispatch => {
+export const changeBaseLayerScope = event => ({
+  type: CHANGE_BASE_LAYER_SCOPE,
+  data: event
+})
+
+export const switchScopeWithFetch = event => dispatch => {
   const fetchMethod = () => {
     switch (event) {
-      case SIDEBAR_SCOPE_NEIGHBORHOODS:
+      case SCOPE_NEIGHBORHOODS:
         return readNeighborhoods
-      case SIDEBAR_SCOPE_CENSUS_TRACTS:
+      case SCOPE_CENSUS_TRACTS:
         return readCensusTracts
     }
   }

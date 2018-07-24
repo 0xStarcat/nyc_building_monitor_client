@@ -4,9 +4,10 @@ import LayerMenuButton from './LayerMenuButton'
 
 import {
   changeBaseLayer,
-  switchScope,
-  SIDEBAR_SCOPE_NEIGHBORHOODS,
-  SIDEBAR_SCOPE_CENSUS_TRACTS,
+  switchScopeWithFetch,
+  changeBaseLayerScope,
+  SCOPE_NEIGHBORHOODS,
+  SCOPE_CENSUS_TRACTS,
   BASE_LAYER_MEDIAN_INCOME,
   BASE_LAYER_MEDIAN_RENT,
   BASE_LAYER_MEDIAN_RENT_CHANGE,
@@ -19,11 +20,12 @@ export default class SidebarLayerMenu extends React.Component {
     super(props)
 
     this.switchLayer = this.switchLayer.bind(this)
-    this.switchScope = this.switchScope.bind(this)
+    this.switchScopeWithFetch = this.switchScopeWithFetch.bind(this)
   }
 
-  switchScope(scope) {
-    this.props.dispatch(switchScope(scope))
+  switchScopeWithFetch(scope) {
+    this.props.dispatch(changeBaseLayerScope(scope))
+    this.props.dispatch(switchScopeWithFetch(scope))
   }
 
   switchLayer(layer) {
@@ -34,16 +36,16 @@ export default class SidebarLayerMenu extends React.Component {
     return (
       <div className="sidebar-layer-menu">
         <LayerMenuButton
-          action={this.switchScope}
+          action={this.switchScopeWithFetch}
           buttonText="Neighborhoods"
           dispatch={this.props.dispatch}
-          layer={SIDEBAR_SCOPE_NEIGHBORHOODS}
+          layer={SCOPE_NEIGHBORHOODS}
         />
         <LayerMenuButton
-          action={this.switchScope}
+          action={this.switchScopeWithFetch}
           buttonText="Census Tracts"
           dispatch={this.props.dispatch}
-          layer={SIDEBAR_SCOPE_CENSUS_TRACTS}
+          layer={SCOPE_CENSUS_TRACTS}
         />
         <LayerMenuButton
           action={this.switchLayer}
