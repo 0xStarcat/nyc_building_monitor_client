@@ -9,12 +9,13 @@ const ControlNextButton = props => {
       scopeSwitch={props.scopeSwitch}
       viewSwitch={props.viewSwitch}
     >
-      Next
+      {props.disabled ? '' : 'Next'}
     </SwitchViewButton>
   )
 }
 
 ControlNextButton.propTypes = {
+  disabled: PropTypes.bool,
   scopeSwitch: PropTypes.string,
   viewSwitch: PropTypes.string
 }

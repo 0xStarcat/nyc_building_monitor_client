@@ -4,7 +4,7 @@ export const initialState = {
   awaitingResponse: false,
   features: [],
   errors: [],
-  selectedObject: {}
+  selectedObject: null
 }
 
 export const buildingsReducer = (buildingsState = Object.freeze(initialState), action = { data: [] }) => {

@@ -4,7 +4,7 @@ export const initialState = {
   awaitingResponse: false,
   features: [],
   errors: [],
-  selectedObject: {}
+  selectedObject: null
 }
 
 export const violationsReducer = (violationsState = Object.freeze(initialState), action = { data: [] }) => {

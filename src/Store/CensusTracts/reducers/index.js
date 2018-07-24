@@ -5,7 +5,7 @@ export const initialState = {
   initialFetchCompleted: false,
   features: [],
   errors: [],
-  selectedObject: {}
+  selectedObject: null
 }
 
 export const censusTractsReducer = (censusTractsState = Object.freeze(initialState), action = { data: [] }) => {

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react'
 import AppLink from '../SharedComponents/AppLink'
 import LayerInformationBox from './LayerInformationBox'
@@ -52,11 +53,20 @@ class SideBar extends React.Component {
   render() {
     return (
       <div id="sidebar" style={this.storeStyle()}>
-        <ControlBar dispatch={this.props.dispatch} appState={this.props.store.appState} />
+        <ControlBar
+          dispatch={this.props.dispatch}
+          appState={this.props.store.appState}
+          selectedObjects={this.props.selectedObjects}
+        />
         {this.getView()}
       </div>
     )
   }
+}
+
+SideBar.propTypes = {
+  store: PropTypes.object,
+  selectedObjects: PropTypes.object
 }
 
 export default SideBar

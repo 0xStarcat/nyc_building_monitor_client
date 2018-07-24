@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   SIDEBAR_VIEW_MENU,
+  SIDEBAR_VIEW_SCOPED_OBJECTS,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
   SCOPE_BUILDINGS
@@ -37,6 +38,16 @@ const ControlBar = props => {
     }
   }
 
+  const hasNext = () => {
+    const appState = props.appState
+    return (
+      (appState.sidebarView === SIDEBAR_VIEW_MENU && !!props.selectedObjects.censusTracts.object) ||
+      (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS &&
+        appState.sidebarScope === SCOPE_CENSUS_TRACTS &&
+        !!props.selectedObjects.buildings.object)
+    )
+  }
+
   return (
     <div className="control-bar">
       <ControlBackButton
@@ -46,13 +57,14 @@ const ControlBar = props => {
       />
 
       <ControlToggleButton appState={props.appState} dispatch={props.dispatch} />
-      <ControlNextButton viewSwitch={SCOPE_CENSUS_TRACTS} />
+      <ControlNextButton disabled={!hasNext()} viewSwitch={SCOPE_CENSUS_TRACTS} />
     </div>
   )
 }
 
 ControlBar.propTypes = {
-  appState: PropTypes.object
+  appState: PropTypes.object,
+  selectedObjects: PropTypes.object
 }
 
 export default ControlBar

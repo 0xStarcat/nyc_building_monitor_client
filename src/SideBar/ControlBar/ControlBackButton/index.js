@@ -10,7 +10,7 @@ const ControlBackButton = props => {
       scopeSwitch={props.scopeSwitch}
       viewSwitch={props.viewSwitch}
     >
-      Back
+      {props.disabled ? '' : 'Back'}
     </SwitchViewButton>
   )
 }
