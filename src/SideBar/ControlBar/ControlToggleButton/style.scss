@@ -1,21 +1,39 @@
 @import '../../../SharedStyles/index.scss';
 
-$hide-button-width: 80px;
+$toggle-button-width: 80px;
+
+.toggle-button {
+  position: absolute;
+  width: $toggle-button-width;
+  background-color: white;
+  border: 1px solid black;
+}
 
 .hide-button {
-  position: absolute;
-  top: $small-spacing;
-  right: -$medium-spacing;
-  width: $hide-button-width;
-  height: 30px;
-  background-color: white;
   border-radius: 8px;
-  border: 1px solid black;
+  height: 30px;
+  right: -$medium-spacing;
+  top: $small-spacing;
+  width: $toggle-button-width;
+}
+
+.show-button {
+  border-radius: 0 8px 8px 0;
+  height: 100px;
+  top: $small-spacing;
+  right: -$toggle-button-width;
 }
 
 @media screen and (orientation: portrait) {
   .hide-button {
     top: -$tiny-spacing;
-    right: calc(50vw - #{$hide-button-width / 2});
+    right: calc(50vw - #{$toggle-button-width / 2});
+  }
+
+  .show-button {
+    border-radius: 8px 8px 0 0;
+    height: 60px;
+    top: -60px;
+    right: calc(50vw - #{$toggle-button-width / 2});
   }
 }

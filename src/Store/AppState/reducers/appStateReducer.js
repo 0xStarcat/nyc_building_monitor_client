@@ -11,6 +11,9 @@ export const initialState = {
 
 export const appStateReducer = (appState = Object.freeze(initialState), action = { data: [] }) => {
   switch (action.type) {
+    case appStateActions.CHECK_ORIENTATION: {
+      return { ...appState, landscapeOrientation: window.matchMedia('(orientation: landscape)').matches }
+    }
     case appStateActions.ALL_LAYERS_LOADED: {
       return { ...appState, allLayersLoaded: true }
     }

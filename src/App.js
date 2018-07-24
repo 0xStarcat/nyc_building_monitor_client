@@ -6,6 +6,7 @@ import AboutPage from './Pages/AboutPage'
 import Loading from './SharedComponents/Loading'
 import { readCensusTracts } from './Store/CensusTracts/actions'
 import { readNeighborhoods } from './Store/Neighborhoods/actions'
+import { checkOrientation } from './Store/AppState/actions'
 
 import { history } from './Store/store'
 import { Router, Switch, Route } from 'react-router'
@@ -15,7 +16,20 @@ import './App.scss'
 class App extends Component {
   componentWillMount() {
     this.props.dispatch(readCensusTracts())
-    // this.props.dispatch(readNeighborhoods())
+
+    this.checkOrientation = this.checkOrientation.bind(this)
+  }
+
+  checkOrientation() {
+    this.props.dispatch(checkOrientation())
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.checkOrientation)
+  }
+
+  componentDidUnmount() {
+    window.removeEventListener('resize', this.checkOrientation)
   }
 
   render() {

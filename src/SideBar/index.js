@@ -20,7 +20,7 @@ class SideBar extends React.Component {
   }
 
   getInactiveTransform() {
-    return this.props.store.appState.landscapeOrientation ? 'translateX(-400px)' : 'translateY(calc(100vh + 400px))'
+    return this.props.store.appState.landscapeOrientation ? 'translateX(-400px)' : 'translateY(calc(100vh))'
   }
 
   storeStyle() {

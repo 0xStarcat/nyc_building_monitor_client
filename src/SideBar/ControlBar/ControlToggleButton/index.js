@@ -29,11 +29,11 @@ export default class ControlToggleButton extends React.Component {
     return (
       <div>
         {this.props.sidebarActive ? (
-          <button className="hide-button sidebar-button" onClick={this.collapseSidebar}>
+          <button className="hide-button toggle-button sidebar-button" onClick={this.collapseSidebar}>
             {this.buttonText()}
           </button>
         ) : (
-          <button className="show-button sidebar-button" onClick={this.activateSidebar}>
+          <button className="show-button toggle-button sidebar-button" onClick={this.activateSidebar}>
             {this.buttonText()}
           </button>
         )}

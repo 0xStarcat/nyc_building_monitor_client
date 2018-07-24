@@ -1,3 +1,4 @@
+export const CHECK_ORIENTATION = 'CHECK_ORIENTATION'
 export const ALL_LAYERS_LOADED = 'ALL_LAYERS_LOADED'
 export const ACTIVATE_SIDEBAR = 'ACTIVATE_SIDEBAR'
 export const DEACTIVATE_SIDEBAR = 'DEACTIVATE_SIDEBAR'
@@ -14,6 +15,10 @@ export const SIDEBAR_SCOPE_CENSUS_TRACTS = 'censusTracts'
 export const SIDEBAR_SCOPE_BUILDINGS = 'buildings'
 export const SIDEBAR_SCOPE_VIOLATIONS = 'violations'
 export const SIDEBAR_SCOPE_SERVICE_CALLS = 'serviceCalls'
+
+export const checkOrientation = event => ({
+  type: CHECK_ORIENTATION
+})
 
 export const allLayersLoaded = event => ({
   type: ALL_LAYERS_LOADED
