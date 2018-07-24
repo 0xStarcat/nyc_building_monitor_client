@@ -1,30 +1,29 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { FeatureGroup, LayerGroup, LayersControl, GeoJSON, TileLayer, Pane } from 'react-leaflet'
+import { LayersControl, TileLayer, Pane } from 'react-leaflet'
 
 import {
   incomeMedianLayerStyle,
   rentMedianLayerStyle,
   rentChangeLayerStyle,
-  violationsPerBuildingLayerStyle,
-  serviceCallsTotalLayerStyle,
-  serviceCallsPercentViolationLayerStyle,
-  salesTotalLayerStyle,
-  permitsTotalLayerStyle,
   racePercentWhite2010,
   serviceCallsPercentOpenOneMonth,
   neighborhoodBoundaryStyle
 } from '../GeoJsonStyles'
 
+import ScopedMenu from './ScopedMenu'
+
 import GeoJsonBoundaryGroup from '../GeoJsonBoundaryGroup'
-import CensusTractPopup from '../Popups/CensusTractPopup'
 import {
   allLayersLoaded,
-  BASE_LAYER_CT_MEDIAN_INCOME,
-  BASE_LAYER_CT_MEDIAN_RENT,
-  BASE_LAYER_CT_MEDIAN_RENT_CHANGE,
-  BASE_LAYER_CT_WHITE_POPULATION,
-  BASE_LAYER_CT_OPEN_311
+  SIDEBAR_SCOPE_CENSUS_TRACTS,
+  SIDEBAR_SCOPE_NEIGHBORHOODS,
+  BASE_LAYER_MEDIAN_INCOME,
+  BASE_LAYER_MEDIAN_RENT,
+  BASE_LAYER_MEDIAN_RENT_CHANGE,
+  BASE_LAYER_WHITE_POPULATION,
+  BASE_LAYER_OPEN_311
 } from '../../Store/AppState/actions'
 
 const { BaseLayer, Overlay } = LayersControl
@@ -71,83 +70,22 @@ class BoundaryLayersMenu extends Component {
 
   render() {
     return (
-      <LayersControl collapsed={true} ref={this.layerControlRef} position={this.props.position}>
-        {/*<Overlay ref={this.props.neighborhoodOverlayRef} checked name="Neighborhood Boundaries">
-          <Pane style={{ zIndex: 400 }}>
-            <GeoJsonBoundaryGroup
-              onLoad={this.layerLoaded}
-              features={this.props.store.neighborhoods.features}
-              interactive={false}
-              style={neighborhoodBoundaryStyle}
-            />
-          </Pane>
-        </Overlay>*/}
-        <Overlay checked name="Street and Landmark Labels">
-          <Pane style={{ zIndex: 410 }}>
-            <TileLayer
-              onLoad={this.tileLayerLoadComplete}
-              url="https://api.mapbox.com/styles/v1/starcat/cjjm9p2z85m3j2rme8ectwukv/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3RhcmNhdCIsImEiOiJjamlpYmlsc28wbjlmM3FwbXdwaXozcWEzIn0.kLmWiUbmdqNLA1atmnTXXA"
-              attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-            />
-          </Pane>
-        </Overlay>
-        <BaseLayer
-          checked={this.props.store.appState.baseLayer === BASE_LAYER_CT_MEDIAN_INCOME}
-          name="Median Income, 2017"
-        >
-          <GeoJsonBoundaryGroup
-            setViewCoordinates={this.props.setViewCoordinates}
-            onLoad={this.layerLoaded}
-            interactive={true}
-            features={this.props.store.censusTracts.features}
-            style={incomeMedianLayerStyle}
-          />
-        </BaseLayer>
-        <BaseLayer checked={this.props.store.appState.baseLayer === BASE_LAYER_CT_MEDIAN_RENT} name="Median Rent, 2017">
-          <GeoJsonBoundaryGroup
-            setViewCoordinates={this.props.setViewCoordinates}
-            onLoad={this.layerLoaded}
-            interactive={true}
-            features={this.props.store.censusTracts.features}
-            style={rentMedianLayerStyle}
-          />
-        </BaseLayer>
-        <BaseLayer
-          checked={this.props.store.appState.baseLayer === BASE_LAYER_CT_MEDIAN_RENT_CHANGE}
-          name="Rent Change, 2011 - 2017"
-        >
-          <GeoJsonBoundaryGroup
-            setViewCoordinates={this.props.setViewCoordinates}
-            onLoad={this.layerLoaded}
-            interactive={true}
-            features={this.props.store.censusTracts.features}
-            style={rentChangeLayerStyle}
-          />
-        </BaseLayer>
-        <BaseLayer checked={this.props.store.appState.baseLayer === BASE_LAYER_CT_WHITE_POPULATION} name="% White 2010">
-          <GeoJsonBoundaryGroup
-            setViewCoordinates={this.props.setViewCoordinates}
-            onLoad={this.layerLoaded}
-            interactive={true}
-            features={this.props.store.censusTracts.features}
-            style={racePercentWhite2010}
-          />
-        </BaseLayer>
-        <BaseLayer
-          checked={this.props.store.appState.baseLayer === BASE_LAYER_CT_OPEN_311}
-          name="Percent Service Calls Open 1 Month"
-        >
-          <GeoJsonBoundaryGroup
-            setViewCoordinates={this.props.setViewCoordinates}
-            onLoad={this.layerLoaded}
-            interactive={true}
-            features={this.props.store.censusTracts.features}
-            style={serviceCallsPercentOpenOneMonth}
-          />
-        </BaseLayer>
-      </LayersControl>
+      <ScopedMenu
+        appState={this.props.store.appState}
+        features={this.props.store[this.props.store.appState.sidebarScope].features}
+        layerControlRef={this.layerControlRef}
+        layerLoaded={this.layerLoaded}
+        position={this.props.position}
+        setViewCoordinates={this.props.setViewCoordinates}
+        tileLayerLoadComplete={this.tileLayerLoadComplete}
+      />
     )
   }
+}
+
+BoundaryLayersMenu.propTypes = {
+  position: PropTypes.string,
+  setViewCoordinates: PropTypes.func
 }
 
 const mapStateToProps = state => {

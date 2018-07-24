@@ -2,7 +2,7 @@ import * as appStateActions from '../actions'
 
 export const initialState = {
   allLayersLoaded: false,
-  baseLayer: appStateActions.BASE_LAYER_CT_MEDIAN_INCOME,
+  baseLayer: appStateActions.BASE_LAYER_MEDIAN_INCOME,
   selectedLayer: null,
   sidebarActive: false,
   sidebarView: appStateActions.SIDEBAR_VIEW_MENU,

@@ -21,7 +21,7 @@ export const handleReadCensusTractsResponse = response => ({
   data: response.data || response
 })
 
-export const updateSelectedObject = event => ({
+export const updateSelectedCTObject = event => ({
   type: UPDATE_SELECTED_CENSUS_TRACT_OBJECT,
   data: event
 })

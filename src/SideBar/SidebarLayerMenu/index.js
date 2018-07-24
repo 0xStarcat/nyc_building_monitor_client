@@ -7,11 +7,11 @@ import {
   switchScope,
   SIDEBAR_SCOPE_NEIGHBORHOODS,
   SIDEBAR_SCOPE_CENSUS_TRACTS,
-  BASE_LAYER_CT_MEDIAN_INCOME,
-  BASE_LAYER_CT_MEDIAN_RENT,
-  BASE_LAYER_CT_MEDIAN_RENT_CHANGE,
-  BASE_LAYER_CT_WHITE_POPULATION,
-  BASE_LAYER_CT_OPEN_311
+  BASE_LAYER_MEDIAN_INCOME,
+  BASE_LAYER_MEDIAN_RENT,
+  BASE_LAYER_MEDIAN_RENT_CHANGE,
+  BASE_LAYER_WHITE_POPULATION,
+  BASE_LAYER_OPEN_311
 } from '../../Store/AppState/actions'
 
 export default class SidebarLayerMenu extends React.Component {
@@ -49,31 +49,31 @@ export default class SidebarLayerMenu extends React.Component {
           action={this.switchLayer}
           buttonText="Median Income, 2017"
           dispatch={this.props.dispatch}
-          layer={BASE_LAYER_CT_MEDIAN_INCOME}
+          layer={BASE_LAYER_MEDIAN_INCOME}
         />
         <LayerMenuButton
           action={this.switchLayer}
           buttonText="Median Rent, 2017"
           dispatch={this.props.dispatch}
-          layer={BASE_LAYER_CT_MEDIAN_RENT}
+          layer={BASE_LAYER_MEDIAN_RENT}
         />
         <LayerMenuButton
           action={this.switchLayer}
           buttonText="Rent Change, 2011 - 2017"
           dispatch={this.props.dispatch}
-          layer={BASE_LAYER_CT_MEDIAN_RENT_CHANGE}
+          layer={BASE_LAYER_MEDIAN_RENT_CHANGE}
         />
         <LayerMenuButton
           action={this.switchLayer}
           buttonText="% White 2010"
           dispatch={this.props.dispatch}
-          layer={BASE_LAYER_CT_WHITE_POPULATION}
+          layer={BASE_LAYER_WHITE_POPULATION}
         />
         <LayerMenuButton
           action={this.switchLayer}
           buttonText="Percent Service Calls Open 1 Month"
           dispatch={this.props.dispatch}
-          layer={BASE_LAYER_CT_OPEN_311}
+          layer={BASE_LAYER_OPEN_311}
         />
       </div>
     )

@@ -3,6 +3,7 @@ import { Axios } from '../../../SharedUtilities/Axios'
 export const HANDLE_READ_NEIGHBORHOODS_RESPONSE = 'HANDLE_READ_NEIGHBORHOODS_RESPONSE'
 export const AWAITING_NEIGHBORHOODS_RESPONSE = 'AWAITING_NEIGHBORHOOD_RESPONSE'
 export const HANDLE_ERROR_RESPONSE = 'HANDLE_ERROR_RESPONSE'
+export const UPDATE_SELECTED_NEIGHBORHOOD_OBJECT = 'UPDATE_SELECTED_NEIGHBORHOOD_OBJECT'
 
 const neighborhoods_url = '/neighborhoods'
 
@@ -19,6 +20,11 @@ export const handleErrorResponse = response => ({
 export const handleReadNeighborhoodsResponse = response => ({
   type: HANDLE_READ_NEIGHBORHOODS_RESPONSE,
   data: response.data
+})
+
+export const updateSelectedNeighborhoodObject = event => ({
+  type: UPDATE_SELECTED_NEIGHBORHOOD_OBJECT,
+  data: event
 })
 
 export const readNeighborhoods = () => dispatch => {

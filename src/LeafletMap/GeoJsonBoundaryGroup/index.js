@@ -9,11 +9,13 @@ import {
   activateSidebar,
   changeSidebarScope,
   changeSidebarView,
+  SIDEBAR_SCOPE_NEIGHBORHOODS,
   SIDEBAR_SCOPE_CENSUS_TRACTS,
   SIDEBAR_VIEW_SCOPED_OBJECTS
 } from '../../Store/AppState/actions'
 
-import { updateSelectedObject } from '../../Store/CensusTracts/actions'
+import { updateSelectedCTObject } from '../../Store/CensusTracts/actions'
+import { updateSelectedNeighborhoodObject } from '../../Store/Neighborhoods/actions'
 
 export class GeoJsonBoundaryGroup extends Component {
   constructor(props) {
@@ -21,6 +23,7 @@ export class GeoJsonBoundaryGroup extends Component {
 
     this.onClick = this.onClick.bind(this)
     this.onEachFeature = this.onEachFeature.bind(this)
+    this.getSelectedObjectFunction = this.getSelectedObjectFunction.bind(this)
   }
 
   onEachFeature(feature, layer) {
@@ -29,11 +32,20 @@ export class GeoJsonBoundaryGroup extends Component {
     })
   }
 
+  getSelectedObjectFunction() {
+    switch (this.props.scope) {
+      case SIDEBAR_SCOPE_NEIGHBORHOODS:
+        return updateSelectedNeighborhoodObject
+      case SIDEBAR_SCOPE_CENSUS_TRACTS:
+        return updateSelectedCTObject
+    }
+  }
+
   onClick(event) {
     this.props.setViewCoordinates(event.target.feature.properties.representativePoint)
+    this.props.dispatch(this.getSelectedObjectFunction()(event.target.feature.properties))
+    this.props.dispatch(changeSidebarScope(this.props.scope))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SCOPED_OBJECTS))
-    this.props.dispatch(changeSidebarScope(SIDEBAR_SCOPE_CENSUS_TRACTS))
-    this.props.dispatch(updateSelectedObject(event.target.feature.properties))
     this.props.dispatch(activateSidebar())
   }
 
@@ -75,6 +87,7 @@ GeoJsonBoundaryGroup.propTypes = {
   interactive: PropTypes.bool,
   onLoad: PropTypes.func,
   setViewCoordinates: PropTypes.func,
+  scope: PropTypes.string,
   style: PropTypes.func
 }
 

@@ -3,6 +3,7 @@ import * as neighborhoodsActions from '../actions'
 export const initialState = {
   awaitingResponse: false,
   initialFetchCompleted: false,
+  selectedObject: null,
   features: [],
   errors: []
 }
@@ -29,6 +30,10 @@ export const neighborhoodsReducer = (neighborhoodsState = Object.freeze(initialS
         awaitingResponse: false,
         initialFetchCompleted: true
       }
+    }
+
+    case neighborhoodsActions.UPDATE_SELECTED_NEIGHBORHOOD_OBJECT: {
+      return { ...neighborhoodsState, selectedObject: action.data }
     }
 
     default:
