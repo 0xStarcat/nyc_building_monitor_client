@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import ExploreButton from './ExploreButton'
 import LayerInformationHeader from './LayerInformationHeader'
 import BoundaryInformation from './BoundaryInformation'
 import BuildingInformation from './BuildingInformation'
 import ViolationsTable from './ViolationsTable'
 import ServiceCallInformation from './ServiceCallInformation'
-import SaleInformation from './SaleInformation'
 
 import {
   SIDEBAR_SCOPE_CENSUS_TRACTS,
@@ -14,14 +14,13 @@ import {
   SIDEBAR_SCOPE_VIOLATIONS,
   SIDEBAR_SCOPE_SERVICE_CALLS
 } from '../../Store/AppState/actions'
-import { readBuildingsByCensusTract } from '../../Store/Buildings/actions'
+
 import './style.scss'
 
 class LayerInformationBox extends React.Component {
   constructor(props) {
     super(props)
 
-    this.onExploreClick = this.onExploreClick.bind(this)
     this.displayInformationBox = this.displayInformationBox.bind(this)
   }
 
@@ -30,7 +29,7 @@ class LayerInformationBox extends React.Component {
   }
 
   displayInformationBox() {
-    switch (this.props.sidebarScope) {
+    switch (this.props.appState.sidebarScope) {
       case SIDEBAR_SCOPE_CENSUS_TRACTS:
         return <BoundaryInformation selectedObject={this.props.selectedObject} />
       case SIDEBAR_SCOPE_BUILDINGS:
@@ -46,9 +45,11 @@ class LayerInformationBox extends React.Component {
     return (
       <div className="layerInformationBox">
         <LayerInformationHeader selectedObject={this.props.selectedObject} sidebarScope={this.props.sidebarScope} />
-        <button className="sidebar-button" onClick={this.onExploreClick}>
-          Explore
-        </button>
+        <ExploreButton
+          appState={this.props.appState}
+          dispatch={this.props.dispatch}
+          selectedObject={this.props.selectedObject}
+        />
         <div className="information-box">{this.displayInformationBox()}</div>
       </div>
     )
@@ -56,7 +57,8 @@ class LayerInformationBox extends React.Component {
 }
 
 LayerInformationBox.propTypes = {
+  dispatch: PropTypes.func,
   selectedObject: PropTypes.object,
-  sidebarScope: PropTypes.string
+  appState: PropTypes.object
 }
 export default LayerInformationBox

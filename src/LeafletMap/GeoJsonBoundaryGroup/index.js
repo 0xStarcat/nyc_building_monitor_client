@@ -5,7 +5,13 @@ import { connect } from 'react-redux'
 import { GeoJSON, LayerGroup, Pane } from 'react-leaflet'
 import CensusTractPopup from '../Popups/CensusTractPopup'
 import { createSelector } from 'reselect'
-import { activateSidebar, changeSidebarScope, SIDEBAR_SCOPE_CENSUS_TRACTS } from '../../Store/AppState/actions'
+import {
+  activateSidebar,
+  changeSidebarScope,
+  changeSidebarView,
+  SIDEBAR_SCOPE_CENSUS_TRACTS,
+  SIDEBAR_VIEW_SCOPED_OBJECTS
+} from '../../Store/AppState/actions'
 
 import { updateSelectedObject } from '../../Store/CensusTracts/actions'
 
@@ -25,6 +31,7 @@ export class GeoJsonBoundaryGroup extends Component {
 
   onClick(event) {
     this.props.setViewCoordinates(event.target.feature.properties.representativePoint)
+    this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SCOPED_OBJECTS))
     this.props.dispatch(changeSidebarScope(SIDEBAR_SCOPE_CENSUS_TRACTS))
     this.props.dispatch(updateSelectedObject(event.target.feature.properties))
     this.props.dispatch(activateSidebar())

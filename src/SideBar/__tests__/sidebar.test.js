@@ -3,6 +3,15 @@ import { configure, shallow } from 'enzyme'
 import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import Sidebar from '../index.js'
+import {
+  SIDEBAR_VIEW_MENU,
+  SIDEBAR_VIEW_SCOPED_OBJECTS,
+  SIDEBAR_VIEW_SCOPED_OBJECT,
+  SIDEBAR_SCOPE_CENSUS_TRACTS
+} from '../../Store/AppState/actions'
+
+import SidebarLayerMenu from '../SidebarLayerMenu'
+import LayerInformationBox from '../LayerInformationBox'
 
 configure({ adapter: new Adapter() })
 
@@ -12,14 +21,15 @@ describe('Sidebar', () => {
     appState: {
       sidebarActive: true,
       landscapeOrientation: true,
-      sidebarScope: 'censusTracts'
+      sidebarView: SIDEBAR_VIEW_MENU,
+      sidebarScope: SIDEBAR_SCOPE_CENSUS_TRACTS
     },
     censusTracts: {
       selectedObject: {}
     }
   }
 
-  describe('when appState.sidebarActive', () => {
+  describe('when loaded', () => {
     it('should render my component', () => {
       const wrapper = shallow(<Sidebar store={store} />)
       expect(wrapper.find('#sidebar').exists()).toBe(true)
@@ -98,6 +108,27 @@ describe('Sidebar', () => {
       it('returns a style object with the correct styles', () => {
         expect(wrapper.instance().storeStyle()).toEqual({ transform: 'translateY(calc(100vh))' })
       })
+    })
+  })
+
+  describe('when sidebarView = SIDEBAR_VIEW_MENU', () => {
+    const wrapper = shallow(<Sidebar store={store} store={store} />)
+
+    it('renders the SidebarLayerMenu', () => {
+      expect(wrapper.find(SidebarLayerMenu).length).toEqual(1)
+    })
+  })
+
+  describe('when sidebarView = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+    const wrapper = shallow(
+      <Sidebar
+        store={store}
+        store={{ ...store, appState: { ...store.appState, sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS } }}
+      />
+    )
+
+    it('renders the LayerInformationBox', () => {
+      expect(wrapper.find(LayerInformationBox).length).toEqual(1)
     })
   })
 })

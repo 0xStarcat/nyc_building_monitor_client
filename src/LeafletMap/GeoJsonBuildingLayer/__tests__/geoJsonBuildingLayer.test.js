@@ -36,11 +36,11 @@ describe('GeoJsonBuildingLayer', () => {
   describe('onClick', () => {
     const wrapper = shallow(<GeoJsonBuildingLayer {...props} />)
 
-    it('calls dispatch thrice', () => {
+    it('calls dispatch 4 times', () => {
       const event = { target: { feature: { properties: { representativePoint: [0, 0] } } } }
       wrapper.instance().onClick(event)
 
-      expect(dispatch.calledThrice).toEqual(true)
+      expect(dispatch.callCount).toEqual(4)
     })
   })
 })

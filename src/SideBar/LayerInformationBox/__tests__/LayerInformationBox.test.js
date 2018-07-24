@@ -15,7 +15,6 @@ import BoundaryInformation from '../BoundaryInformation'
 import BuildingInformation from '../BuildingInformation'
 import ViolationsTable from '../ViolationsTable'
 import ServiceCallInformation from '../ServiceCallInformation'
-import SaleInformation from '../SaleInformation'
 
 configure({ adapter: new Adapter() })
 
@@ -25,20 +24,13 @@ describe('LayerInformationBox', () => {
     id: 1
   }
   const features = []
-  const sidebarScope = {}
+  const appState = {
+    sidebarScope: ''
+  }
 
   it('should render my component', () => {
-    const wrapper = shallow(<LayerInformationBox selectedObject={selectedObject} />)
+    const wrapper = shallow(<LayerInformationBox appState={appState} selectedObject={selectedObject} />)
     expect(wrapper.find('.layerInformationBox').exists()).toBe(true)
-  })
-
-  describe('#onExploreClick', () => {
-    const wrapper = shallow(<LayerInformationBox dispatch={dispatchFn} selectedObject={selectedObject} />)
-
-    it('calls the dispatch method', () => {
-      wrapper.instance().onExploreClick()
-      expect(dispatchFn.calledOnce).toEqual(true)
-    })
   })
 
   describe('#displayInformationBox', () => {
@@ -46,7 +38,7 @@ describe('LayerInformationBox', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
-          sidebarScope={SIDEBAR_SCOPE_CENSUS_TRACTS}
+          appState={{ ...appState, sidebarScope: SIDEBAR_SCOPE_CENSUS_TRACTS }}
           selectedObject={selectedObject}
         />
       )
@@ -59,12 +51,12 @@ describe('LayerInformationBox', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
-          sidebarScope={SIDEBAR_SCOPE_BUILDINGS}
+          appState={{ ...appState, sidebarScope: SIDEBAR_SCOPE_BUILDINGS }}
           selectedObject={selectedObject}
         />
       )
       expect(wrapper.instance().displayInformationBox()).toEqual(
-        <BuildingInformation selectedObject={selectedObject} />
+        <BuildingInformation selectedObject={selectedObject} selectedObject={selectedObject} />
       )
     })
 
@@ -73,7 +65,7 @@ describe('LayerInformationBox', () => {
         <LayerInformationBox
           dispatch={dispatchFn}
           features={features}
-          sidebarScope={SIDEBAR_SCOPE_VIOLATIONS}
+          appState={{ ...appState, sidebarScope: SIDEBAR_SCOPE_VIOLATIONS }}
           selectedObject={selectedObject}
         />
       )
@@ -84,7 +76,7 @@ describe('LayerInformationBox', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
-          sidebarScope={SIDEBAR_SCOPE_SERVICE_CALLS}
+          appState={{ ...appState, sidebarScope: SIDEBAR_SCOPE_SERVICE_CALLS }}
           selectedObject={selectedObject}
         />
       )

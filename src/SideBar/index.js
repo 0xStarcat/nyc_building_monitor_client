@@ -2,7 +2,10 @@ import React from 'react'
 import { connect } from 'react'
 import AppLink from '../SharedComponents/AppLink'
 import LayerInformationBox from './LayerInformationBox'
+import SidebarLayerMenu from './SidebarLayerMenu'
 import ControlBar from './ControlBar'
+
+import { SIDEBAR_VIEW_MENU, SIDEBAR_VIEW_SCOPED_OBJECTS, SIDEBAR_VIEW_SCOPED_OBJECT } from '../Store/AppState/actions'
 
 import './style.scss'
 
@@ -13,6 +16,7 @@ class SideBar extends React.Component {
     this.getActiveTransform = this.getActiveTransform.bind(this)
     this.getInactiveTransform = this.getInactiveTransform.bind(this)
     this.storeStyle = this.storeStyle.bind(this)
+    this.getView = this.getView.bind(this)
   }
 
   getActiveTransform() {
@@ -21,6 +25,22 @@ class SideBar extends React.Component {
 
   getInactiveTransform() {
     return this.props.store.appState.landscapeOrientation ? 'translateX(-400px)' : 'translateY(calc(100vh))'
+  }
+
+  getView() {
+    switch (this.props.store.appState.sidebarView) {
+      case SIDEBAR_VIEW_MENU:
+        return <SidebarLayerMenu />
+      case SIDEBAR_VIEW_SCOPED_OBJECTS:
+        return (
+          <LayerInformationBox
+            appState={this.props.store.appState}
+            dispatch={this.props.dispatch}
+            features={this.props.store[this.props.store.appState.sidebarScope].features}
+            selectedObject={this.props.store[this.props.store.appState.sidebarScope].selectedObject}
+          />
+        )
+    }
   }
 
   storeStyle() {
@@ -33,12 +53,7 @@ class SideBar extends React.Component {
     return (
       <div id="sidebar" style={this.storeStyle()}>
         <ControlBar dispatch={this.props.dispatch} appState={this.props.store.appState} />
-        <LayerInformationBox
-          dispatch={this.props.dispatch}
-          sidebarScope={this.props.store.appState.sidebarScope}
-          features={this.props.store[this.props.store.appState.sidebarScope].features}
-          selectedObject={this.props.store[this.props.store.appState.sidebarScope].selectedObject}
-        />
+        {this.getView()}
       </div>
     )
   }

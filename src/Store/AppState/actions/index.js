@@ -10,7 +10,7 @@ export const SIDEBAR_VIEW_SCOPED_OBJECTS = 'SIDE_VIEW_SCOPED_OBJECTS'
 export const SIDEBAR_VIEW_SCOPED_OBJECT = 'SIDE_VIEW_SCOPED_OBJECT'
 
 // Scopes
-export const SIDEBAR_NEIGHBORHOOD_INFO = 'neighborhoods'
+export const SIDEBAR_SCOPE_NEIGHBORHOODS = 'neighborhoods'
 export const SIDEBAR_SCOPE_CENSUS_TRACTS = 'censusTracts'
 export const SIDEBAR_SCOPE_BUILDINGS = 'buildings'
 export const SIDEBAR_SCOPE_VIOLATIONS = 'violations'
