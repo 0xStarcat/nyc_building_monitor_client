@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import moxios from 'moxios'
 import { Axios } from '../../../../SharedUtilities/Axios'
 import { clearNeighborhoods } from '../../../Neighborhoods/actions'
+import { clearBuildings } from '../../../Buildings/actions'
 
 import * as censusTractsActions from '../index.js'
 
@@ -32,7 +33,8 @@ describe('readCensusTracts', () => {
     const expectedActions = [
       censusTractsActions.awaitingCensusTractsResponse(),
       censusTractsActions.handleReadCensusTractsResponse({ data: response }),
-      clearNeighborhoods()
+      clearNeighborhoods(),
+      clearBuildings()
     ]
 
     expect(actions).toEqual(expectedActions)

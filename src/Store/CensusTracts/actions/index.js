@@ -1,5 +1,6 @@
 import { Axios } from '../../../SharedUtilities/Axios'
 import { clearNeighborhoods } from '../../Neighborhoods/actions'
+import { clearBuildings } from '../../Buildings/actions'
 
 export const HANDLE_READ_CENSUS_TRACTS_RESPONSE = 'HANDLE_READ_CENSUS_TRACTS_RESPONSE'
 export const AWAITING_CENSUS_TRACTS_RESPONSE = 'AWAITING_CENSUS_TRACT_RESPONSE'
@@ -39,6 +40,7 @@ export const readCensusTracts = () => dispatch => {
     .then(response => {
       dispatch(handleReadCensusTractsResponse(response))
       dispatch(clearNeighborhoods())
+      dispatch(clearBuildings())
     })
     .catch(error => {
       dispatch(handleErrorResponse(error.response || error))
