@@ -1,6 +1,8 @@
 import configureStore from 'redux-mock-store'
+
 import thunk from 'redux-thunk'
 import moxios from 'moxios'
+
 import { Axios } from '../../../../SharedUtilities/Axios'
 import { clearCensusTracts } from '../../../CensusTracts/actions'
 import { clearBuildings } from '../../../Buildings/actions'
@@ -56,5 +58,17 @@ describe('readNeighborhoods', () => {
     ]
 
     expect(actions).toEqual(expectedActions)
+  })
+})
+
+describe('selectNewSelectedNeighborhoodObject', () => {
+  describe('when selected object is different than the clicked object', () => {
+    it('dispatches UPDATE_NEIGHBORHOOD_OBJECT and CLEAR_BUILDINGS', () => {
+      store.dispatch(neighborhoodsActions.selectNewSelectedNeighborhoodObject({ id: 1 }))
+      const actions = store.getActions()
+      const expectedActions = [neighborhoodsActions.updateSelectedNeighborhoodObject({ id: 1 }), clearBuildings()]
+
+      expect(actions).toEqual(expectedActions)
+    })
   })
 })

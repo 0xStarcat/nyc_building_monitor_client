@@ -1,4 +1,5 @@
 import { Axios } from '../../../SharedUtilities/Axios'
+import { SCOPE_CENSUS_TRACTS } from '../../AppState/actions'
 
 export const HANDLE_READ_BUILDINGS_RESPONSE = 'HANDLE_READ_BUILDINGS_RESPONSE'
 export const AWAITING_BUILDINGS_RESPONSE = 'AWAITING_BUILDINGS_RESPONSE'
@@ -30,10 +31,14 @@ export const clearBuildings = event => ({
   type: CLEAR_BUILDINGS
 })
 
-export const readBuildingsByCensusTract = id => dispatch => {
+export const readBuildingsByScope = (scope, id) => dispatch => {
+  if (scope === SCOPE_CENSUS_TRACTS) {
+    scope = 'census-tracts'
+  }
+
   console.log('******FETCHING BUILDINGS DATA', id)
   dispatch(awaitingBuildingsResponse())
-  return Axios.get(`/census-tracts/${id}/buildings`)
+  return Axios.get(`/${scope}/${id}/buildings`)
     .then(response => {
       dispatch(handleReadBuildingsResponse(response))
     })

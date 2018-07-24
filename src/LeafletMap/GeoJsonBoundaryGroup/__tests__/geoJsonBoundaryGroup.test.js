@@ -6,8 +6,8 @@ import { GeoJsonBoundaryGroup } from '../index.js'
 import { GeoJSON, LayerGroup } from 'react-leaflet'
 
 import { SCOPE_NEIGHBORHOODS, SCOPE_CENSUS_TRACTS } from '../../../Store/AppState/actions'
-import { updateSelectedCTObject } from '../../../Store/CensusTracts/actions'
-import { updateSelectedNeighborhoodObject } from '../../../Store/Neighborhoods/actions'
+import { selectNewSelectedCTObject } from '../../../Store/CensusTracts/actions'
+import { selectNewSelectedNeighborhoodObject } from '../../../Store/Neighborhoods/actions'
 
 configure({ adapter: new Adapter() })
 
@@ -42,11 +42,11 @@ describe('GeoJsonBoundaryGroup', () => {
   describe('onClick', () => {
     const wrapper = shallow(<GeoJsonBoundaryGroup {...props} />)
 
-    it('calls dispatch 5 times and setViewcoordinates', () => {
+    it('calls dispatch 4 times and setViewcoordinates', () => {
       const event = { target: { feature: { properties: { representativePoint: [0, 0] } } } }
       wrapper.instance().onClick(event)
 
-      expect(dispatch.callCount).toEqual(5)
+      expect(dispatch.callCount).toEqual(4)
       expect(setViewCoordinates.calledOnce).toEqual(true)
     })
   })
@@ -59,7 +59,7 @@ describe('GeoJsonBoundaryGroup', () => {
       it('returns the neighborhood function', () => {
         const event = { target: { feature: { properties: { representativePoint: [0, 0] } } } }
 
-        expect(wrapper.instance().getSelectedObjectFunction()).toEqual(updateSelectedNeighborhoodObject)
+        expect(wrapper.instance().getSelectedObjectFunction()).toEqual(selectNewSelectedNeighborhoodObject)
       })
     })
 
@@ -68,7 +68,7 @@ describe('GeoJsonBoundaryGroup', () => {
       it('returns the census tract function', () => {
         const event = { target: { feature: { properties: { representativePoint: [0, 0] } } } }
 
-        expect(wrapper.instance().getSelectedObjectFunction()).toEqual(updateSelectedCTObject)
+        expect(wrapper.instance().getSelectedObjectFunction()).toEqual(selectNewSelectedCTObject)
       })
     })
   })

@@ -1,4 +1,5 @@
 import * as censusTractsActions from '../actions'
+import { clearBuildings } from '../../Buildings/actions'
 
 export const initialState = {
   awaitingResponse: false,

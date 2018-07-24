@@ -68,7 +68,8 @@ const ControlBar = props => {
   const hasNext = () => {
     const appState = props.appState
     return (
-      (appState.sidebarView === SIDEBAR_VIEW_MENU && !!props.selectedObjects.censusTracts.object) ||
+      (appState.sidebarView === SIDEBAR_VIEW_MENU &&
+        (!!props.selectedObjects.censusTracts.object || !!props.selectedObjects.neighborhoods.object)) ||
       (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS &&
         appState.sidebarScope === SCOPE_CENSUS_TRACTS &&
         !!props.selectedObjects.buildings.object)

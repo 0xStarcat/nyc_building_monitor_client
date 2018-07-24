@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { readBuildingsByCensusTract } from '../../../Store/Buildings/actions'
+import { readBuildingsByScope } from '../../../Store/Buildings/actions'
 
 import { SCOPE_CENSUS_TRACTS, SCOPE_NEIGHBORHOODS, SIDEBAR_VIEW_SCOPED_OBJECTS } from '../../../Store/AppState/actions'
 
@@ -8,7 +8,7 @@ import './style.scss'
 
 const ExploreButton = props => {
   const onExploreClick = event => {
-    props.dispatch(readBuildingsByCensusTract(props.selectedObject.id))
+    props.dispatch(readBuildingsByScope(props.appState.baseLayerScope, props.selectedObject.id))
   }
 
   const showButton = () => {

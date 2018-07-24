@@ -1,3 +1,4 @@
+import store from '../../store'
 import { Axios } from '../../../SharedUtilities/Axios'
 import { clearCensusTracts } from '../../CensusTracts/actions'
 import { clearBuildings } from '../../Buildings/actions'
@@ -33,6 +34,13 @@ export const updateSelectedNeighborhoodObject = event => ({
 export const clearNeighborhoods = event => ({
   type: CLEAR_NEIGHBORHOODS
 })
+
+export const selectNewSelectedNeighborhoodObject = event => dispatch => {
+  console.log(store.getState().neighborhoods)
+  if ((store.getState().neighborhoods.selectedObject || {}).id === event.id) return null
+  dispatch(updateSelectedNeighborhoodObject(event))
+  dispatch(clearBuildings())
+}
 
 export const readNeighborhoods = () => dispatch => {
   console.log('******FETCHING NEIGHBORHOODS')

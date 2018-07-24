@@ -28,7 +28,7 @@ class App extends Component {
     window.addEventListener('resize', this.checkOrientation)
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     window.removeEventListener('resize', this.checkOrientation)
   }
 

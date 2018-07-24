@@ -57,4 +57,16 @@ describe('readCensusTracts', () => {
 
     expect(actions).toEqual(expectedActions)
   })
+
+  describe('selectNewSelectedCTObject', () => {
+    describe('when selected object is different than the clicked object', () => {
+      it('dispatches UPDATE_CENSUS_TRACT_OBJECT and CLEAR_BUILDINGS', () => {
+        store.dispatch(censusTractsActions.selectNewSelectedCTObject({ id: 1 }))
+        const actions = store.getActions()
+        const expectedActions = [censusTractsActions.updateSelectedCTObject({ id: 1 }), clearBuildings()]
+
+        expect(actions).toEqual(expectedActions)
+      })
+    })
+  })
 })
