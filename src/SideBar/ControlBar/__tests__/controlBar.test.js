@@ -118,7 +118,8 @@ describe('ControlBar', () => {
     describe('when view = SIDEBAR_VIEW_MENU and there is a selected census tract object', () => {
       const appState = {
         sidebarView: SIDEBAR_VIEW_MENU,
-        sidebarScope: null
+        sidebarScope: SCOPE_CENSUS_TRACTS,
+        baseLayerScope: SCOPE_CENSUS_TRACTS
       }
 
       const selectedObjects = {
@@ -136,12 +137,22 @@ describe('ControlBar', () => {
           .props()
         expect(nextButtonProps.disabled).toEqual(false)
       })
+
+      it('renders the next button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+        const nextButtonProps = wrapper
+          .children()
+          .find(ControlNextButton)
+          .props()
+        expect(nextButtonProps.scopeSwitch).toEqual(SCOPE_CENSUS_TRACTS)
+        expect(nextButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SCOPED_OBJECTS)
+      })
     })
 
     describe('when scope = SCOPE_CENSUS_TRACTS and there is a selected building object', () => {
       const appState = {
         sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS,
-        sidebarScope: SCOPE_CENSUS_TRACTS
+        sidebarScope: SCOPE_CENSUS_TRACTS,
+        baseLayerScope: SCOPE_CENSUS_TRACTS
       }
 
       const selectedObjects = {
@@ -158,6 +169,15 @@ describe('ControlBar', () => {
           .find(ControlNextButton)
           .props()
         expect(nextButtonProps.disabled).toEqual(false)
+      })
+
+      it('renders the next button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+        const nextButtonProps = wrapper
+          .children()
+          .find(ControlNextButton)
+          .props()
+        expect(nextButtonProps.scopeSwitch).toEqual(SCOPE_BUILDINGS)
+        expect(nextButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SCOPED_OBJECTS)
       })
     })
   })

@@ -38,6 +38,33 @@ const ControlBar = props => {
     }
   }
 
+  const getNextView = () => {
+    const appState = props.appState
+
+    if (appState.sidebarView === SIDEBAR_VIEW_MENU) return SIDEBAR_VIEW_SCOPED_OBJECTS
+    switch (appState.sidebarScope) {
+      case SCOPE_NEIGHBORHOODS:
+        return SIDEBAR_VIEW_SCOPED_OBJECTS
+      case SCOPE_CENSUS_TRACTS:
+        return SIDEBAR_VIEW_SCOPED_OBJECTS
+      default:
+        return appState.sidebarView
+    }
+  }
+
+  const getNextScope = () => {
+    const appState = props.appState
+    if (appState.sidebarView === SIDEBAR_VIEW_MENU) {
+      return appState.baseLayerScope
+    }
+    switch (appState.sidebarScope) {
+      case SCOPE_CENSUS_TRACTS:
+        return SCOPE_BUILDINGS
+      default:
+        return appState.sidebarScope
+    }
+  }
+
   const hasNext = () => {
     const appState = props.appState
     return (
@@ -57,7 +84,7 @@ const ControlBar = props => {
       />
 
       <ControlToggleButton appState={props.appState} dispatch={props.dispatch} />
-      <ControlNextButton disabled={!hasNext()} viewSwitch={SCOPE_CENSUS_TRACTS} />
+      <ControlNextButton disabled={!hasNext()} scopeSwitch={getNextScope()} viewSwitch={getNextView()} />
     </div>
   )
 }

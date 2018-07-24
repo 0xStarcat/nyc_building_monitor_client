@@ -21,7 +21,7 @@ const ExploreButton = props => {
 
   if (showButton()) {
     return (
-      <button className="explore-button" onClick={onExploreClick}>
+      <button className="button hover-shadow explore-button" onClick={onExploreClick}>
         Explore
       </button>
     )

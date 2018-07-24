@@ -7,7 +7,7 @@ export const initialState = {
   selectedLayer: null,
   sidebarActive: false,
   sidebarView: appStateActions.SIDEBAR_VIEW_MENU,
-  sidebarScope: appStateActions.SCOPE_CENSUS_TRACTS,
+  sidebarScope: null,
   landscapeOrientation: window.matchMedia('(orientation: landscape)').matches
 }
 
