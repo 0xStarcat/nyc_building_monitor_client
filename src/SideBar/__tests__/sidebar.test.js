@@ -26,22 +26,6 @@ describe('Sidebar', () => {
     })
   })
 
-  describe('when appState.sidebarActive not true', () => {
-    it('should render my component', () => {
-      const wrapper = shallow(<Sidebar store={{ ...store, appState: { ...store.appState, sidebarActive: false } }} />)
-      expect(wrapper.find('#sidebar').exists()).toBe(false)
-    })
-  })
-
-  describe('#collapseSidebar', () => {
-    const wrapper = shallow(<Sidebar dispatch={dispatchFn} store={store} />)
-
-    it('calls the dispatch method', () => {
-      wrapper.instance().collapseSidebar()
-      expect(dispatchFn.calledOnce).toEqual(true)
-    })
-  })
-
   describe('with landscape orientation', () => {
     const wrapper = shallow(
       <Sidebar store={{ ...store, appState: { ...store.appState, landscapeOrientation: true } }} />
@@ -51,7 +35,7 @@ describe('Sidebar', () => {
     })
 
     it('calculates the inactive X translation', () => {
-      expect(wrapper.instance().getInactiveTransform()).toEqual('translateX(-500px)')
+      expect(wrapper.instance().getInactiveTransform()).toEqual('translateX(-400px)')
     })
 
     describe('with an active sidebar', () => {
@@ -74,7 +58,7 @@ describe('Sidebar', () => {
       )
 
       it('returns a style object with the correct styles', () => {
-        expect(wrapper.instance().storeStyle()).toEqual({ transform: 'translateX(-500px)' })
+        expect(wrapper.instance().storeStyle()).toEqual({ transform: 'translateX(-400px)' })
       })
     })
   })
@@ -85,11 +69,11 @@ describe('Sidebar', () => {
     )
 
     it('calculates the active X translation', () => {
-      expect(wrapper.instance().getActiveTransform()).toEqual('translateY(calc(100vh - 500px))')
+      expect(wrapper.instance().getActiveTransform()).toEqual('translateY(0)')
     })
 
     it('calculates the inactive X translation', () => {
-      expect(wrapper.instance().getInactiveTransform()).toEqual('translateY(calc(100vh + 500px))')
+      expect(wrapper.instance().getInactiveTransform()).toEqual('translateY(calc(100vh))')
     })
 
     describe('with an active sidebar', () => {
@@ -100,7 +84,7 @@ describe('Sidebar', () => {
       )
 
       it('returns a style object with the correct styles', () => {
-        expect(wrapper.instance().storeStyle()).toEqual({ transform: 'translateY(calc(100vh - 500px))' })
+        expect(wrapper.instance().storeStyle()).toEqual({ transform: 'translateY(0)' })
       })
     })
 
@@ -112,7 +96,7 @@ describe('Sidebar', () => {
       )
 
       it('returns a style object with the correct styles', () => {
-        expect(wrapper.instance().storeStyle()).toEqual({ transform: 'translateY(calc(100vh + 500px))' })
+        expect(wrapper.instance().storeStyle()).toEqual({ transform: 'translateY(calc(100vh))' })
       })
     })
   })

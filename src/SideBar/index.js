@@ -16,7 +16,7 @@ class SideBar extends React.Component {
   }
 
   getActiveTransform() {
-    return this.props.store.appState.landscapeOrientation ? 'translateX(0)' : 'translateY(calc(100vh - 400px))'
+    return this.props.store.appState.landscapeOrientation ? 'translateX(0)' : 'translateY(0)'
   }
 
   getInactiveTransform() {
@@ -32,7 +32,7 @@ class SideBar extends React.Component {
   render() {
     return (
       <div id="sidebar" style={this.storeStyle()}>
-        <ControlBar dispatch={this.props.dispatch} sidebarActive={this.props.store.appState.sidebarActive} />
+        <ControlBar dispatch={this.props.dispatch} appState={this.props.store.appState} />
         <LayerInformationBox
           dispatch={this.props.dispatch}
           sidebarScope={this.props.store.appState.sidebarScope}

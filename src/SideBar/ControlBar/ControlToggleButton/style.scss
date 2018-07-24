@@ -2,6 +2,10 @@
 
 $toggle-button-width: 80px;
 
+.toggle-button-container {
+  flex-basis: 0%;
+}
+
 .toggle-button {
   position: absolute;
   width: $toggle-button-width;
@@ -25,9 +29,16 @@ $toggle-button-width: 80px;
 }
 
 @media screen and (orientation: portrait) {
+  .toggle-button-container {
+    flex-basis: 50%;
+  }
+
   .hide-button {
-    top: -$tiny-spacing;
-    right: calc(50vw - #{$toggle-button-width / 2});
+    background-color: inherit;
+    border-radius: inherit;
+    position: relative;
+    right: auto;
+    top: auto;
   }
 
   .show-button {

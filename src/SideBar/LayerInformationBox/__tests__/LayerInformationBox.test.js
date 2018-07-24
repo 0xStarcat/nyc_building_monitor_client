@@ -13,7 +13,7 @@ import {
 
 import BoundaryInformation from '../BoundaryInformation'
 import BuildingInformation from '../BuildingInformation'
-import ViolationInformationTable from '../ViolationInformationTable'
+import ViolationsTable from '../ViolationsTable'
 import ServiceCallInformation from '../ServiceCallInformation'
 import SaleInformation from '../SaleInformation'
 
@@ -77,7 +77,7 @@ describe('LayerInformationBox', () => {
           selectedObject={selectedObject}
         />
       )
-      expect(wrapper.instance().displayInformationBox()).toEqual(<ViolationInformationTable features={[]} />)
+      expect(wrapper.instance().displayInformationBox()).toEqual(<ViolationsTable features={[]} />)
     })
 
     it('returns the matching information box depending on the sidebarScope', () => {

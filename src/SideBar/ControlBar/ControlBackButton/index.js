@@ -4,10 +4,8 @@ import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
 
 const ControlBackButton = props => {
   return (
-    <SwitchViewButton viewSwitch={props.viewSwitch}>
-      <button className="back-button sidebar-button" onClick={this.collapseSidebar}>
-        Back
-      </button>
+    <SwitchViewButton className="back-button control-button sidebar-button" viewSwitch={props.viewSwitch}>
+      Back
     </SwitchViewButton>
   )
 }

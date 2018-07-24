@@ -1,0 +1,18 @@
+@import '../../SharedStyles/index.scss';
+
+.control-bar {
+  align-items: center;
+  background-color: $primaryBackgroundDark;
+  display: flex;
+  flex-direction: row;
+  height: $controlBarHeight;
+  justify-content: space-between;
+}
+
+.control-button {
+  box-sizing: border-box;
+  color: white;
+  height: $controlBarHeight;
+  flex-basis: 50%;
+  padding: $tiny-spacing;
+}
