@@ -12,9 +12,14 @@ describe('LeafletMap', () => {
       allLayersLoaded: false
     },
     censusTracts: {
-      inititalFetchCompleted: false
+      inititalFetchCompleted: false,
+      awaitingResponse: false
+    },
+    neighborhoods: {
+      awaitingResponse: false
     },
     buildings: {
+      awaitingResponse: false,
       features: []
     }
   }

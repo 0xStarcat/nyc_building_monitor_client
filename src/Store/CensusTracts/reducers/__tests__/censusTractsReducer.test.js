@@ -45,7 +45,7 @@ describe('censusTracts reducer', () => {
   describe('UPDATE_SELECTED_CENSUS_TRACT_OBJECT', () => {
     const object = { properties: {} }
     it('updates the selectedObject with the new object', () => {
-      expect(reducer.censusTractsReducer(undefined, censusTractsActions.updateSelectedObject(object))).toEqual({
+      expect(reducer.censusTractsReducer(undefined, censusTractsActions.updateSelectedCTObject(object))).toEqual({
         ...reducer.initialState,
         selectedObject: object
       })
