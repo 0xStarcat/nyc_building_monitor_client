@@ -4,7 +4,7 @@ import BoundaryLayersMenu from './BoundaryLayersMenu'
 import BuildingLayersMenu from './BuildingLayersMenu'
 import GeoJsonBuildingLayer from './GeoJsonBuildingLayer'
 import Loading from '../SharedComponents/Loading'
-import { initialBoundaryDataLoaded, layersLoaded } from '../SharedUtilities/storeUtils'
+import { initialBoundaryDataLoaded, nothingLoading, layersLoaded } from '../SharedUtilities/storeUtils'
 import { Map, TileLayer, ZoomControl } from 'react-leaflet'
 import { buildingStyle } from './GeoJsonStyles'
 import './style.scss'
@@ -53,7 +53,7 @@ export default class LeafletMap extends Component {
           zoom={this.state.zoom}
           zoomControl={false}
         >
-          {!(initialBoundaryDataLoaded(this.props.store) && layersLoaded(this.props.store)) && <Loading />}
+          {!nothingLoading(this.props.store) && <Loading />}
           <ZoomControl position="topright" />
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"

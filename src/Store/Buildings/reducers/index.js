@@ -10,6 +10,7 @@ export const initialState = {
 export const buildingsReducer = (buildingsState = Object.freeze(initialState), action = { data: [] }) => {
   switch (action.type) {
     case buildingsActions.AWAITING_BUILDINGS_RESPONSE: {
+      console.log('hiii')
       return { ...buildingsState, awaitingResponse: true, errors: [] }
     }
     case buildingsActions.HANDLE_ERROR_RESPONSE: {
@@ -24,8 +25,8 @@ export const buildingsReducer = (buildingsState = Object.freeze(initialState), a
       console.log(action.data)
       return {
         ...buildingsState,
-        features: action.data['features'],
-        awaitingResponse: false
+        awaitingResponse: false,
+        features: action.data['features']
       }
     }
     case buildingsActions.UPDATE_SELECTED_BUILDING_OBJECT: {
