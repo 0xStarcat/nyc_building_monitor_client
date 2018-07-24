@@ -18,7 +18,14 @@ import {
 
 import GeoJsonBoundaryGroup from '../GeoJsonBoundaryGroup'
 import CensusTractPopup from '../Popups/CensusTractPopup'
-import { allLayersLoaded } from '../../Store/AppState/actions'
+import {
+  allLayersLoaded,
+  BASE_LAYER_CT_MEDIAN_INCOME,
+  BASE_LAYER_CT_MEDIAN_RENT,
+  BASE_LAYER_CT_MEDIAN_RENT_CHANGE,
+  BASE_LAYER_CT_WHITE_POPULATION,
+  BASE_LAYER_CT_OPEN_311
+} from '../../Store/AppState/actions'
 
 const { BaseLayer, Overlay } = LayersControl
 
@@ -84,7 +91,10 @@ class BoundaryLayersMenu extends Component {
             />
           </Pane>
         </Overlay>
-        <BaseLayer checked name="Median Income, 2017">
+        <BaseLayer
+          checked={this.props.store.appState.baseLayer === BASE_LAYER_CT_MEDIAN_INCOME}
+          name="Median Income, 2017"
+        >
           <GeoJsonBoundaryGroup
             setViewCoordinates={this.props.setViewCoordinates}
             onLoad={this.layerLoaded}
@@ -93,7 +103,7 @@ class BoundaryLayersMenu extends Component {
             style={incomeMedianLayerStyle}
           />
         </BaseLayer>
-        <BaseLayer name="Median Rent, 2017">
+        <BaseLayer checked={this.props.store.appState.baseLayer === BASE_LAYER_CT_MEDIAN_RENT} name="Median Rent, 2017">
           <GeoJsonBoundaryGroup
             setViewCoordinates={this.props.setViewCoordinates}
             onLoad={this.layerLoaded}
@@ -102,7 +112,10 @@ class BoundaryLayersMenu extends Component {
             style={rentMedianLayerStyle}
           />
         </BaseLayer>
-        <BaseLayer name="Rent Change, 2011 - 2017">
+        <BaseLayer
+          checked={this.props.store.appState.baseLayer === BASE_LAYER_CT_MEDIAN_RENT_CHANGE}
+          name="Rent Change, 2011 - 2017"
+        >
           <GeoJsonBoundaryGroup
             setViewCoordinates={this.props.setViewCoordinates}
             onLoad={this.layerLoaded}
@@ -111,7 +124,7 @@ class BoundaryLayersMenu extends Component {
             style={rentChangeLayerStyle}
           />
         </BaseLayer>
-        <BaseLayer name="% White 2010">
+        <BaseLayer checked={this.props.store.appState.baseLayer === BASE_LAYER_CT_WHITE_POPULATION} name="% White 2010">
           <GeoJsonBoundaryGroup
             setViewCoordinates={this.props.setViewCoordinates}
             onLoad={this.layerLoaded}
@@ -120,7 +133,10 @@ class BoundaryLayersMenu extends Component {
             style={racePercentWhite2010}
           />
         </BaseLayer>
-        <BaseLayer name="Percent Service Calls Open 1 Month">
+        <BaseLayer
+          checked={this.props.store.appState.baseLayer === BASE_LAYER_CT_OPEN_311}
+          name="Percent Service Calls Open 1 Month"
+        >
           <GeoJsonBoundaryGroup
             setViewCoordinates={this.props.setViewCoordinates}
             onLoad={this.layerLoaded}
@@ -136,11 +152,7 @@ class BoundaryLayersMenu extends Component {
 
 const mapStateToProps = state => {
   return {
-    store: {
-      neighborhoods: state.neighborhoods,
-      censusTracts: state.censusTracts,
-      allLayersLoaded: state.appState.allLayersLoaded
-    }
+    store: state
   }
 }
 

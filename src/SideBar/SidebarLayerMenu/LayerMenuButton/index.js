@@ -1,16 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default class LayerMenuButton extends React.Component {
-  constructor(props) {
-    super(props)
+const LayerMenuButton = props => {
+  const switchLayer = () => {
+    props.action(props.layer)
   }
-
-  render() {
-    return <div className="layer-menu-button">{this.props.buttonText}</div>
-  }
+  return (
+    <div className=" sidebar-button layer-menu-button" onClick={switchLayer}>
+      {props.buttonText}
+    </div>
+  )
 }
 
 LayerMenuButton.propTypes = {
-  buttonText: PropTypes.string
+  action: PropTypes.func,
+  buttonText: PropTypes.string,
+  layer: PropTypes.string
 }
+
+export default LayerMenuButton

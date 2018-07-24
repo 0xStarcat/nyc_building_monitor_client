@@ -30,7 +30,7 @@ class SideBar extends React.Component {
   getView() {
     switch (this.props.store.appState.sidebarView) {
       case SIDEBAR_VIEW_MENU:
-        return <SidebarLayerMenu />
+        return <SidebarLayerMenu dispatch={this.props.dispatch} />
       case SIDEBAR_VIEW_SCOPED_OBJECTS:
         return (
           <LayerInformationBox

@@ -2,18 +2,64 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import LayerMenuButton from './LayerMenuButton'
 
+import {
+  changeBaseLayer,
+  BASE_LAYER_CT_MEDIAN_INCOME,
+  BASE_LAYER_CT_MEDIAN_RENT,
+  BASE_LAYER_CT_MEDIAN_RENT_CHANGE,
+  BASE_LAYER_CT_WHITE_POPULATION,
+  BASE_LAYER_CT_OPEN_311
+} from '../../Store/AppState/actions'
+
 export default class SidebarLayerMenu extends React.Component {
   constructor(props) {
     super(props)
+
+    this.switchLayer = this.switchLayer.bind(this)
+  }
+
+  switchLayer(layer) {
+    this.props.dispatch(changeBaseLayer(layer))
   }
 
   render() {
     return (
       <div className="sidebar-layer-menu">
-        <LayerMenuButton buttonText="Hello" />
+        <LayerMenuButton
+          action={this.switchLayer}
+          buttonText="Median Income, 2017"
+          dispatch={this.props.dispatch}
+          layer={BASE_LAYER_CT_MEDIAN_INCOME}
+        />
+        <LayerMenuButton
+          action={this.switchLayer}
+          buttonText="Median Rent, 2017"
+          dispatch={this.props.dispatch}
+          layer={BASE_LAYER_CT_MEDIAN_RENT}
+        />
+        <LayerMenuButton
+          action={this.switchLayer}
+          buttonText="Rent Change, 2011 - 2017"
+          dispatch={this.props.dispatch}
+          layer={BASE_LAYER_CT_MEDIAN_RENT_CHANGE}
+        />
+        <LayerMenuButton
+          action={this.switchLayer}
+          buttonText="% White 2010"
+          dispatch={this.props.dispatch}
+          layer={BASE_LAYER_CT_WHITE_POPULATION}
+        />
+        <LayerMenuButton
+          action={this.switchLayer}
+          buttonText="Percent Service Calls Open 1 Month"
+          dispatch={this.props.dispatch}
+          layer={BASE_LAYER_CT_OPEN_311}
+        />
       </div>
     )
   }
 }
 
-SidebarLayerMenu.propTypes = {}
+SidebarLayerMenu.propTypes = {
+  switchLayer: PropTypes.func
+}
