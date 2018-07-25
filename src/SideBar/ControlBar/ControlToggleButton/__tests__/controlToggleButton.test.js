@@ -33,10 +33,14 @@ describe('ControlToggleButton', () => {
   })
 
   describe('when sidebarState = SIDEBAR_STATE_INACTIVE and landscapeOrientation = FALSE', () => {
-    const wrapper = shallow(<ControlToggleButton appState={{ ...appState, sidebarState: SIDEBAR_STATE_INACTIVE }} />)
+    const wrapper = shallow(
+      <ControlToggleButton
+        appState={{ ...appState, sidebarState: SIDEBAR_STATE_INACTIVE, landscapeOrientation: false }}
+      />
+    )
 
     it('hides the show button', () => {
-      expect(wrapper.find('.show-button .hidden').length).toEqual(1)
+      expect(wrapper.find('.hidden').length).toEqual(1)
     })
   })
 })

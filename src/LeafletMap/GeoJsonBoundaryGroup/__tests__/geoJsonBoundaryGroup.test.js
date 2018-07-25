@@ -17,6 +17,7 @@ describe('GeoJsonBoundaryGroup', () => {
   const dispatch = sinon.spy()
   const onLoad = sinon.spy()
   const setViewCoordinates = sinon.spy()
+  const sidebarAction = sinon.spy()
   const scope = SCOPE_CENSUS_TRACTS
   const style = sinon.spy()
   const interactive = false
@@ -29,6 +30,7 @@ describe('GeoJsonBoundaryGroup', () => {
     onLoad,
     setViewCoordinates,
     scope,
+    sidebarAction,
     style
   }
 
@@ -42,12 +44,13 @@ describe('GeoJsonBoundaryGroup', () => {
   describe('onClick', () => {
     const wrapper = shallow(<GeoJsonBoundaryGroup {...props} />)
 
-    it('calls dispatch 4 times and setViewcoordinates', () => {
+    it('calls dispatch 4 times, setViewcoordinates, and sidebarAction', () => {
       const event = { target: { feature: { properties: { representativePoint: [0, 0] } } } }
       wrapper.instance().onClick(event)
 
       expect(dispatch.callCount).toEqual(4)
       expect(setViewCoordinates.calledOnce).toEqual(true)
+      expect(sidebarAction.calledOnce).toEqual(true)
     })
   })
 

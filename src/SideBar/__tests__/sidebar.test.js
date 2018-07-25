@@ -91,7 +91,7 @@ describe('Sidebar', () => {
     })
 
     it('calculates the inactive X translation', () => {
-      expect(wrapper.instance().getInactiveTransform()).toEqual('translateY(calc(100vh))')
+      expect(wrapper.instance().getInactiveTransform()).toEqual('translateY(100vh)')
     })
 
     describe('with an active sidebar', () => {
@@ -120,7 +120,7 @@ describe('Sidebar', () => {
       )
 
       it('returns a style object with the correct styles', () => {
-        expect(wrapper.instance().storeStyle()).toEqual({ transform: 'translateY(calc(100vh))' })
+        expect(wrapper.instance().storeStyle()).toEqual({ transform: 'translateY(100vh)' })
       })
     })
   })

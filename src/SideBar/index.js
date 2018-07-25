@@ -7,6 +7,14 @@ import SidebarLayerMenu from './SidebarLayerMenu'
 import ControlBar from './ControlBar'
 
 import {
+  MOBILE_SIDEBAR_ACTIVE_X_TRANSLATION,
+  MOBILE_SIDEBAR_INACTIVE_X_TRANSLATION,
+  MOBILE_SIDEBAR_ACTIVE_Y_TRANSLATION,
+  MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION,
+  MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION
+} from '../SharedStyles/__constants__/sidebarContants.js'
+
+import {
   SIDEBAR_STATE_ACTIVE,
   SIDEBAR_VIEW_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
@@ -26,11 +34,15 @@ class SideBar extends React.Component {
   }
 
   getActiveTransform() {
-    return this.props.store.appState.landscapeOrientation ? 'translateX(0)' : 'translateY(0)'
+    return this.props.store.appState.landscapeOrientation
+      ? `translateX(${MOBILE_SIDEBAR_ACTIVE_X_TRANSLATION})`
+      : `translateY(${MOBILE_SIDEBAR_ACTIVE_Y_TRANSLATION})`
   }
 
   getInactiveTransform() {
-    return this.props.store.appState.landscapeOrientation ? 'translateX(-400px)' : 'translateY(calc(100vh))'
+    return this.props.store.appState.landscapeOrientation
+      ? `translateX(${MOBILE_SIDEBAR_INACTIVE_X_TRANSLATION})`
+      : `translateY(${MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION})`
   }
 
   getView() {

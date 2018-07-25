@@ -6,7 +6,6 @@ import { GeoJSON, LayerGroup, Pane } from 'react-leaflet'
 import CensusTractPopup from '../Popups/CensusTractPopup'
 import { createSelector } from 'reselect'
 import {
-  activateSidebar,
   changeSidebarScope,
   changeSidebarView,
   SCOPE_NEIGHBORHOODS,
@@ -47,7 +46,7 @@ export class GeoJsonBoundaryGroup extends Component {
     this.props.dispatch(this.getSelectedObjectFunction()(event.target.feature.properties))
     this.props.dispatch(changeSidebarScope(this.props.scope))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SCOPED_OBJECTS))
-    this.props.dispatch(activateSidebar())
+    this.props.dispatch(this.props.sidebarAction())
   }
 
   shouldComponentUpdate() {
@@ -89,6 +88,7 @@ GeoJsonBoundaryGroup.propTypes = {
   onLoad: PropTypes.func,
   setViewCoordinates: PropTypes.func,
   scope: PropTypes.string,
+  sidebarAction: PropTypes.func,
   style: PropTypes.func
 }
 

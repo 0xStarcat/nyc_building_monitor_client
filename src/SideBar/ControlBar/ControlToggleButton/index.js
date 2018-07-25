@@ -26,15 +26,12 @@ export default class ControlToggleButton extends React.Component {
   buttonClassName() {
     let value = ''
 
-    value += this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ? 'hide-button' : 'show-button'
-    value +=
-      this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE && !this.props.appState.landscapeOrientation
-        ? ' control-button'
-        : ''
-    value +=
-      this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE && !this.props.appState.landscapeOrientation
-        ? ''
-        : ' hidden'
+    if (this.props.appState.landscapeOrientation) {
+      value += this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ? 'hide-button' : 'show-button'
+    } else {
+      value += this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ? ' control-button' : 'hidden'
+    }
+
     return value
   }
 
