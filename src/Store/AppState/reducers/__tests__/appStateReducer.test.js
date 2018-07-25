@@ -22,6 +22,14 @@ describe('AppState reducer', () => {
     })
   })
 
+  describe('PREVIEW_SIDEBAR', () => {
+    const expectedState = { ...reducer.initialState, sidebarState: AppStateActions.SIDEBAR_STATE_PREVIEW }
+
+    it('sets sidebarState to SIDEBAR_STATE_PREVIEW', () => {
+      expect(reducer.appStateReducer(undefined, AppStateActions.previewSidebar())).toEqual(expectedState)
+    })
+  })
+
   describe('DEACTIVATE_SIDEBAR', () => {
     const expectedState = { ...reducer.initialState, sidebarState: AppStateActions.SIDEBAR_STATE_INACTIVE }
 
