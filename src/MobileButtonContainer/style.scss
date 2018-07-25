@@ -1,0 +1,16 @@
+@import '../SharedStyles/index.scss';
+
+.mobile-button-container {
+  position: fixed;
+  bottom: $large-spacing;
+  right: $medium-spacing;
+  display: flex;
+  flex-direction: column;
+  height: content;
+  width: 80px;
+  z-index: 500;
+
+  * {
+    margin-bottom: $small-spacing;
+  }
+}

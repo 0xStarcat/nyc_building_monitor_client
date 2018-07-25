@@ -6,7 +6,12 @@ import LayerInformationBox from './LayerInformationBox'
 import SidebarLayerMenu from './SidebarLayerMenu'
 import ControlBar from './ControlBar'
 
-import { SIDEBAR_VIEW_MENU, SIDEBAR_VIEW_SCOPED_OBJECTS, SIDEBAR_VIEW_SCOPED_OBJECT } from '../Store/AppState/actions'
+import {
+  SIDEBAR_STATE_ACTIVE,
+  SIDEBAR_VIEW_MENU,
+  SIDEBAR_VIEW_SCOPED_OBJECTS,
+  SIDEBAR_VIEW_SCOPED_OBJECT
+} from '../Store/AppState/actions'
 
 import './style.scss'
 
@@ -46,7 +51,10 @@ class SideBar extends React.Component {
 
   storeStyle() {
     return {
-      transform: this.props.store.appState.sidebarActive ? this.getActiveTransform() : this.getInactiveTransform()
+      transform:
+        this.props.store.appState.sidebarState === SIDEBAR_STATE_ACTIVE
+          ? this.getActiveTransform()
+          : this.getInactiveTransform()
     }
   }
 

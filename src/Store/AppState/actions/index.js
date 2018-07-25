@@ -5,10 +5,17 @@ export const CHECK_ORIENTATION = 'CHECK_ORIENTATION'
 export const ALL_LAYERS_LOADED = 'ALL_LAYERS_LOADED'
 export const ACTIVATE_SIDEBAR = 'ACTIVATE_SIDEBAR'
 export const DEACTIVATE_SIDEBAR = 'DEACTIVATE_SIDEBAR'
+export const PREVIEW_SIDEBAR = 'PREVIEW_SIDEBAR'
+
 export const CHANGE_BASE_LAYER_SCOPE = 'CHANGE_BASE_LAYER_SCOPE'
 export const CHANGE_SIDEBAR_SCOPE = 'CHANGE_SIDEBAR_SCOPE'
 export const CHANGE_SIDEBAR_VIEW = 'CHANGE_SIDEBAR_VIEW'
 export const CHANGE_BASE_LAYER = 'CHANGE_BASE_LAYER'
+
+// Sidebar States
+export const SIDEBAR_STATE_INACTIVE = 'SIDEBAR_STATE_INACTIVE'
+export const SIDEBAR_STATE_PREVIEW = 'SIDEBAR_STATE_PREVIEW'
+export const SIDEBAR_STATE_ACTIVE = 'SIDEBAR_STATE_ACTIVE'
 
 // Views
 export const SIDEBAR_VIEW_MENU = 'SIDEBAR_VIEW_MENU'
@@ -39,6 +46,10 @@ export const allLayersLoaded = event => ({
 
 export const activateSidebar = event => ({
   type: ACTIVATE_SIDEBAR
+})
+
+export const previewSidebar = event => ({
+  type: PREVIEW_SIDEBAR
 })
 
 export const deactivateSidebar = event => ({

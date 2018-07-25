@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { deactivateSidebar, activateSidebar } from '../../../Store/AppState/actions'
+import { SIDEBAR_STATE_ACTIVE, deactivateSidebar, activateSidebar } from '../../../Store/AppState/actions'
 
 import './style.scss'
 
@@ -26,18 +26,24 @@ export default class ControlToggleButton extends React.Component {
   buttonClassName() {
     let value = ''
 
-    value += this.props.appState.sidebarActive ? 'hide-button' : 'show-button'
-    value += this.props.appState.sidebarActive && !this.props.appState.landscapeOrientation ? ' control-button' : ''
-
+    value += this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ? 'hide-button' : 'show-button'
+    value +=
+      this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE && !this.props.appState.landscapeOrientation
+        ? ' control-button'
+        : ''
+    value +=
+      this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE && !this.props.appState.landscapeOrientation
+        ? ''
+        : ' hidden'
     return value
   }
 
   buttonAction() {
-    return this.props.appState.sidebarActive ? this.collapseSidebar : this.activateSidebar
+    return this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ? this.collapseSidebar : this.activateSidebar
   }
 
   buttonText() {
-    return this.props.appState.sidebarActive ? 'X Hide' : 'Open Controls'
+    return this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ? 'X Hide' : 'Open Controls'
   }
 
   render() {

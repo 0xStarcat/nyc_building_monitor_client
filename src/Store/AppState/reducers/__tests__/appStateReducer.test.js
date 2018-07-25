@@ -15,17 +15,17 @@ describe('AppState reducer', () => {
   })
 
   describe('ACTIVATE_SIDEBAR', () => {
-    const expectedState = { ...reducer.initialState, sidebarActive: true }
+    const expectedState = { ...reducer.initialState, sidebarState: AppStateActions.SIDEBAR_STATE_ACTIVE }
 
-    it('sets sidebarActive to true', () => {
+    it('sets sidebarState to SIDEBAR_STATE_ACTIVE', () => {
       expect(reducer.appStateReducer(undefined, AppStateActions.activateSidebar())).toEqual(expectedState)
     })
   })
 
   describe('DEACTIVATE_SIDEBAR', () => {
-    const expectedState = { ...reducer.initialState, sidebarActive: false }
+    const expectedState = { ...reducer.initialState, sidebarState: AppStateActions.SIDEBAR_STATE_INACTIVE }
 
-    it('sets sidebarActive to true', () => {
+    it('sets sidebarState to SIDEBAR_STATE_INACTIVE', () => {
       expect(reducer.appStateReducer(undefined, AppStateActions.deactivateSidebar())).toEqual(expectedState)
     })
   })

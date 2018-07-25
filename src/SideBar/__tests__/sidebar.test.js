@@ -4,6 +4,8 @@ import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import Sidebar from '../index.js'
 import {
+  SIDEBAR_STATE_ACTIVE,
+  SIDEBAR_STATE_INACTIVE,
   SIDEBAR_VIEW_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_VIEW_SCOPED_OBJECT,
@@ -19,7 +21,7 @@ describe('Sidebar', () => {
   const dispatchFn = sinon.spy()
   const store = {
     appState: {
-      sidebarActive: true,
+      sidebarState: SIDEBAR_STATE_ACTIVE,
       landscapeOrientation: true,
       sidebarView: SIDEBAR_VIEW_MENU,
       sidebarScope: SCOPE_CENSUS_TRACTS
@@ -51,7 +53,10 @@ describe('Sidebar', () => {
     describe('with an active sidebar', () => {
       const wrapper = shallow(
         <Sidebar
-          store={{ ...store, appState: { ...store.appState, sidebarActive: true, landscapeOrientation: true } }}
+          store={{
+            ...store,
+            appState: { ...store.appState, sidebarState: SIDEBAR_STATE_ACTIVE, landscapeOrientation: true }
+          }}
         />
       )
 
@@ -63,7 +68,10 @@ describe('Sidebar', () => {
     describe('with an inactive sidebar', () => {
       const wrapper = shallow(
         <Sidebar
-          store={{ ...store, appState: { ...store.appState, sidebarActive: false, landscapeOrientation: true } }}
+          store={{
+            ...store,
+            appState: { ...store.appState, sidebarState: SIDEBAR_STATE_INACTIVE, landscapeOrientation: true }
+          }}
         />
       )
 
@@ -89,7 +97,10 @@ describe('Sidebar', () => {
     describe('with an active sidebar', () => {
       const wrapper = shallow(
         <Sidebar
-          store={{ ...store, appState: { ...store.appState, sidebarActive: true, landscapeOrientation: false } }}
+          store={{
+            ...store,
+            appState: { ...store.appState, sidebarState: SIDEBAR_STATE_ACTIVE, landscapeOrientation: false }
+          }}
         />
       )
 
@@ -101,7 +112,10 @@ describe('Sidebar', () => {
     describe('with an inactive sidebar', () => {
       const wrapper = shallow(
         <Sidebar
-          store={{ ...store, appState: { ...store.appState, sidebarActive: false, landscapeOrientation: false } }}
+          store={{
+            ...store,
+            appState: { ...store.appState, sidebarState: SIDEBAR_STATE_INACTIVE, landscapeOrientation: false }
+          }}
         />
       )
 
