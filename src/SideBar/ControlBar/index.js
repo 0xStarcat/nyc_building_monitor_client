@@ -9,14 +9,19 @@ import {
 } from '../../Store/AppState/actions'
 
 import LandscapeButtons from './LandscapeButtons'
+import MobileButtons from './MobileButtons'
+
 import './style.scss'
 
-const ControlBar = props => {
-  return (
-    <div className="control-bar">
-      <LandscapeButtons appState={props.appState} selectedObjects={props.selectedObjects} />
-    </div>
+const getOrientationRow = props => {
+  return props.appState.landscapeOrientation ? (
+    <LandscapeButtons appState={props.appState} selectedObjects={props.selectedObjects} />
+  ) : (
+    <MobileButtons appState={props.appState} />
   )
+}
+const ControlBar = props => {
+  return <div className="control-bar">{getOrientationRow(props)}</div>
 }
 
 ControlBar.propTypes = {
