@@ -19,7 +19,7 @@ import {
   MOBILE_SIDEBAR_ACTIVE_Y_TRANSLATION,
   MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION,
   MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION
-} from '../../SharedStyles/__constants__/sidebarContants.js'
+} from '../../SharedStyles/__constants__/sidebarConstants.js'
 
 import SidebarLayerMenu from '../SidebarLayerMenu'
 import LayerInformationBox from '../LayerInformationBox'

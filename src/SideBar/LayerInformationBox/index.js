@@ -9,6 +9,7 @@ import ViolationsTable from './ViolationsTable'
 import ServiceCallInformation from './ServiceCallInformation'
 
 import {
+  SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
   SCOPE_BUILDINGS,
   SCOPE_VIOLATIONS,
@@ -30,6 +31,8 @@ class LayerInformationBox extends React.Component {
 
   displayInformationBox() {
     switch (this.props.appState.sidebarScope) {
+      case SCOPE_NEIGHBORHOODS:
+        return <BoundaryInformation selectedObject={this.props.selectedObject} />
       case SCOPE_CENSUS_TRACTS:
         return <BoundaryInformation selectedObject={this.props.selectedObject} />
       case SCOPE_BUILDINGS:
@@ -45,11 +48,13 @@ class LayerInformationBox extends React.Component {
     return (
       <div className="layerInformationBox">
         <LayerInformationHeader selectedObject={this.props.selectedObject} sidebarScope={this.props.sidebarScope} />
-        <ExploreButton
-          appState={this.props.appState}
-          dispatch={this.props.dispatch}
-          selectedObject={this.props.selectedObject}
-        />
+        {this.props.appState.landscapeOrientation && (
+          <ExploreButton
+            appState={this.props.appState}
+            dispatch={this.props.dispatch}
+            selectedObject={this.props.selectedObject}
+          />
+        )}
         <div className="information-box">{this.displayInformationBox()}</div>
       </div>
     )
