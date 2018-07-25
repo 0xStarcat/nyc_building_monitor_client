@@ -11,6 +11,8 @@ import { readSalesByBuilding } from '../../../Store/Sales/actions'
 import '../SharedStyles/style.scss'
 
 const BuildingInformation = props => {
+  if (!props.selectedObject) return null
+
   const getViolations = () => {
     return readViolationsByBuilding(props.selectedObject.id)
   }

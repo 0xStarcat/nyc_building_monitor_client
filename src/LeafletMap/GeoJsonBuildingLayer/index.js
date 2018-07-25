@@ -11,12 +11,12 @@ import { createSelector } from 'reselect'
 import {
   changeSidebarScope,
   changeSidebarView,
-  activateSidebar,
+  previewSidebar,
   SCOPE_BUILDINGS,
   SIDEBAR_VIEW_SCOPED_OBJECTS
 } from '../../Store/AppState/actions'
 
-import { updateSelectedObject } from '../../Store/Buildings/actions'
+import { updateSelectedBuildingObject } from '../../Store/Buildings/actions'
 
 export class GeoJsonBuildingLayer extends Component {
   constructor(props) {
@@ -38,12 +38,12 @@ export class GeoJsonBuildingLayer extends Component {
   }
 
   onClick(event) {
-    this.props.dispatch(updateSelectedObject(event.target.feature.properties))
-    this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SCOPED_OBJECTS))
+    this.props.dispatch(updateSelectedBuildingObject(event.target.feature.properties))
     this.props.dispatch(changeSidebarScope(SCOPE_BUILDINGS))
+    this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SCOPED_OBJECTS))
     this.props.dispatch(clearViolations())
     this.props.dispatch(clearServiceCalls())
-    this.props.dispatch(activateSidebar())
+    this.props.dispatch(this.props.sidebarAction())
   }
 
   componentWillReceiveProps(nextProps) {
@@ -90,6 +90,8 @@ export class GeoJsonBuildingLayer extends Component {
 GeoJsonBuildingLayer.propTypes = {
   features: PropTypes.array,
   interactive: PropTypes.bool,
+  sidebarAction: PropTypes.func,
+
   style: PropTypes.func
 }
 

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import '../SharedStyles/style.scss'
 
 const BoundaryInformation = props => {
+  if (!props.selectedObject) return null
   return (
     <div className="boundary-information">
       <div className="info-section">

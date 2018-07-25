@@ -7,12 +7,7 @@ import {
   switchScopeWithFetch,
   changeBaseLayerScope,
   SCOPE_NEIGHBORHOODS,
-  SCOPE_CENSUS_TRACTS,
-  BASE_LAYER_MEDIAN_INCOME,
-  BASE_LAYER_MEDIAN_RENT,
-  BASE_LAYER_MEDIAN_RENT_CHANGE,
-  BASE_LAYER_WHITE_POPULATION,
-  BASE_LAYER_OPEN_311
+  SCOPE_CENSUS_TRACTS
 } from '../../Store/AppState/actions'
 
 export default class SidebarLayerMenu extends React.Component {

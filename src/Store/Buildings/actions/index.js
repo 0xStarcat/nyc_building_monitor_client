@@ -22,7 +22,7 @@ export const handleReadBuildingsResponse = response => ({
   data: response.data
 })
 
-export const updateSelectedObject = event => ({
+export const updateSelectedBuildingObject = event => ({
   type: UPDATE_SELECTED_BUILDING_OBJECT,
   data: event
 })

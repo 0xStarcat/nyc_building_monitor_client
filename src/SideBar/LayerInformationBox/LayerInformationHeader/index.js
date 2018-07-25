@@ -5,6 +5,7 @@ import { SCOPE_CENSUS_TRACTS, SCOPE_BUILDINGS } from '../../../Store/AppState/ac
 import './style.scss'
 
 const LayerInformationHeader = props => {
+  if (!props.selectedObject) return null
   return (
     <div className="headerBar">
       <div className="title">

@@ -23,7 +23,6 @@ export default class ControlToggleButton extends React.Component {
     } else {
       value += this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ? '' : 'hidden'
     }
-    console.log(value)
     return value
   }
 
