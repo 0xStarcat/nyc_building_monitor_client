@@ -10,14 +10,13 @@ const LandscapeButtons = props => {
     <div className="landscape-buttons button-row">
       <ControlBackButton appState={props.appState} />
       <ControlNextButton appState={props.appState} selectedObjects={props.selectedObjects} />
-      <ControlToggleButton appState={props.appState} dispatch={props.dispatch} />
+      <ControlToggleButton appState={props.appState} />
     </div>
   )
 }
 
 LandscapeButtons.propTypes = {
   appState: PropTypes.object,
-  dispatch: PropTypes.func,
   selectedObjects: PropTypes.object
 }
 

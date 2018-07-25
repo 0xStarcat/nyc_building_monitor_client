@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import SwitchSidebarStateButton from '../../SharedComponents/SwitchSidebarStateButton'
+
 import { SIDEBAR_STATE_ACTIVE, deactivateSidebar, activateSidebar } from '../../../Store/AppState/actions'
 
 import './style.scss'
@@ -8,19 +10,9 @@ export default class ControlToggleButton extends React.Component {
   constructor(props) {
     super(props)
 
-    this.collapseSidebar = this.collapseSidebar.bind(this)
-    this.activateSidebar = this.activateSidebar.bind(this)
     this.buttonClassName = this.buttonClassName.bind(this)
     this.buttonAction = this.buttonAction.bind(this)
     this.buttonText = this.buttonText.bind(this)
-  }
-
-  activateSidebar() {
-    this.props.dispatch(activateSidebar())
-  }
-
-  collapseSidebar() {
-    this.props.dispatch(deactivateSidebar())
   }
 
   buttonClassName() {
@@ -36,7 +28,7 @@ export default class ControlToggleButton extends React.Component {
   }
 
   buttonAction() {
-    return this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ? this.collapseSidebar : this.activateSidebar
+    return this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ? deactivateSidebar : activateSidebar
   }
 
   buttonText() {
@@ -45,12 +37,12 @@ export default class ControlToggleButton extends React.Component {
 
   render() {
     return (
-      <div
-        className={`button toggle-button-container toggle-button ${this.buttonClassName()}`}
-        onClick={this.buttonAction()}
+      <SwitchSidebarStateButton
+        action={this.buttonAction()}
+        className={`toggle-button-container toggle-button ${this.buttonClassName()}`}
       >
         {this.buttonText()}
-      </div>
+      </SwitchSidebarStateButton>
     )
   }
 }

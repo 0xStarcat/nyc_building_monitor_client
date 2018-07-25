@@ -40,8 +40,5 @@ describe('ControlBar', () => {
 
   it('renders the component', () => {
     expect(wrapper.find('.control-bar').length).toEqual(1)
-    expect(wrapper.children().find(ControlBackButton).length).toEqual(1)
-    expect(wrapper.children().find(ControlToggleButton).length).toEqual(1)
-    expect(wrapper.children().find(ControlNextButton).length).toEqual(1)
   })
 })

@@ -14,7 +14,7 @@ import './style.scss'
 const ControlBar = props => {
   return (
     <div className="control-bar">
-      <LandscapeButtons appState={props.appState} dispatch={props.dispatch} selectedObjects={props.selectedObjects} />
+      <LandscapeButtons appState={props.appState} selectedObjects={props.selectedObjects} />
     </div>
   )
 }
