@@ -10,7 +10,7 @@ import MobileSidebarScopeMenu from './MobileSidebarScopeMenu'
 import SidebarBuildingLayerMenu from './SidebarBuildingLayerMenu'
 
 import TopBar from './TopBar'
-import ControlRow from './TopBar/ControlRow'
+import ControlRow from './SharedComponents/ControlRow'
 import ExploreButton from './SharedComponents/ExploreButton'
 
 import {

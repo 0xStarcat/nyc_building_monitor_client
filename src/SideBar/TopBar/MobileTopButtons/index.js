@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import ControlHideButton from '../ControlHideButton'
-import ControlExpandButton from '../ControlExpandButton'
-import ControlPreviewButton from '../ControlPreviewButton'
+import ControlHideButton from '../../SharedComponents/ControlHideButton'
+import ControlExpandButton from '../../SharedComponents/ControlExpandButton'
+import ControlPreviewButton from '../../SharedComponents/ControlPreviewButton'
 
 import { SIDEBAR_STATE_INACTIVE, SIDEBAR_STATE_PREVIEW, SIDEBAR_STATE_ACTIVE } from '../../../Store/AppState/actions'
 

@@ -8,7 +8,7 @@ import {
   SCOPE_BUILDINGS
 } from '../../Store/AppState/actions'
 
-import ControlRow from './ControlRow'
+import ControlRow from '../SharedComponents/ControlRow'
 import MobileTopButtons from './MobileTopButtons'
 
 import './style.scss'
