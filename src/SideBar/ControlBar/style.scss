@@ -1,13 +1,16 @@
 @import '../../SharedStyles/index.scss';
 @import '../../SharedStyles/buttons.scss';
 
-.control-bar {
+.button-row {
   align-items: center;
-  background-color: $primaryBackgroundDark;
   display: flex;
   flex-direction: row;
-  height: $controlBarHeight;
   justify-content: space-between;
+}
+
+.control-bar {
+  background-color: $primaryBackgroundDark;
+  height: $controlBarHeight;
 }
 
 .control-button {

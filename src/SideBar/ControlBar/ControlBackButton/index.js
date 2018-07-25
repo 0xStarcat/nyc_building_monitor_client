@@ -1,21 +1,56 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {
+  SIDEBAR_VIEW_MENU,
+  SIDEBAR_VIEW_SCOPED_OBJECTS,
+  SCOPE_NEIGHBORHOODS,
+  SCOPE_CENSUS_TRACTS,
+  SCOPE_BUILDINGS
+} from '../../../Store/AppState/actions'
+
 import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
 
 const ControlBackButton = props => {
+  const getBackView = () => {
+    const appState = props.appState
+
+    switch (appState.sidebarScope) {
+      case SCOPE_NEIGHBORHOODS:
+        return SIDEBAR_VIEW_MENU
+      case SCOPE_CENSUS_TRACTS:
+        return SIDEBAR_VIEW_MENU
+      default:
+        return appState.sidebarView
+    }
+  }
+
+  const getBackScope = () => {
+    const appState = props.appState
+
+    switch (appState.sidebarScope) {
+      case SCOPE_BUILDINGS:
+        return SCOPE_CENSUS_TRACTS
+      default:
+        return appState.sidebarScope
+    }
+  }
+
+  const disabled = props.appState.sidebarView === SIDEBAR_VIEW_MENU
+
   return (
     <SwitchViewButton
-      className={`back-button control-button button ${props.disabled ? 'disabled-button' : ''}`}
-      disabled={props.disabled}
-      scopeSwitch={props.scopeSwitch}
-      viewSwitch={props.viewSwitch}
+      className={`back-button control-button button ${disabled ? 'disabled-button' : ''}`}
+      disabled={disabled}
+      scopeSwitch={getBackScope()}
+      viewSwitch={getBackView()}
     >
-      {props.disabled ? '' : 'Back'}
+      {disabled ? '' : 'Back'}
     </SwitchViewButton>
   )
 }
 
 ControlBackButton.propTypes = {
+  appState: PropTypes.object,
   disabled: PropTypes.bool,
   scopeSwitch: PropTypes.string,
   viewSwitch: PropTypes.string
