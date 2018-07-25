@@ -43,7 +43,7 @@ describe('Buildings reducer', () => {
   describe('UPDATE_SELECTED_BUILDING_OBJECT', () => {
     const object = { properties: {} }
     it('updates the selectedObject with the new object', () => {
-      expect(reducer.buildingsReducer(undefined, BuildingsActions.updateSelectedObject(object))).toEqual({
+      expect(reducer.buildingsReducer(undefined, BuildingsActions.updateSelectedBuildingObject(object))).toEqual({
         ...reducer.initialState,
         selectedObject: object
       })

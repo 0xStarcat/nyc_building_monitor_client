@@ -3,11 +3,10 @@ import PropTypes from 'prop-types'
 import LayerMenuButton from '../SharedComponents/LayerMenuButton'
 
 import {
-  changeBaseLayer,
-  switchScopeWithFetch,
-  changeBaseLayerScope,
-  SCOPE_NEIGHBORHOODS,
-  SCOPE_CENSUS_TRACTS
+  changeBuildingBaseLayer,
+  BASE_LAYER_BUILDING_CATEGORIES,
+  BASE_LAYER_TOTAL_OPEN_VIOLATIONS,
+  BASE_LAYER_TOTAL_BUILDING_OPEN_311
 } from '../../Store/AppState/actions'
 
 export default class SidebarLayerMenu extends React.Component {
@@ -15,62 +14,32 @@ export default class SidebarLayerMenu extends React.Component {
     super(props)
 
     this.switchLayer = this.switchLayer.bind(this)
-    this.switchScopeWithFetch = this.switchScopeWithFetch.bind(this)
-  }
-
-  switchScopeWithFetch(scope) {
-    this.props.dispatch(changeBaseLayerScope(scope))
-    this.props.dispatch(switchScopeWithFetch(scope))
   }
 
   switchLayer(layer) {
-    this.props.dispatch(changeBaseLayer(layer))
+    this.props.dispatch(changeBuildingBaseLayer(layer))
   }
 
   render() {
     return (
       <div className="sidebar-layer-menu">
         <LayerMenuButton
-          action={this.switchScopeWithFetch}
-          buttonText="Neighborhoods"
+          action={this.switchLayer}
+          buttonText="Building Categories"
           dispatch={this.props.dispatch}
-          layer={SCOPE_NEIGHBORHOODS}
-        />
-        <LayerMenuButton
-          action={this.switchScopeWithFetch}
-          buttonText="Census Tracts"
-          dispatch={this.props.dispatch}
-          layer={SCOPE_CENSUS_TRACTS}
+          layer={BASE_LAYER_BUILDING_CATEGORIES}
         />
         <LayerMenuButton
           action={this.switchLayer}
-          buttonText="Median Income, 2017"
+          buttonText="Total Violations"
           dispatch={this.props.dispatch}
-          layer={BASE_LAYER_MEDIAN_INCOME}
+          layer={BASE_LAYER_TOTAL_OPEN_VIOLATIONS}
         />
         <LayerMenuButton
           action={this.switchLayer}
-          buttonText="Median Rent, 2017"
+          buttonText="Total Open 311 Calls ( > 1 Month)"
           dispatch={this.props.dispatch}
-          layer={BASE_LAYER_MEDIAN_RENT}
-        />
-        <LayerMenuButton
-          action={this.switchLayer}
-          buttonText="Rent Change, 2011 - 2017"
-          dispatch={this.props.dispatch}
-          layer={BASE_LAYER_MEDIAN_RENT_CHANGE}
-        />
-        <LayerMenuButton
-          action={this.switchLayer}
-          buttonText="% White 2010"
-          dispatch={this.props.dispatch}
-          layer={BASE_LAYER_WHITE_POPULATION}
-        />
-        <LayerMenuButton
-          action={this.switchLayer}
-          buttonText="Percent Service Calls Open 1 Month"
-          dispatch={this.props.dispatch}
-          layer={BASE_LAYER_OPEN_311}
+          layer={BASE_LAYER_TOTAL_BUILDING_OPEN_311}
         />
       </div>
     )
@@ -78,5 +47,6 @@ export default class SidebarLayerMenu extends React.Component {
 }
 
 SidebarLayerMenu.propTypes = {
+  dispatch: PropTypes.dispatch,
   switchLayer: PropTypes.func
 }

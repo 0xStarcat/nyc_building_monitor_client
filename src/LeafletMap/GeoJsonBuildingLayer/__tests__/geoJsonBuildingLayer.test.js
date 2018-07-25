@@ -12,6 +12,7 @@ describe('GeoJsonBuildingLayer', () => {
   const features = []
   const dispatch = sinon.spy()
   const onLoad = sinon.spy()
+  const sidebarAction = sinon.spy()
   const setViewCoordinates = sinon.spy()
   const style = sinon.spy()
   const interactive = false
@@ -23,6 +24,7 @@ describe('GeoJsonBuildingLayer', () => {
     interactive,
     onLoad,
     setViewCoordinates,
+    sidebarAction,
     style
   }
 

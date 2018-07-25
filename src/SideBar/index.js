@@ -5,6 +5,7 @@ import AppLink from '../SharedComponents/AppLink'
 import LayerInformationBox from './LayerInformationBox'
 import SidebarLayerMenu from './SidebarLayerMenu'
 import MobileSidebarScopeMenu from './MobileSidebarScopeMenu'
+import SidebarBuildingLayerMenu from './SidebarBuildingLayerMenu'
 
 import ControlBar from './ControlBar'
 
@@ -20,6 +21,7 @@ import {
   SIDEBAR_STATE_ACTIVE,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_INACTIVE,
+  SIDEBAR_VIEW_BUILDING_LAYER_MENU,
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_VIEW_SCOPED_OBJECT,
@@ -65,6 +67,8 @@ class SideBar extends React.Component {
         return <MobileSidebarScopeMenu dispatch={this.props.dispatch} />
       case SIDEBAR_VIEW_BOUNDARY_LAYER_MENU:
         return <SidebarLayerMenu dispatch={this.props.dispatch} />
+      case SIDEBAR_VIEW_BUILDING_LAYER_MENU:
+        return <SidebarBuildingLayerMenu dispatch={this.props.dispatch} />
       case SIDEBAR_VIEW_SCOPED_OBJECTS:
         return (
           <LayerInformationBox

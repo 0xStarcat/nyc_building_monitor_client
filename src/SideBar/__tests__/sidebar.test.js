@@ -8,6 +8,7 @@ import {
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_INACTIVE,
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_BUILDING_LAYER_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_VIEW_SCOPED_OBJECT,
   SIDEBAR_VIEW_SCOPE_MENU,
@@ -25,6 +26,7 @@ import {
 import MobileSidebarScopeMenu from '../MobileSidebarScopeMenu'
 import SidebarLayerMenu from '../SidebarLayerMenu'
 import LayerInformationBox from '../LayerInformationBox'
+import SidebarBuildingLayerMenu from '../SidebarBuildingLayerMenu'
 
 configure({ adapter: new Adapter() })
 
@@ -203,6 +205,16 @@ describe('Sidebar', () => {
 
     it('renders the MobileSidebarScopeMenu', () => {
       expect(wrapper.find(MobileSidebarScopeMenu).length).toEqual(1)
+    })
+  })
+
+  describe('when sidebarView = SIDEBAR_VIEW_BUILDING_LAYER_MENU', () => {
+    const wrapper = shallow(
+      <Sidebar store={{ ...store, appState: { ...store.appState, sidebarView: SIDEBAR_VIEW_BUILDING_LAYER_MENU } }} />
+    )
+
+    it('renders the SidebarBuildingLayerMenu', () => {
+      expect(wrapper.find(SidebarBuildingLayerMenu).length).toEqual(1)
     })
   })
 

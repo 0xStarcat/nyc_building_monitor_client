@@ -5,7 +5,13 @@ import { FeatureGroup, LayerGroup, LayersControl, GeoJSON, TileLayer, Pane } fro
 import GeoJsonBuildingLayer from '../GeoJsonBuildingLayer'
 
 import { buildingStyle, violationBuildingStyle, saleBuildingStyle } from '../GeoJsonBuildingStyles'
-import { activateSidebar, previewSidebar } from '../../Store/AppState/actions'
+import {
+  activateSidebar,
+  previewSidebar,
+  BASE_LAYER_BUILDING_CATEGORIES,
+  BASE_LAYER_TOTAL_OPEN_VIOLATIONS,
+  BASE_LAYER_TOTAL_BUILDING_OPEN_311
+} from '../../Store/AppState/actions'
 
 const { BaseLayer, Overlay } = LayersControl
 
@@ -17,7 +23,7 @@ class BuildingLayersMenu extends Component {
   render() {
     return (
       <LayersControl collapsed={true} position={this.props.position}>
-        <BaseLayer checked name="Plain">
+        <BaseLayer checked={this.props.appState.buildingBaseLayer === BASE_LAYER_BUILDING_CATEGORIES} name="Plain">
           <GeoJsonBuildingLayer
             features={this.props.buildings}
             interactive={true}
@@ -25,7 +31,10 @@ class BuildingLayersMenu extends Component {
             style={buildingStyle}
           />
         </BaseLayer>
-        <BaseLayer name="Building Violations">
+        <BaseLayer
+          checked={this.props.appState.buildingBaseLayer === BASE_LAYER_TOTAL_OPEN_VIOLATIONS}
+          name="Building Violations"
+        >
           <GeoJsonBuildingLayer
             features={this.props.buildings}
             interactive={true}
@@ -33,7 +42,10 @@ class BuildingLayersMenu extends Component {
             style={violationBuildingStyle}
           />
         </BaseLayer>
-        <BaseLayer name="Building Sales">
+        <BaseLayer
+          checked={this.props.appState.buildingBaseLayer === BASE_LAYER_TOTAL_BUILDING_OPEN_311}
+          name="Building Sales"
+        >
           <GeoJsonBuildingLayer
             features={this.props.buildings}
             interactive={true}
