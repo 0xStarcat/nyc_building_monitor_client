@@ -16,6 +16,7 @@ class Layout extends React.Component {
         {!this.props.store.appState.landscapeOrientation && (
           <MobileButtonContainer
             appState={this.props.store.appState}
+            buildingsPresent={!!this.props.store.buildings.features.length}
             selectedObject={(this.props.store[this.props.store.appState.sidebarScope] || {}).selectedObject}
           />
         )}

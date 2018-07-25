@@ -13,13 +13,26 @@ afterEach(() => {
   store.clearActions()
 })
 
-describe('openBoundaryLayerMenu', () => {
-  it('dispatches AWAITING_BUILDINGS_RESPONSE, ACTIVATE_SIDEBAR on success', () => {
+describe('openBuildingLayerMenu', () => {
+  it('dispatches CHANGE_SIDEBAR_VIEW, ACTIVATE_SIDEBAR on success', () => {
     store.dispatch(appStateActions.openBoundaryLayerMenu())
     const actions = store.getActions()
     const expectedActions = [
       appStateActions.changeSidebarView(appStateActions.SIDEBAR_VIEW_BOUNDARY_LAYER_MENU),
-      appStateActions.activateSidebar()
+      appStateActions.previewSidebar()
+    ]
+
+    expect(actions).toEqual(expectedActions)
+  })
+})
+
+describe('openBuildingLayerMenu', () => {
+  it('dispatches CHANGE_SIDEBAR_VIEW, ACTIVATE_SIDEBAR on success', () => {
+    store.dispatch(appStateActions.openBuildingLayerMenu())
+    const actions = store.getActions()
+    const expectedActions = [
+      appStateActions.changeSidebarView(appStateActions.SIDEBAR_VIEW_BUILDING_LAYER_MENU),
+      appStateActions.previewSidebar()
     ]
 
     expect(actions).toEqual(expectedActions)

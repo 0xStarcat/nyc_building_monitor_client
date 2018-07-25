@@ -18,7 +18,7 @@ const ExploreButton = props => {
       (props.appState.sidebarScope === SCOPE_CENSUS_TRACTS || props.appState.sidebarScope === SCOPE_NEIGHBORHOODS)
     )
   }
-  console.log(!!props.selectedObject, props.appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS)
+
   if (showButton()) {
     return (
       <DispatchActionButton className="explore-button hover-shadow mobile-button" action={onExploreClick}>

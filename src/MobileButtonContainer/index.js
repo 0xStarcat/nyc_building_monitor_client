@@ -27,7 +27,11 @@ const MobileButtonContainer = props => {
   const containerStyle = { transform: setTransationStyle(props) }
   return (
     <div className="mobile-button-container" style={containerStyle}>
-      <MobileBuildingLayerButton appState={props.appState} selectedObject={props.selectedObject} />
+      <MobileBuildingLayerButton
+        appState={props.appState}
+        buildingsPresent={props.buildingsPresent}
+        selectedObject={props.selectedObject}
+      />
       <MobileBoundaryLayerButton appState={props.appState} selectedObject={props.selectedObject} />
     </div>
   )
@@ -35,6 +39,7 @@ const MobileButtonContainer = props => {
 
 MobileButtonContainer.propTypes = {
   appState: PropTypes.object,
+  buildingsPresent: PropTypes.bool,
   selectedObject: PropTypes.object
 }
 
