@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import ExploreButton from './ExploreButton'
+import ExploreButton from '../SharedComponents/ExploreButton'
 import LayerInformationHeader from './LayerInformationHeader'
 import BoundaryInformation from './BoundaryInformation'
 import BuildingInformation from './BuildingInformation'
@@ -49,11 +49,7 @@ class LayerInformationBox extends React.Component {
       <div className="layerInformationBox">
         <LayerInformationHeader selectedObject={this.props.selectedObject} sidebarScope={this.props.sidebarScope} />
         {this.props.appState.landscapeOrientation && (
-          <ExploreButton
-            appState={this.props.appState}
-            dispatch={this.props.dispatch}
-            selectedObject={this.props.selectedObject}
-          />
+          <ExploreButton appState={this.props.appState} selectedObject={this.props.selectedObject} />
         )}
         <div className="information-box">{this.displayInformationBox()}</div>
       </div>

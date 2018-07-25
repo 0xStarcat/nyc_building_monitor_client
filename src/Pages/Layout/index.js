@@ -14,7 +14,10 @@ class Layout extends React.Component {
       <div id="pageLayout">
         <SideBar dispatch={this.props.dispatch} store={this.props.store} selectedObjects={this.props.selectedObjects} />
         {!this.props.store.appState.landscapeOrientation && (
-          <MobileButtonContainer appState={this.props.store.appState} />
+          <MobileButtonContainer
+            appState={this.props.store.appState}
+            selectedObject={(this.props.store[this.props.store.appState.sidebarScope] || {}).selectedObject}
+          />
         )}
         <div id="mainContent">{this.props.children}</div>
       </div>

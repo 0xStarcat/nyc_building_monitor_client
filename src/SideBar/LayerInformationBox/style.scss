@@ -3,18 +3,6 @@
 .layerInformationBox {
   box-sizing: border-box;
   overflow: scroll;
-
-  button {
-    border-radius: 50%;
-    width: $sidebar-button-width;
-    height: $sidebar-button-width;
-
-    margin-left: ($sidebar-width / 2) - ($sidebar-button-width / 2);
-    margin-top: -($sidebar-button-width / 2);
-    text-align: center;
-    line-height: $sidebar-button-width;
-    display: inline-block;
-  }
 }
 
 @media screen and (orientation: portrait) {
@@ -22,9 +10,5 @@
 
   .layerInformationBox {
     overflow: scroll;
-
-    button {
-      margin-left: calc(50vw - #{$sidebar-button-width / 2});
-    }
   }
 }

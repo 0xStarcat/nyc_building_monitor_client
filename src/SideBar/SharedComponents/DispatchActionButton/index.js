@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-const SwitchSidebarStateButton = props => {
+const DispatchActionButton = props => {
   const onClick = () => {
     props.dispatch(props.action())
   }
@@ -13,9 +13,9 @@ const SwitchSidebarStateButton = props => {
   )
 }
 
-SwitchSidebarStateButton.propTypes = {
+DispatchActionButton.propTypes = {
   action: PropTypes.func,
   className: PropTypes.string
 }
 
-export default connect()(SwitchSidebarStateButton)
+export default connect()(DispatchActionButton)

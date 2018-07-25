@@ -1,10 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const MobileBuilding = props => {
-  return <div className="button hover-shadow mobile-button">Explore</div>
+import ExploreButton from '../../SideBar/SharedComponents/ExploreButton'
+
+const MobileBuildingLayerButton = props => {
+  return (
+    <div className="mobile-building-layer-button">
+      <ExploreButton appState={props.appState} selectedObject={props.selectedObject} />
+    </div>
+  )
 }
 
-MobileBuilding.propTypes = {}
+MobileBuildingLayerButton.propTypes = {
+  appState: PropTypes.object
+}
 
-export default MobileBuilding
+export default MobileBuildingLayerButton

@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SwitchSidebarStateButton from '../../SharedComponents/SwitchSidebarStateButton'
+import DispatchActionButton from '../../SharedComponents/DispatchActionButton'
 
 import { previewSidebar } from '../../../Store/AppState/actions'
 
 const ControlPreviewButton = props => {
   return (
-    <SwitchSidebarStateButton action={previewSidebar} className="control-hide-button control-button">
+    <DispatchActionButton action={previewSidebar} className="control-hide-button control-button">
       Collapse
-    </SwitchSidebarStateButton>
+    </DispatchActionButton>
   )
 }
 

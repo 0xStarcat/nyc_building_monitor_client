@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SwitchSidebarStateButton from '../../SharedComponents/SwitchSidebarStateButton'
+import DispatchActionButton from '../../SharedComponents/DispatchActionButton'
 
 import { SIDEBAR_STATE_ACTIVE, deactivateSidebar, activateSidebar } from '../../../Store/AppState/actions'
 
@@ -37,12 +37,12 @@ export default class ControlToggleButton extends React.Component {
 
   render() {
     return (
-      <SwitchSidebarStateButton
+      <DispatchActionButton
         action={this.buttonAction()}
         className={`toggle-button-container toggle-button ${this.buttonClassName()}`}
       >
         {this.buttonText()}
-      </SwitchSidebarStateButton>
+      </DispatchActionButton>
     )
   }
 }

@@ -19,20 +19,23 @@ const setTransationStyle = props => {
       return `translateY(${MOBILE_BUTTONS_INACTIVE_Y_TRANSLATION})`
     case SIDEBAR_STATE_PREVIEW:
       return `translateY(${MOBILE_BUTTONS_PREVIEW_Y_TRANSLATION})`
+    case SIDEBAR_STATE_ACTIVE:
+      return `translateY(${MOBILE_BUTTONS_PREVIEW_Y_TRANSLATION})`
   }
 }
 const MobileButtonContainer = props => {
   const containerStyle = { transform: setTransationStyle(props) }
   return (
     <div className="mobile-button-container" style={containerStyle}>
-      <MobileBuildingLayerButton />
+      <MobileBuildingLayerButton appState={props.appState} selectedObject={props.selectedObject} />
       <MobileBoundaryLayerButton />
     </div>
   )
 }
 
 MobileButtonContainer.propTypes = {
-  appState: PropTypes.object
+  appState: PropTypes.object,
+  selectedObject: PropTypes.object
 }
 
 export default MobileButtonContainer

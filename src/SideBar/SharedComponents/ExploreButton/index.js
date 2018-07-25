@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { readBuildingsByScope } from '../../../Store/Buildings/actions'
-
+import DispatchActionButton from '../DispatchActionButton'
 import { SCOPE_CENSUS_TRACTS, SCOPE_NEIGHBORHOODS, SIDEBAR_VIEW_SCOPED_OBJECTS } from '../../../Store/AppState/actions'
 
 import './style.scss'
 
 const ExploreButton = props => {
   const onExploreClick = event => {
-    props.dispatch(readBuildingsByScope(props.appState.baseLayerScope, props.selectedObject.id))
+    return readBuildingsByScope(props.appState.baseLayerScope, props.selectedObject.id)
   }
 
   const showButton = () => {
@@ -18,12 +18,12 @@ const ExploreButton = props => {
       (props.appState.sidebarScope === SCOPE_CENSUS_TRACTS || props.appState.sidebarScope === SCOPE_NEIGHBORHOODS)
     )
   }
-
+  console.log(!!props.selectedObject, props.appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS)
   if (showButton()) {
     return (
-      <button className="button hover-shadow explore-button" onClick={onExploreClick}>
+      <DispatchActionButton className="explore-button hover-shadow mobile-button" action={onExploreClick}>
         Explore
-      </button>
+      </DispatchActionButton>
     )
   } else {
     return null
@@ -31,8 +31,7 @@ const ExploreButton = props => {
 }
 
 ExploreButton.propTypes = {
-  appState: PropTypes.object,
-  dispatch: PropTypes.func
+  appState: PropTypes.object
 }
 
 export default ExploreButton

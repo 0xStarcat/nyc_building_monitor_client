@@ -10,7 +10,7 @@
   width: 80px;
   z-index: 500;
 
-  * {
+  > * {
     margin-bottom: $small-spacing;
   }
 }

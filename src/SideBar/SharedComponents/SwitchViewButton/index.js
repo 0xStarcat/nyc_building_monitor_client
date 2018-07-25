@@ -13,8 +13,8 @@ export class SwitchViewButton extends React.Component {
 
   onClick(event) {
     if (this.props.disabled) return null
-    this.props.dispatch(changeSidebarScope(this.props.scopeSwitch))
-    this.props.dispatch(changeSidebarView(this.props.viewSwitch))
+    if (this.props.scopeSwitch) this.props.dispatch(changeSidebarScope(this.props.scopeSwitch))
+    if (this.props.viewSwitch) this.props.dispatch(changeSidebarView(this.props.viewSwitch))
   }
 
   render() {

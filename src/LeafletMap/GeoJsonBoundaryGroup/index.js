@@ -32,18 +32,18 @@ export class GeoJsonBoundaryGroup extends Component {
     })
   }
 
-  getSelectedObjectFunction() {
+  getSelectedObjectFunction(event) {
     switch (this.props.scope) {
       case SCOPE_NEIGHBORHOODS:
-        return selectNewSelectedNeighborhoodObject
+        return selectNewSelectedNeighborhoodObject(event.target.feature.properties)
       case SCOPE_CENSUS_TRACTS:
-        return selectNewSelectedCTObject
+        return selectNewSelectedCTObject(event.target.feature.properties)
     }
   }
 
   onClick(event) {
     this.props.setViewCoordinates(event.target.feature.properties.representativePoint)
-    this.props.dispatch(this.getSelectedObjectFunction()(event.target.feature.properties))
+    this.props.dispatch(this.getSelectedObjectFunction(event))
     this.props.dispatch(changeSidebarScope(this.props.scope))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SCOPED_OBJECTS))
     this.props.dispatch(this.props.sidebarAction())

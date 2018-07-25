@@ -1,10 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const MobileBuildingLayerButton = props => {
-  return <div className="button hover-shadow mobile-button">Scope</div>
+import SwitchViewButton from '../../SideBar/SharedComponents/SwitchViewButton'
+
+import { SIDEBAR_VIEW_MENU } from '../../Store/AppState/actions'
+
+const MobileBoundaryLayerButton = props => {
+  return (
+    <SwitchViewButton className="mobile-button" scopeSwitch={null} viewSwitch={SIDEBAR_VIEW_MENU}>
+      Scope
+    </SwitchViewButton>
+  )
 }
 
-MobileBuildingLayerButton.propTypes = {}
+MobileBoundaryLayerButton.propTypes = {}
 
-export default MobileBuildingLayerButton
+export default MobileBoundaryLayerButton
