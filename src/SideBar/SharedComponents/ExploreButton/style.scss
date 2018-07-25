@@ -8,7 +8,10 @@
 
 @media screen and (orientation: portrait) {
   .explore-button {
-    display: initial;
+    display: flex;
     margin: initial;
+    position: initial;
+    top: initial;
+    left: initial;
   }
 }
