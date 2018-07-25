@@ -16,6 +16,8 @@ import {
 
 import {
   SIDEBAR_STATE_ACTIVE,
+  SIDEBAR_STATE_PREVIEW,
+  SIDEBAR_STATE_INACTIVE,
   SIDEBAR_VIEW_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_VIEW_SCOPED_OBJECT
@@ -27,22 +29,31 @@ class SideBar extends React.Component {
   constructor(props) {
     super(props)
 
-    this.getActiveTransform = this.getActiveTransform.bind(this)
-    this.getInactiveTransform = this.getInactiveTransform.bind(this)
+    this.getSidebarStateXTransform = this.getSidebarStateXTransform.bind(this)
+    this.getSidebarStateYTransform = this.getSidebarStateYTransform.bind(this)
+
     this.storeStyle = this.storeStyle.bind(this)
     this.getView = this.getView.bind(this)
   }
 
-  getActiveTransform() {
-    return this.props.store.appState.landscapeOrientation
-      ? `translateX(${MOBILE_SIDEBAR_ACTIVE_X_TRANSLATION})`
-      : `translateY(${MOBILE_SIDEBAR_ACTIVE_Y_TRANSLATION})`
+  getSidebarStateXTransform() {
+    switch (this.props.store.appState.sidebarState) {
+      case SIDEBAR_STATE_ACTIVE:
+        return `translateX(${MOBILE_SIDEBAR_ACTIVE_X_TRANSLATION})`
+      case SIDEBAR_STATE_INACTIVE:
+        return `translateX(${MOBILE_SIDEBAR_INACTIVE_X_TRANSLATION})`
+    }
   }
 
-  getInactiveTransform() {
-    return this.props.store.appState.landscapeOrientation
-      ? `translateX(${MOBILE_SIDEBAR_INACTIVE_X_TRANSLATION})`
-      : `translateY(${MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION})`
+  getSidebarStateYTransform() {
+    switch (this.props.store.appState.sidebarState) {
+      case SIDEBAR_STATE_ACTIVE:
+        return `translateY(${MOBILE_SIDEBAR_ACTIVE_Y_TRANSLATION})`
+      case SIDEBAR_STATE_PREVIEW:
+        return `translateY(${MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION})`
+      case SIDEBAR_STATE_INACTIVE:
+        return `translateY(${MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION})`
+    }
   }
 
   getView() {
@@ -63,10 +74,9 @@ class SideBar extends React.Component {
 
   storeStyle() {
     return {
-      transform:
-        this.props.store.appState.sidebarState === SIDEBAR_STATE_ACTIVE
-          ? this.getActiveTransform()
-          : this.getInactiveTransform()
+      transform: this.props.store.appState.landscapeOrientation
+        ? this.getSidebarStateXTransform()
+        : this.getSidebarStateYTransform()
     }
   }
 

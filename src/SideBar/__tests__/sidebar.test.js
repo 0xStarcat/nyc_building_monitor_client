@@ -5,12 +5,21 @@ import Adapter from 'enzyme-adapter-react-16'
 import Sidebar from '../index.js'
 import {
   SIDEBAR_STATE_ACTIVE,
+  SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_INACTIVE,
   SIDEBAR_VIEW_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_VIEW_SCOPED_OBJECT,
   SCOPE_CENSUS_TRACTS
 } from '../../Store/AppState/actions'
+
+import {
+  MOBILE_SIDEBAR_ACTIVE_X_TRANSLATION,
+  MOBILE_SIDEBAR_INACTIVE_X_TRANSLATION,
+  MOBILE_SIDEBAR_ACTIVE_Y_TRANSLATION,
+  MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION,
+  MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION
+} from '../../SharedStyles/__constants__/sidebarContants.js'
 
 import SidebarLayerMenu from '../SidebarLayerMenu'
 import LayerInformationBox from '../LayerInformationBox'
@@ -39,15 +48,36 @@ describe('Sidebar', () => {
   })
 
   describe('with landscape orientation', () => {
-    const wrapper = shallow(
-      <Sidebar store={{ ...store, appState: { ...store.appState, landscapeOrientation: true } }} />
-    )
-    it('calculates the active X translation', () => {
-      expect(wrapper.instance().getActiveTransform()).toEqual('translateX(0)')
+    describe('with SIDEBAR_STATE_ACTIVE', () => {
+      const wrapper = shallow(
+        <Sidebar
+          store={{
+            ...store,
+            appState: { ...store.appState, landscapeOrientation: true, sidebarState: SIDEBAR_STATE_ACTIVE }
+          }}
+        />
+      )
+      it('calculates the active X translation', () => {
+        expect(wrapper.instance().getSidebarStateXTransform()).toEqual(
+          `translateX(${MOBILE_SIDEBAR_ACTIVE_X_TRANSLATION})`
+        )
+      })
     })
 
-    it('calculates the inactive X translation', () => {
-      expect(wrapper.instance().getInactiveTransform()).toEqual('translateX(-400px)')
+    describe('with SIDEBAR_STATE_INACTIVE', () => {
+      const wrapper = shallow(
+        <Sidebar
+          store={{
+            ...store,
+            appState: { ...store.appState, landscapeOrientation: true, sidebarState: SIDEBAR_STATE_INACTIVE }
+          }}
+        />
+      )
+      it('calculates the inactive X translation', () => {
+        expect(wrapper.instance().getSidebarStateXTransform()).toEqual(
+          `translateX(${MOBILE_SIDEBAR_INACTIVE_X_TRANSLATION})`
+        )
+      })
     })
 
     describe('with an active sidebar', () => {
@@ -82,16 +112,55 @@ describe('Sidebar', () => {
   })
 
   describe('with portrait orientation', () => {
-    const wrapper = shallow(
-      <Sidebar store={{ ...store, appState: { ...store.appState, landscapeOrientation: false } }} />
-    )
+    describe('with SIDEBAR_STATE_ACTIVE', () => {
+      const wrapper = shallow(
+        <Sidebar
+          store={{
+            ...store,
+            appState: { ...store.appState, landscapeOrientation: true, sidebarState: SIDEBAR_STATE_ACTIVE }
+          }}
+        />
+      )
 
-    it('calculates the active X translation', () => {
-      expect(wrapper.instance().getActiveTransform()).toEqual('translateY(0)')
+      it('calculates the active Y translation', () => {
+        expect(wrapper.instance().getSidebarStateYTransform()).toEqual(
+          `translateY(${MOBILE_SIDEBAR_ACTIVE_Y_TRANSLATION})`
+        )
+      })
     })
 
-    it('calculates the inactive X translation', () => {
-      expect(wrapper.instance().getInactiveTransform()).toEqual('translateY(100vh)')
+    describe('with SIDEBAR_STATE_PREVIEW', () => {
+      const wrapper = shallow(
+        <Sidebar
+          store={{
+            ...store,
+            appState: { ...store.appState, landscapeOrientation: true, sidebarState: SIDEBAR_STATE_PREVIEW }
+          }}
+        />
+      )
+
+      it('calculates the active Y translation', () => {
+        expect(wrapper.instance().getSidebarStateYTransform()).toEqual(
+          `translateY(${MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION})`
+        )
+      })
+    })
+
+    describe('with SIDEBAR_STATE_INACTIVE', () => {
+      const wrapper = shallow(
+        <Sidebar
+          store={{
+            ...store,
+            appState: { ...store.appState, landscapeOrientation: true, sidebarState: SIDEBAR_STATE_INACTIVE }
+          }}
+        />
+      )
+
+      it('calculates the active Y translation', () => {
+        expect(wrapper.instance().getSidebarStateYTransform()).toEqual(
+          `translateY(${MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION})`
+        )
+      })
     })
 
     describe('with an active sidebar', () => {
