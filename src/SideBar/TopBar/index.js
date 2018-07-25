@@ -8,14 +8,14 @@ import {
   SCOPE_BUILDINGS
 } from '../../Store/AppState/actions'
 
-import LandscapeTopButtons from './LandscapeTopButtons'
+import ControlRow from './ControlRow'
 import MobileTopButtons from './MobileTopButtons'
 
 import './style.scss'
 
 const getOrientationRow = props => {
   return props.appState.landscapeOrientation ? (
-    <LandscapeTopButtons appState={props.appState} selectedObjects={props.selectedObjects} />
+    <ControlRow appState={props.appState} selectedObjects={props.selectedObjects} />
   ) : (
     <MobileTopButtons appState={props.appState} />
   )
