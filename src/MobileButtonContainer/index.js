@@ -28,7 +28,7 @@ const MobileButtonContainer = props => {
   return (
     <div className="mobile-button-container" style={containerStyle}>
       <MobileBuildingLayerButton appState={props.appState} selectedObject={props.selectedObject} />
-      <MobileBoundaryLayerButton />
+      <MobileBoundaryLayerButton appState={props.appState} selectedObject={props.selectedObject} />
     </div>
   )
 }

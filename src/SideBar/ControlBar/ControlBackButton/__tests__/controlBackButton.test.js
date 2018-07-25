@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import ControlBackButton from '../index.js'
 
 import {
-  SIDEBAR_VIEW_MENU,
+  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
@@ -34,9 +34,9 @@ const selectedObjects = {
 
 describe('ControlBackButton', () => {
   describe('when rendering the back button', () => {
-    describe('when view = SIDEBAR_VIEW_MENU', () => {
+    describe('when view = SIDEBAR_VIEW_BOUNDARY_LAYER_MENU', () => {
       const appState = {
-        sidebarView: SIDEBAR_VIEW_MENU,
+        sidebarView: SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
         sidebarScope: SCOPE_CENSUS_TRACTS
       }
       const wrapper = shallow(<ControlBackButton appState={appState} selectedObjects={selectedObjects} />)
@@ -57,7 +57,7 @@ describe('ControlBackButton', () => {
       it('renders the back button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
         const backButtonProps = wrapper.props()
         expect(backButtonProps.scopeSwitch).toEqual(SCOPE_CENSUS_TRACTS)
-        expect(backButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_MENU)
+        expect(backButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_BOUNDARY_LAYER_MENU)
       })
     })
 

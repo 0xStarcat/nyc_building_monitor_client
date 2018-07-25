@@ -53,26 +53,4 @@ describe('GeoJsonBoundaryGroup', () => {
       expect(sidebarAction.calledOnce).toEqual(true)
     })
   })
-
-  describe('getSelectedObjectFunction', () => {
-    describe('when scope is SCOPE_NEIGHBORHOODS', () => {
-      const newProps = { ...props, scope: SCOPE_NEIGHBORHOODS }
-
-      const wrapper = shallow(<GeoJsonBoundaryGroup {...newProps} />)
-      it('returns the neighborhood function', () => {
-        const event = { target: { feature: { properties: { representativePoint: [0, 0] } } } }
-
-        expect(wrapper.instance().getSelectedObjectFunction()).toEqual(selectNewSelectedNeighborhoodObject)
-      })
-    })
-
-    describe('when scope is SCOPE_CENSUS_TRACTS', () => {
-      const wrapper = shallow(<GeoJsonBoundaryGroup {...props} />)
-      it('returns the census tract function', () => {
-        const event = { target: { feature: { properties: { representativePoint: [0, 0] } } } }
-
-        expect(wrapper.instance().getSelectedObjectFunction()).toEqual(selectNewSelectedCTObject)
-      })
-    })
-  })
 })

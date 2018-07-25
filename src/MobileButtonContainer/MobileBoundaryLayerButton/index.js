@@ -1,18 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SwitchViewButton from '../../SideBar/SharedComponents/SwitchViewButton'
+import DispatchActionButton from '../../SideBar/SharedComponents/DispatchActionButton'
 
-import { SIDEBAR_VIEW_MENU } from '../../Store/AppState/actions'
+import { openScopeMenu, openBoundaryLayerMenu, SIDEBAR_STATE_INACTIVE } from '../../Store/AppState/actions'
+
+const getAction = props => {
+  switch (props.appState.sidebarState) {
+    case SIDEBAR_STATE_INACTIVE:
+      return openScopeMenu
+    default:
+      return openBoundaryLayerMenu
+  }
+}
 
 const MobileBoundaryLayerButton = props => {
   return (
-    <SwitchViewButton className="mobile-button" scopeSwitch={null} viewSwitch={SIDEBAR_VIEW_MENU}>
+    <DispatchActionButton className="mobile-button" scopeSwitch={null} action={getAction(props)}>
       Scope
-    </SwitchViewButton>
+    </DispatchActionButton>
   )
 }
 
-MobileBoundaryLayerButton.propTypes = {}
+MobileBoundaryLayerButton.propTypes = {
+  appState: PropTypes.object,
+  selectedObject: PropTypes.object
+}
 
 export default MobileBoundaryLayerButton

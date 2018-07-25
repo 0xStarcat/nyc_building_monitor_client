@@ -7,9 +7,10 @@ import {
   SIDEBAR_STATE_ACTIVE,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_INACTIVE,
-  SIDEBAR_VIEW_MENU,
+  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_VIEW_SCOPED_OBJECT,
+  SIDEBAR_VIEW_SCOPE_MENU,
   SCOPE_CENSUS_TRACTS
 } from '../../Store/AppState/actions'
 
@@ -21,6 +22,7 @@ import {
   MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION
 } from '../../SharedStyles/__constants__/sidebarConstants.js'
 
+import MobileSidebarScopeMenu from '../MobileSidebarScopeMenu'
 import SidebarLayerMenu from '../SidebarLayerMenu'
 import LayerInformationBox from '../LayerInformationBox'
 
@@ -32,7 +34,7 @@ describe('Sidebar', () => {
     appState: {
       sidebarState: SIDEBAR_STATE_ACTIVE,
       landscapeOrientation: true,
-      sidebarView: SIDEBAR_VIEW_MENU,
+      sidebarView: SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
       sidebarScope: SCOPE_CENSUS_TRACTS
     },
     censusTracts: {
@@ -194,8 +196,18 @@ describe('Sidebar', () => {
     })
   })
 
-  describe('when sidebarView = SIDEBAR_VIEW_MENU', () => {
-    const wrapper = shallow(<Sidebar store={store} store={store} />)
+  describe('when sidebarView = SIDEBAR_VIEW_SCOPE_MENU', () => {
+    const wrapper = shallow(
+      <Sidebar store={{ ...store, appState: { ...store.appState, sidebarView: SIDEBAR_VIEW_SCOPE_MENU } }} />
+    )
+
+    it('renders the MobileSidebarScopeMenu', () => {
+      expect(wrapper.find(MobileSidebarScopeMenu).length).toEqual(1)
+    })
+  })
+
+  describe('when sidebarView = SIDEBAR_VIEW_BOUNDARY_LAYER_MENU', () => {
+    const wrapper = shallow(<Sidebar store={store} />)
 
     it('renders the SidebarLayerMenu', () => {
       expect(wrapper.find(SidebarLayerMenu).length).toEqual(1)

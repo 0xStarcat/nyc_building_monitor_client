@@ -5,8 +5,8 @@ export const initialState = {
   baseLayer: appStateActions.BASE_LAYER_MEDIAN_INCOME,
   baseLayerScope: appStateActions.SCOPE_CENSUS_TRACTS,
   selectedLayer: null,
-  sidebarState: false,
-  sidebarView: appStateActions.SIDEBAR_VIEW_MENU,
+  sidebarState: appStateActions.SIDEBAR_STATE_INACTIVE,
+  sidebarView: appStateActions.SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   sidebarScope: null,
   landscapeOrientation: window.matchMedia('(orientation: landscape)').matches
 }

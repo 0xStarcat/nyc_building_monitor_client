@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import LayerMenuButton from './LayerMenuButton'
+import LayerMenuButton from '../SharedComponents/LayerMenuButton'
 
 import {
   changeBaseLayer,

@@ -3,7 +3,11 @@ import { configure, shallow } from 'enzyme'
 import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import ExploreButton from '../index.js'
-import { SIDEBAR_VIEW_MENU, SIDEBAR_VIEW_SCOPED_OBJECTS, SCOPE_CENSUS_TRACTS } from '../../../../Store/AppState/actions'
+import {
+  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_SCOPED_OBJECTS,
+  SCOPE_CENSUS_TRACTS
+} from '../../../../Store/AppState/actions'
 
 configure({ adapter: new Adapter() })
 
@@ -24,10 +28,10 @@ describe('ExploreButton', () => {
     })
   })
 
-  describe('with sidebarView = SIDEBAR_VIEW_MENU', () => {
+  describe('with sidebarView = SIDEBAR_VIEW_BOUNDARY_LAYER_MENU', () => {
     const wrapper = shallow(
       <ExploreButton
-        appState={{ ...appState, sidebarView: SIDEBAR_VIEW_MENU }}
+        appState={{ ...appState, sidebarView: SIDEBAR_VIEW_BOUNDARY_LAYER_MENU }}
         dispatch={dispatch}
         selectedObject={selectedObject}
       />

@@ -18,7 +18,8 @@ export const SIDEBAR_STATE_PREVIEW = 'SIDEBAR_STATE_PREVIEW'
 export const SIDEBAR_STATE_ACTIVE = 'SIDEBAR_STATE_ACTIVE'
 
 // Views
-export const SIDEBAR_VIEW_MENU = 'SIDEBAR_VIEW_MENU'
+export const SIDEBAR_VIEW_SCOPE_MENU = 'SIDEBAR_VIEW_SCOPE_MENU'
+export const SIDEBAR_VIEW_BOUNDARY_LAYER_MENU = 'SIDEBAR_VIEW_BOUNDARY_LAYER_MENU'
 export const SIDEBAR_VIEW_SCOPED_OBJECTS = 'SIDE_VIEW_SCOPED_OBJECTS'
 export const SIDEBAR_VIEW_SCOPED_OBJECT = 'SIDE_VIEW_SCOPED_OBJECT'
 
@@ -75,6 +76,16 @@ export const changeBaseLayerScope = event => ({
   type: CHANGE_BASE_LAYER_SCOPE,
   data: event
 })
+
+export const openBoundaryLayerMenu = event => dispatch => {
+  dispatch(changeSidebarView(SIDEBAR_VIEW_BOUNDARY_LAYER_MENU))
+  dispatch(activateSidebar())
+}
+
+export const openScopeMenu = event => dispatch => {
+  dispatch(changeSidebarView(SIDEBAR_VIEW_SCOPE_MENU))
+  dispatch(previewSidebar())
+}
 
 export const switchScopeWithFetch = event => dispatch => {
   const fetchMethod = () => {

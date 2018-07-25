@@ -4,7 +4,7 @@ import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import { SwitchViewButton } from '../index.js'
 
-import { SCOPE_VIOLATIONS } from '../../../../Store/AppState/actions'
+import { SCOPE_CENSUS_TRACTS, SIDEBAR_VIEW_SCOPE_MENU } from '../../../../Store/AppState/actions'
 
 configure({ adapter: new Adapter() })
 
@@ -30,12 +30,42 @@ describe('SwitchViewButton', () => {
     })
 
     describe('when not disabled', () => {
-      const dispatchFn = sinon.spy()
-      const wrapper = shallow(<SwitchViewButton disabled={false} dispatch={dispatchFn} />)
+      describe('if scopeSwitch prop', () => {
+        const dispatchFn = sinon.spy()
+        const wrapper = shallow(
+          <SwitchViewButton disabled={false} dispatch={dispatchFn} scopeSwitch={SCOPE_CENSUS_TRACTS} />
+        )
+        wrapper.find('.switch-view-button').simulate('click')
+        it('calls the dispatch method once', () => {
+          expect(dispatchFn.calledOnce).toEqual(true)
+        })
+      })
 
-      wrapper.find('.switch-view-button').simulate('click')
-      it('calls the dispatch method twice', () => {
-        expect(dispatchFn.calledTwice).toEqual(true)
+      describe('if viewSwitch prop', () => {
+        const dispatchFn = sinon.spy()
+        const wrapper = shallow(
+          <SwitchViewButton disabled={false} dispatch={dispatchFn} viewSwitch={SIDEBAR_VIEW_SCOPE_MENU} />
+        )
+        wrapper.find('.switch-view-button').simulate('click')
+        it('calls the dispatch method once', () => {
+          expect(dispatchFn.calledOnce).toEqual(true)
+        })
+      })
+
+      describe('if scopeSwitch and viewSwitch prop', () => {
+        const dispatchFn = sinon.spy()
+        const wrapper = shallow(
+          <SwitchViewButton
+            disabled={false}
+            dispatch={dispatchFn}
+            scopeSwitch={SCOPE_CENSUS_TRACTS}
+            viewSwitch={SIDEBAR_VIEW_SCOPE_MENU}
+          />
+        )
+        wrapper.find('.switch-view-button').simulate('click')
+        it('calls the dispatch method twice', () => {
+          expect(dispatchFn.calledTwice).toEqual(true)
+        })
       })
     })
   })

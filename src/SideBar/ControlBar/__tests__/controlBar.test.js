@@ -7,7 +7,7 @@ import LandscapeButtons from '../LandscapeButtons'
 import MobileButtons from '../MobileButtons'
 
 import {
-  SIDEBAR_VIEW_MENU,
+  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,

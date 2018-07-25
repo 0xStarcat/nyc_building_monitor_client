@@ -35,6 +35,7 @@ export class GeoJsonBoundaryGroup extends Component {
   getSelectedObjectFunction(event) {
     switch (this.props.scope) {
       case SCOPE_NEIGHBORHOODS:
+        console.log('hii')
         return selectNewSelectedNeighborhoodObject(event.target.feature.properties)
       case SCOPE_CENSUS_TRACTS:
         return selectNewSelectedCTObject(event.target.feature.properties)
