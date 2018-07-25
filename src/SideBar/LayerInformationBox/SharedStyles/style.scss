@@ -36,7 +36,7 @@
 @media screen and (orientation: portrait) {
   .information-box {
     font-size: 14px;
-    margin-top: -$medium-spacing;
+    margin-top: $tiny-spacing;
 
     .row-box {
       label {

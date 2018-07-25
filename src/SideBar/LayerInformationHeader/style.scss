@@ -1,7 +1,8 @@
-@import '../../../SharedStyles/index.scss';
+@import '../../SharedStyles/index.scss';
 
 .headerBar {
   background-color: $primaryBackground;
+  box-sizing: border-box;
   color: white;
   display: flex;
   flex-direction: column;

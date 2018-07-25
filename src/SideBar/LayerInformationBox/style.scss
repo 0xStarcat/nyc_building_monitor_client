@@ -3,6 +3,10 @@
 .layerInformationBox {
   box-sizing: border-box;
   overflow: scroll;
+
+  .information-box {
+    padding: $small-spacing 0 $small-spacing 0;
+  }
 }
 
 @media screen and (orientation: portrait) {

@@ -40,8 +40,8 @@ export default class LeafletMap extends Component {
   }
 
   render() {
-    console.log('map render')
     const position = [this.state.lat, this.state.lon]
+    const controls = document.querySelector('.leaflet-control-layers.leaflet-control')
     return (
       <div>
         <Map

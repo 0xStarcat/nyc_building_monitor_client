@@ -2,12 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react'
 import AppLink from '../SharedComponents/AppLink'
+import LayerInformationHeader from './LayerInformationHeader'
+
 import LayerInformationBox from './LayerInformationBox'
 import SidebarLayerMenu from './SidebarLayerMenu'
 import MobileSidebarScopeMenu from './MobileSidebarScopeMenu'
 import SidebarBuildingLayerMenu from './SidebarBuildingLayerMenu'
 
-import ControlBar from './ControlBar'
+import TopBar from './TopBar'
+import ControlRow from './TopBar/ControlRow'
+import ExploreButton from './SharedComponents/ExploreButton'
 
 import {
   MOBILE_SIDEBAR_ACTIVE_X_TRANSLATION,
@@ -62,21 +66,51 @@ class SideBar extends React.Component {
   }
 
   getView() {
-    switch (this.props.store.appState.sidebarView) {
+    const appState = this.props.store.appState
+    const selectedObject = (this.props.store[appState.sidebarScope] || {}).selectedObject
+    switch (appState.sidebarView) {
       case SIDEBAR_VIEW_SCOPE_MENU:
-        return <MobileSidebarScopeMenu dispatch={this.props.dispatch} />
+        return (
+          <div className="sidebar-view-container">
+            <MobileSidebarScopeMenu dispatch={this.props.dispatch} />{' '}
+            {!appState.landscapeOrientation && (
+              <ControlRow appState={appState} selectedObjects={this.props.selectedObjects} />
+            )}
+          </div>
+        )
       case SIDEBAR_VIEW_BOUNDARY_LAYER_MENU:
-        return <SidebarLayerMenu dispatch={this.props.dispatch} />
+        return (
+          <div className="sidebar-view-container">
+            <SidebarLayerMenu dispatch={this.props.dispatch} />{' '}
+            {!appState.landscapeOrientation && (
+              <ControlRow appState={appState} selectedObjects={this.props.selectedObjects} />
+            )}
+          </div>
+        )
       case SIDEBAR_VIEW_BUILDING_LAYER_MENU:
-        return <SidebarBuildingLayerMenu dispatch={this.props.dispatch} />
+        return (
+          <div className="sidebar-view-container">
+            <SidebarBuildingLayerMenu dispatch={this.props.dispatch} />{' '}
+            {!appState.landscapeOrientation && (
+              <ControlRow appState={appState} selectedObjects={this.props.selectedObjects} />
+            )}
+          </div>
+        )
       case SIDEBAR_VIEW_SCOPED_OBJECTS:
         return (
-          <LayerInformationBox
-            appState={this.props.store.appState}
-            dispatch={this.props.dispatch}
-            features={this.props.store[this.props.store.appState.sidebarScope].features}
-            selectedObject={this.props.store[this.props.store.appState.sidebarScope].selectedObject}
-          />
+          <div className="sidebar-view-container">
+            <LayerInformationHeader selectedObject={selectedObject} />
+            {!appState.landscapeOrientation && (
+              <ControlRow appState={appState} selectedObjects={this.props.selectedObjects} />
+            )}
+            {appState.landscapeOrientation && <ExploreButton appState={appState} selectedObject={selectedObject} />}
+            <LayerInformationBox
+              appState={appState}
+              dispatch={this.props.dispatch}
+              features={this.props.store[appState.sidebarScope].features}
+              selectedObject={selectedObject}
+            />
+          </div>
         )
     }
   }
@@ -92,7 +126,7 @@ class SideBar extends React.Component {
   render() {
     return (
       <div id="sidebar" style={this.storeStyle()}>
-        <ControlBar
+        <TopBar
           dispatch={this.props.dispatch}
           appState={this.props.store.appState}
           selectedObjects={this.props.selectedObjects}

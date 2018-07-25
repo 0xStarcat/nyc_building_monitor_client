@@ -18,11 +18,19 @@ const { BaseLayer, Overlay } = LayersControl
 class BuildingLayersMenu extends Component {
   constructor(props) {
     super(props)
+
+    this.layerControlRef = React.createRef()
+  }
+
+  componentDidMount() {
+    if (this.layerControlRef.current) {
+      this.layerControlRef.current.leafletElement._container.style.display = 'none'
+    }
   }
 
   render() {
     return (
-      <LayersControl collapsed={true} position={this.props.position}>
+      <LayersControl className="hidden" collapsed={true} position={this.props.position} ref={this.layerControlRef}>
         <BaseLayer checked={this.props.appState.buildingBaseLayer === BASE_LAYER_BUILDING_CATEGORIES} name="Plain">
           <GeoJsonBuildingLayer
             features={this.props.buildings}

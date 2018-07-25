@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { SCOPE_CENSUS_TRACTS, SCOPE_BUILDINGS } from '../../../Store/AppState/actions'
+import { SCOPE_CENSUS_TRACTS, SCOPE_BUILDINGS } from '../../Store/AppState/actions'
 import './style.scss'
 
 const LayerInformationHeader = props => {
@@ -24,8 +24,7 @@ const LayerInformationHeader = props => {
 }
 
 LayerInformationHeader.propTypes = {
-  selectedObject: PropTypes.object,
-  sidebarScope: PropTypes.string
+  selectedObject: PropTypes.object
 }
 
 export default LayerInformationHeader

@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 
 import ExploreButton from '../../SideBar/SharedComponents/ExploreButton'
 import BuildingLayersButton from '../../SideBar/SharedComponents/BuildingLayersButton'
+
+import { SIDEBAR_STATE_INACTIVE } from '../../Store/AppState/actions'
+
 const getButton = props => {
-  console.log(props.buildingsPresent)
   return props.buildingsPresent ? (
     <BuildingLayersButton />
   ) : (
@@ -13,6 +15,7 @@ const getButton = props => {
 }
 
 const MobileBuildingLayerButton = props => {
+  if (props.appState.sidebarState === SIDEBAR_STATE_INACTIVE) return null
   return <div className="mobile-building-layer-button">{getButton(props)}</div>
 }
 

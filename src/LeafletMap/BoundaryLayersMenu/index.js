@@ -68,6 +68,12 @@ class BoundaryLayersMenu extends Component {
     return !this.props.store.allLayersLoaded
   }
 
+  componentDidMount() {
+    if (this.layerControlRef.current) {
+      this.layerControlRef.current.leafletElement._container.style.display = 'none'
+    }
+  }
+
   render() {
     return (
       <ScopedMenu

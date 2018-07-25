@@ -50,10 +50,7 @@ const ControlBackButton = props => {
 }
 
 ControlBackButton.propTypes = {
-  appState: PropTypes.object,
-  disabled: PropTypes.bool,
-  scopeSwitch: PropTypes.string,
-  viewSwitch: PropTypes.string
+  appState: PropTypes.object
 }
 
 export default ControlBackButton

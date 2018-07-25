@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import ExploreButton from '../SharedComponents/ExploreButton'
-import LayerInformationHeader from './LayerInformationHeader'
 import BoundaryInformation from './BoundaryInformation'
 import BuildingInformation from './BuildingInformation'
 import ViolationsTable from './ViolationsTable'
@@ -47,10 +45,6 @@ class LayerInformationBox extends React.Component {
   render() {
     return (
       <div className="layerInformationBox">
-        <LayerInformationHeader selectedObject={this.props.selectedObject} sidebarScope={this.props.sidebarScope} />
-        {this.props.appState.landscapeOrientation && (
-          <ExploreButton appState={this.props.appState} selectedObject={this.props.selectedObject} />
-        )}
         <div className="information-box">{this.displayInformationBox()}</div>
       </div>
     )

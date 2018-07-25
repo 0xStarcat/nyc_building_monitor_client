@@ -64,10 +64,7 @@ const ControlNextButton = props => {
 
 ControlNextButton.propTypes = {
   appState: PropTypes.object,
-  disabled: PropTypes.bool,
-  scopeSwitch: PropTypes.string,
-  selectedObjects: PropTypes.object,
-  viewSwitch: PropTypes.string
+  selectedObjects: PropTypes.object
 }
 
 export default ControlNextButton

@@ -2,9 +2,9 @@ import React from 'react'
 import { configure, shallow, mount } from 'enzyme'
 import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
-import ControlBar from '../index.js'
-import LandscapeButtons from '../LandscapeButtons'
-import MobileButtons from '../MobileButtons'
+import TopBar from '../index.js'
+import LandscapeTopButtons from '../LandscapeTopButtons'
+import MobileTopButtons from '../MobileTopButtons'
 
 import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
@@ -35,26 +35,26 @@ const selectedObjects = {
   }
 }
 
-describe('ControlBar', () => {
-  const wrapper = shallow(<ControlBar appState={appState} selectedObjects={selectedObjects} />)
+describe('TopBar', () => {
+  const wrapper = shallow(<TopBar appState={appState} selectedObjects={selectedObjects} />)
 
   it('renders the component', () => {
     expect(wrapper.find('.control-bar').length).toEqual(1)
   })
 
   describe('in landscape', () => {
-    const wrapper = shallow(<ControlBar appState={appState} selectedObjects={selectedObjects} />)
-    it('renders LandscapeButtons', () => {
-      expect(wrapper.children().find(LandscapeButtons).length).toEqual(1)
+    const wrapper = shallow(<TopBar appState={appState} selectedObjects={selectedObjects} />)
+    it('renders LandscapeTopButtons', () => {
+      expect(wrapper.children().find(LandscapeTopButtons).length).toEqual(1)
     })
   })
 
   describe('in portrait', () => {
     const wrapper = shallow(
-      <ControlBar appState={{ ...appState, landscapeOrientation: false }} selectedObjects={selectedObjects} />
+      <TopBar appState={{ ...appState, landscapeOrientation: false }} selectedObjects={selectedObjects} />
     )
-    it('renders LandscapeButtons', () => {
-      expect(wrapper.children().find(MobileButtons).length).toEqual(1)
+    it('renders LandscapeTopButtons', () => {
+      expect(wrapper.children().find(MobileTopButtons).length).toEqual(1)
     })
   })
 })

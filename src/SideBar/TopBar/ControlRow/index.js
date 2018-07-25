@@ -3,21 +3,23 @@ import PropTypes from 'prop-types'
 
 import ControlBackButton from '../ControlBackButton'
 import ControlNextButton from '../ControlNextButton'
-import ControlToggleButton from '../ControlToggleButton'
 
-const LandscapeButtons = props => {
+import { SIDEBAR_STATE_INACTIVE, SIDEBAR_STATE_PREVIEW, SIDEBAR_STATE_ACTIVE } from '../../../Store/AppState/actions'
+
+import './style.scss'
+
+const MobileTopButtons = props => {
   return (
-    <div className="landscape-buttons button-row">
+    <div className="control-row button-row">
       <ControlBackButton appState={props.appState} />
       <ControlNextButton appState={props.appState} selectedObjects={props.selectedObjects} />
-      <ControlToggleButton appState={props.appState} />
     </div>
   )
 }
 
-LandscapeButtons.propTypes = {
+MobileTopButtons.propTypes = {
   appState: PropTypes.object,
   selectedObjects: PropTypes.object
 }
 
-export default LandscapeButtons
+export default MobileTopButtons

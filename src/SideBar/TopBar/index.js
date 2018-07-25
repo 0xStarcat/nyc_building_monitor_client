@@ -8,26 +8,26 @@ import {
   SCOPE_BUILDINGS
 } from '../../Store/AppState/actions'
 
-import LandscapeButtons from './LandscapeButtons'
-import MobileButtons from './MobileButtons'
+import LandscapeTopButtons from './LandscapeTopButtons'
+import MobileTopButtons from './MobileTopButtons'
 
 import './style.scss'
 
 const getOrientationRow = props => {
   return props.appState.landscapeOrientation ? (
-    <LandscapeButtons appState={props.appState} selectedObjects={props.selectedObjects} />
+    <LandscapeTopButtons appState={props.appState} selectedObjects={props.selectedObjects} />
   ) : (
-    <MobileButtons appState={props.appState} />
+    <MobileTopButtons appState={props.appState} />
   )
 }
-const ControlBar = props => {
+const TopBar = props => {
   return <div className="control-bar">{getOrientationRow(props)}</div>
 }
 
-ControlBar.propTypes = {
+TopBar.propTypes = {
   appState: PropTypes.object,
   dispatch: PropTypes.func,
   selectedObjects: PropTypes.object
 }
 
-export default ControlBar
+export default TopBar

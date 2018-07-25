@@ -1,6 +1,10 @@
 @import '../SharedStyles/index.scss';
 
 #sidebar {
+  .sidebar-view-container {
+    position: relative;
+  }
+
   background-color: white;
   display: flex;
   flex-direction: column;

@@ -7,7 +7,7 @@ import ControlPreviewButton from '../ControlPreviewButton'
 
 import { SIDEBAR_STATE_INACTIVE, SIDEBAR_STATE_PREVIEW, SIDEBAR_STATE_ACTIVE } from '../../../Store/AppState/actions'
 
-const MobileButtons = props => {
+const MobileTopButtons = props => {
   return (
     <div className="mobile-buttons button-row">
       <ControlHideButton />
@@ -17,8 +17,8 @@ const MobileButtons = props => {
   )
 }
 
-MobileButtons.propTypes = {
+MobileTopButtons.propTypes = {
   appState: PropTypes.object
 }
 
-export default MobileButtons
+export default MobileTopButtons
