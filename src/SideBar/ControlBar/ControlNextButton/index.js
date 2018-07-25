@@ -52,7 +52,7 @@ const ControlNextButton = props => {
 
   return (
     <SwitchViewButton
-      className={`next-button control-button button ${disabled ? 'disabled-button' : ''}`}
+      className={`next-button control-button ${disabled ? 'disabled-button' : ''}`}
       disabled={disabled}
       scopeSwitch={getNextScope()}
       viewSwitch={getNextView()}

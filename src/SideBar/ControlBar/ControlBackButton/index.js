@@ -39,7 +39,7 @@ const ControlBackButton = props => {
 
   return (
     <SwitchViewButton
-      className={`back-button control-button button ${disabled ? 'disabled-button' : ''}`}
+      className={`back-button control-button ${disabled ? 'disabled-button' : ''}`}
       disabled={disabled}
       scopeSwitch={getBackScope()}
       viewSwitch={getBackView()}
