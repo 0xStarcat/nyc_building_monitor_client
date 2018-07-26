@@ -7,6 +7,7 @@
 }
 
 .hover-shadow {
+  box-sizing: border-box;
   border: 1px solid black;
 }
 
@@ -18,6 +19,18 @@
 .hover-shadow:active {
   border: 1px inset black;
   box-shadow: 0 0 4px 2px gray;
+}
+
+.borderless {
+  border: 1px solid transparent;
+}
+
+.borderless:hover {
+  border: 1px solid transparent;
+}
+
+.borderless:active {
+  border: 1px solid transparent;
 }
 
 .disabled-button {

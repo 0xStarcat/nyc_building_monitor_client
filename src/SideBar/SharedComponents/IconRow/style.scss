@@ -1,0 +1,45 @@
+@import '../../../SharedStyles/index.scss';
+.icon-row {
+  align-items: center;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  padding: $tiny-spacing 0 $tiny-spacing 0;
+
+  label {
+    flex-grow: 0;
+    max-width: $first-column-width;
+    width: $first-column-width;
+  }
+
+  div {
+    align-self: stretch;
+    border-left: 1px dotted black;
+    flex-grow: 1;
+    padding-left: $tiny-spacing;
+    text-align: left;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  i {
+    height: $iconHeight;
+    width: $iconHeight;
+    margin-right: $tiny-spacing;
+  }
+}
+.icon-row-text-align {
+  padding-left: $tiny-spacing + $iconHeight;
+}
+
+@media screen and (orientation: portrait) {
+  .icon-row {
+    label {
+      width: 50vw;
+      min-width: 300px;
+    }
+  }
+}

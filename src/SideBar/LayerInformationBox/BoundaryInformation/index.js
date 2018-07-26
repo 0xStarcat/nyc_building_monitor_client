@@ -10,7 +10,8 @@ import {
   ViolationIcon,
   ViolationPerBuildingIcon,
   ServiceCallIcon,
-  ServiceCallOpenIcon
+  ServiceCallOpenIcon,
+  TimeToResolveCallsIcon
 } from '../../../SharedStyles/icons'
 import IconRow from '../../SharedComponents/IconRow'
 import '../SharedStyles/style.scss'
@@ -53,8 +54,12 @@ const BoundaryInformation = props => {
         <IconRow icon={ServiceCallIcon}>
           There are <span>{props.selectedObject.serviceCallsTotal} total 311 calls.</span>
         </IconRow>
+        <IconRow icon={TimeToResolveCallsIcon}>
+          It takes an average of {props.selectedObject.averageDaysToResolveServiceCalls} days for building departments
+          to resolve 311 calls here.
+        </IconRow>
         <IconRow icon={ServiceCallOpenIcon}>
-          {props.selectedObject.serviceCallsPercentOpenOneMonth}% of the 311 calls have been open over 1 month.
+          {props.selectedObject.serviceCallsPercentOpenOneMonth}% of current 311 calls have been open over 1 month.
         </IconRow>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { FeatureGroup, LayerGroup, LayersControl, GeoJSON, TileLayer, Pane } fro
 
 import GeoJsonBuildingLayer from '../GeoJsonBuildingLayer'
 
-import { buildingStyle, violationBuildingStyle, saleBuildingStyle } from '../GeoJsonBuildingStyles'
+import { buildingClassStyle, violationBuildingStyle, saleBuildingStyle } from '../GeoJsonBuildingStyles'
 import {
   activateSidebar,
   previewSidebar,
@@ -36,7 +36,7 @@ class BuildingLayersMenu extends Component {
             features={this.props.buildings}
             interactive={true}
             sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
-            style={buildingStyle}
+            style={buildingClassStyle}
           />
         </BaseLayer>
         <BaseLayer
