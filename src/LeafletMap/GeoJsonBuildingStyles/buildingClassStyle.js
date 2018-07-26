@@ -3,147 +3,147 @@ const buildingClassStyle = feature => {
   const firstChar = buildingClass.charAt(0)
   if (!feature.properties.buildingClass) {
     return {
-      color: 'd9d9d9',
+      color: 'IVORY',
       fillColor: 'd9d9d9',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   }
   if (firstChar === 'A') {
     return {
-      color: '#9ecae1',
+      color: 'IVORY',
       fillColor: '#9ecae1',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'B') {
     return {
-      color: '#6baed6',
+      color: 'IVORY',
       fillColor: '#6baed6',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'C') {
     return {
-      color: '#4292c6',
+      color: 'IVORY',
       fillColor: '#4292c6',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'D') {
     return {
-      color: '#08519c',
+      color: 'IVORY',
       fillColor: '#08519c',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'E') {
     return {
-      color: 'chocolate',
-      fillColor: 'chocolate',
+      color: 'ch',
+      fillColor: 'SADDLEBROWN',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'F') {
     return {
-      color: 'saddlebrown',
-      fillColor: 'saddlebrown',
+      color: 'sadd',
+      fillColor: 'BROWN',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'G') {
     return {
-      color: 'brown',
-      fillColor: 'brown',
+      color: 'IVORY',
+      fillColor: 'MAROON',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'H') {
     return {
-      color: '#ff7f00',
+      color: 'IVORY',
       fillColor: '#ff7f00',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'I') {
     return {
-      color: '#a65628',
-      fillColor: '#a65628',
+      color: 'IVORY',
+      fillColor: 'PALEVIOLETRED',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'J') {
     return {
-      color: '#984ea3',
+      color: 'IVORY',
       fillColor: '#984ea3',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'K') {
     return {
-      color: '#fff7bc',
+      color: 'IVORY',
       fillColor: '#fff7bc',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'L') {
     return {
-      color: '#41b6c4',
+      color: 'IVORY',
       fillColor: '#41b6c4',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'M') {
     return {
-      color: '#ffeda0',
+      color: 'IVORY',
       fillColor: '#ffeda0',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'N') {
     return {
-      color: '#fc4e2a',
-      fillColor: '#fc4e2a',
+      color: 'IVORY',
+      fillColor: 'SALMON',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'O') {
     return {
-      color: '#ffffb3',
+      color: 'IVORY',
       fillColor: '#ffffb3',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'P') {
     return {
-      color: '#78c679',
+      color: 'IVORY',
       fillColor: '#78c679',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'Q') {
     return {
-      color: '#238b45',
+      color: 'IVORY',
       fillColor: '#238b45',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (
@@ -162,74 +162,74 @@ const buildingClassStyle = feature => {
     firstChar === 'S'
   ) {
     return {
-      color: '#7fcdbb',
+      color: 'IVORY',
       fillColor: '#7fcdbb',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'R') {
     return {
-      color: 'hotpink',
+      color: 'IVORY',
       fillColor: 'hotpink',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'T') {
     return {
-      color: '#d9d9d9',
+      color: 'IVORY',
       fillColor: '#d9d9d9',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'U') {
     return {
-      color: '#d9d9d9',
+      color: 'IVORY',
       fillColor: '#d9d9d9',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'V') {
     return {
-      color: '#d9d9d9',
+      color: 'IVORY',
       fillColor: '#d9d9d9',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'W') {
     return {
-      color: '#dd3497',
-      fillColor: '#dd3497',
+      color: 'IVORY',
+      fillColor: 'DARKORANGE',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'Y') {
     return {
-      color: '#dd3497',
-      fillColor: '#dd3497',
+      color: 'IVORY',
+      fillColor: 'CRIMSON',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else if (firstChar === 'Z') {
     return {
-      color: '#dd3497',
+      color: 'IVORY',
       fillColor: '#dd3497',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   } else {
     return {
-      color: 'd9d9d9',
+      color: 'IVORY',
       fillColor: 'd9d9d9',
       opacity: 1,
-      fillOpacity: 0.5,
+      fillOpacity: 0.9,
       weight: 1
     }
   }
