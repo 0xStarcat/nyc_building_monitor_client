@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 const DispatchActionButton = props => {
   const onClick = () => {
+    if (props.disabled) return null
     props.dispatch(props.action())
   }
   return (
@@ -15,7 +16,8 @@ const DispatchActionButton = props => {
 
 DispatchActionButton.propTypes = {
   action: PropTypes.func,
-  className: PropTypes.string
+  className: PropTypes.string,
+  disabled: PropTypes.bool
 }
 
 export default connect()(DispatchActionButton)

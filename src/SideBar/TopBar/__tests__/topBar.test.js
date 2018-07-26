@@ -66,16 +66,6 @@ describe('TopBar', () => {
       landscapeOrientation: false
     }
 
-    describe('when SIDEBAR_STATE_INACTIVE', () => {
-      const wrapper = shallow(<TopBar appState={appState} />)
-      it('renders nothing', () => {
-        expect(wrapper.children().find(ControlHideButton).length).toEqual(0)
-        expect(wrapper.children().find(ControlPreviewButton).length).toEqual(0)
-
-        expect(wrapper.children().find(ControlExpandButton).length).toEqual(0)
-      })
-    })
-
     describe('when SIDEBAR_STATE_PREVIEW', () => {
       const wrapper = shallow(<TopBar appState={{ ...appState, sidebarState: SIDEBAR_STATE_PREVIEW }} />)
       it('renders ControlHideButton and ControlExpandButton', () => {
@@ -87,9 +77,9 @@ describe('TopBar', () => {
     describe('when SIDEBAR_STATE_ACTIVE', () => {
       const wrapper = shallow(<TopBar appState={{ ...appState, sidebarState: SIDEBAR_STATE_ACTIVE }} />)
 
-      it('renders ControlPreviewButton and not the expand button', () => {
+      it('renders ControlPreviewButton and expand button', () => {
         expect(wrapper.children().find(ControlPreviewButton).length).toEqual(1)
-        expect(wrapper.children().find(ControlExpandButton).length).toEqual(0)
+        expect(wrapper.children().find(ControlExpandButton).length).toEqual(1)
       })
     })
   })

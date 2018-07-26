@@ -12,6 +12,8 @@ import SidebarBuildingLayerMenu from './SidebarBuildingLayerMenu'
 import TopBar from './TopBar'
 import ControlRow from './SharedComponents/ControlRow'
 import ExploreButton from './SharedComponents/ExploreButton'
+import ControlBackButton from './SharedComponents/ControlBackButton'
+import ControlNextButton from './SharedComponents/ControlNextButton'
 
 import {
   MOBILE_SIDEBAR_ACTIVE_X_TRANSLATION,
@@ -72,37 +74,26 @@ class SideBar extends React.Component {
       case SIDEBAR_VIEW_SCOPE_MENU:
         return (
           <div className="sidebar-view-container">
-            <MobileSidebarScopeMenu dispatch={this.props.dispatch} />{' '}
-            {!appState.landscapeOrientation && (
-              <ControlRow appState={appState} selectedObjects={this.props.selectedObjects} />
-            )}
+            <MobileSidebarScopeMenu dispatch={this.props.dispatch} />
           </div>
         )
       case SIDEBAR_VIEW_BOUNDARY_LAYER_MENU:
         return (
           <div className="sidebar-view-container">
-            <SidebarLayerMenu dispatch={this.props.dispatch} />{' '}
-            {!appState.landscapeOrientation && (
-              <ControlRow appState={appState} selectedObjects={this.props.selectedObjects} />
-            )}
+            <SidebarLayerMenu dispatch={this.props.dispatch} />
           </div>
         )
       case SIDEBAR_VIEW_BUILDING_LAYER_MENU:
         return (
           <div className="sidebar-view-container">
-            <SidebarBuildingLayerMenu dispatch={this.props.dispatch} />{' '}
-            {!appState.landscapeOrientation && (
-              <ControlRow appState={appState} selectedObjects={this.props.selectedObjects} />
-            )}
+            <SidebarBuildingLayerMenu dispatch={this.props.dispatch} />
           </div>
         )
       case SIDEBAR_VIEW_SCOPED_OBJECTS:
         return (
           <div className="sidebar-view-container">
             <LayerInformationHeader selectedObject={selectedObject} />
-            {!appState.landscapeOrientation && (
-              <ControlRow appState={appState} selectedObjects={this.props.selectedObjects} />
-            )}
+
             {appState.landscapeOrientation && <ExploreButton appState={appState} selectedObject={selectedObject} />}
             <LayerInformationBox
               appState={appState}

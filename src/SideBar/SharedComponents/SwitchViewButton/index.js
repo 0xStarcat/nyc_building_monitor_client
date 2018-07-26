@@ -19,7 +19,7 @@ export class SwitchViewButton extends React.Component {
 
   render() {
     return (
-      <div className={`button switch-view-button hover-shadow ${this.props.className}`} onClick={this.onClick}>
+      <div className={`button switch-view-button ${this.props.className}`} onClick={this.onClick}>
         {this.props.children}
       </div>
     )

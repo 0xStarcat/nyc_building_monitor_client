@@ -33,9 +33,21 @@ const getOrientationRow = props => {
     </ControlRow>
   ) : (
     <ControlRow>
-      {props.appState.sidebarState === SIDEBAR_STATE_PREVIEW && <ControlHideButton className="control-row-child" />}
-      {props.appState.sidebarState === SIDEBAR_STATE_ACTIVE && <ControlPreviewButton className="control-row-child" />}
-      {props.appState.sidebarState === SIDEBAR_STATE_PREVIEW && <ControlExpandButton className="control-row-child" />}
+      <ControlBackButton appState={props.appState} className="control-row-child" />
+
+      {props.appState.sidebarState === SIDEBAR_STATE_PREVIEW && (
+        <ControlHideButton className="control-row-child" sidebarState={props.appState.sidebarState} />
+      )}
+      {props.appState.sidebarState === SIDEBAR_STATE_ACTIVE && (
+        <ControlPreviewButton className="control-row-child" sidebarState={props.appState.sidebarState} />
+      )}
+      <ControlExpandButton className="control-row-child" sidebarState={props.appState.sidebarState} />
+
+      <ControlNextButton
+        appState={props.appState}
+        className="control-row-child"
+        selectedObjects={props.selectedObjects}
+      />
     </ControlRow>
   )
 }
