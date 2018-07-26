@@ -85,7 +85,7 @@ const buildingClassStyle = feature => {
   } else if (firstChar === 'J') {
     return {
       color: 'IVORY',
-      fillColor: '#984ea3',
+      fillColor: 'AQUAMARINE',
       opacity: 1,
       fillOpacity: 0.9,
       weight: 1
@@ -93,7 +93,7 @@ const buildingClassStyle = feature => {
   } else if (firstChar === 'K') {
     return {
       color: 'IVORY',
-      fillColor: '#fff7bc',
+      fillColor: 'KHAKI',
       opacity: 1,
       fillOpacity: 0.9,
       weight: 1
@@ -109,7 +109,7 @@ const buildingClassStyle = feature => {
   } else if (firstChar === 'M') {
     return {
       color: 'IVORY',
-      fillColor: '#ffeda0',
+      fillColor: 'PEACHPUFF',
       opacity: 1,
       fillOpacity: 0.9,
       weight: 1
@@ -122,10 +122,10 @@ const buildingClassStyle = feature => {
       fillOpacity: 0.9,
       weight: 1
     }
-  } else if (firstChar === 'O') {
+  } else if (buildingClass === 'RB' || firstChar === 'O') {
     return {
       color: 'IVORY',
-      fillColor: '#ffffb3',
+      fillColor: 'GOLD',
       opacity: 1,
       fillOpacity: 0.9,
       weight: 1

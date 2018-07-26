@@ -66,20 +66,20 @@ const BuildingInformation = props => {
         </SwitchViewFetchButton>
         <SwitchViewFetchButton action={getServiceCalls} viewSwitch={SCOPE_SERVICE_CALLS}>
           <IconRow icon={ServiceCallIcon}>
-            There are <span>{props.selectedObject.serviceCallsTotal} total 311 calls.</span>
+            There are <span>{props.selectedObject.serviceCallsTotal} total 311-calls.</span>
           </IconRow>
           <div className="icon-row-text-align">View Details</div>
         </SwitchViewFetchButton>
         <SwitchViewFetchButton>
           <IconRow icon={TimeToResolveCallsIcon}>
             It takes an average of {props.selectedObject.averageDaysToResolveServiceCalls} days for building departments
-            to resolve 311 calls here.
+            to resolve 311-calls here.
           </IconRow>
           <div className="icon-row-text-align">View Details</div>
         </SwitchViewFetchButton>
         <SwitchViewFetchButton>
           <IconRow icon={ServiceCallOpenIcon}>
-            {props.selectedObject.serviceCallsPercentOpenOneMonth}% of current 311 calls have been open over 1 month.
+            {props.selectedObject.serviceCallsPercentOpenOneMonth}% of current 311-calls have been open over 1 month.
           </IconRow>
           <div className="icon-row-text-align">View Details</div>
         </SwitchViewFetchButton>
