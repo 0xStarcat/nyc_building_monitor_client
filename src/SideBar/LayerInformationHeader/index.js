@@ -9,7 +9,10 @@ const LayerInformationHeader = props => {
   return (
     <div className="headerBar">
       <div className="title">
-        <h4>{props.selectedObject.name}</h4>
+        <h4>
+          {props.sidebarScope === SCOPE_CENSUS_TRACTS ? '#' : ''}
+          {props.selectedObject.name}
+        </h4>
       </div>
       <div className="headerSubTitle">
         <span>
@@ -24,6 +27,7 @@ const LayerInformationHeader = props => {
 }
 
 LayerInformationHeader.propTypes = {
+  sidebarScope: PropTypes.string,
   selectedObject: PropTypes.object
 }
 

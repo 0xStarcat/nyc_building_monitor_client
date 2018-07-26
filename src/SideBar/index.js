@@ -74,25 +74,25 @@ class SideBar extends React.Component {
       case SIDEBAR_VIEW_SCOPE_MENU:
         return (
           <div className="sidebar-view-container">
-            <MobileSidebarScopeMenu dispatch={this.props.dispatch} />
+            <MobileSidebarScopeMenu dispatch={this.props.dispatch} />git
           </div>
         )
       case SIDEBAR_VIEW_BOUNDARY_LAYER_MENU:
         return (
           <div className="sidebar-view-container">
-            <SidebarLayerMenu dispatch={this.props.dispatch} />
+            <SidebarLayerMenu dispatch={this.props.dispatch} />git
           </div>
         )
       case SIDEBAR_VIEW_BUILDING_LAYER_MENU:
         return (
           <div className="sidebar-view-container">
-            <SidebarBuildingLayerMenu dispatch={this.props.dispatch} />
+            <SidebarBuildingLayerMenu dispatch={this.props.dispatch} />git
           </div>
         )
       case SIDEBAR_VIEW_SCOPED_OBJECTS:
         return (
           <div className="sidebar-view-container">
-            <LayerInformationHeader selectedObject={selectedObject} />
+            <LayerInformationHeader selectedObject={selectedObject} sidebarScope={appState.sidebarScope} />
 
             {appState.landscapeOrientation && <ExploreButton appState={appState} selectedObject={selectedObject} />}
             <LayerInformationBox

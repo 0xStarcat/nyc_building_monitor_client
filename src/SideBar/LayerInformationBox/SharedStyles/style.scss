@@ -1,64 +1,51 @@
 @import '../../../SharedStyles/index.scss';
 
-.information-box {
-  .info-section {
-    border-bottom: 1px solid black;
-    margin-bottom: $small-spacing;
-    padding-bottom: $small-spacing;
+.info-section {
+  border-bottom: 1px solid black;
+  margin-bottom: $small-spacing;
+  padding: $small-spacing;
+}
+
+.row-box {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: $tiny-spacing 0 $tiny-spacing 0;
+
+  label {
+    flex-grow: 0;
+    max-width: $first-column-width;
+    width: $first-column-width;
   }
 
-  .info-title {
-    padding-left: $small-spacing;
+  div {
+    align-self: stretch;
+    border-left: 1px dotted black;
+    flex-grow: 1;
+    padding-left: $tiny-spacing;
+    text-align: left;
   }
 
-  .row-box {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    padding-left: $small-spacing;
-    padding-bottom: $tiny-spacing;
+  p {
+    font-size: 14px;
+    line-height: 20px;
+  }
 
-    label {
-      flex-grow: 0;
-      max-width: $first-column-width;
-      width: $first-column-width;
-    }
-
-    div {
-      align-self: stretch;
-      border-left: 1px dotted black;
-      flex-grow: 1;
-      padding-left: $tiny-spacing;
-      text-align: left;
-    }
-
-    p {
-      font-size: 14px;
-      line-height: 20px;
-    }
-
-    i {
-      height: $iconHeight;
-      width: $iconHeight;
-      margin-right: $tiny-spacing;
-    }
+  i {
+    height: $iconHeight;
+    width: $iconHeight;
+    margin-right: $tiny-spacing;
   }
 }
 
 @media screen and (orientation: portrait) {
-  .information-box {
-    font-size: 14px;
-    margin-top: $tiny-spacing;
-
-    .row-box {
-      label {
-        width: 50vw;
-        min-width: 300px;
-      }
-    }
-
-    .info-section {
-      padding-bottom: $tiny-spacing;
+  .info-section {
+    padding-top: 0;
+  }
+  .row-box {
+    label {
+      width: 50vw;
+      min-width: 300px;
     }
   }
 }

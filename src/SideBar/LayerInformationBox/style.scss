@@ -14,5 +14,8 @@
 
   .layerInformationBox {
     overflow: scroll;
+    .information-box {
+      padding: 0;
+    }
   }
 }

@@ -1,8 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { MoneyIcon } from '../../../SharedStyles/icons'
-
+import {
+  IncomeIcon,
+  RentIcon,
+  PopulationIcon,
+  BuildingIcon,
+  RentChangeIcon,
+  ViolationIcon,
+  ViolationPerBuildingIcon,
+  ServiceCallIcon,
+  ServiceCallOpenIcon
+} from '../../../SharedStyles/icons'
+import IconRow from '../../SharedComponents/IconRow'
 import '../SharedStyles/style.scss'
 
 const BoundaryInformation = props => {
@@ -13,51 +23,39 @@ const BoundaryInformation = props => {
         <div className="info-title">
           <h5>Summary</h5>
         </div>
-        <div className="row-box">
-          <i>
-            <MoneyIcon />
-          </i>
-          <p>
-            The median income in 2017 was <span>${props.selectedObject.incomeMedian2017}</span>
-          </p>
-        </div>
-        <div className="row-box">
-          <label>Median Rent 2017</label>
-          <div>${props.selectedObject.rentMedian2017}</div>
-        </div>
-        <div className="row-box">
-          <label>White Population (%) 2010</label>
-          <div>{props.selectedObject.racePercentWhite2010}%</div>
-        </div>
-        <div className="row-box">
-          <label>Total Buildings</label>
-          <div>{props.selectedObject.buildingsTotal}</div>
-        </div>
+        <IconRow icon={IncomeIcon}>
+          The median income in 2017 was <span>${props.selectedObject.incomeMedian2017}</span>
+        </IconRow>
+        <IconRow icon={RentIcon}>
+          The median rent in 2017 was <span>${props.selectedObject.rentMedian2017}</span>
+        </IconRow>
+        <IconRow icon={PopulationIcon}>
+          The population in 2010 was <span>{props.selectedObject.racePercentWhite2010}%</span> white.
+        </IconRow>
+        <IconRow icon={BuildingIcon}>
+          There are <span>{props.selectedObject.buildingsTotal}</span> buildings and{' '}
+          <span>{props.selectedObject.residentialBuildingsTotal}</span> residential buildings in this area.{' '}
+        </IconRow>
       </div>
       <div className="info-section">
         <div className="info-title">
           <h5>2010 - Present</h5>
         </div>
-        <div className="row-box">
-          <label>Rent Change</label>
-          <div>${props.selectedObject.rentChange20112017}</div>
-        </div>
-        <div className="row-box">
-          <label>Violations Rate (per Bldg)</label>
-          <div>{props.selectedObject.violationsPerBuilding}</div>
-        </div>
-        <div className="row-box">
-          <label>Total Violations</label>
-          <div>{props.selectedObject.violationsTotal}</div>
-        </div>
-        <div className="row-box">
-          <label>Total 311 Calls</label>
-          <div>{props.selectedObject.serviceCallsTotal}</div>
-        </div>
-        <div className="row-box">
-          <label>311 Calls Still Open ( > 1 month)</label>
-          <div>{props.selectedObject.serviceCallsPercentOpenOneMonth}%</div>
-        </div>
+        <IconRow icon={RentChangeIcon}>
+          The rent changed by <span>${props.selectedObject.rentChange20112017}</span>
+        </IconRow>
+        <IconRow icon={ViolationIcon}>
+          There are <span>{props.selectedObject.violationsTotal} total violations.</span>
+        </IconRow>
+        <IconRow icon={ViolationPerBuildingIcon}>
+          There are <span>{props.selectedObject.violationsPerBuilding} violations per building.</span>
+        </IconRow>
+        <IconRow icon={ServiceCallIcon}>
+          There are <span>{props.selectedObject.serviceCallsTotal} total 311 calls.</span>
+        </IconRow>
+        <IconRow icon={ServiceCallOpenIcon}>
+          {props.selectedObject.serviceCallsPercentOpenOneMonth}% of the 311 calls have been open over 1 month.
+        </IconRow>
       </div>
     </div>
   )
