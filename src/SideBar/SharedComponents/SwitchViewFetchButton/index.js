@@ -22,7 +22,7 @@ export class SwitchViewFetchButton extends React.Component {
     return (
       <div className="switch-view-fetch-button hover-shadow" onClick={this.onClick}>
         {this.props.children}
-        <div className="button-row">View Details</div>
+        <div className="">View Details</div>
         <div className="thin-horizontal-row" />
       </div>
     )

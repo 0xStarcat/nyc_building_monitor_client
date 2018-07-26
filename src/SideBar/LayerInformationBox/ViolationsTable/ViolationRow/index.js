@@ -5,12 +5,12 @@ const ViolationRow = props => {
   return (
     <div className="row-box violation-row">
       <div className="violation-cell">
-        <label>{props.feature.properties.date.label}</label>
-        <div>{props.feature.properties.date.value}</div>
+        <label>Date</label>
+        <div>{props.feature.properties.date}</div>
       </div>
       <div className="violation-cell">
-        <label>{props.feature.properties.penalty.label}</label>
-        <div>{props.feature.properties.penalty.value}</div>
+        <label>Penaltu</label>
+        <div>{props.feature.properties.penalty}</div>
       </div>
     </div>
   )

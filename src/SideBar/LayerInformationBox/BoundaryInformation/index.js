@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { MoneyIcon } from '../../../SharedStyles/icons'
+
 import '../SharedStyles/style.scss'
 
 const BoundaryInformation = props => {
@@ -9,11 +11,15 @@ const BoundaryInformation = props => {
     <div className="boundary-information">
       <div className="info-section">
         <div className="info-title">
-          <h5>Snapshot</h5>
+          <h5>Summary</h5>
         </div>
         <div className="row-box">
-          <label>Median Income 2017</label>
-          <div>${props.selectedObject.incomeMedian2017}</div>
+          <i>
+            <MoneyIcon />
+          </i>
+          <p>
+            The median income in 2017 was <span>${props.selectedObject.incomeMedian2017}</span>
+          </p>
         </div>
         <div className="row-box">
           <label>Median Rent 2017</label>

@@ -1,5 +1,22 @@
 @import '../../../SharedStyles/index.scss';
 
 .control-row {
-  background-color: $primaryBackground;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .control-row-child {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .control-row-child:last-child {
+    justify-content: flex-end;
+  }
+
+  .control-row-child:first-child {
+    justify-content: flex-start;
+  }
 }

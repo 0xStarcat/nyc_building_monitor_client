@@ -1,7 +1,36 @@
+@font-face {
+  font-family: 'Gandhi';
+  font-style: normal;
+  font-weight: 300;
+  src: local('GandhiSans-Regular'), url('./SharedStyles/fonts/GandhiSans-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Caviar';
+  font-style: normal;
+  font-weight: 300;
+  src: local('CaviarDreams'), url('./SharedStyles/fonts/CaviarDreams.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FreeSans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('FreeSans'), url('./SharedStyles/fonts/FreeSans.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Hind';
+  font-style: normal;
+  font-weight: 300;
+  src: local('hind-regular'), url('./SharedStyles/fonts/hind-regular.otf') format('opentype');
+}
+
 body {
+  background-color: white;
+  font-family: 'Hind', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: white;
 }
 
 a {
@@ -15,4 +44,97 @@ a:hover {
 
 a:visited {
   color: inherit;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: courier, helvetica, arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+/* For SVG icons */
+/* http://svgicons.sparkk.fr/ */
+.control-icon-container {
+  height: 30px;
+  width: 30px;
+}
+
+@media screen and (orientation: portrait) {
+  .control-icon-container {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.svg-icon {
+  height: 100%;
+  width: 100%;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #4691f6;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
+.svg-rotate-right {
+  transform: rotate(90deg);
+}
+
+.svg-rotate-left {
+  transform: rotate(-90deg);
+}
+
+.svg-flip {
+  transform: rotate(180deg);
 }

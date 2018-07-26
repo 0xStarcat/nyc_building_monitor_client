@@ -9,7 +9,7 @@ const LayerInformationHeader = props => {
   return (
     <div className="headerBar">
       <div className="title">
-        <h3>{props.selectedObject.name}</h3>
+        <h4>{props.selectedObject.name}</h4>
       </div>
       <div className="headerSubTitle">
         <span>

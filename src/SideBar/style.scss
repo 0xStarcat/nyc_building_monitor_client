@@ -1,6 +1,8 @@
 @import '../SharedStyles/index.scss';
 
 #sidebar {
+  position: relative;
+
   .sidebar-view-container {
     position: relative;
   }

@@ -9,6 +9,7 @@ import {
 } from '../../../Store/AppState/actions'
 
 import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
+import { RightArrow } from '../../../SharedStyles/icons'
 
 const ControlNextButton = props => {
   const getNextView = () => {
@@ -52,12 +53,14 @@ const ControlNextButton = props => {
 
   return (
     <SwitchViewButton
-      className={`next-button control-button ${disabled ? 'disabled-button' : ''}`}
+      className={`next-button control-button ${disabled ? 'disabled-button' : ''} ${props.className}`}
       disabled={disabled}
       scopeSwitch={getNextScope()}
       viewSwitch={getNextView()}
     >
-      {disabled ? '' : 'Next'}
+      <div className={`control-icon-container ${disabled ? 'hidden' : ''}`}>
+        <RightArrow />
+      </div>
     </SwitchViewButton>
   )
 }

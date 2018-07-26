@@ -9,6 +9,7 @@ import {
 } from '../../../Store/AppState/actions'
 
 import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
+import { RightArrow } from '../../../SharedStyles/icons'
 
 const ControlBackButton = props => {
   const getBackView = () => {
@@ -39,12 +40,14 @@ const ControlBackButton = props => {
 
   return (
     <SwitchViewButton
-      className={`back-button control-button ${disabled ? 'disabled-button' : ''}`}
+      className={`back-button control-button ${disabled ? 'disabled-button' : ''} ${props.className}`}
       disabled={disabled}
       scopeSwitch={getBackScope()}
       viewSwitch={getBackView()}
     >
-      {disabled ? '' : 'Back'}
+      <div className={`control-icon-container ${disabled ? 'hidden' : ''}`}>
+        <RightArrow className="svg-flip" />
+      </div>
     </SwitchViewButton>
   )
 }
