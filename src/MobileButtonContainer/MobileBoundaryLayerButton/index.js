@@ -16,7 +16,7 @@ const getAction = props => {
 
 const MobileBoundaryLayerButton = props => {
   return (
-    <DispatchActionButton className="mobile-button hover-shadow" scopeSwitch={null} action={getAction(props)}>
+    <DispatchActionButton className="mobile-button round hover-shadow" scopeSwitch={null} action={getAction(props)}>
       Scope
     </DispatchActionButton>
   )

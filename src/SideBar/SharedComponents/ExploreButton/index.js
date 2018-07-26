@@ -21,7 +21,10 @@ const ExploreButton = props => {
 
   if (showButton()) {
     return (
-      <DispatchActionButton className="explore-button hover-shadow mobile-button" action={onExploreClick}>
+      <DispatchActionButton
+        className="explore-button round hover-shadow bordered mobile-button"
+        action={onExploreClick}
+      >
         Explore
       </DispatchActionButton>
     )

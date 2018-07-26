@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import LayerMenuButton from '../SharedComponents/LayerMenuButton'
+import SwitchLayerButton from '../SharedComponents/SwitchLayerButton'
+import ButtonRow from '../SharedComponents/ButtonRow'
+import IconButton from '../SharedComponents/IconButton'
 
 import {
   changeBaseLayer,
@@ -14,6 +16,8 @@ import {
   BASE_LAYER_WHITE_POPULATION,
   BASE_LAYER_OPEN_311
 } from '../../Store/AppState/actions'
+
+import { NeighborhoodIcon, CensusTractIcon } from '../../SharedStyles/icons'
 
 export default class SidebarLayerMenu extends React.Component {
   constructor(props) {
@@ -34,44 +38,48 @@ export default class SidebarLayerMenu extends React.Component {
 
   render() {
     return (
-      <div className="sidebar-layer-menu">
-        <LayerMenuButton
-          action={this.switchScopeWithFetch}
-          buttonText="Neighborhoods"
-          dispatch={this.props.dispatch}
-          layer={SCOPE_NEIGHBORHOODS}
-        />
-        <LayerMenuButton
-          action={this.switchScopeWithFetch}
-          buttonText="Census Tracts"
-          dispatch={this.props.dispatch}
-          layer={SCOPE_CENSUS_TRACTS}
-        />
-        <LayerMenuButton
+      <div className="sidebar-layer-menu content-box">
+        <ButtonRow>
+          <SwitchLayerButton
+            action={this.switchScopeWithFetch}
+            dispatch={this.props.dispatch}
+            layer={SCOPE_NEIGHBORHOODS}
+          >
+            <IconButton className="button-row-child" icon={NeighborhoodIcon} label="Neighborhoods" />
+          </SwitchLayerButton>
+          <SwitchLayerButton
+            action={this.switchScopeWithFetch}
+            dispatch={this.props.dispatch}
+            layer={SCOPE_CENSUS_TRACTS}
+          >
+            <IconButton className="button-row-child" icon={CensusTractIcon} label="Census Tracts" />
+          </SwitchLayerButton>
+        </ButtonRow>
+        <SwitchLayerButton
           action={this.switchLayer}
           buttonText="Median Income, 2017"
           dispatch={this.props.dispatch}
           layer={BASE_LAYER_MEDIAN_INCOME}
         />
-        <LayerMenuButton
+        <SwitchLayerButton
           action={this.switchLayer}
           buttonText="Median Rent, 2017"
           dispatch={this.props.dispatch}
           layer={BASE_LAYER_MEDIAN_RENT}
         />
-        <LayerMenuButton
+        <SwitchLayerButton
           action={this.switchLayer}
           buttonText="Rent Change, 2011 - 2017"
           dispatch={this.props.dispatch}
           layer={BASE_LAYER_MEDIAN_RENT_CHANGE}
         />
-        <LayerMenuButton
+        <SwitchLayerButton
           action={this.switchLayer}
           buttonText="% White 2010"
           dispatch={this.props.dispatch}
           layer={BASE_LAYER_WHITE_POPULATION}
         />
-        <LayerMenuButton
+        <SwitchLayerButton
           action={this.switchLayer}
           buttonText="Percent Service Calls Open 1 Month"
           dispatch={this.props.dispatch}

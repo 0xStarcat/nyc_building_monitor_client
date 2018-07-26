@@ -48,7 +48,8 @@ export default class LeafletMap extends Component {
           center={position}
           doubleClickZoom={false}
           id="leaflet-map"
-          minZoom={10}
+          minZoom={14}
+          maxZoom={20}
           ref={this.mapRef}
           zoom={this.state.zoom}
           zoomControl={false}

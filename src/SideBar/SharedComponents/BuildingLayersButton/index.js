@@ -5,7 +5,10 @@ import { openBuildingLayerMenu } from '../../../Store/AppState/actions'
 
 const BuildingLayersButton = props => {
   return (
-    <DispatchActionButton className="building-layers-button hover-shadow mobile-button" action={openBuildingLayerMenu}>
+    <DispatchActionButton
+      className="building-layers-button mobile-button round hover-shadow bordered"
+      action={openBuildingLayerMenu}
+    >
       B-Layers
     </DispatchActionButton>
   )

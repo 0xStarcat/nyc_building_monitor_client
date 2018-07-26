@@ -1,3 +1,5 @@
+@import './SharedStyles/index.scss';
+
 @font-face {
   font-family: 'Gandhi';
   font-style: normal;
@@ -97,6 +99,10 @@ p {
   margin: 0;
 }
 
+.content-box {
+  padding: $small-spacing;
+}
+
 .hidden {
   display: none;
 }
@@ -116,8 +122,8 @@ p {
 }
 
 .svg-icon {
-  height: 20px;
-  width: 20px;
+  height: 100%;
+  width: 100%;
 }
 
 .svg-icon path,

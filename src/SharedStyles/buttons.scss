@@ -6,9 +6,23 @@
   outline-width: 0;
 }
 
+.round {
+  border-radius: 50%;
+}
+
+.round-shadow:hover {
+  border: 1px dotted black;
+  box-shadow: 0 0 20px 2px lightgray;
+}
+
+.round-shadow:active {
+  border: 1px inset black;
+  box-shadow: 0 0 4px 2px gray;
+}
+
 .hover-shadow {
   box-sizing: border-box;
-  border: 1px solid black;
+  border: 1px transparent black;
 }
 
 .hover-shadow:hover {
@@ -21,16 +35,8 @@
   box-shadow: 0 0 4px 2px gray;
 }
 
-.borderless {
-  border: 1px solid transparent;
-}
-
-.borderless:hover {
-  border: 1px solid transparent;
-}
-
-.borderless:active {
-  border: 1px solid transparent;
+.bordered {
+  border: 1px solid black;
 }
 
 .disabled-button {

@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import LayerMenuButton from '../SharedComponents/LayerMenuButton'
+import SwitchLayerButton from '../SharedComponents/SwitchLayerButton'
+import ButtonRow from '../SharedComponents/ButtonRow'
+import IconButton from '../SharedComponents/IconButton'
 
 import {
   changeBaseLayerScope,
@@ -8,6 +10,8 @@ import {
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS
 } from '../../Store/AppState/actions'
+
+import { NeighborhoodIcon, CensusTractIcon } from '../../SharedStyles/icons'
 
 export default class MobileSidebarScopeMenu extends React.Component {
   constructor(props) {
@@ -23,19 +27,23 @@ export default class MobileSidebarScopeMenu extends React.Component {
 
   render() {
     return (
-      <div className="mobile-sidebar-scope-menu">
-        <LayerMenuButton
-          action={this.switchScopeWithFetch}
-          buttonText="Neighborhoods"
-          dispatch={this.props.dispatch}
-          layer={SCOPE_NEIGHBORHOODS}
-        />
-        <LayerMenuButton
-          action={this.switchScopeWithFetch}
-          buttonText="Census Tracts"
-          dispatch={this.props.dispatch}
-          layer={SCOPE_CENSUS_TRACTS}
-        />
+      <div className="mobile-sidebar-scope-menu content-box">
+        <ButtonRow>
+          <SwitchLayerButton
+            action={this.switchScopeWithFetch}
+            dispatch={this.props.dispatch}
+            layer={SCOPE_NEIGHBORHOODS}
+          >
+            <IconButton className="button-row-child" icon={NeighborhoodIcon} label="Neighborhoods" />
+          </SwitchLayerButton>
+          <SwitchLayerButton
+            action={this.switchScopeWithFetch}
+            dispatch={this.props.dispatch}
+            layer={SCOPE_CENSUS_TRACTS}
+          >
+            <IconButton className="button-row-child" icon={CensusTractIcon} label="Census Tracts" />
+          </SwitchLayerButton>
+        </ButtonRow>
       </div>
     )
   }

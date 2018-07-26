@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import LayerMenuButton from '../SharedComponents/LayerMenuButton'
+import SwitchLayerButton from '../SharedComponents/SwitchLayerButton'
 
 import {
   changeBuildingBaseLayer,
@@ -23,19 +23,19 @@ export default class SidebarLayerMenu extends React.Component {
   render() {
     return (
       <div className="sidebar-layer-menu">
-        <LayerMenuButton
+        <SwitchLayerButton
           action={this.switchLayer}
           buttonText="Building Categories"
           dispatch={this.props.dispatch}
           layer={BASE_LAYER_BUILDING_CATEGORIES}
         />
-        <LayerMenuButton
+        <SwitchLayerButton
           action={this.switchLayer}
           buttonText="Total Violations"
           dispatch={this.props.dispatch}
           layer={BASE_LAYER_TOTAL_OPEN_VIOLATIONS}
         />
-        <LayerMenuButton
+        <SwitchLayerButton
           action={this.switchLayer}
           buttonText="Total Open 311 Calls ( > 1 Month)"
           dispatch={this.props.dispatch}
