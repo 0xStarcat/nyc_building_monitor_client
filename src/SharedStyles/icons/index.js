@@ -245,3 +245,86 @@ export const BuildingLayerIcon = () => {
     </svg>
   )
 }
+
+export const SearchIcon = () => {
+  return (
+    <svg class="svg-icon" viewBox="0 0 20 20">
+      <path d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z" />
+    </svg>
+  )
+}
+
+export const InfoIcon = () => {
+  return (
+    <svg x="0px" y="0px" width="100%" height="100%" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
+      <g id="Bounding_Boxes">
+        <g id="ui_x5F_spec_x5F_header_copy_3" display="none" />
+        <path fill="none" d="M0,0h24v24H0V0z" />
+      </g>
+      <g id="Rounded" display="none">
+        <g id="ui_x5F_spec_x5F_header_copy_5" />
+        <g display="inline">
+          <path
+            stroke-width="1"
+            stroke="#4691f6"
+            fill="#4691f6"
+            d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,17L12,17c-0.55,0-1-0.45-1-1v-4
+      c0-0.55,0.45-1,1-1h0c0.55,0,1,0.45,1,1v4C13,16.55,12.55,17,12,17z M13,9h-2V7h2V9z"
+          />
+        </g>
+      </g>
+      <g id="Sharp" display="none">
+        <g id="ui_x5F_spec_x5F_header_copy_4" />
+        <g display="inline">
+          <path
+            stroke-width="1"
+            stroke="#4691f6"
+            d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M13,17h-2v-6h2V17z M13,9h-2V7h2V9z"
+          />
+        </g>
+      </g>
+      <g id="Outline">
+        <g id="ui_x5F_spec_x5F_header" display="none" />
+        <g>
+          <rect fill="#4691f6" x="11" y="7" width="2" height="2" />
+          <rect fill="#4691f6" x="11" y="11" width="2" height="6" />
+          <path
+            stroke-width="1"
+            stroke="#4691f6"
+            fill="none"
+            d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.41,0-8-3.59-8-8
+      c0-4.41,3.59-8,8-8s8,3.59,8,8C20,16.41,16.41,20,12,20z"
+          />
+        </g>
+      </g>
+      <g id="Duotone" display="none">
+        <g id="ui_x5F_spec_x5F_header_copy_2" />
+        <g display="inline">
+          <path
+            fill="#4691f6"
+            opacity="0.3"
+            d="M12,4c-4.41,0-8,3.59-8,8c0,4.41,3.59,8,8,8s8-3.59,8-8C20,7.59,16.41,4,12,4z M13,17h-2v-6h2V17z M13,9h-2
+      V7h2V9z"
+          />
+          <rect fill="#4691f6" x="11" y="7" width="2" height="1" />
+          <rect fill="#4691f6" x="11" y="11" width="2" height="1" />
+          <path
+            fill="#4691f6"
+            d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.41,0-8-3.59-8-8
+      c0-4.41,3.59-8,8-8s8,3.59,8,8C20,16.41,16.41,20,12,20z"
+          />
+        </g>
+      </g>
+      <g id="Material" display="none">
+        <g id="ui_x5F_spec_x5F_header_copy" />
+        <g display="inline">
+          <path
+            stroke-width="1"
+            stroke="#4691f6"
+            d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M13,17h-2v-6h2V17z M13,9h-2V7h2V9z"
+          />
+        </g>
+      </g>
+    </svg>
+  )
+}

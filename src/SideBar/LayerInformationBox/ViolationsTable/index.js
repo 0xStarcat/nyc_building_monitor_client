@@ -20,7 +20,7 @@ const ViolationsTable = props => {
         <div className="table-header">
           <label className="v-col1 table-cell">Date</label>
           <label className="v-col2 table-cell">Code</label>
-          <label className="v-col3 table-cell">Description</label>
+          <label className="v-col3 table-cell" />
         </div>
         {props.features
           .sort((a, b) => {

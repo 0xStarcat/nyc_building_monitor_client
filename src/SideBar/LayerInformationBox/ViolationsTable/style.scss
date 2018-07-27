@@ -11,6 +11,16 @@
 .table-cell {
   padding-right: $small-spacing;
   padding-bottom: $tiny-spacing;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  i {
+    height: 25px;
+    width: 25px;
+    padding-left: $tiny-spacing;
+    min-width: 25px;
+  }
 }
 
 .v-col1 {
@@ -20,10 +30,11 @@
 }
 
 .v-col2 {
-  width: 60px;
   flex-shrink: 0;
   flex-grow: 0;
   min-width: 0;
+  width: 80px;
+
   > div {
     white-space: nowrap;
     overflow: hidden;
@@ -32,11 +43,12 @@
 }
 
 .v-col3 {
-  flex-grow: 1;
-  min-width: 0;
+  flex-grow: 0;
+  width: 120px;
   > div {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-decoration: underline;
   }
 }
