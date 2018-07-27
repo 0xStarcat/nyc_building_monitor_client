@@ -6,6 +6,14 @@
   padding: $small-spacing;
 }
 
+.preview-section {
+  padding: $tiny-spacing $small-spacing;
+  margin-bottom: $medium-spacing;
+  * {
+    padding: 0;
+  }
+}
+
 @media screen and (orientation: portrait) {
   .info-section {
     padding-top: 0;

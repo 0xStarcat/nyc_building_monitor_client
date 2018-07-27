@@ -32,21 +32,27 @@ class LayerInformationBox extends React.Component {
       case SCOPE_NEIGHBORHOODS:
         return (
           <BoundaryInformation
-            sidebarState={this.props.appState.sidebarState}
             baseLayer={this.props.appState.baseLayer}
             selectedObject={this.props.selectedObject}
+            sidebarState={this.props.appState.sidebarState}
           />
         )
       case SCOPE_CENSUS_TRACTS:
         return (
           <BoundaryInformation
-            sidebarState={this.props.appState.sidebarState}
             baseLayer={this.props.appState.baseLayer}
             selectedObject={this.props.selectedObject}
+            sidebarState={this.props.appState.sidebarState}
           />
         )
       case SCOPE_BUILDINGS:
-        return <BuildingInformation selectedObject={this.props.selectedObject} />
+        return (
+          <BuildingInformation
+            buildingBaseLayer={this.props.appState.buildingBaseLayer}
+            selectedObject={this.props.selectedObject}
+            sidebarState={this.props.appState.sidebarState}
+          />
+        )
       case SCOPE_VIOLATIONS:
         return <ViolationsTable features={this.props.features} />
       case SCOPE_SERVICE_CALLS:
