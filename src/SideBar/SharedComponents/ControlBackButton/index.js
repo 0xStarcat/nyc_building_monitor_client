@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
-  SIDEBAR_VIEW_SCOPED_OBJECTS,
+  SIDEBAR_VIEW_SCOPE_MENU,
+  SIDEBAR_VIEW_BUILDING_LAYER_MENU,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
   SCOPE_BUILDINGS
@@ -36,7 +37,10 @@ const ControlBackButton = props => {
     }
   }
 
-  const disabled = props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+  const disabled =
+    props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU ||
+    props.appState.sidebarView === SIDEBAR_VIEW_SCOPE_MENU ||
+    props.appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU
 
   return (
     <SwitchViewButton
@@ -45,7 +49,7 @@ const ControlBackButton = props => {
       scopeSwitch={getBackScope()}
       viewSwitch={getBackView()}
     >
-      <div className={`control-icon-container ${disabled ? 'hidden' : ''}`}>
+      <div className={`control-icon-container round button-border-left ${disabled ? 'hidden-svg' : ''}`}>
         <RightArrow className="svg-flip" />
       </div>
     </SwitchViewButton>

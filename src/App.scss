@@ -100,11 +100,27 @@ p {
 }
 
 .content-box {
-  padding: $small-spacing;
+  padding: $medium-spacing $small-spacing;
+}
+
+.menu-section {
+  padding: $small-spacing 0;
+}
+
+@media screen and (orientation: portrait) {
+  .menu-section {
+    padding: 0;
+  }
 }
 
 .hidden {
   display: none;
+}
+
+.hidden-svg {
+  svg {
+    display: none;
+  }
 }
 
 /* For SVG icons */

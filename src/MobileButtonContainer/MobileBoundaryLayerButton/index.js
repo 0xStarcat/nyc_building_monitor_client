@@ -27,13 +27,13 @@ const getAction = props => {
 const MobileBoundaryLayerButton = props => {
   if (props.appState.sidebarView === SIDEBAR_VIEW_SCOPE_MENU) {
     return (
-      <DispatchActionButton className="mobile-button" scopeSwitch={null} action={openBoundaryLayerMenu}>
+      <DispatchActionButton className="mobile-button bordered" scopeSwitch={null} action={openBoundaryLayerMenu}>
         <IconProfile className="button-row-child" icon={BoundaryLayersIcon} label="Layers" />
       </DispatchActionButton>
     )
   } else {
     return (
-      <DispatchActionButton className="mobile-button" scopeSwitch={null} action={openScopeMenu}>
+      <DispatchActionButton className="mobile-button bordered" scopeSwitch={null} action={openScopeMenu}>
         <IconProfile className="button-row-child" icon={RegionIcon} label="Regions" />
       </DispatchActionButton>
     )

@@ -2,21 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import ExploreButton from '../../SideBar/SharedComponents/ExploreButton'
-import BuildingLayersButton from '../../SideBar/SharedComponents/BuildingLayersButton'
 import DispatchActionButton from '../../SideBar/SharedComponents/DispatchActionButton'
 
 import { BuildingLayerIcon } from '../../SharedStyles/icons'
 import IconProfile from '../../SideBar/SharedComponents/IconProfile'
 
-import { SIDEBAR_STATE_INACTIVE, openBuildingLayerMenu } from '../../Store/AppState/actions'
+import {
+  SIDEBAR_STATE_INACTIVE,
+  openPortraitBuildingLayerMenu,
+  openLandscapeBuildingLayerMenu
+} from '../../Store/AppState/actions'
 
 import './style.scss'
 
 const getButton = props => {
   return props.buildingsPresent ? (
     <DispatchActionButton
-      className="building-layer-button mobile-button round hover-shadow bordered"
-      action={openBuildingLayerMenu}
+      className="mobile-button round hover-shadow bordered"
+      action={props.appState.landscapeOrientation ? openLandscapeBuildingLayerMenu : openPortraitBuildingLayerMenu}
     >
       <IconProfile className="small" icon={BuildingLayerIcon} label="Building Layers" />
     </DispatchActionButton>

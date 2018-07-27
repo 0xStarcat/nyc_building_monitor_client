@@ -3,16 +3,16 @@
 .button-row {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 
   .button-row-child {
     border-radius: 50%;
     border: 1px solid transparent;
-    margin: $tiny-spacing;
-    height: 160px;
-    width: 160px;
+    margin: $small-spacing;
+    height: 100px;
+    width: 100px;
   }
 }
 
@@ -25,8 +25,9 @@
 
     .button-row-child {
       border-radius: 8px;
-      height: 125px;
-      width: 125px;
+      height: 90px;
+      margin: 0;
+      width: 90px;
     }
   }
 }

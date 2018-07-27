@@ -3,7 +3,7 @@
 .building-layer-button {
   position: absolute;
   left: ($sidebar-width / 2) - ($sidebar-button-width / 2);
-  top: $infoHeaderHeight - $tiny-spacing;
+  top: $infoHeaderHeight;
 }
 
 @media screen and (orientation: portrait) {

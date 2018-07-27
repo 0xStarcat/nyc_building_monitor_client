@@ -7,25 +7,45 @@ $toggle-button-width: 80px;
 }
 
 .toggle-button {
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-bottom: 4px solid transparent;
+  box-shadow: inset 0 0 40px 20px white;
+  height: $toggle-button-width;
   position: absolute;
   width: $toggle-button-width;
-  background-color: white;
-  border: 1px solid black;
+  z-index: 100;
+}
+
+.show-button:hover {
+  box-shadow: 0 0 20px 10px white;
+
+  border-bottom: 4px inset black;
+}
+
+.show-button:active {
+  box-shadow: inset 0 0 40px 10px lightgray;
+  border-bottom: 1px outset lightgray;
+}
+
+.hide-button:hover {
+  box-shadow: 0 0 10px 4px $primaryIconColor;
+}
+
+.hide-button:active {
+  box-shadow: inset 0 0 20px 4px $primaryIconColor;
 }
 
 .hide-button {
-  border-radius: 8px;
-  height: 30px;
-  right: -$medium-spacing;
-  top: $small-spacing;
+  right: ($sidebar-width / 2) - $medium-spacing;
+  top: 0;
   width: $toggle-button-width;
 }
 
 .show-button {
-  border-radius: 0 8px 8px 0;
-  height: 100px;
-  top: $small-spacing;
-  right: -$toggle-button-width;
+  top: 0;
+  right: -$toggle-button-width - $medium-spacing;
 }
 
 @media screen and (orientation: portrait) {

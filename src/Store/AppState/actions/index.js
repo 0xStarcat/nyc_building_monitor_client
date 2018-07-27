@@ -92,9 +92,14 @@ export const openBoundaryLayerMenu = event => dispatch => {
   dispatch(previewSidebar())
 }
 
-export const openBuildingLayerMenu = event => dispatch => {
+export const openPortraitBuildingLayerMenu = event => dispatch => {
   dispatch(changeSidebarView(SIDEBAR_VIEW_BUILDING_LAYER_MENU))
   dispatch(previewSidebar())
+}
+
+export const openLandscapeBuildingLayerMenu = event => dispatch => {
+  dispatch(changeSidebarView(SIDEBAR_VIEW_BUILDING_LAYER_MENU))
+  dispatch(activateSidebar())
 }
 
 export const openScopeMenu = event => dispatch => {

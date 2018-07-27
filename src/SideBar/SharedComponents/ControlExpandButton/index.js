@@ -22,7 +22,7 @@ const ControlExpandButton = props => {
       className={`control-hide-button control-button control-expand-button ${props.className}`}
       disabled={disabled}
     >
-      <div className={`control-icon-container ${disabled ? 'hidden' : ''}`}>
+      <div className={`control-icon-container round button-border-bottom ${disabled ? 'hidden-svg' : ''}`}>
         <RightArrow className="svg-rotate-left" />
       </div>
     </DispatchActionButton>

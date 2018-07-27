@@ -10,6 +10,11 @@
   border-radius: 50%;
 }
 
+.round-shadow {
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
 .round-shadow:hover {
   border: 1px dotted black;
   box-shadow: 0 0 20px 2px lightgray;
@@ -22,7 +27,7 @@
 
 .hover-shadow {
   box-sizing: border-box;
-  border: 1px transparent black;
+  border: 1px solid transparent;
 }
 
 .hover-shadow:hover {
@@ -50,6 +55,30 @@
 
 .disabled-button:active {
   box-shadow: none;
+}
+
+.button-border-bottom {
+  border-left: 1px dotted black;
+  border-right: 1px dotted black;
+  border-bottom: 2px inset gray;
+}
+
+.button-border-top {
+  border-left: 1px dotted black;
+  border-bottom: 1px dotted black;
+  border-top: 1px inset gray;
+}
+
+.button-border-left {
+  border-top: 1px dotted black;
+  border-bottom: 1px dotted black;
+  border-right: 1px inset gray;
+}
+
+.button-border-right {
+  border-top: 1px dotted black;
+  border-bottom: 1px dotted black;
+  border-left: 1px inset gray;
 }
 
 .mobile-button {

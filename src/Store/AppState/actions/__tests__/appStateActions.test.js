@@ -13,7 +13,7 @@ afterEach(() => {
   store.clearActions()
 })
 
-describe('openBuildingLayerMenu', () => {
+describe('openPortraitBuildingLayerMenu', () => {
   it('dispatches CHANGE_SIDEBAR_VIEW, ACTIVATE_SIDEBAR on success', () => {
     store.dispatch(appStateActions.openBoundaryLayerMenu())
     const actions = store.getActions()
@@ -26,9 +26,9 @@ describe('openBuildingLayerMenu', () => {
   })
 })
 
-describe('openBuildingLayerMenu', () => {
+describe('openPortraitBuildingLayerMenu', () => {
   it('dispatches CHANGE_SIDEBAR_VIEW, ACTIVATE_SIDEBAR on success', () => {
-    store.dispatch(appStateActions.openBuildingLayerMenu())
+    store.dispatch(appStateActions.openPortraitBuildingLayerMenu())
     const actions = store.getActions()
     const expectedActions = [
       appStateActions.changeSidebarView(appStateActions.SIDEBAR_VIEW_BUILDING_LAYER_MENU),

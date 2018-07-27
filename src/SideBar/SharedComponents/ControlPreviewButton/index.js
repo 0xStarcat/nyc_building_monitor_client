@@ -15,7 +15,7 @@ const ControlPreviewButton = props => {
       className={`control-hide-button control-button ${props.className}`}
       disabled={disabled}
     >
-      <div className={`control-icon-container ${disabled ? 'hidden' : ''}`}>
+      <div className={`control-icon-container round button-border-bottom ${disabled ? 'hidden-svg' : ''}`}>
         <RightArrow className="svg-rotate-right" />
       </div>
     </DispatchActionButton>

@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SwitchLayerButton from '../SharedComponents/SwitchLayerButton'
 import IconProfile from '../SharedComponents/IconProfile'
+import IconHeader from '../SharedComponents/IconHeader'
+
 import ButtonRow from '../SharedComponents/ButtonRow'
 
 import {
@@ -11,7 +13,7 @@ import {
   BASE_LAYER_TOTAL_BUILDING_OPEN_311
 } from '../../Store/AppState/actions'
 
-import { BuildingIcon, ViolationIcon, ServiceCallIcon } from '../../SharedStyles/icons'
+import { BuildingIcon, ViolationIcon, ServiceCallIcon, BuildingLayerIcon } from '../../SharedStyles/icons'
 
 export default class SidebarBuildingLayerMenu extends React.Component {
   constructor(props) {
@@ -26,7 +28,8 @@ export default class SidebarBuildingLayerMenu extends React.Component {
 
   render() {
     return (
-      <div className="sidebar-building-layer-menu">
+      <div className="sidebar-building-layer-menu content-box">
+        {this.props.landscapeOrientation && <IconHeader icon={BuildingLayerIcon}>Layers</IconHeader>}
         <ButtonRow>
           <SwitchLayerButton
             action={this.switchLayer}
