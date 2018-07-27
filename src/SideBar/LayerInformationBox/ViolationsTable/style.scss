@@ -1,0 +1,9 @@
+@import '../../../SharedStyles/index.scss';
+
+.table-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: $small-spacing 0;
+}

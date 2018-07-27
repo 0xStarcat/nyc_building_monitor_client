@@ -9,7 +9,9 @@ import {
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
-  SCOPE_BUILDINGS
+  SCOPE_BUILDINGS,
+  SCOPE_VIOLATIONS,
+  SIDEBAR_VIEW_SCOPED_OBJECT
 } from '../../../Store/AppState/actions'
 
 import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
@@ -33,6 +35,12 @@ export const ControlNextButton = props => {
         return SIDEBAR_VIEW_SCOPED_OBJECTS
       case SCOPE_CENSUS_TRACTS:
         return SIDEBAR_VIEW_SCOPED_OBJECTS
+      case SCOPE_BUILDINGS:
+        return SIDEBAR_VIEW_SCOPED_OBJECTS
+      case SCOPE_VIOLATIONS:
+        return SIDEBAR_VIEW_SCOPED_OBJECT
+      case SCOPE_SERVICE_CALLS:
+        return SIDEBAR_VIEW_SCOPED_OBJECT
       default:
         return appState.sidebarView
     }
@@ -46,6 +54,9 @@ export const ControlNextButton = props => {
     switch (appState.sidebarScope) {
       case SCOPE_CENSUS_TRACTS:
         return SCOPE_BUILDINGS
+      case SCOPE_BUILDINGS:
+        if (props.violationsPresent) return SCOPE_VIOLATIONS
+        if (props.serviceCallsPresent) return SCOPE_SERVICE_CALLS
       default:
         return appState.sidebarScope
     }
@@ -63,7 +74,7 @@ export const ControlNextButton = props => {
       case SCOPE_CENSUS_TRACTS:
         return props.selectedBuilding.name
       case SCOPE_BUILDINGS:
-        return props.selectedViolation.name || props.selectedServiceCall.name
+        return props.violationsPresent ? 'Violations' : '311-Calls'
       case SCOPE_VIOLATIONS:
         return props.selectedViolation.name
       case SCOPE_SERVICE_CALLS:
@@ -80,9 +91,9 @@ export const ControlNextButton = props => {
         appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU ||
         appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU) &&
         (!!props.selectedCensusTract || !!props.selectedNeighborhood)) ||
-      (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS &&
-        appState.sidebarScope === SCOPE_CENSUS_TRACTS &&
-        !!props.selectedBuilding)
+      ((appState.sidebarScope === SCOPE_CENSUS_TRACTS || appState.sidebarScope === SCOPE_NEIGHBORHOODS) &&
+        !!props.selectedBuilding) ||
+      (appState.sidebarScope === SCOPE_BUILDINGS && (props.violationsPresent || props.serviceCallsPresent))
     )
   }
   const disabled = !hasNext()
@@ -115,6 +126,8 @@ const mapStateToProps = state => {
   return {
     appState: state.appState,
     buildingsPresent: !!state.buildings.features.length,
+    violationsPresent: !!state.violations.features.length,
+    serviceCallsPresent: !!state.serviceCalls.features.length,
     selectedNeighborhood: state.neighborhoods.selectedObject,
     selectedCensusTract: state.censusTracts.selectedObject,
     selectedBuilding: state.buildings.selectedObject,
