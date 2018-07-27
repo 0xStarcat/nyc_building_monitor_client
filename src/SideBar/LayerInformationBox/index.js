@@ -54,7 +54,7 @@ class LayerInformationBox extends React.Component {
           />
         )
       case SCOPE_VIOLATIONS:
-        return <ViolationsTable features={this.props.features} />
+        return <ViolationsTable features={this.props.features} building={this.props.parentObject} />
       case SCOPE_SERVICE_CALLS:
         return <ServiceCallInformation selectedObject={this.props.selectedObject} />
     }

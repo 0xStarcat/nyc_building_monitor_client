@@ -3,6 +3,8 @@ import { configure, shallow } from 'enzyme'
 import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import ExploreButton from '../index.js'
+import DispatchActionButton from '../../DispatchActionButton'
+
 import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
@@ -12,7 +14,7 @@ import {
 configure({ adapter: new Adapter() })
 
 describe('ExploreButton', () => {
-  const dispatch = sinon.spy()
+  const setViewCoordinates = sinon.spy()
   const appState = {
     sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS,
     sidebarScope: SCOPE_CENSUS_TRACTS
@@ -21,7 +23,7 @@ describe('ExploreButton', () => {
   const selectedObject = { id: 1 }
 
   describe('with sidebarView = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
-    const wrapper = shallow(<ExploreButton appState={appState} dispatch={dispatch} selectedObject={selectedObject} />)
+    const wrapper = shallow(<ExploreButton appState={appState} selectedObject={selectedObject} />)
 
     it('renders the component', () => {
       expect(wrapper.find('.explore-button').length).toEqual(1)
@@ -32,7 +34,6 @@ describe('ExploreButton', () => {
     const wrapper = shallow(
       <ExploreButton
         appState={{ ...appState, sidebarView: SIDEBAR_VIEW_BOUNDARY_LAYER_MENU }}
-        dispatch={dispatch}
         selectedObject={selectedObject}
       />
     )

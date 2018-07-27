@@ -10,7 +10,7 @@ const ViolationsTable = props => {
     <div className="violations-table">
       <div className="info-section">
         <div className="info-title">
-          <h5>Violations</h5>
+          <h5>Violations for {props.building.name}</h5>
         </div>
         {props.features.map(feature => {
           return <ViolationRow feature={feature} />
@@ -21,7 +21,8 @@ const ViolationsTable = props => {
 }
 
 ViolationsTable.propTypes = {
-  features: PropTypes.array
+  features: PropTypes.array,
+  building: PropTypes.object
 }
 
 export default ViolationsTable

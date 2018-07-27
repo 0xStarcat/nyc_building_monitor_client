@@ -33,7 +33,9 @@ import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_VIEW_SCOPED_OBJECT,
-  SIDEBAR_VIEW_SCOPE_MENU
+  SIDEBAR_VIEW_SCOPE_MENU,
+  SCOPE_VIOLATIONS,
+  SCOPE_SERVICE_CALLS
 } from '../Store/AppState/actions'
 
 import './style.scss'
@@ -119,6 +121,11 @@ class SideBar extends React.Component {
               appState={appState}
               dispatch={this.props.dispatch}
               features={this.props.store[appState.sidebarScope].features}
+              parentObject={
+                appState.sidebarScope === SCOPE_VIOLATIONS || appState.sidebarScope === SCOPE_SERVICE_CALLS
+                  ? this.props.store.buildings.selectedObject
+                  : null
+              }
               selectedObject={selectedObject}
             />
           </div>
