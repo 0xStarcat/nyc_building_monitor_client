@@ -21,7 +21,7 @@ const getButton = props => {
       className="mobile-button round hover-shadow bordered"
       action={props.appState.landscapeOrientation ? openLandscapeBuildingLayerMenu : openPortraitBuildingLayerMenu}
     >
-      <IconProfile className="small" icon={BuildingLayerIcon} label="Building Layers" />
+      <IconProfile className="button-row-child small" icon={BuildingLayerIcon} label="Building Layers" />
     </DispatchActionButton>
   ) : (
     <ExploreButton appState={props.appState} selectedObject={props.selectedObject} />

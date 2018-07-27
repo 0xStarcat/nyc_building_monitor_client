@@ -39,7 +39,7 @@ const MobileBoundaryLayerButton = props => {
   } else {
     return (
       <DispatchActionButton className="mobile-button bordered" scopeSwitch={null} action={openBoundaryLayerMenu}>
-        <IconProfile className="button-row-child" icon={BoundaryLayersIcon} label="Layers" />
+        <IconProfile className="button-row-child small" icon={BoundaryLayersIcon} label="Region Layers" />
       </DispatchActionButton>
     )
   }

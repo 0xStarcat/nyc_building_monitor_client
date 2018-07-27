@@ -7,6 +7,7 @@ export const ACTIVATE_SIDEBAR = 'ACTIVATE_SIDEBAR'
 export const DEACTIVATE_SIDEBAR = 'DEACTIVATE_SIDEBAR'
 export const PREVIEW_SIDEBAR = 'PREVIEW_SIDEBAR'
 
+export const CHANGE_SIDEBAR_STATE = 'CHANGE_SIDEBAR_STATE'
 export const CHANGE_BASE_LAYER_SCOPE = 'CHANGE_BASE_LAYER_SCOPE'
 export const CHANGE_SIDEBAR_SCOPE = 'CHANGE_SIDEBAR_SCOPE'
 export const CHANGE_SIDEBAR_VIEW = 'CHANGE_SIDEBAR_VIEW'
@@ -56,6 +57,11 @@ export const activateSidebar = event => ({
 
 export const previewSidebar = event => ({
   type: PREVIEW_SIDEBAR
+})
+
+export const changeSidebarState = event => ({
+  type: CHANGE_SIDEBAR_STATE,
+  data: event
 })
 
 export const deactivateSidebar = event => ({

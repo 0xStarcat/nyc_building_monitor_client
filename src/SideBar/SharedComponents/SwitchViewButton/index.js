@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { changeSidebarScope, changeSidebarView } from '../../../Store/AppState/actions'
+import { changeSidebarScope, changeSidebarView, changeSidebarState } from '../../../Store/AppState/actions'
 
 export class SwitchViewButton extends React.Component {
   constructor(props) {
@@ -15,6 +15,7 @@ export class SwitchViewButton extends React.Component {
     if (this.props.disabled) return null
     if (this.props.scopeSwitch) this.props.dispatch(changeSidebarScope(this.props.scopeSwitch))
     if (this.props.viewSwitch) this.props.dispatch(changeSidebarView(this.props.viewSwitch))
+    if (this.props.stateSwitch) this.props.dispatch(changeSidebarState(this.props.stateSwitch))
   }
 
   render() {

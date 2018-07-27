@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import PropTypes from 'prop-types'
 import {
+  SIDEBAR_STATE_PREVIEW,
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_SCOPE_MENU,
   SIDEBAR_VIEW_BUILDING_LAYER_MENU,
@@ -47,6 +48,16 @@ export const ControlBackButton = props => {
     }
   }
 
+  const getBackState = () => {
+    const appState = props.appState
+    if (appState.landscapeOrientation) return null
+    if (appState.sidebarScope === SCOPE_CENSUS_TRACTS || appState.sidebarScope === SCOPE_NEIGHBORHOODS) {
+      return SIDEBAR_STATE_PREVIEW
+    } else {
+      return null
+    }
+  }
+
   const getBackText = () => {
     const appState = props.appState
 
@@ -77,6 +88,7 @@ export const ControlBackButton = props => {
     <SwitchViewButton
       className={`back-button control-button ${disabled ? 'disabled-button' : ''} ${props.className}`}
       disabled={disabled}
+      stateSwitch={getBackState()}
       scopeSwitch={getBackScope()}
       viewSwitch={getBackView()}
     >
