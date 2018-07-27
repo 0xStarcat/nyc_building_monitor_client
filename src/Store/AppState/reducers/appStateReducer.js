@@ -9,7 +9,8 @@ export const initialState = {
   selectedLayer: null,
   sidebarScope: null,
   sidebarState: appStateActions.SIDEBAR_STATE_INACTIVE,
-  sidebarView: appStateActions.SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+  sidebarView: appStateActions.SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  zoomLevel: 13
 }
 
 export const appStateReducer = (appState = Object.freeze(initialState), action = { data: [] }) => {
@@ -19,6 +20,10 @@ export const appStateReducer = (appState = Object.freeze(initialState), action =
     }
     case appStateActions.ALL_LAYERS_LOADED: {
       return { ...appState, allLayersLoaded: true }
+    }
+    case appStateActions.CHANGE_ZOOM_LEVEL: {
+      console.log(action.data)
+      return { ...appState, zoomLevel: action.data }
     }
     case appStateActions.ACTIVATE_SIDEBAR: {
       return { ...appState, sidebarState: appStateActions.SIDEBAR_STATE_ACTIVE }

@@ -3,6 +3,7 @@ import { readNeighborhoods } from '../../Neighborhoods/actions'
 
 export const CHECK_ORIENTATION = 'CHECK_ORIENTATION'
 export const ALL_LAYERS_LOADED = 'ALL_LAYERS_LOADED'
+export const CHANGE_ZOOM_LEVEL = 'CHANGE_ZOOM_LEVEL'
 export const ACTIVATE_SIDEBAR = 'ACTIVATE_SIDEBAR'
 export const DEACTIVATE_SIDEBAR = 'DEACTIVATE_SIDEBAR'
 export const PREVIEW_SIDEBAR = 'PREVIEW_SIDEBAR'
@@ -49,6 +50,11 @@ export const checkOrientation = event => ({
 
 export const allLayersLoaded = event => ({
   type: ALL_LAYERS_LOADED
+})
+
+export const changeZoomLevel = event => ({
+  type: CHANGE_ZOOM_LEVEL,
+  data: event
 })
 
 export const activateSidebar = event => ({

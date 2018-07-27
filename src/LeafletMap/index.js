@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+
 import BoundaryLayersMenu from './BoundaryLayersMenu'
 import BuildingLayersMenu from './BuildingLayersMenu'
-import GeoJsonBuildingLayer from './GeoJsonBuildingLayer'
 import Loading from '../SharedComponents/Loading'
+
 import { initialBoundaryDataLoaded, nothingLoading, layersLoaded } from '../SharedUtilities/storeUtils'
+import { changeZoomLevel } from '../Store/AppState/actions'
 import { Map, TileLayer, ZoomControl } from 'react-leaflet'
-import { buildingStyle } from './GeoJsonStyles'
+
 import './style.scss'
 
 export default class LeafletMap extends Component {
@@ -15,7 +17,7 @@ export default class LeafletMap extends Component {
     this.state = {
       lon: -73.9671,
       lat: 40.6881,
-      zoom: 13
+      zoom: props.zoomLevel
     }
 
     this.mapRef = React.createRef()
@@ -32,9 +34,9 @@ export default class LeafletMap extends Component {
     const leftLandscapeZoomOffset = zoomLevel > 14 ? -(0.035 / zoomLevel - 0.001) : -(0.5 / zoomLevel - 0.02)
     const leftOffset = this.props.store.appState.landscapeOrientation ? leftLandscapeZoomOffset : 0 //-0.01 : 0
     const latLon = [point['coordinates'][1] + topOffset, point['coordinates'][0] + leftOffset]
-
+    this.props.dispatch(changeZoomLevel(zoomLevel))
     if (this.mapRef.current) {
-      this.mapRef.current.leafletElement.setView([latLon[0], latLon[1]], zoomLevel, {
+      this.mapRef.current.leafletElement.panTo([latLon[0], latLon[1]], {
         animate: true,
         duration: 0.5,
         easeLinearity: 1
@@ -54,7 +56,7 @@ export default class LeafletMap extends Component {
           minZoom={12}
           maxZoom={20}
           ref={this.mapRef}
-          zoom={this.state.zoom}
+          zoom={this.props.zoomLevel}
           zoomControl={false}
         >
           {!nothingLoading(this.props.store) && <Loading />}
@@ -77,6 +79,7 @@ export default class LeafletMap extends Component {
 }
 
 LeafletMap.propTypes = {
+  dispatch: PropTypes.func,
   store: PropTypes.object,
   position: PropTypes.shape({
     lon: PropTypes.number,
