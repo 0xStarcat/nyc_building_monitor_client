@@ -7,3 +7,36 @@
   justify-content: space-between;
   padding: $small-spacing 0;
 }
+
+.table-cell {
+  padding-right: $small-spacing;
+  padding-bottom: $tiny-spacing;
+}
+
+.v-col1 {
+  width: 80px;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.v-col2 {
+  width: 60px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  min-width: 0;
+  > div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.v-col3 {
+  flex-grow: 1;
+  min-width: 0;
+  > div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

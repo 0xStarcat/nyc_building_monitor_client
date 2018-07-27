@@ -18,13 +18,17 @@ const ViolationsTable = props => {
       </div>
       <div className="info-section">
         <div className="table-header">
-          <label>Date</label>
-          <label>Code</label>
-          <label>Description</label>
+          <label className="v-col1 table-cell">Date</label>
+          <label className="v-col2 table-cell">Code</label>
+          <label className="v-col3 table-cell">Description</label>
         </div>
-        {props.features.map(feature => {
-          return <ViolationRow feature={feature} />
-        })}
+        {props.features
+          .sort((a, b) => {
+            return b.properties.date - a.properties.date
+          })
+          .map(feature => {
+            return <ViolationRow feature={feature} />
+          })}
       </div>
     </div>
   )
