@@ -136,11 +136,7 @@ class SideBar extends React.Component {
   render() {
     return (
       <div id="sidebar" style={this.storeStyle()}>
-        <TopBar
-          dispatch={this.props.dispatch}
-          appState={this.props.store.appState}
-          selectedObjects={this.props.selectedObjects}
-        />
+        <TopBar dispatch={this.props.dispatch} appState={this.props.store.appState} />
         {this.getView()}
       </div>
     )
@@ -148,10 +144,8 @@ class SideBar extends React.Component {
 }
 
 SideBar.propTypes = {
-  buildingsPresent: PropTypes.bool,
   dispatch: PropTypes.func,
-  store: PropTypes.object,
-  selectedObjects: PropTypes.object
+  store: PropTypes.object
 }
 
 export default SideBar

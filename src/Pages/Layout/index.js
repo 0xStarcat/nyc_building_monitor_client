@@ -12,16 +12,10 @@ class Layout extends React.Component {
   render() {
     return (
       <div id="pageLayout">
-        <SideBar
-          buildingsPresent={!!this.props.store.buildings.features.length}
-          dispatch={this.props.dispatch}
-          store={this.props.store}
-          selectedObjects={this.props.selectedObjects}
-        />
+        <SideBar dispatch={this.props.dispatch} store={this.props.store} />
         {!this.props.store.appState.landscapeOrientation && (
           <MobileButtonContainer
             appState={this.props.store.appState}
-            buildingsPresent={!!this.props.store.buildings.features.length}
             selectedObject={(this.props.store[this.props.store.appState.sidebarScope] || {}).selectedObject}
           />
         )}
@@ -33,26 +27,7 @@ class Layout extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    store: state,
-    selectedObjects: {
-      neighborhoods: {
-        object: state.neighborhoods.selectedObject
-      },
-      censusTracts: {
-        object: state.censusTracts.selectedObject
-      },
-      buildings: {
-        object: state.buildings.selectedObject
-      },
-      violations: {
-        objects: state.violations.selectedObjects,
-        object: state.violations.selectedObject
-      },
-      serviceCalls: {
-        objects: state.serviceCalls.selectedObjects,
-        object: state.serviceCalls.selectedObject
-      }
-    }
+    store: state
   }
 }
 export default connect(mapStateToProps)(Layout)

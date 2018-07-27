@@ -2,7 +2,7 @@ import React from 'react'
 import { configure, shallow } from 'enzyme'
 import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
-import ControlNextButton from '../index.js'
+import { ControlNextButton } from '../index.js'
 
 import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
@@ -20,18 +20,6 @@ const appState = {
   sidebarScope: SCOPE_CENSUS_TRACTS
 }
 
-const selectedObjects = {
-  neighborhoods: {
-    object: null
-  },
-  censusTracts: {
-    object: null
-  },
-  buildings: {
-    object: null
-  }
-}
-
 describe('ControlNextButton', () => {
   describe('when rendering the next button', () => {
     describe('when view = SIDEBAR_VIEW_BOUNDARY_LAYER_MENU and there is no selected census tract object', () => {
@@ -40,7 +28,7 @@ describe('ControlNextButton', () => {
         sidebarScope: SCOPE_CENSUS_TRACTS
       }
 
-      const wrapper = shallow(<ControlNextButton appState={appState} selectedObjects={selectedObjects} />)
+      const wrapper = shallow(<ControlNextButton appState={appState} />)
 
       it('disables the next button', () => {
         const nextButtonProps = wrapper.props()
@@ -55,13 +43,11 @@ describe('ControlNextButton', () => {
         baseLayerScope: SCOPE_CENSUS_TRACTS
       }
 
-      const selectedObjects = {
-        censusTracts: {
-          object: { id: 1 }
-        }
+      const selectedCensusTract = {
+        name: '12345'
       }
 
-      const wrapper = shallow(<ControlNextButton appState={appState} selectedObjects={selectedObjects} />)
+      const wrapper = shallow(<ControlNextButton appState={appState} selectedCensusTract={selectedCensusTract} />)
 
       it('enables the next button', () => {
         const nextButtonProps = wrapper.props()
@@ -73,6 +59,14 @@ describe('ControlNextButton', () => {
         expect(nextButtonProps.scopeSwitch).toEqual(SCOPE_CENSUS_TRACTS)
         expect(nextButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SCOPED_OBJECTS)
       })
+
+      it('displays the proper text', () => {
+        const nextButtonText = wrapper
+          .children()
+          .find('.button-label')
+          .text()
+        expect(nextButtonText).toEqual('#12345')
+      })
     })
 
     describe('when scope = SCOPE_CENSUS_TRACTS and there is a selected building object', () => {
@@ -82,13 +76,11 @@ describe('ControlNextButton', () => {
         baseLayerScope: SCOPE_CENSUS_TRACTS
       }
 
-      const selectedObjects = {
-        buildings: {
-          object: { id: 1 }
-        }
+      const selectedBuilding = {
+        name: '123 Fake St'
       }
 
-      const wrapper = shallow(<ControlNextButton appState={appState} selectedObjects={selectedObjects} />)
+      const wrapper = shallow(<ControlNextButton appState={appState} selectedBuilding={selectedBuilding} />)
 
       it('enables the next button', () => {
         const nextButtonProps = wrapper.props()
@@ -99,6 +91,14 @@ describe('ControlNextButton', () => {
         const nextButtonProps = wrapper.props()
         expect(nextButtonProps.scopeSwitch).toEqual(SCOPE_BUILDINGS)
         expect(nextButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SCOPED_OBJECTS)
+      })
+
+      it('displays the proper text', () => {
+        const nextButtonText = wrapper
+          .children()
+          .find('.button-label')
+          .text()
+        expect(nextButtonText).toEqual('123 Fake St')
       })
     })
   })

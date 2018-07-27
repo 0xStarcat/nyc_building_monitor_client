@@ -5,11 +5,11 @@ export const initialState = {
   baseLayer: appStateActions.BASE_LAYER_MEDIAN_INCOME,
   baseLayerScope: appStateActions.SCOPE_CENSUS_TRACTS,
   buildingBaseLayer: appStateActions.BASE_LAYER_BUILDING_CATEGORIES,
+  landscapeOrientation: window.matchMedia('(orientation: landscape)').matches,
   selectedLayer: null,
-  sidebarState: appStateActions.SIDEBAR_STATE_INACTIVE,
-  sidebarView: appStateActions.SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   sidebarScope: null,
-  landscapeOrientation: window.matchMedia('(orientation: landscape)').matches
+  sidebarState: appStateActions.SIDEBAR_STATE_INACTIVE,
+  sidebarView: appStateActions.SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
 }
 
 export const appStateReducer = (appState = Object.freeze(initialState), action = { data: [] }) => {

@@ -24,15 +24,11 @@ const getOrientationRow = props => {
     <ControlRow>
       <ControlBackButton appState={props.appState} className="control-row-child" />
       {props.appState.landscapeOrientation && <ControlToggleButton appState={props.appState} />}
-      <ControlNextButton
-        appState={props.appState}
-        className="control-row-child"
-        selectedObjects={props.selectedObjects}
-      />
+      <ControlNextButton appState={props.appState} className="control-row-child" />
     </ControlRow>
   ) : (
     <ControlRow>
-      <ControlBackButton appState={props.appState} className="control-row-child" />
+      <ControlBackButton className="control-row-child" />
 
       {props.appState.sidebarState === SIDEBAR_STATE_PREVIEW && (
         <ControlHideButton className="control-row-child" sidebarState={props.appState.sidebarState} />
@@ -48,22 +44,18 @@ const getOrientationRow = props => {
         sidebarView={props.appState.sidebarView}
       />
 
-      <ControlNextButton
-        appState={props.appState}
-        className="control-row-child"
-        selectedObjects={props.selectedObjects}
-      />
+      <ControlNextButton appState={props.appState} className="control-row-child" />
     </ControlRow>
   )
 }
+
 const TopBar = props => {
   return <div className="top-bar">{getOrientationRow(props)}</div>
 }
 
 TopBar.propTypes = {
   appState: PropTypes.object,
-  dispatch: PropTypes.func,
-  selectedObjects: PropTypes.object
+  dispatch: PropTypes.func
 }
 
 export default TopBar

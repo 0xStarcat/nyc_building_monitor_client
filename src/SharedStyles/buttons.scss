@@ -90,3 +90,20 @@
   align-items: center;
   justify-content: center;
 }
+
+.button-label {
+  font-size: 12px;
+  position: absolute;
+  top: 20px;
+}
+
+.left-label {
+  margin-left: $small-spacing;
+  left: 0;
+}
+
+.right-label {
+  margin-right: $small-spacing;
+  text-align: right;
+  right: 0;
+}
