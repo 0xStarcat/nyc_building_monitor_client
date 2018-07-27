@@ -1,0 +1,45 @@
+.icon-profile {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  i {
+    width: 75px;
+    height: 75px;
+  }
+
+  label {
+    font-size: 15px;
+    line-height: 160%;
+    text-align: center;
+  }
+}
+
+.icon-profile.small {
+  i {
+    width: 30px;
+    height: 30px;
+  }
+
+  label {
+    font-size: 13px;
+    line-height: 130%;
+    text-align: center;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .icon-profile {
+    i {
+      width: 40px;
+      height: 40px;
+    }
+
+    label {
+      font-size: 13px;
+      line-height: 130%;
+      text-align: center;
+    }
+  }
+}

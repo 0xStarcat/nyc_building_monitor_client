@@ -12,7 +12,12 @@ class Layout extends React.Component {
   render() {
     return (
       <div id="pageLayout">
-        <SideBar dispatch={this.props.dispatch} store={this.props.store} selectedObjects={this.props.selectedObjects} />
+        <SideBar
+          buildingsPresent={!!this.props.store.buildings.features.length}
+          dispatch={this.props.dispatch}
+          store={this.props.store}
+          selectedObjects={this.props.selectedObjects}
+        />
         {!this.props.store.appState.landscapeOrientation && (
           <MobileButtonContainer
             appState={this.props.store.appState}

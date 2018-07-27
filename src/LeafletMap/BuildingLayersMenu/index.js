@@ -9,7 +9,7 @@ import {
   activateSidebar,
   previewSidebar,
   BASE_LAYER_BUILDING_CATEGORIES,
-  BASE_LAYER_TOTAL_OPEN_VIOLATIONS,
+  BASE_LAYER_TOTAL_VIOLATIONS,
   BASE_LAYER_TOTAL_BUILDING_OPEN_311
 } from '../../Store/AppState/actions'
 
@@ -40,7 +40,7 @@ class BuildingLayersMenu extends Component {
           />
         </BaseLayer>
         <BaseLayer
-          checked={this.props.appState.buildingBaseLayer === BASE_LAYER_TOTAL_OPEN_VIOLATIONS}
+          checked={this.props.appState.buildingBaseLayer === BASE_LAYER_TOTAL_VIOLATIONS}
           name="Building Violations"
         >
           <GeoJsonBuildingLayer

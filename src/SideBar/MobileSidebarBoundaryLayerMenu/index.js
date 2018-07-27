@@ -7,7 +7,6 @@ import IconProfile from '../SharedComponents/IconProfile'
 import {
   changeBaseLayer,
   switchScopeWithFetch,
-  changeBaseLayerScope,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
   BASE_LAYER_MEDIAN_INCOME,
@@ -17,27 +16,13 @@ import {
   BASE_LAYER_OPEN_311
 } from '../../Store/AppState/actions'
 
-import {
-  NeighborhoodIcon,
-  CensusTractIcon,
-  IncomeIcon,
-  RentIcon,
-  RentChangeIcon,
-  PopulationIcon,
-  ServiceCallOpenIcon
-} from '../../SharedStyles/icons'
+import { IncomeIcon, RentIcon, RentChangeIcon, PopulationIcon, ServiceCallOpenIcon } from '../../SharedStyles/icons'
 
-export default class SidebarLayerMenu extends React.Component {
+export default class MobileSidebarBoundaryLayerMenu extends React.Component {
   constructor(props) {
     super(props)
 
     this.switchLayer = this.switchLayer.bind(this)
-    this.switchScopeWithFetch = this.switchScopeWithFetch.bind(this)
-  }
-
-  switchScopeWithFetch(scope) {
-    this.props.dispatch(changeBaseLayerScope(scope))
-    this.props.dispatch(switchScopeWithFetch(scope))
   }
 
   switchLayer(layer) {
@@ -46,29 +31,11 @@ export default class SidebarLayerMenu extends React.Component {
 
   render() {
     return (
-      <div className="sidebar-layer-menu content-box">
-        <ButtonRow>
-          <SwitchLayerButton
-            action={this.switchScopeWithFetch}
-            className="round hover-shadow"
-            dispatch={this.props.dispatch}
-            layer={SCOPE_NEIGHBORHOODS}
-          >
-            <IconProfile className="button-row-child" icon={NeighborhoodIcon} label="Neighborhoods" />
-          </SwitchLayerButton>
-          <SwitchLayerButton
-            action={this.switchScopeWithFetch}
-            className="round hover-shadow"
-            dispatch={this.props.dispatch}
-            layer={SCOPE_CENSUS_TRACTS}
-          >
-            <IconProfile className="button-row-child" icon={CensusTractIcon} label="Census Tracts" />
-          </SwitchLayerButton>
-        </ButtonRow>
+      <div className="mobile-sidebar-scope-menu content-box">
         <ButtonRow>
           <SwitchLayerButton
             action={this.switchLayer}
-            className="round hover-shadow"
+            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_MEDIAN_INCOME}
           >
@@ -76,7 +43,7 @@ export default class SidebarLayerMenu extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
-            className="round hover-shadow"
+            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_MEDIAN_RENT}
           >
@@ -84,15 +51,15 @@ export default class SidebarLayerMenu extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
-            className="round hover-shadow"
+            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_MEDIAN_RENT_CHANGE}
           >
-            <IconProfile className="button-row-child" icon={PopulationIcon} label="Rent Change" />
+            <IconProfile className="button-row-child" icon={RentChangeIcon} label="Rent Change" />
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
-            className="round hover-shadow"
+            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_WHITE_POPULATION}
           >
@@ -100,7 +67,7 @@ export default class SidebarLayerMenu extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
-            className="round hover-shadow"
+            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_OPEN_311}
           >
@@ -112,6 +79,6 @@ export default class SidebarLayerMenu extends React.Component {
   }
 }
 
-SidebarLayerMenu.propTypes = {
+MobileSidebarBoundaryLayerMenu.propTypes = {
   dispatch: PropTypes.func
 }

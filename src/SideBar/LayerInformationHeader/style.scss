@@ -9,6 +9,7 @@
   justify-content: flex-end;
   height: $infoHeaderHeight;
   padding: $small-spacing;
+  margin-bottom: $small-spacing;
 
   .headerSubTitle {
     align-items: center;
@@ -32,6 +33,7 @@
 @media screen and (orientation: portrait) {
   .headerBar {
     justify-content: center;
+    margin-bottom: 0;
 
     .headerSubTitle {
       span:first-child {

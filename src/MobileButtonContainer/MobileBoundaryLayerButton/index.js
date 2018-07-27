@@ -2,24 +2,42 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import DispatchActionButton from '../../SideBar/SharedComponents/DispatchActionButton'
+import IconProfile from '../../SideBar/SharedComponents/IconProfile'
 
-import { openScopeMenu, openBoundaryLayerMenu, SIDEBAR_STATE_INACTIVE } from '../../Store/AppState/actions'
+import {
+  openScopeMenu,
+  openBoundaryLayerMenu,
+  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_SCOPE_MENU
+} from '../../Store/AppState/actions'
+
+import { BoundaryLayersIcon, RegionIcon } from '../../SharedStyles/icons'
 
 const getAction = props => {
-  switch (props.appState.sidebarState) {
-    case SIDEBAR_STATE_INACTIVE:
+  switch (props.appState.sidebarView) {
+    case SIDEBAR_VIEW_BOUNDARY_LAYER_MENU:
       return openScopeMenu
-    default:
+    case SIDEBAR_VIEW_SCOPE_MENU:
       return openBoundaryLayerMenu
+    default:
+      return openScopeMenu
   }
 }
 
 const MobileBoundaryLayerButton = props => {
-  return (
-    <DispatchActionButton className="mobile-button round hover-shadow" scopeSwitch={null} action={getAction(props)}>
-      Scope
-    </DispatchActionButton>
-  )
+  if (props.appState.sidebarView === SIDEBAR_VIEW_SCOPE_MENU) {
+    return (
+      <DispatchActionButton className="mobile-button" scopeSwitch={null} action={openBoundaryLayerMenu}>
+        <IconProfile className="button-row-child" icon={BoundaryLayersIcon} label="Layers" />
+      </DispatchActionButton>
+    )
+  } else {
+    return (
+      <DispatchActionButton className="mobile-button" scopeSwitch={null} action={openScopeMenu}>
+        <IconProfile className="button-row-child" icon={RegionIcon} label="Regions" />
+      </DispatchActionButton>
+    )
+  }
 }
 
 MobileBoundaryLayerButton.propTypes = {

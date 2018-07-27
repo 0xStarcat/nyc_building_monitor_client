@@ -1,13 +1,13 @@
-@import '../../../SharedStyles/index.scss';
+@import '../../SharedStyles/index.scss';
 
-.explore-button {
+.building-layer-button {
   position: absolute;
   left: ($sidebar-width / 2) - ($sidebar-button-width / 2);
-  top: $infoHeaderHeight - ($sidebar-button-width / 2);
+  top: $infoHeaderHeight - $tiny-spacing;
 }
 
 @media screen and (orientation: portrait) {
-  .explore-button {
+  .building-layer-button {
     display: flex;
     margin: initial;
     position: initial;

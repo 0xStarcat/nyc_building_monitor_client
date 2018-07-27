@@ -72,8 +72,8 @@ const BoundaryInformation = props => {
         )}
         {!!props.selectedObject.serviceCallsTotal && (
           <IconRow icon={TimeToResolveCallsIcon}>
-            It takes an average of {props.selectedObject.averageDaysToResolveServiceCalls} days for building departments
-            to resolve 311-calls here.
+            It takes an average of {props.selectedObject.averageDaysToResolveServiceCalls} days for the city to resolve
+            311-calls here.
           </IconRow>
         )}
         {!!props.selectedObject.serviceCallsTotal && (

@@ -3,19 +3,19 @@ import PropTypes from 'prop-types'
 
 import './style.scss'
 
-const IconButton = props => {
+const IconProfile = props => {
   return (
-    <div className={`icon-button round hover-shadow ${props.className}`}>
+    <div className={`icon-profile ${props.className}`}>
       <i>{props.icon()}</i>
       <label>{props.label}</label>
     </div>
   )
 }
 
-IconButton.propTypes = {
+IconProfile.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.func,
   label: PropTypes.string
 }
 
-export default IconButton
+export default IconProfile

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SwitchLayerButton from '../SharedComponents/SwitchLayerButton'
 import ButtonRow from '../SharedComponents/ButtonRow'
-import IconButton from '../SharedComponents/IconButton'
+import IconProfile from '../SharedComponents/IconProfile'
 
 import {
   changeBaseLayerScope,
@@ -34,14 +34,14 @@ export default class MobileSidebarScopeMenu extends React.Component {
             dispatch={this.props.dispatch}
             layer={SCOPE_NEIGHBORHOODS}
           >
-            <IconButton className="button-row-child" icon={NeighborhoodIcon} label="Neighborhoods" />
+            <IconProfile className="button-row-child" icon={NeighborhoodIcon} label="Neighborhoods" />
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchScopeWithFetch}
             dispatch={this.props.dispatch}
             layer={SCOPE_CENSUS_TRACTS}
           >
-            <IconButton className="button-row-child" icon={CensusTractIcon} label="Census Tracts" />
+            <IconProfile className="button-row-child" icon={CensusTractIcon} label="Census Tracts" />
           </SwitchLayerButton>
         </ButtonRow>
       </div>
@@ -50,5 +50,6 @@ export default class MobileSidebarScopeMenu extends React.Component {
 }
 
 MobileSidebarScopeMenu.propTypes = {
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  landscapeOrientation: PropTypes.bool
 }

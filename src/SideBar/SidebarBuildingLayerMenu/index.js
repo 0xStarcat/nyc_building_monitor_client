@@ -1,15 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import SwitchLayerButton from '../SharedComponents/SwitchLayerButton'
+import IconProfile from '../SharedComponents/IconProfile'
+import ButtonRow from '../SharedComponents/ButtonRow'
 
 import {
   changeBuildingBaseLayer,
   BASE_LAYER_BUILDING_CATEGORIES,
-  BASE_LAYER_TOTAL_OPEN_VIOLATIONS,
+  BASE_LAYER_TOTAL_VIOLATIONS,
   BASE_LAYER_TOTAL_BUILDING_OPEN_311
 } from '../../Store/AppState/actions'
 
-export default class SidebarLayerMenu extends React.Component {
+import { BuildingIcon, ViolationIcon, ServiceCallIcon } from '../../SharedStyles/icons'
+
+export default class SidebarBuildingLayerMenu extends React.Component {
   constructor(props) {
     super(props)
 
@@ -22,31 +26,42 @@ export default class SidebarLayerMenu extends React.Component {
 
   render() {
     return (
-      <div className="sidebar-layer-menu">
-        <SwitchLayerButton
-          action={this.switchLayer}
-          buttonText="Building Categories"
-          dispatch={this.props.dispatch}
-          layer={BASE_LAYER_BUILDING_CATEGORIES}
-        />
-        <SwitchLayerButton
-          action={this.switchLayer}
-          buttonText="Total Violations"
-          dispatch={this.props.dispatch}
-          layer={BASE_LAYER_TOTAL_OPEN_VIOLATIONS}
-        />
-        <SwitchLayerButton
-          action={this.switchLayer}
-          buttonText="Total Open 311 Calls ( > 1 Month)"
-          dispatch={this.props.dispatch}
-          layer={BASE_LAYER_TOTAL_BUILDING_OPEN_311}
-        />
+      <div className="sidebar-building-layer-menu">
+        <ButtonRow>
+          <SwitchLayerButton
+            action={this.switchLayer}
+            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            dispatch={this.props.dispatch}
+            layer={BASE_LAYER_BUILDING_CATEGORIES}
+          >
+            <IconProfile className="button-row-child" icon={BuildingIcon} label="Building Classes" />
+          </SwitchLayerButton>
+
+          <SwitchLayerButton
+            action={this.switchLayer}
+            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            dispatch={this.props.dispatch}
+            layer={BASE_LAYER_TOTAL_VIOLATIONS}
+          >
+            <IconProfile className="button-row-child" icon={ViolationIcon} label="Violations" />
+          </SwitchLayerButton>
+
+          <SwitchLayerButton
+            action={this.switchLayer}
+            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            dispatch={this.props.dispatch}
+            layer={BASE_LAYER_TOTAL_BUILDING_OPEN_311}
+          >
+            <IconProfile className="button-row-child" icon={ServiceCallIcon} label="311-Calls" />
+          </SwitchLayerButton>
+        </ButtonRow>
       </div>
     )
   }
 }
 
-SidebarLayerMenu.propTypes = {
-  dispatch: PropTypes.dispatch,
+SidebarBuildingLayerMenu.propTypes = {
+  dispatch: PropTypes.func,
+  landscapeOrientation: PropTypes.bool,
   switchLayer: PropTypes.func
 }

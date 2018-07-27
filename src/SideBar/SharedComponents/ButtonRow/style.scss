@@ -18,8 +18,10 @@
 
 @media screen and (orientation: portrait) {
   .button-row {
-    flex-wrap: scroll;
+    flex-wrap: nowrap;
     flex-direction: row;
+    justify-content: flex-start;
+    overflow: scroll;
 
     .button-row-child {
       border-radius: 8px;

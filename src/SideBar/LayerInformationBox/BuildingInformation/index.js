@@ -73,8 +73,8 @@ const BuildingInformation = props => {
         {props.selectedObject.serviceCallsTotal && (
           <SwitchViewFetchButton>
             <IconRow icon={TimeToResolveCallsIcon}>
-              It takes an average of {props.selectedObject.averageDaysToResolveServiceCalls} days for building
-              departments to resolve 311-calls here.
+              It takes an average of {props.selectedObject.averageDaysToResolveServiceCalls} days for the city to
+              resolve 311-calls here.
             </IconRow>
             <div className="icon-row-text-align">View Details</div>
           </SwitchViewFetchButton>

@@ -14,9 +14,20 @@ describe('SidebarLayerMenu', () => {
   })
 
   describe('#switchLayer', () => {
+    const dispatch = sinon.spy()
+    const wrapper = shallow(<SidebarLayerMenu dispatch={dispatch} />)
     it('calls dispatch once', () => {
-      wrapper.instance().switchLayer()
+      wrapper.instance().switchLayer('layer')
       expect(dispatch.calledOnce).toEqual(true)
+    })
+  })
+
+  describe('#switchScopeWithFetch', () => {
+    const dispatch = sinon.spy()
+    const wrapper = shallow(<SidebarLayerMenu dispatch={dispatch} />)
+    it('calls dispatch twice', () => {
+      wrapper.instance().switchScopeWithFetch('scope')
+      expect(dispatch.calledTwice).toEqual(true)
     })
   })
 })

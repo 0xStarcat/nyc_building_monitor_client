@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import { readBuildingsByScope } from '../../../Store/Buildings/actions'
 import DispatchActionButton from '../DispatchActionButton'
 import { SCOPE_CENSUS_TRACTS, SCOPE_NEIGHBORHOODS, SIDEBAR_VIEW_SCOPED_OBJECTS } from '../../../Store/AppState/actions'
+import IconProfile from '../IconProfile'
 
-import './style.scss'
+import { BuildingExploreIcon } from '../../../SharedStyles/icons'
 
 const ExploreButton = props => {
   const onExploreClick = event => {
@@ -25,7 +26,7 @@ const ExploreButton = props => {
         className="explore-button round hover-shadow bordered mobile-button"
         action={onExploreClick}
       >
-        Explore
+        <IconProfile className="small" icon={BuildingExploreIcon} label="Explore Buildings" />
       </DispatchActionButton>
     )
   } else {

@@ -31,7 +31,7 @@ export const RightArrow = props => {
 
 export const RentIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
@@ -44,7 +44,7 @@ export const RentIcon = () => {
 
 export const PopulationIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
@@ -56,7 +56,7 @@ export const PopulationIcon = () => {
 
 export const BuildingIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
@@ -68,7 +68,7 @@ export const BuildingIcon = () => {
 
 export const RentChangeIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
@@ -80,7 +80,7 @@ export const RentChangeIcon = () => {
 
 export const ViolationIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
@@ -92,7 +92,7 @@ export const ViolationIcon = () => {
 
 export const ViolationPerBuildingIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
@@ -104,7 +104,7 @@ export const ViolationPerBuildingIcon = () => {
 
 export const ServiceCallIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
@@ -117,7 +117,7 @@ export const ServiceCallIcon = () => {
 
 export const ServiceCallOpenIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
@@ -130,7 +130,7 @@ export const ServiceCallOpenIcon = () => {
 
 export const TimeToResolveCallsIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
@@ -143,7 +143,7 @@ export const TimeToResolveCallsIcon = () => {
 
 export const BuildingClassIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
@@ -156,7 +156,7 @@ export const BuildingClassIcon = () => {
 
 export const NeighborhoodIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
@@ -168,11 +168,57 @@ export const NeighborhoodIcon = () => {
 
 export const CensusTractIcon = () => {
   return (
-    <svg width="100%" height="100%" class="svg-icon" viewBox="0 0 20 20">
+    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
       <path
         width="100%"
         height="100%"
         d="M14.68,12.621c-0.9,0-1.702,0.43-2.216,1.09l-4.549-2.637c0.284-0.691,0.284-1.457,0-2.146l4.549-2.638c0.514,0.661,1.315,1.09,2.216,1.09c1.549,0,2.809-1.26,2.809-2.808c0-1.548-1.26-2.809-2.809-2.809c-1.548,0-2.808,1.26-2.808,2.809c0,0.38,0.076,0.741,0.214,1.073l-4.55,2.638c-0.515-0.661-1.316-1.09-2.217-1.09c-1.548,0-2.808,1.26-2.808,2.809s1.26,2.808,2.808,2.808c0.9,0,1.702-0.43,2.217-1.09l4.55,2.637c-0.138,0.332-0.214,0.693-0.214,1.074c0,1.549,1.26,2.809,2.808,2.809c1.549,0,2.809-1.26,2.809-2.809S16.229,12.621,14.68,12.621M14.68,2.512c1.136,0,2.06,0.923,2.06,2.06S15.815,6.63,14.68,6.63s-2.059-0.923-2.059-2.059S13.544,2.512,14.68,2.512M5.319,12.061c-1.136,0-2.06-0.924-2.06-2.06s0.923-2.059,2.06-2.059c1.135,0,2.06,0.923,2.06,2.059S6.454,12.061,5.319,12.061M14.68,17.488c-1.136,0-2.059-0.922-2.059-2.059s0.923-2.061,2.059-2.061s2.06,0.924,2.06,2.061S15.815,17.488,14.68,17.488"
+      />
+    </svg>
+  )
+}
+
+export const BuildingExploreIcon = () => {
+  return (
+    <svg width="100%" height="100%" viewBox="0 0 33 35">
+      <polygon fill="#4691f6" points="33 35 0 35 0 0 17 0 17 10.99 33 10.99" />
+      <path
+        d="M27.012,32 L27.012,29.01 L30.012,29.01 L30.012,32 L27.012,32 Z M27.012,23.99 L30.012,23.99 L30.012,27.008 L27.012,27.008 L27.012,23.99 Z M27.012,18.998 L30.012,18.998 L30.012,21.987 L27.012,21.987 L27.012,19 L27.012,18.998 Z M27.012,14.005 L30.012,14.005 L30.012,17 L27.012,17 L27.012,14.01 L27.012,14.005 Z M22.012,29.01 L25.012,29.01 L25.012,32 L22.012,32 L22.012,29.01 Z M22.012,23.989 L25.012,23.989 L25.012,27.007 L22.012,27.007 L22.012,23.99 L22.012,23.989 Z M22.012,18.997 L25.012,18.997 L25.012,21.986 L22.012,21.986 L22.012,19 L22.012,18.997 Z M22.012,14.004 L25.012,14.004 L25.012,17 L22.012,17 L22.012,14.01 L22.012,14.004 Z M17,11 L19,11 L19,35 L17,35 L17,11 Z M3.994,30 L13.006,30 L13.006,32.015 L3.994,32.015 L3.994,30 Z M3.994,25 L13.006,25 L13.006,27.015 L3.994,27.015 L3.994,24.994 L3.994,25 Z M3.994,20 L13.006,20 L13.006,22.015 L3.994,22.015 L3.994,19.992 L3.994,20 Z M3.994,15 L13.006,15 L13.006,17.015 L3.994,17.015 L3.994,14.991 L3.994,15 Z M3.994,10 L13.006,10 L13.006,12 L3.994,12 L3.994,9.989 L3.994,10 Z M3.994,5 L13.006,5 L13.006,7 L3.994,7 L3.994,4.987 L3.994,5 Z"
+        fill="white"
+      />
+    </svg>
+  )
+}
+
+export const BoundaryLayersIcon = () => {
+  return (
+    <svg width="100%" height="100%" viewBox="0 0 34 31">
+      <polygon fill="#FF6E6E" points="18 11.6 35.013 21.3 18 30.99 0.987 21.29" />
+      <polygon fill="#0C0058" points="18 5.8 35.013 15.5 18 25.2 0.987 15.5" />
+      <polygon fill="#FF6E6E" points="18 0.01 35.013 9.71 18 19.4 0.987 9.7" />
+    </svg>
+  )
+}
+
+export const RegionIcon = () => {
+  return (
+    <svg width="100%" height="100%" viewBox="0 0 30 35">
+      <polygon fill="#4691f6" points="22 17 30 25 9 25 9 20 4 20 4 2 18 2 18 9 30 9" />
+      <path d="M0,0 L4,0 L4,35 L0,35 L0,0 Z M17,20 L9,25 L9,20 L17,20 Z" fill="#0C0058" />
+    </svg>
+  )
+}
+
+export const BuildingLayerIcon = () => {
+  return (
+    <svg width="100%" height="100%" viewBox="0 0 30 24">
+      <path
+        d="M0,0 L30,0 L30,4 L0,4 L0,0 Z M0,10 L30,10 L30,14 L0,14 L0,10 Z M0,20 L30,20 L30,24 L0,24 L0,20 Z"
+        fill="#FF6E6E"
+      />
+      <path
+        d="M0,0 L4,0 L4,4 L0,4 L0,0 Z M0,10 L4,10 L4,14 L0,14 L0,10 Z M0,20 L4,20 L4,24 L0,24 L0,20 Z M26,0 L30,0 L30,4 L26,4 L26,0 Z M26,10 L30,10 L30,14 L26,14 L26,10 Z M26,20 L30,20 L30,24 L26,24 L26,20 Z"
+        fill="#0C0058"
       />
     </svg>
   )

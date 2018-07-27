@@ -2,15 +2,16 @@ import React from 'react'
 import { configure, shallow } from 'enzyme'
 import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
-import SidebarLayerMenu from '../index.js'
+import SidebarBuildingLayerMenu from '../index.js'
 
 configure({ adapter: new Adapter() })
 
-describe('SidebarLayerMenu', () => {
+describe('SidebarBuildingLayerMenu', () => {
   const dispatch = sinon.spy()
-  const wrapper = shallow(<SidebarLayerMenu dispatch={dispatch} />)
+  const wrapper = shallow(<SidebarBuildingLayerMenu dispatch={dispatch} />)
+
   it('renders the component', () => {
-    expect(wrapper.find('.sidebar-layer-menu').length).toEqual(1)
+    expect(wrapper.find('.sidebar-building-layer-menu').length).toEqual(1)
   })
 
   describe('#switchLayer', () => {
