@@ -100,7 +100,13 @@ p {
 }
 
 .content-box {
-  padding: $medium-spacing $small-spacing;
+  padding: $large-spacing $small-spacing;
+}
+
+@media screen and (orientation: portrait) {
+  .content-box {
+    padding: $medium-spacing $small-spacing;
+  }
 }
 
 .menu-section {
