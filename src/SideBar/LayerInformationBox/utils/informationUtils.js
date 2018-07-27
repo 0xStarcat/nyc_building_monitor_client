@@ -3,5 +3,5 @@ export const convertTimestampToData = date => {
 }
 
 export const fillEmptyString = string => {
-  return string.trim() || '(none)'
+  return string.trim() || '(missing)'
 }

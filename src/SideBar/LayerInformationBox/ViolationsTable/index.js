@@ -18,6 +18,7 @@ const ViolationsTable = props => {
       </div>
       <div className="info-section">
         <div className="table-header">
+          <label className="v-col0 table-cell" />
           <label className="v-col1 table-cell">Date</label>
           <label className="v-col2 table-cell">Code</label>
           <label className="v-col3 table-cell" />
@@ -26,8 +27,8 @@ const ViolationsTable = props => {
           .sort((a, b) => {
             return b.properties.date - a.properties.date
           })
-          .map(feature => {
-            return <ViolationRow feature={feature} />
+          .map((feature, index) => {
+            return <ViolationRow key={`${props.building.name}-v-${index}`} feature={feature} index={index} />
           })}
       </div>
     </div>

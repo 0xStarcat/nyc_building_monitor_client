@@ -1,5 +1,9 @@
+@import '../../../../SharedStyles/index.scss';
+
 .violation-row {
+  align-items: center;
   display: flex;
   flex-align: row;
-  align-items: center;
+  font-size: 14px;
+  padding-bottom: $small-spacing;
 }
