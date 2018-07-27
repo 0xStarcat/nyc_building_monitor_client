@@ -32,7 +32,7 @@ describe('ControlExpandButton', () => {
       }
       const wrapper = shallow(<ControlExpandButton {...props} />)
       expect(wrapper.find('.control-expand-button').length).toEqual(1)
-      expect(wrapper.find('.hidden').length).toEqual(1)
+      expect(wrapper.find('.hidden-svg').length).toEqual(1)
     })
   })
 
@@ -44,7 +44,7 @@ describe('ControlExpandButton', () => {
       }
       const wrapper = shallow(<ControlExpandButton {...props} />)
       expect(wrapper.find('.control-expand-button').length).toEqual(1)
-      expect(wrapper.find('.hidden').length).toEqual(1)
+      expect(wrapper.find('.hidden-svg').length).toEqual(1)
     })
   })
 })

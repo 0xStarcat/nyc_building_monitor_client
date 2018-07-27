@@ -23,10 +23,10 @@ export const ControlBackButton = props => {
 
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
-        if (props.buildingsPresent) return SIDEBAR_VIEW_BUILDING_LAYER_MENU
+        if (props.buildingsPresent && !appState.landscapeOrientation) return SIDEBAR_VIEW_BUILDING_LAYER_MENU
         else return SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
       case SCOPE_CENSUS_TRACTS:
-        if (props.buildingsPresent) return SIDEBAR_VIEW_BUILDING_LAYER_MENU
+        if (props.buildingsPresent && !appState.landscapeOrientation) return SIDEBAR_VIEW_BUILDING_LAYER_MENU
         else return SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
       default:
         return appState.sidebarView
@@ -63,10 +63,10 @@ export const ControlBackButton = props => {
 
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
-        if (props.buildingsPresent) return 'Building Layers'
+        if (props.buildingsPresent && !appState.landscapeOrientation) return 'Building Layers'
         else return 'Region Layers'
       case SCOPE_CENSUS_TRACTS:
-        if (props.buildingsPresent) return 'Building Layers'
+        if (props.buildingsPresent && !appState.landscapeOrientation) return 'Building Layers'
         else return 'Region Layers'
       case SCOPE_BUILDINGS:
         return (props.selectedNeighborhood || {}).name || `#${(props.selectedCensusTract || {}).name}`

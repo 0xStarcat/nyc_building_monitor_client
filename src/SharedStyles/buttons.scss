@@ -94,7 +94,13 @@
 .button-label {
   font-size: 12px;
   position: absolute;
-  top: 20px;
+  top: 30px;
+}
+
+@media screen and (orientation: portrait) {
+  .button-label {
+    top: 20px;
+  }
 }
 
 .left-label {

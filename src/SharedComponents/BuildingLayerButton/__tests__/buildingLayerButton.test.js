@@ -4,9 +4,6 @@ import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import BuildingLayerButton from '../index.js'
 
-import ExploreButton from '../../../SideBar/SharedComponents/ExploreButton'
-import BuildingLayersButton from '../../../SideBar/SharedComponents/BuildingLayersButton'
-
 configure({ adapter: new Adapter() })
 
 const appState = {}

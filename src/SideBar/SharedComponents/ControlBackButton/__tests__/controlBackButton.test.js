@@ -38,7 +38,8 @@ describe('ControlBackButton', () => {
     describe('when scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
       const appState = {
         sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS,
-        sidebarScope: SCOPE_CENSUS_TRACTS
+        sidebarScope: SCOPE_CENSUS_TRACTS,
+        landscapeOrientation: true
       }
       const wrapper = shallow(<ControlBackButton appState={appState} />)
 
@@ -51,14 +52,37 @@ describe('ControlBackButton', () => {
       describe('with buildings present', () => {
         const buildingsPresent = true
 
-        const wrapper = shallow(<ControlBackButton appState={appState} buildingsPresent={buildingsPresent} />)
+        describe('with landscape orientation', () => {
+          const wrapper = shallow(<ControlBackButton appState={appState} buildingsPresent={buildingsPresent} />)
 
-        it('displays the proper text', () => {
-          const backButtonText = wrapper
-            .children()
-            .find('.button-label')
-            .text()
-          expect(backButtonText).toEqual('Building Layers')
+          it('displays the proper text', () => {
+            const backButtonText = wrapper
+              .children()
+              .find('.button-label')
+              .text()
+            expect(backButtonText).toEqual('Region Layers')
+          })
+        })
+
+        describe('with portrait orientation', () => {
+          const wrapper = shallow(
+            <ControlBackButton
+              appState={{ ...appState, landscapeOrientation: false }}
+              buildingsPresent={buildingsPresent}
+            />
+          )
+
+          it('displays the proper text', () => {
+            const backButtonText = wrapper
+              .children()
+              .find('.button-label')
+              .text()
+            expect(backButtonText).toEqual('Building Layers')
+          })
+        })
+
+        describe('with buildings present', () => {
+          const buildingsPresent = true
         })
       })
 

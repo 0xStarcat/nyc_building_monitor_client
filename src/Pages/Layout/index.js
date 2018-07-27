@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import SideBar from '../../SideBar'
 import MobileButtonContainer from '../../MobileButtonContainer'
@@ -12,11 +13,15 @@ class Layout extends React.Component {
   render() {
     return (
       <div id="pageLayout">
-        <SideBar dispatch={this.props.dispatch} store={this.props.store} />
+        <SideBar
+          buildingsPresent={this.props.buildingsPresent}
+          dispatch={this.props.dispatch}
+          store={this.props.store}
+        />
         {!this.props.store.appState.landscapeOrientation && (
           <MobileButtonContainer
             appState={this.props.store.appState}
-            buildingsPresent={!!this.props.store.buildings.features.length}
+            buildingsPresent={this.props.buildingsPresent}
             selectedObject={(this.props.store[this.props.store.appState.sidebarScope] || {}).selectedObject}
           />
         )}
@@ -26,9 +31,15 @@ class Layout extends React.Component {
   }
 }
 
+Layout.propTypes = {
+  buildingsPresent: PropTypes.bool,
+  store: PropTypes.object
+}
+
 const mapStateToProps = state => {
   return {
-    store: state
+    store: state,
+    buildingsPresent: !!state.buildings.features.length
   }
 }
 export default connect(mapStateToProps)(Layout)
