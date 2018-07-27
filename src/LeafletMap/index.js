@@ -22,16 +22,19 @@ export default class LeafletMap extends Component {
     this.setViewCoordinates = this.setViewCoordinates.bind(this)
   }
 
-  setViewCoordinates(point) {
-    const zoomLevel = this.mapRef.current.leafletElement.getZoom()
-    const topOffset = this.props.store.appState.landscapeOrientation ? 0 : -(0.1 / zoomLevel) // -0.0075
+  setViewCoordinates(point, zoom) {
+    const currentZoom = this.mapRef.current.leafletElement.getZoom()
+    const zoomLevel = zoom > currentZoom ? zoom : currentZoom
+
+    const topPortraitOffset = zoomLevel > 18 ? -(0.0025 / zoomLevel) : -(0.01 / zoomLevel)
+    const topOffset = this.props.store.appState.landscapeOrientation ? 0 : topPortraitOffset // -0.0075
 
     const leftLandscapeZoomOffset = zoomLevel > 14 ? -(0.035 / zoomLevel - 0.001) : -(0.5 / zoomLevel - 0.02)
     const leftOffset = this.props.store.appState.landscapeOrientation ? leftLandscapeZoomOffset : 0 //-0.01 : 0
     const latLon = [point['coordinates'][1] + topOffset, point['coordinates'][0] + leftOffset]
 
     if (this.mapRef.current) {
-      this.mapRef.current.leafletElement.panTo([latLon[0], latLon[1]], {
+      this.mapRef.current.leafletElement.setView([latLon[0], latLon[1]], zoomLevel, {
         animate: true,
         duration: 0.5,
         easeLinearity: 1
@@ -64,7 +67,9 @@ export default class LeafletMap extends Component {
           {initialBoundaryDataLoaded(this.props.store) && (
             <BoundaryLayersMenu position="topright" setViewCoordinates={this.setViewCoordinates} />
           )}
-          {this.props.store.buildings.features.length && <BuildingLayersMenu position="topright" />}
+          {this.props.store.buildings.features.length && (
+            <BuildingLayersMenu position="topright" setViewCoordinates={this.setViewCoordinates} />
+          )}
         </Map>
       </div>
     )

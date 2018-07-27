@@ -33,6 +33,7 @@ class BuildingLayersMenu extends Component {
       <LayersControl className="hidden" collapsed={true} position={this.props.position} ref={this.layerControlRef}>
         <BaseLayer checked={this.props.appState.buildingBaseLayer === BASE_LAYER_BUILDING_CATEGORIES} name="Plain">
           <GeoJsonBuildingLayer
+            setViewCoordinates={this.props.setViewCoordinates}
             features={this.props.buildings}
             interactive={true}
             sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
@@ -44,6 +45,7 @@ class BuildingLayersMenu extends Component {
           name="Building Violations"
         >
           <GeoJsonBuildingLayer
+            setViewCoordinates={this.props.setViewCoordinates}
             features={this.props.buildings}
             interactive={true}
             sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
@@ -55,6 +57,7 @@ class BuildingLayersMenu extends Component {
           name="Building Sales"
         >
           <GeoJsonBuildingLayer
+            setViewCoordinates={this.props.setViewCoordinates}
             features={this.props.buildings}
             interactive={true}
             sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
