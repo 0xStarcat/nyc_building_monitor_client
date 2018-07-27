@@ -24,7 +24,11 @@ const getButton = props => {
       <IconProfile className="button-row-child small" icon={BuildingLayerIcon} label="Building Layers" />
     </DispatchActionButton>
   ) : (
-    <ExploreButton appState={props.appState} selectedObject={props.selectedObject} />
+    <ExploreButton
+      appState={props.appState}
+      selectedObject={props.selectedObject}
+      setViewCoordinates={props.setViewCoordinates}
+    />
   )
 }
 
@@ -35,7 +39,8 @@ const BuildingLayerButton = props => {
 
 BuildingLayerButton.propTypes = {
   appState: PropTypes.object,
-  buildingsPresent: PropTypes.bool
+  buildingsPresent: PropTypes.bool,
+  setViewCoordinates: PropTypes.func
 }
 
 export default BuildingLayerButton

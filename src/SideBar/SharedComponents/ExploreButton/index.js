@@ -9,6 +9,7 @@ import { BuildingExploreIcon } from '../../../SharedStyles/icons'
 
 const ExploreButton = props => {
   const onExploreClick = event => {
+    props.setViewCoordinates(props.selectedObject.representativePoint, 16)
     return readBuildingsByScope(props.appState.baseLayerScope, props.selectedObject.id)
   }
 
@@ -35,7 +36,9 @@ const ExploreButton = props => {
 }
 
 ExploreButton.propTypes = {
-  appState: PropTypes.object
+  appState: PropTypes.object,
+  selectedObject: PropTypes.object,
+  setViewCoordinates: PropTypes.func
 }
 
 export default ExploreButton

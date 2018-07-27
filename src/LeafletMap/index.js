@@ -6,7 +6,6 @@ import BuildingLayersMenu from './BuildingLayersMenu'
 import Loading from '../SharedComponents/Loading'
 
 import { initialBoundaryDataLoaded, nothingLoading, layersLoaded } from '../SharedUtilities/storeUtils'
-import { changeZoomLevel } from '../Store/AppState/actions'
 import { Map, TileLayer, ZoomControl } from 'react-leaflet'
 
 import './style.scss'
@@ -14,38 +13,10 @@ import './style.scss'
 export default class LeafletMap extends Component {
   constructor(props) {
     super()
-    this.state = {
-      lon: -73.9671,
-      lat: 40.6881,
-      zoom: props.zoomLevel
-    }
-
-    this.mapRef = React.createRef()
-    this.setViewCoordinates = this.setViewCoordinates.bind(this)
-  }
-
-  setViewCoordinates(point, zoom) {
-    const currentZoom = this.mapRef.current.leafletElement.getZoom()
-    const zoomLevel = zoom > currentZoom ? zoom : currentZoom
-
-    const topPortraitOffset = zoomLevel > 18 ? -(0.0025 / zoomLevel) : -(0.01 / zoomLevel)
-    const topOffset = this.props.store.appState.landscapeOrientation ? 0 : topPortraitOffset // -0.0075
-
-    const leftLandscapeZoomOffset = zoomLevel > 14 ? -(0.035 / zoomLevel - 0.001) : -(0.5 / zoomLevel - 0.02)
-    const leftOffset = this.props.store.appState.landscapeOrientation ? leftLandscapeZoomOffset : 0 //-0.01 : 0
-    const latLon = [point['coordinates'][1] + topOffset, point['coordinates'][0] + leftOffset]
-    this.props.dispatch(changeZoomLevel(zoomLevel))
-    if (this.mapRef.current) {
-      this.mapRef.current.leafletElement.panTo([latLon[0], latLon[1]], {
-        animate: true,
-        duration: 0.5,
-        easeLinearity: 1
-      })
-    }
   }
 
   render() {
-    const position = [this.state.lat, this.state.lon]
+    const position = [40.6881, -73.9671]
     const controls = document.querySelector('.leaflet-control-layers.leaflet-control')
     return (
       <div>
@@ -55,8 +26,8 @@ export default class LeafletMap extends Component {
           id="leaflet-map"
           minZoom={12}
           maxZoom={20}
-          ref={this.mapRef}
-          zoom={this.props.zoomLevel}
+          ref={this.props.mapRef}
+          zoom={13}
           zoomControl={false}
         >
           {!nothingLoading(this.props.store) && <Loading />}
@@ -67,10 +38,10 @@ export default class LeafletMap extends Component {
           />
 
           {initialBoundaryDataLoaded(this.props.store) && (
-            <BoundaryLayersMenu position="topright" setViewCoordinates={this.setViewCoordinates} />
+            <BoundaryLayersMenu position="topright" setViewCoordinates={this.props.setViewCoordinates} />
           )}
           {this.props.store.buildings.features.length && (
-            <BuildingLayersMenu position="topright" setViewCoordinates={this.setViewCoordinates} />
+            <BuildingLayersMenu position="topright" setViewCoordinates={this.props.setViewCoordinates} />
           )}
         </Map>
       </div>
@@ -80,6 +51,7 @@ export default class LeafletMap extends Component {
 
 LeafletMap.propTypes = {
   dispatch: PropTypes.func,
+  setViewCoordinates: PropTypes.func,
   store: PropTypes.object,
   position: PropTypes.shape({
     lon: PropTypes.number,

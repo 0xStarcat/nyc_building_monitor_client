@@ -112,6 +112,7 @@ class SideBar extends React.Component {
                 appState={appState}
                 buildingsPresent={this.props.buildingsPresent}
                 selectedObject={selectedObject}
+                setViewCoordinates={this.props.setViewCoordinates}
               />
             )}
             <LayerInformationBox
@@ -145,7 +146,8 @@ class SideBar extends React.Component {
 
 SideBar.propTypes = {
   dispatch: PropTypes.func,
-  store: PropTypes.object
+  store: PropTypes.object,
+  setViewCoordinates: PropTypes.func
 }
 
 export default SideBar

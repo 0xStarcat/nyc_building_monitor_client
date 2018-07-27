@@ -31,6 +31,7 @@ const MobileButtonContainer = props => {
         appState={props.appState}
         buildingsPresent={props.buildingsPresent}
         selectedObject={props.selectedObject}
+        setViewCoordinates={props.setViewCoordinates}
       />
       <MobileBoundaryLayerButton appState={props.appState} selectedObject={props.selectedObject} />
     </div>
@@ -40,7 +41,8 @@ const MobileButtonContainer = props => {
 MobileButtonContainer.propTypes = {
   appState: PropTypes.object,
   buildingsPresent: PropTypes.bool,
-  selectedObject: PropTypes.object
+  selectedObject: PropTypes.object,
+  setViewCoordinates: PropTypes.func
 }
 
 export default MobileButtonContainer

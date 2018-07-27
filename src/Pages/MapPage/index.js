@@ -6,12 +6,32 @@ import MobileButtonContainer from '../../MobileButtonContainer'
 
 import Layout from '../Layout'
 
-class MapPage extends React.Component {
+export class MapPage extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      zoomLevel: 13
+    this.setViewCoordinates = this.setViewCoordinates.bind(this)
+
+    this.mapRef = React.createRef()
+  }
+
+  setViewCoordinates(point, zoom) {
+    const currentZoom = this.mapRef.current.leafletElement.getZoom()
+    const zoomLevel = zoom > currentZoom ? zoom : currentZoom
+
+    const topPortraitOffset = zoomLevel > 18 ? -(0.0025 / zoomLevel) : -(0.01 / zoomLevel)
+    const topOffset = this.props.store.appState.landscapeOrientation ? 0 : topPortraitOffset // -0.0075
+
+    const leftLandscapeZoomOffset = zoomLevel > 14 ? -(0.035 / zoomLevel - 0.001) : -(0.5 / zoomLevel - 0.02)
+    const leftOffset = this.props.store.appState.landscapeOrientation ? leftLandscapeZoomOffset : 0 //-0.01 : 0
+    const latLon = [point['coordinates'][1] + topOffset, point['coordinates'][0] + leftOffset]
+
+    if (this.mapRef.current) {
+      this.mapRef.current.leafletElement.setView([latLon[0], latLon[1]], zoomLevel, {
+        animate: true,
+        duration: 0.5,
+        easeLinearity: 1
+      })
     }
   }
 
@@ -19,6 +39,7 @@ class MapPage extends React.Component {
     return (
       <Layout>
         <SideBar
+          setViewCoordinates={this.setViewCoordinates}
           buildingsPresent={this.props.buildingsPresent}
           dispatch={this.props.dispatch}
           store={this.props.store}
@@ -27,14 +48,15 @@ class MapPage extends React.Component {
           <MobileButtonContainer
             appState={this.props.store.appState}
             buildingsPresent={this.props.buildingsPresent}
+            setViewCoordinates={this.setViewCoordinates}
             selectedObject={(this.props.store[this.props.store.appState.sidebarScope] || {}).selectedObject}
           />
         )}
         <LeafletMap
           dispatch={this.props.dispatch}
+          mapRef={this.mapRef}
+          setViewCoordinates={this.setViewCoordinates}
           store={this.props.store}
-          mapRef={this.props.mapRef}
-          zoomLevel={this.state.zoomLevel}
         />
       </Layout>
     )
