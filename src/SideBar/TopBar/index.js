@@ -5,7 +5,6 @@ import {
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_ACTIVE,
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
-  SIDEBAR_VIEW_SCOPED_OBJECTS,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
   SCOPE_BUILDINGS
@@ -41,7 +40,12 @@ const getOrientationRow = props => {
       {props.appState.sidebarState === SIDEBAR_STATE_ACTIVE && (
         <ControlPreviewButton className="control-row-child" sidebarState={props.appState.sidebarState} />
       )}
-      <ControlExpandButton className="control-row-child" sidebarState={props.appState.sidebarState} />
+
+      <ControlExpandButton
+        className="control-row-child"
+        sidebarState={props.appState.sidebarState}
+        sidebarView={props.appState.sidebarView}
+      />
 
       <ControlNextButton
         appState={props.appState}
