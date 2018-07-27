@@ -30,9 +30,21 @@ class LayerInformationBox extends React.Component {
   displayInformationBox() {
     switch (this.props.appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
-        return <BoundaryInformation selectedObject={this.props.selectedObject} />
+        return (
+          <BoundaryInformation
+            sidebarState={this.props.appState.sidebarState}
+            baseLayer={this.props.appState.baseLayer}
+            selectedObject={this.props.selectedObject}
+          />
+        )
       case SCOPE_CENSUS_TRACTS:
-        return <BoundaryInformation selectedObject={this.props.selectedObject} />
+        return (
+          <BoundaryInformation
+            sidebarState={this.props.appState.sidebarState}
+            baseLayer={this.props.appState.baseLayer}
+            selectedObject={this.props.selectedObject}
+          />
+        )
       case SCOPE_BUILDINGS:
         return <BuildingInformation selectedObject={this.props.selectedObject} />
       case SCOPE_VIOLATIONS:

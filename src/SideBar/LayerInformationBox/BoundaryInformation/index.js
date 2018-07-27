@@ -2,84 +2,82 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import {
-  IncomeIcon,
-  RentIcon,
-  PopulationIcon,
-  BuildingIcon,
-  RentChangeIcon,
-  ViolationIcon,
-  ViolationPerBuildingIcon,
-  ServiceCallIcon,
-  ServiceCallOpenIcon,
-  TimeToResolveCallsIcon
-} from '../../../SharedStyles/icons'
+  IncomeRow,
+  RentRow,
+  RaceRow,
+  TotalBuildingsRow,
+  RentChangeRow,
+  TotalViolationsRow,
+  ViolationsPerBuildingRow,
+  TotalServiceCallsRow,
+  TimeToResolveCallsRow,
+  ServiceCallsOpenRow
+} from './Rows'
+
+import {
+  SIDEBAR_STATE_PREVIEW,
+  BASE_LAYER_MEDIAN_INCOME,
+  BASE_LAYER_MEDIAN_RENT,
+  BASE_LAYER_MEDIAN_RENT_CHANGE,
+  BASE_LAYER_WHITE_POPULATION,
+  BASE_LAYER_OPEN_311
+} from '../../../Store/AppState/actions'
+
 import IconRow from '../../SharedComponents/IconRow'
 import '../SharedStyles/style.scss'
+import './style.scss'
+
+const getPreviewRow = props => {
+  switch (props.baseLayer) {
+    case BASE_LAYER_MEDIAN_INCOME:
+      return <IncomeRow value={props.selectedObject.incomeMedian2017} />
+    case BASE_LAYER_MEDIAN_RENT:
+      return <RentRow value={props.selectedObject.rentMedian2017} />
+    case BASE_LAYER_MEDIAN_RENT_CHANGE:
+      return <RentChangeRow value={props.selectedObject.rentChange20112017} />
+    case BASE_LAYER_WHITE_POPULATION:
+      return <RaceRow value={props.selectedObject.racePercentWhite2010} />
+    case BASE_LAYER_OPEN_311:
+      return <ServiceCallsOpenRow value={props.selectedObject.serviceCallsPercentOpenOneMonth} />
+  }
+}
 
 const BoundaryInformation = props => {
   if (!props.selectedObject) return null
   return (
     <div className="boundary-information">
+      {props.sidebarState === SIDEBAR_STATE_PREVIEW && <div className="preview-section">{getPreviewRow(props)}</div>}
       <div className="info-section">
         <div className="info-title">
           <h5>Summary</h5>
         </div>
-        {!!props.selectedObject.incomeMedian2017 && (
-          <IconRow icon={IncomeIcon}>
-            The median income in 2017 was <span>${props.selectedObject.incomeMedian2017}</span>
-          </IconRow>
-        )}
-        {!!props.selectedObject.rentMedian2017 && (
-          <IconRow icon={RentIcon}>
-            The median rent in 2017 was <span>${props.selectedObject.rentMedian2017}</span>
-          </IconRow>
-        )}
-        {!!props.selectedObject.racePercentWhite2010 && (
-          <IconRow icon={PopulationIcon}>
-            The population in 2010 was <span>{props.selectedObject.racePercentWhite2010}%</span> white.
-          </IconRow>
-        )}
+        {!!props.selectedObject.incomeMedian2017 && <IncomeRow value={props.selectedObject.incomeMedian2017} />}
+        {!!props.selectedObject.rentMedian2017 && <RentRow value={props.selectedObject.rentMedian2017} />}
+        {!!props.selectedObject.racePercentWhite2010 && <RaceRow value={props.selectedObject.racePercentWhite2010} />}
         {!!props.selectedObject.buildingsTotal && (
-          <IconRow icon={BuildingIcon}>
-            There are <span>{props.selectedObject.buildingsTotal}</span> buildings and{' '}
-            <span>{props.selectedObject.residentialBuildingsTotal}</span> residential buildings in this area.{' '}
-          </IconRow>
+          <TotalBuildingsRow
+            value1={props.selectedObject.buildingsTotal}
+            value2={props.selectedObject.residentialBuildingsTotal}
+          />
         )}
       </div>
       <div className="info-section">
         <div className="info-title">
           <h5>2010 - Present</h5>
         </div>
-        {!!props.selectedObject.rentChange20112017 && (
-          <IconRow icon={RentChangeIcon}>
-            The rent changed by <span>${props.selectedObject.rentChange20112017}</span>
-          </IconRow>
-        )}
+        {!!props.selectedObject.rentChange20112017 && <RentChangeRow value={props.selectedObject.rentChange20112017} />}
+        {!!props.selectedObject.violationsTotal && <TotalViolationsRow value={props.selectedObject.violationsTotal} />}
         {!!props.selectedObject.violationsTotal && (
-          <IconRow icon={ViolationIcon}>
-            There are <span>{props.selectedObject.violationsTotal} total violations.</span>
-          </IconRow>
-        )}
-        {!!props.selectedObject.violationsTotal && (
-          <IconRow icon={ViolationPerBuildingIcon}>
-            There are <span>{props.selectedObject.violationsPerBuilding} violations per building.</span>
-          </IconRow>
+          <ViolationsPerBuildingRow value={props.selectedObject.violationsPerBuilding} />
         )}
         {!!props.selectedObject.serviceCallsTotal && (
-          <IconRow icon={ServiceCallIcon}>
-            There are <span>{props.selectedObject.serviceCallsTotal} total 311-calls.</span>
-          </IconRow>
+          <TotalServiceCallsRow value={props.selectedObject.serviceCallsTotal} />
         )}
         {!!props.selectedObject.serviceCallsTotal && (
-          <IconRow icon={TimeToResolveCallsIcon}>
-            It takes an average of {props.selectedObject.averageDaysToResolveServiceCalls} days for the city to resolve
-            311-calls here.
-          </IconRow>
+          <TimeToResolveCallsRow value={props.selectedObject.averageDaysToResolveServiceCalls} />
         )}
         {!!props.selectedObject.serviceCallsTotal && (
-          <IconRow icon={ServiceCallOpenIcon}>
-            {props.selectedObject.serviceCallsPercentOpenOneMonth}% of current 311-calls have been open over 1 month.
-          </IconRow>
+          <ServiceCallsOpenRow value={props.selectedObject.serviceCallsPercentOpenOneMonth} />
         )}
       </div>
     </div>
@@ -87,6 +85,8 @@ const BoundaryInformation = props => {
 }
 
 BoundaryInformation.propTypes = {
+  baseLayer: PropTypes.string,
+  sidebarState: PropTypes.string,
   selectedObject: PropTypes.object
 }
 
