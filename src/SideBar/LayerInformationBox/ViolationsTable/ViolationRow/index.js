@@ -20,7 +20,7 @@ const ViolationRow = props => {
       scopeSwitch={SCOPE_VIOLATIONS}
       viewSwitch={SIDEBAR_VIEW_SELECTED_OBJECT}
     >
-      <div className="table-cell v-col0">
+      <div className="table-cell col0">
         <div>{props.index + 1}</div>
       </div>
       <div className="table-cell v-col1">

@@ -6,7 +6,7 @@ import DispatchActionButton from '../../SharedComponents/DispatchActionButton'
 import ButtonRow from '../../../SharedComponents/ButtonRow'
 import { RightArrow } from '../../../SharedStyles/icons'
 
-import { convertDepartmentToName, convertTimestampToData } from '../utils/informationUtils.js'
+import { convertDepartmentToName, convertTimestampToData, fillEmptyString } from '../utils/informationUtils.js'
 
 import { prevSelectedViolation, nextSelectedViolation } from '../../../Store/Violations/actions'
 
@@ -43,7 +43,7 @@ const ViolationInformation = props => {
           <div>{convertTimestampToData(props.selectedObject.date)}</div>
         </IconRow>
         <div className="row-box text-well">
-          <div>{props.selectedObject.description}</div>
+          <div>{fillEmptyString(props.selectedObject.description)}</div>
         </div>
         <IconRow icon={ViolationIcon}>
           From the <span>{convertDepartmentToName(props.selectedObject.source)}</span>

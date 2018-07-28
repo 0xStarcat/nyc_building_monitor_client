@@ -16,7 +16,7 @@ const ViolationsTable = props => {
       </div>
       <div className="info-section">
         <div className="table-header">
-          <label className="v-col0 table-cell" />
+          <label className="col0 table-cell" />
           <label className="v-col1 table-cell">Date</label>
           <label className="v-col2 table-cell">Id</label>
           <label className="v-col3 table-cell" />

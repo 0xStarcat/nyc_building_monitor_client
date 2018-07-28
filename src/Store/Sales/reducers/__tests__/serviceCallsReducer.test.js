@@ -6,7 +6,7 @@ describe('Sales reducer', () => {
     expect(reducer.salesReducer(undefined, {})).toEqual(reducer.initialState)
   })
 
-  describe('AWAITING_SALES_RESPONSE', () => {
+  describe('AWAITING_SERVICE_CALLS_RESPONSE', () => {
     const expectedState = { ...reducer.initialState, awaitingResponse: true }
 
     it('sets awaitingResponse to true', () => {
@@ -25,7 +25,7 @@ describe('Sales reducer', () => {
     })
   })
 
-  describe('HANDLE_READ_SALES_RESPONSE', () => {
+  describe('HANDLE_READ_SERVICE_CALLS_RESPONSE', () => {
     const response = { features: [{ sale: 1 }] }
     it('fetches the Sales if present', () => {
       expect(reducer.salesReducer(undefined, SalesActions.handleReadSalesResponse({ data: response }))).toEqual({
@@ -35,10 +35,10 @@ describe('Sales reducer', () => {
     })
   })
 
-  describe('UPDATE_SELECTED_SALE_OBJECT', () => {
+  describe('UPDATE_SELECTED_SERVICE_CALL_OBJECT', () => {
     const object = { properties: {} }
     it('updates the selectedObject with the new object', () => {
-      expect(reducer.salesReducer(undefined, SalesActions.updateSelectedObject(object))).toEqual({
+      expect(reducer.salesReducer(undefined, SalesActions.updateSelectedServiceCall(object))).toEqual({
         ...reducer.initialState,
         selectedObject: object
       })

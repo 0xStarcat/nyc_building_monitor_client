@@ -31,17 +31,25 @@
 }
 
 .hover-shadow:hover {
-  border: 1px dotted black;
   box-shadow: 0 0 20px 2px lightgray;
 }
 
 .hover-shadow:active {
-  border: 1px inset black;
   box-shadow: 0 0 4px 2px gray;
 }
 
 .bordered {
   border: 1px solid black;
+}
+
+.bordered.hover-shadow:hover {
+  border: 1px dotted black;
+  box-shadow: 0 0 20px 2px lightgray;
+}
+
+.bordered.hover-shadow:active {
+  border: 1px inset black;
+  box-shadow: 0 0 4px 2px gray;
 }
 
 .disabled-button {

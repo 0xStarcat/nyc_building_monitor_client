@@ -1,0 +1,9 @@
+@import '../../../../SharedStyles/index.scss';
+
+.service-call-row {
+  align-items: center;
+  display: flex;
+  flex-align: row;
+  font-size: 14px;
+  padding-bottom: $small-spacing;
+}

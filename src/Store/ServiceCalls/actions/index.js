@@ -21,7 +21,7 @@ export const handleReadServiceCallsResponse = response => ({
   data: response.data
 })
 
-export const updateSelectedObject = event => ({
+export const updateSelectedServiceCall = event => ({
   type: UPDATE_SELECTED_SERVICE_CALL_OBJECT,
   data: event
 })
