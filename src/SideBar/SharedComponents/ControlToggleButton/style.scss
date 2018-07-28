@@ -1,51 +1,50 @@
 @import '../../../SharedStyles/index.scss';
 
-$toggle-button-width: 80px;
+$toggle-button-width: 20px;
 
 .toggle-button-container {
   flex-basis: 0%;
 }
 
 .toggle-button {
-  background-color: transparent;
-  border-radius: 50%;
-  border: 1px solid transparent;
-  border-bottom: 4px solid transparent;
-  box-shadow: inset 0 0 40px 20px white;
-  height: $toggle-button-width;
+  background-color: white;
+  border-radius: 0 2px 2px 0;
+
+  border: 1px solid white;
+  border-bottom: 4px solid white;
+  box-shadow: 4px 0px 20px 4px white;
+  box-sizing: border-box;
+  height: $medium-spacing;
   position: absolute;
   width: $toggle-button-width;
   z-index: 100;
 }
 
-.show-button:hover {
-  box-shadow: 0 0 20px 10px white;
+.show-button {
+  top: $tiny-spacing;
+  right: -$toggle-button-width;
+}
 
-  border-bottom: 4px inset black;
+.show-button:hover {
+  box-shadow: 16px 0px 20px 1px $primaryIconColor;
 }
 
 .show-button:active {
-  box-shadow: inset 0 0 40px 10px lightgray;
-  border-bottom: 1px outset lightgray;
+  box-shadow: 18px 0 24px 1px $primaryIconColor;
 }
 
 .hide-button:hover {
-  box-shadow: 0 0 10px 4px $primaryIconColor;
+  box-shadow: 16px 0px 20px 1px $primaryIconColor;
 }
 
 .hide-button:active {
-  box-shadow: inset 0 0 20px 4px $primaryIconColor;
+  box-shadow: 18px 0 24px 1px $primaryIconColor;
 }
 
 .hide-button {
-  right: ($sidebar-width / 2) - $medium-spacing;
-  top: 0;
+  right: -$toggle-button-width;
+  top: $tiny-spacing;
   width: $toggle-button-width;
-}
-
-.show-button {
-  top: 0;
-  right: -$toggle-button-width - $medium-spacing;
 }
 
 @media screen and (orientation: portrait) {
