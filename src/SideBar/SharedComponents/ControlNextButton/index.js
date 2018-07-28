@@ -11,6 +11,7 @@ import {
   SCOPE_CENSUS_TRACTS,
   SCOPE_BUILDINGS,
   SCOPE_VIOLATIONS,
+  SCOPE_SERVICE_CALLS,
   SIDEBAR_VIEW_SCOPED_OBJECTS
 } from '../../../Store/AppState/actions'
 
@@ -36,11 +37,11 @@ export const ControlNextButton = props => {
       case SCOPE_CENSUS_TRACTS:
         return SIDEBAR_VIEW_SELECTED_OBJECT
       case SCOPE_BUILDINGS:
-        return SIDEBAR_VIEW_SELECTED_OBJECT
+        return SIDEBAR_VIEW_SCOPED_OBJECTS
       case SCOPE_VIOLATIONS:
-        return SIDEBAR_VIEW_SCOPED_OBJECTS
+        return SIDEBAR_VIEW_SELECTED_OBJECT
       case SCOPE_SERVICE_CALLS:
-        return SIDEBAR_VIEW_SCOPED_OBJECTS
+        return SIDEBAR_VIEW_SELECTED_OBJECT
       default:
         return appState.sidebarView
     }
@@ -76,9 +77,11 @@ export const ControlNextButton = props => {
       case SCOPE_BUILDINGS:
         return props.violationsPresent ? 'Violations' : '311-Calls'
       case SCOPE_VIOLATIONS:
-        return props.selectedViolation.name
+        if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return `Violation #${props.selectedViolation.name}`
+        else return null
       case SCOPE_SERVICE_CALLS:
-        return props.selectedServiceCall.name
+        if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return `Call #${props.selectedServiceCall.name}`
+        else return null
       default:
         return 'Next'
     }
@@ -87,13 +90,16 @@ export const ControlNextButton = props => {
   const hasNext = () => {
     const appState = props.appState
     return (
-      ((appState.sidebarView === SIDEBAR_VIEW_SCOPE_MENU ||
-        appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU ||
-        appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU) &&
-        (!!props.selectedCensusTract || !!props.selectedNeighborhood)) ||
+      (isView() && (!!props.selectedCensusTract || !!props.selectedNeighborhood)) ||
       ((appState.sidebarScope === SCOPE_CENSUS_TRACTS || appState.sidebarScope === SCOPE_NEIGHBORHOODS) &&
         !!props.selectedBuilding) ||
-      (appState.sidebarScope === SCOPE_BUILDINGS && (props.violationsPresent || props.serviceCallsPresent))
+      (appState.sidebarScope === SCOPE_BUILDINGS && (props.violationsPresent || props.serviceCallsPresent)) ||
+      (appState.sidebarScope === SCOPE_VIOLATIONS &&
+        appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS &&
+        !!props.selectedViolation) ||
+      (appState.sidebarScope === SCOPE_SERVICE_CALLS &&
+        appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS &&
+        !!props.selectedServiceCall)
     )
   }
   const disabled = !hasNext()

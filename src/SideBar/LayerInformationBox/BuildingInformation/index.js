@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SwitchViewFetchButton from '../../SharedComponents/SwitchViewFetchButton'
 import {
-  SIDEBAR_VIEW_SELECTED_OBJECT,
+  SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_BOUNDARY_INFO,
   SCOPE_VIOLATIONS,
@@ -53,7 +53,7 @@ const BuildingInformation = props => {
         <BuildingClassRow value={props.selectedObject.buildingClass} />
         <SwitchViewFetchButton
           action={getViolations}
-          viewSwitch={SIDEBAR_VIEW_SELECTED_OBJECT}
+          viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
           scopeSwitch={SCOPE_VIOLATIONS}
         >
           <ViolationRow value={props.selectedObject.violationsTotal} />
@@ -66,7 +66,7 @@ const BuildingInformation = props => {
         </SwitchViewFetchButton>
         <SwitchViewFetchButton
           action={getServiceCalls}
-          viewSwitch={SIDEBAR_VIEW_SELECTED_OBJECT}
+          viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
           scopeSwitch={SCOPE_SERVICE_CALLS}
         >
           <ServiceCallRow value={props.selectedObject.serviceCallsTotal} />

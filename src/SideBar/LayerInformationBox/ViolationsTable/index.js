@@ -20,23 +20,19 @@ const ViolationsTable = props => {
         <div className="table-header">
           <label className="v-col0 table-cell" />
           <label className="v-col1 table-cell">Date</label>
-          <label className="v-col2 table-cell">Code</label>
+          <label className="v-col2 table-cell">Id</label>
           <label className="v-col3 table-cell" />
         </div>
-        {props.features
-          .sort((a, b) => {
-            return b.properties.date - a.properties.date
-          })
-          .map((feature, index) => {
-            return (
-              <ViolationRow
-                key={`${props.building.name}-v-${index}`}
-                dispatch={props.dispatch}
-                feature={feature}
-                index={index}
-              />
-            )
-          })}
+        {props.features.map((feature, index) => {
+          return (
+            <ViolationRow
+              key={`${props.building.name}-v-${index}`}
+              dispatch={props.dispatch}
+              feature={feature}
+              index={index}
+            />
+          )
+        })}
       </div>
     </div>
   )

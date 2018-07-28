@@ -8,12 +8,15 @@ import {
   SCOPE_CENSUS_TRACTS,
   SCOPE_BUILDINGS,
   SCOPE_VIOLATIONS,
-  SCOPE_SERVICE_CALLS
+  SCOPE_SERVICE_CALLS,
+  SIDEBAR_VIEW_SCOPED_OBJECTS,
+  SIDEBAR_VIEW_SELECTED_OBJECT
 } from '../../../Store/AppState/actions'
 
 import BoundaryInformation from '../BoundaryInformation'
 import BuildingInformation from '../BuildingInformation'
 import ViolationsTable from '../ViolationsTable'
+import ViolationInformation from '../ViolationInformation'
 import ServiceCallInformation from '../ServiceCallInformation'
 
 configure({ adapter: new Adapter() })
@@ -28,13 +31,13 @@ describe('LayerInformationBox', () => {
     sidebarScope: ''
   }
 
-  it('should render my component', () => {
+  it('should render the component', () => {
     const wrapper = shallow(<LayerInformationBox appState={appState} selectedObject={selectedObject} />)
     expect(wrapper.find('.layerInformationBox').exists()).toBe(true)
   })
 
-  describe('#displayInformationBox', () => {
-    it('returns the matching information box depending on the sidebarScope', () => {
+  describe('SCOPE_CENSUS_TRACTS', () => {
+    it('returns the matching information', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
@@ -46,8 +49,10 @@ describe('LayerInformationBox', () => {
         <BoundaryInformation selectedObject={selectedObject} />
       )
     })
+  })
 
-    it('returns the matching information box depending on the sidebarScope', () => {
+  describe('SCOPE_BUILDINGS', () => {
+    it('returns the matching information', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
@@ -55,24 +60,38 @@ describe('LayerInformationBox', () => {
           selectedObject={selectedObject}
         />
       )
-      expect(wrapper.instance().displayInformationBox()).toEqual(
-        <BuildingInformation selectedObject={selectedObject} selectedObject={selectedObject} />
-      )
+      expect(wrapper.find(BuildingInformation).length).toEqual(1)
     })
+  })
 
-    it('returns the matching information box depending on the sidebarScope', () => {
+  describe('SCOPE_VIOLATIONS', () => {
+    it('returns the matching information', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}
           features={features}
-          appState={{ ...appState, sidebarScope: SCOPE_VIOLATIONS }}
+          appState={{ ...appState, sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS, sidebarScope: SCOPE_VIOLATIONS }}
           selectedObject={selectedObject}
         />
       )
-      expect(wrapper.instance().displayInformationBox()).toEqual(<ViolationsTable features={[]} />)
+      expect(wrapper.find(ViolationsTable).length).toEqual(1)
     })
 
-    it('returns the matching information box depending on the sidebarScope', () => {
+    it('returns the matching information', () => {
+      const wrapper = shallow(
+        <LayerInformationBox
+          dispatch={dispatchFn}
+          features={features}
+          appState={{ ...appState, sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT, sidebarScope: SCOPE_VIOLATIONS }}
+          selectedObject={selectedObject}
+        />
+      )
+      expect(wrapper.find(ViolationInformation).length).toEqual(1)
+    })
+  })
+
+  describe('SCOPE_SERVICE_CALLS', () => {
+    it('returns the matching information', () => {
       const wrapper = shallow(
         <LayerInformationBox
           dispatch={dispatchFn}

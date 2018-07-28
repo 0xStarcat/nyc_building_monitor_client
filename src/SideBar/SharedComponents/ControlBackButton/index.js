@@ -23,8 +23,6 @@ export const ControlBackButton = props => {
   const getBackView = () => {
     const appState = props.appState
 
-    if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return SIDEBAR_VIEW_SELECTED_OBJECT
-
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
         if (props.buildingsPresent && !appState.landscapeOrientation) return SIDEBAR_VIEW_BUILDING_LAYER_MENU
@@ -32,6 +30,14 @@ export const ControlBackButton = props => {
       case SCOPE_CENSUS_TRACTS:
         if (props.buildingsPresent && !appState.landscapeOrientation) return SIDEBAR_VIEW_BUILDING_LAYER_MENU
         else return SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+      case SCOPE_BUILDINGS:
+        return SIDEBAR_VIEW_SELECTED_OBJECT
+      case SCOPE_VIOLATIONS:
+        if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return SIDEBAR_VIEW_SELECTED_OBJECT
+        else return SIDEBAR_VIEW_SCOPED_OBJECTS
+      case SCOPE_SERVICE_CALLS:
+        if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return SIDEBAR_VIEW_SELECTED_OBJECT
+        else return SIDEBAR_VIEW_SCOPED_OBJECTS
       default:
         return appState.sidebarView
     }
@@ -42,12 +48,13 @@ export const ControlBackButton = props => {
 
     switch (appState.sidebarScope) {
       case SCOPE_BUILDINGS:
-        return SCOPE_CENSUS_TRACTS
+        if (!!props.selectedCensusTract) return SCOPE_CENSUS_TRACTS
+        else return SCOPE_NEIGHBORHOODS
       case SCOPE_VIOLATIONS:
-        if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return SCOPE_VIOLATIONS
+        if (appState.sidebarView === SIDEBAR_VIEW_SELECTED_OBJECT) return SCOPE_VIOLATIONS
         else return SCOPE_BUILDINGS
       case SCOPE_SERVICE_CALLS:
-        if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return SCOPE_SERVICE_CALLS
+        if (appState.sidebarView === SIDEBAR_VIEW_SELECTED_OBJECT) return SCOPE_SERVICE_CALLS
 
         return SCOPE_BUILDINGS
       default:
@@ -78,10 +85,10 @@ export const ControlBackButton = props => {
       case SCOPE_BUILDINGS:
         return (props.selectedNeighborhood || {}).name || `#${(props.selectedCensusTract || {}).name}`
       case SCOPE_VIOLATIONS:
-        if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return 'Violations'
+        if (appState.sidebarView === SIDEBAR_VIEW_SELECTED_OBJECT) return 'Violations'
         else return props.selectedBuilding.name
       case SCOPE_SERVICE_CALLS:
-        if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return '311-Calls'
+        if (appState.sidebarView === SIDEBAR_VIEW_SELECTED_OBJECT) return '311-Calls'
         else return props.selectedBuilding.name
       default:
         return 'Back'

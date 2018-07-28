@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import SwitchViewButton from '../../../SharedComponents/SwitchViewButton'
 
-import { SCOPE_VIOLATIONS, SIDEBAR_VIEW_SCOPED_OBJECTS } from '../../../../Store/AppState/actions'
+import { SCOPE_VIOLATIONS, SIDEBAR_VIEW_SELECTED_OBJECT } from '../../../../Store/AppState/actions'
 import { updateSelectedViolation } from '../../../../Store/Violations/actions'
 import { convertTimestampToData, fillEmptyString } from '../../utils/informationUtils.js'
 import { InfoIcon, OpenIcon } from '../../../../SharedStyles/icons'
@@ -18,7 +18,7 @@ const ViolationRow = props => {
       action={selectViolation}
       className="hover-shadow row-box violation-row"
       scopeSwitch={SCOPE_VIOLATIONS}
-      viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
+      viewSwitch={SIDEBAR_VIEW_SELECTED_OBJECT}
     >
       <div className="table-cell v-col0">
         <div>{props.index + 1}</div>
@@ -28,7 +28,7 @@ const ViolationRow = props => {
       </div>
 
       <div className="table-cell v-col2">
-        <div>{fillEmptyString(props.feature.properties.description)}</div>
+        <div>{fillEmptyString(props.feature.properties.name)}</div>
         <i>
           <OpenIcon />
         </i>

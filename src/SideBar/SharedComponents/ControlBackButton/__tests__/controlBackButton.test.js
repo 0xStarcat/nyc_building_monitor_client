@@ -7,9 +7,11 @@ import { ControlBackButton } from '../index.js'
 import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
+  SIDEBAR_VIEW_SCOPED_OBJECTS,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
-  SCOPE_BUILDINGS
+  SCOPE_BUILDINGS,
+  SCOPE_VIOLATIONS
 } from '../../../../Store/AppState/actions'
 
 configure({ adapter: new Adapter() })
@@ -101,13 +103,15 @@ describe('ControlBackButton', () => {
       })
     })
 
-    describe('when scope = SCOPE_BUILDINGS and view = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
+    describe('when scope = SCOPE_BUILDINGS and view = SIDEBAR_VIEW_SELECTED_OBJECT and there is selected CT', () => {
       const appState = {
         sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT,
         sidebarScope: SCOPE_BUILDINGS
       }
 
-      const wrapper = shallow(<ControlBackButton appState={appState} />)
+      const selectedCensusTract = { id: 1 }
+
+      const wrapper = shallow(<ControlBackButton appState={appState} selectedCensusTract={selectedCensusTract} />)
 
       it('renders the back button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
         const backButtonProps = wrapper.props()
@@ -141,6 +145,54 @@ describe('ControlBackButton', () => {
             .text()
           expect(backButtonText).toEqual('#12345')
         })
+      })
+    })
+
+    describe('when scope = SCOPE_VIOLATIONS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+      const appState = {
+        sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS,
+        sidebarScope: SCOPE_VIOLATIONS
+      }
+
+      const selectedBuilding = { name: '123 fake st' }
+      const wrapper = shallow(<ControlBackButton appState={appState} selectedBuilding={selectedBuilding} />)
+      it('renders the back button with scope = SCOPE_BUILDINGS and view = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
+        const backButtonProps = wrapper.props()
+
+        expect(backButtonProps.scopeSwitch).toEqual(SCOPE_BUILDINGS)
+        expect(backButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SELECTED_OBJECT)
+      })
+
+      it('displays the proper text', () => {
+        const backButtonText = wrapper
+          .children()
+          .find('.button-label')
+          .text()
+        expect(backButtonText).toEqual(selectedBuilding.name)
+      })
+    })
+
+    describe('when scope = SCOPE_VIOLATIONS and view = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
+      const appState = {
+        sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT,
+        sidebarScope: SCOPE_VIOLATIONS
+      }
+
+      const selectedBuilding = { name: '123 fake st' }
+      const wrapper = shallow(<ControlBackButton appState={appState} selectedBuilding={selectedBuilding} />)
+      it('renders the back button with scope = SCOPE_VIOLATIONS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+        const backButtonProps = wrapper.props()
+
+        expect(backButtonProps.scopeSwitch).toEqual(SCOPE_VIOLATIONS)
+        expect(backButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SCOPED_OBJECTS)
+      })
+
+      it('displays the proper text', () => {
+        const backButtonText = wrapper
+          .children()
+          .find('.button-label')
+          .text()
+        expect(backButtonText).toEqual('Violations')
       })
     })
   })

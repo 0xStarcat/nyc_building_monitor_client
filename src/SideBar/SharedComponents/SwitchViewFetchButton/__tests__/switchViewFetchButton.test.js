@@ -26,8 +26,8 @@ describe('SwitchViewFetchButton', () => {
     )
 
     wrapper.find('.switch-view-fetch-button').simulate('click')
-    it('calls the dispatch method twice', () => {
-      expect(dispatchFn.calledTwice).toEqual(true)
+    it('calls the dispatch method thrice', () => {
+      expect(dispatchFn.calledThrice).toEqual(true)
     })
 
     it('calls the action method once', () => {

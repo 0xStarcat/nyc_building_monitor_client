@@ -95,6 +95,10 @@
   font-size: 12px;
   position: absolute;
   top: 30px;
+  text-overflow: ellipsis;
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 @media screen and (orientation: portrait) {

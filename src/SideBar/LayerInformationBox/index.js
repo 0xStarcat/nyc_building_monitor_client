@@ -58,7 +58,7 @@ class LayerInformationBox extends React.Component {
           />
         )
       case SCOPE_VIOLATIONS:
-        if (this.props.appState.sidebarView === SIDEBAR_VIEW_SELECTED_OBJECT)
+        if (this.props.appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS)
           return (
             <ViolationsTable
               dispatch={this.props.dispatch}

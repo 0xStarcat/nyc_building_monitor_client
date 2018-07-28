@@ -16,7 +16,7 @@ import {
 
 const ViolationInformation = props => {
   return (
-    <div className="information-box">
+    <div className="violation-information">
       <div className="info-section">
         <IconRow icon={ViolationIcon}>
           <div>{convertTimestampToData(props.selectedObject.date)}</div>

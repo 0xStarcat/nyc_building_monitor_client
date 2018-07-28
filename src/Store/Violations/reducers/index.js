@@ -26,7 +26,9 @@ export const violationsReducer = (violationsState = Object.freeze(initialState),
       console.log('violations data received')
       return {
         ...violationsState,
-        features: action.data['features'],
+        features: action.data['features'].sort((a, b) => {
+          return b.properties.date - a.properties.date
+        }),
         awaitingResponse: false
       }
     }
