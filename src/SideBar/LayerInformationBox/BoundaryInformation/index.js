@@ -44,7 +44,7 @@ const getPreviewRow = props => {
 const BoundaryInformation = props => {
   if (!props.selectedObject) return null
   return (
-    <div className="boundary-information">
+    <div className="boundary-information information-box">
       {props.sidebarState === SIDEBAR_STATE_PREVIEW && <div className="preview-section">{getPreviewRow(props)}</div>}
       <div className="info-section">
         <div className="info-title">

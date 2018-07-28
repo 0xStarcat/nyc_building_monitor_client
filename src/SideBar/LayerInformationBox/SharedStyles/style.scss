@@ -1,21 +1,10 @@
 @import '../../../SharedStyles/index.scss';
 
-.info-section {
-  border-bottom: 1px solid black;
-  margin-bottom: $small-spacing;
-  padding: $small-spacing;
-}
-
 .preview-section {
   padding: $tiny-spacing $small-spacing;
   margin-bottom: $medium-spacing;
+  overflow: hidden;
   * {
     padding: 0;
-  }
-}
-
-@media screen and (orientation: portrait) {
-  .info-section {
-    padding-top: 0;
   }
 }

@@ -77,7 +77,9 @@ export const ControlNextButton = props => {
       case SCOPE_BUILDINGS:
         return props.violationsPresent ? 'Violations' : '311-Calls'
       case SCOPE_VIOLATIONS:
-        if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return `Violation #${props.selectedViolation.name}`
+        console.log(props.violations)
+        if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS)
+          return `Violation #${props.selectedViolation.index + 1}`
         else return null
       case SCOPE_SERVICE_CALLS:
         if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return `Call #${props.selectedServiceCall.name}`
@@ -131,6 +133,8 @@ ControlNextButton.propTypes = {
 const mapStateToProps = state => {
   return {
     appState: state.appState,
+    violations: state.violations.features,
+    serviceCalls: state.serviceCalls.features,
     buildingsPresent: !!state.buildings.features.length,
     violationsPresent: !!state.violations.features.length,
     serviceCallsPresent: !!state.serviceCalls.features.length,

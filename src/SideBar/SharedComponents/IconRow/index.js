@@ -5,7 +5,7 @@ import './style.scss'
 
 const IconRow = props => {
   return (
-    <div className="icon-row">
+    <div className="icon-row info-row">
       <i>{props.icon()}</i>
       <p>{props.children}</p>
     </div>

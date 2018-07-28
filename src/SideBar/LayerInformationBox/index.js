@@ -66,7 +66,7 @@ class LayerInformationBox extends React.Component {
               building={this.props.parentObject}
             />
           )
-        else return <ViolationInformation selectedObject={this.props.selectedObject} />
+        else return <ViolationInformation dispatch={this.props.dispatch} selectedObject={this.props.selectedObject} />
       case SCOPE_SERVICE_CALLS:
         return <ServiceCallInformation selectedObject={this.props.selectedObject} />
     }

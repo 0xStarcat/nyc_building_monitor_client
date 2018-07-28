@@ -25,9 +25,11 @@ export const serviceCallsReducer = (serviceCallsState = Object.freeze(initialSta
       console.log('serviceCalls data received')
       return {
         ...serviceCallsState,
-        features: action.data['features'].sort((a, b) => {
-          return b.properties.date - a.properties.date
-        }),
+        features: action.data['features']
+          .sort((a, b) => {
+            return b.properties.date - a.properties.date
+          })
+          .map((feature, index) => ({ ...feature, properties: { ...feature.properties, index: index } })),
         awaitingResponse: false
       }
     }

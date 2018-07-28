@@ -7,6 +7,8 @@
 .text-well {
   box-sizing: border-box;
   padding: $small-spacing;
-  border: 1px inset black;
-  background: WHITESMOKE;
+  border-top: 1px inset black;
+  border-bottom: 1px inset black;
+
+  background: $LIGHTGRAY;
 }

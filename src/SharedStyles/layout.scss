@@ -1,0 +1,29 @@
+@import './index.scss';
+
+.information-box {
+  padding: $small-spacing 0 $small-spacing 0;
+}
+
+.info-title {
+  padding: 0 $small-spacing;
+}
+
+.info-section {
+  border-bottom: 1px solid black;
+  margin-bottom: $small-spacing;
+  padding: $small-spacing 0;
+}
+
+.info-row {
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
+}
+
+@media screen and (orientation: portrait) {
+  .information-box {
+    padding: 0;
+  }
+  .info-section {
+    padding-top: 0;
+  }
+}

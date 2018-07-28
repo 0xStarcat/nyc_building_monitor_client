@@ -11,10 +11,8 @@ const ViolationsTable = props => {
   return (
     <div className="violations-table">
       <div className="headerBar">
-        <div className="info-title">
-          <h3>Violations for</h3>
-          <h5>{props.building.name}</h5>
-        </div>
+        <h3>Violations for</h3>
+        <h5>{props.building.name}</h5>
       </div>
       <div className="info-section">
         <div className="table-header">
