@@ -40,7 +40,7 @@ const ViolationInformation = props => {
           <div>{fillEmptyString(props.selectedObject.description)}</div>
         </div>
         <IconRow icon={ViolationIcon}>
-          From the <span>{convertDepartmentToName(props.selectedObject.source)}</span>
+          Issued by the <span>{convertDepartmentToName(props.selectedObject.source)}</span>
         </IconRow>
         {!!props.selectedObject.penalty && (
           <IconRow icon={ViolationIcon}>

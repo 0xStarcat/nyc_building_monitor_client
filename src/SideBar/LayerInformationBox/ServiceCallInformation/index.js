@@ -64,7 +64,7 @@ const ServiceCallInformation = props => {
           <div>{fillEmptyString(props.selectedObject.description)}</div>
         </div>
         <IconRow icon={ServiceCallIcon}>
-          From the <span>{convertDepartmentToName(props.selectedObject.source)}</span>
+          Assigned to the <span>{convertDepartmentToName(props.selectedObject.source)}</span>
         </IconRow>
         {props.selectedObject.openOverMonth && (
           <IconRow icon={ServiceCallIcon}>This call has been open for over a month.</IconRow>
