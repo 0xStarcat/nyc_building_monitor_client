@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import '../SharedStyles/style.scss'
 import IconRow from '../../SharedComponents/IconRow'
 import DispatchActionButton from '../../SharedComponents/DispatchActionButton'
+import ButtonRow from '../../../SharedComponents/ButtonRow'
+import { RightArrow } from '../../../SharedStyles/icons'
 
 import { convertDepartmentToName, convertTimestampToData } from '../utils/informationUtils.js'
 
@@ -17,11 +18,26 @@ import {
   TimeToResolveCallsIcon
 } from '../../../SharedStyles/icons'
 
+import '../SharedStyles/style.scss'
+
 const ViolationInformation = props => {
   return (
     <div className="violation-information">
-      <DispatchActionButton action={prevSelectedViolation}>Prev</DispatchActionButton>
-      <DispatchActionButton action={nextSelectedViolation}>Next</DispatchActionButton>
+      <ButtonRow className="split">
+        <DispatchActionButton
+          action={prevSelectedViolation}
+          className="control-icon-container round button-border-left"
+        >
+          <RightArrow className="svg-flip" />
+        </DispatchActionButton>
+        {props.selectedObject.index + 1} / {props.featureLength}
+        <DispatchActionButton
+          action={nextSelectedViolation}
+          className="control-icon-container round button-border-right"
+        >
+          <RightArrow />
+        </DispatchActionButton>
+      </ButtonRow>
       <div className="info-section">
         <IconRow icon={ViolationIcon}>
           <div>{convertTimestampToData(props.selectedObject.date)}</div>
@@ -48,7 +64,6 @@ const ViolationInformation = props => {
 
 ViolationInformation.propTypes = {
   dispatch: PropTypes.func,
-
   selectedObject: PropTypes.object
 }
 

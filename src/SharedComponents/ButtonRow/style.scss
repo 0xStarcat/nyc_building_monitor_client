@@ -1,4 +1,4 @@
-@import '../../../SharedStyles/index.scss';
+@import '../../SharedStyles/index.scss';
 
 .button-row {
   display: flex;
@@ -14,6 +14,10 @@
     height: 100px;
     width: 100px;
   }
+}
+
+.button-row.split {
+  justify-content: space-around;
 }
 
 @media screen and (orientation: portrait) {

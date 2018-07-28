@@ -66,7 +66,14 @@ class LayerInformationBox extends React.Component {
               building={this.props.parentObject}
             />
           )
-        else return <ViolationInformation dispatch={this.props.dispatch} selectedObject={this.props.selectedObject} />
+        else
+          return (
+            <ViolationInformation
+              dispatch={this.props.dispatch}
+              featureLength={this.props.features.length}
+              selectedObject={this.props.selectedObject}
+            />
+          )
       case SCOPE_SERVICE_CALLS:
         return <ServiceCallInformation selectedObject={this.props.selectedObject} />
     }
@@ -82,8 +89,10 @@ class LayerInformationBox extends React.Component {
 }
 
 LayerInformationBox.propTypes = {
+  appState: PropTypes.object,
   dispatch: PropTypes.func,
-  selectedObject: PropTypes.object,
-  appState: PropTypes.object
+  features: PropTypes.array,
+  parentObject: PropTypes.object,
+  selectedObject: PropTypes.object
 }
 export default LayerInformationBox

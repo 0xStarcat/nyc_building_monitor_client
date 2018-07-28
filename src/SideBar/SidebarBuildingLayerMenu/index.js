@@ -4,7 +4,7 @@ import SwitchLayerButton from '../SharedComponents/SwitchLayerButton'
 import IconProfile from '../SharedComponents/IconProfile'
 import IconHeader from '../SharedComponents/IconHeader'
 
-import ButtonRow from '../SharedComponents/ButtonRow'
+import ButtonRow from '../../SharedComponents/ButtonRow'
 
 import {
   changeBuildingBaseLayer,

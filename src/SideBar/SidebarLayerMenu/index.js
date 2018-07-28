@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import SwitchLayerButton from '../SharedComponents/SwitchLayerButton'
-import ButtonRow from '../SharedComponents/ButtonRow'
+import ButtonRow from '../../SharedComponents/ButtonRow'
 import IconProfile from '../SharedComponents/IconProfile'
 import IconHeader from '../SharedComponents/IconHeader'
 
