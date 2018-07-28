@@ -2,9 +2,21 @@
 
 .information-box {
   padding: $small-spacing 0 $small-spacing 0;
+
+  a {
+    font-size: 13px;
+    text-decoration: wavy underline;
+    color: blue;
+    z-index: 1;
+  }
+
+  a:hover {
+    text-decoration: double underline;
+  }
 }
 
 .info-title {
+  color: gray;
   padding: 0 $small-spacing;
 }
 

@@ -16,12 +16,12 @@ $toggle-button-width: 20px;
   box-sizing: border-box;
   height: $medium-spacing;
   position: absolute;
+  top: $large-spacing;
   width: $toggle-button-width;
   z-index: 100;
 }
 
 .show-button {
-  top: $tiny-spacing;
   right: -$toggle-button-width;
 }
 
@@ -43,7 +43,6 @@ $toggle-button-width: 20px;
 
 .hide-button {
   right: -$toggle-button-width;
-  top: $tiny-spacing;
   width: $toggle-button-width;
 }
 

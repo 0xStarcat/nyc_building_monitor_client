@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import SwitchViewFetchButton from '../../SharedComponents/SwitchViewFetchButton'
+import IconRow from '../../SharedComponents/IconRow'
+
 import {
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_STATE_PREVIEW,
@@ -16,7 +18,7 @@ import { readViolationsByBuilding } from '../../../Store/Violations/actions'
 import { readServiceCallsByBuilding } from '../../../Store/ServiceCalls/actions'
 
 import { BuildingClassRow, ViolationRow, ServiceCallRow, TimeToResolveCallsRow, ServiceCallsOpenRow } from './Rows'
-import { OpenIcon } from '../../../SharedStyles/icons'
+import { OpenIcon, ViolationIcon } from '../../../SharedStyles/icons'
 
 import '../SharedStyles/style.scss'
 import './style.scss'
@@ -99,6 +101,16 @@ const BuildingInformation = props => {
             </div>
           </SwitchViewFetchButton>
         )}
+        <IconRow icon={ViolationIcon}>
+          <a
+            href={`http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?boro=${
+              props.selectedObject.boroCode
+            }&block=${props.selectedObject.block}&lot=${props.selectedObject.lot}`}
+            target="_blank"
+          >
+            You can view this building's BIS documents here.
+          </a>
+        </IconRow>
       </div>
     </div>
   )
