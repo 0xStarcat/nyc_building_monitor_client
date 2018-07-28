@@ -4,9 +4,13 @@ import PropTypes from 'prop-types'
 import BoundaryInformation from './BoundaryInformation'
 import BuildingInformation from './BuildingInformation'
 import ViolationsTable from './ViolationsTable'
+import ViolationInformation from './ViolationInformation'
+
 import ServiceCallInformation from './ServiceCallInformation'
 
 import {
+  SIDEBAR_VIEW_SELECTED_OBJECT,
+  SIDEBAR_VIEW_SCOPED_OBJECTS,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
   SCOPE_BUILDINGS,
@@ -54,7 +58,15 @@ class LayerInformationBox extends React.Component {
           />
         )
       case SCOPE_VIOLATIONS:
-        return <ViolationsTable features={this.props.features} building={this.props.parentObject} />
+        if (this.props.appState.sidebarView === SIDEBAR_VIEW_SELECTED_OBJECT)
+          return (
+            <ViolationsTable
+              dispatch={this.props.dispatch}
+              features={this.props.features}
+              building={this.props.parentObject}
+            />
+          )
+        else return <ViolationInformation selectedObject={this.props.selectedObject} />
       case SCOPE_SERVICE_CALLS:
         return <ServiceCallInformation selectedObject={this.props.selectedObject} />
     }

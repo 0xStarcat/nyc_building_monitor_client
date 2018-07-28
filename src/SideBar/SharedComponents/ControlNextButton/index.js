@@ -6,12 +6,12 @@ import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_BUILDING_LAYER_MENU,
   SIDEBAR_VIEW_SCOPE_MENU,
-  SIDEBAR_VIEW_SCOPED_OBJECTS,
+  SIDEBAR_VIEW_SELECTED_OBJECT,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
   SCOPE_BUILDINGS,
   SCOPE_VIOLATIONS,
-  SIDEBAR_VIEW_SCOPED_OBJECT
+  SIDEBAR_VIEW_SCOPED_OBJECTS
 } from '../../../Store/AppState/actions'
 
 import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
@@ -29,18 +29,18 @@ export const ControlNextButton = props => {
   const getNextView = () => {
     const appState = props.appState
 
-    if (isView()) return SIDEBAR_VIEW_SCOPED_OBJECTS
+    if (isView()) return SIDEBAR_VIEW_SELECTED_OBJECT
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
-        return SIDEBAR_VIEW_SCOPED_OBJECTS
+        return SIDEBAR_VIEW_SELECTED_OBJECT
       case SCOPE_CENSUS_TRACTS:
-        return SIDEBAR_VIEW_SCOPED_OBJECTS
+        return SIDEBAR_VIEW_SELECTED_OBJECT
       case SCOPE_BUILDINGS:
-        return SIDEBAR_VIEW_SCOPED_OBJECTS
+        return SIDEBAR_VIEW_SELECTED_OBJECT
       case SCOPE_VIOLATIONS:
-        return SIDEBAR_VIEW_SCOPED_OBJECT
+        return SIDEBAR_VIEW_SCOPED_OBJECTS
       case SCOPE_SERVICE_CALLS:
-        return SIDEBAR_VIEW_SCOPED_OBJECT
+        return SIDEBAR_VIEW_SCOPED_OBJECTS
       default:
         return appState.sidebarView
     }

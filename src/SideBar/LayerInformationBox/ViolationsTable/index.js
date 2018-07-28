@@ -28,7 +28,14 @@ const ViolationsTable = props => {
             return b.properties.date - a.properties.date
           })
           .map((feature, index) => {
-            return <ViolationRow key={`${props.building.name}-v-${index}`} feature={feature} index={index} />
+            return (
+              <ViolationRow
+                key={`${props.building.name}-v-${index}`}
+                dispatch={props.dispatch}
+                feature={feature}
+                index={index}
+              />
+            )
           })}
       </div>
     </div>
@@ -37,7 +44,8 @@ const ViolationsTable = props => {
 
 ViolationsTable.propTypes = {
   features: PropTypes.array,
-  building: PropTypes.object
+  building: PropTypes.object,
+  dispatch: PropTypes.func
 }
 
 export default ViolationsTable

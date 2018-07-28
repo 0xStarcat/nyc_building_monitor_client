@@ -7,7 +7,7 @@ import DispatchActionButton from '../../DispatchActionButton'
 
 import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
-  SIDEBAR_VIEW_SCOPED_OBJECTS,
+  SIDEBAR_VIEW_SELECTED_OBJECT,
   SCOPE_CENSUS_TRACTS
 } from '../../../../Store/AppState/actions'
 
@@ -16,13 +16,13 @@ configure({ adapter: new Adapter() })
 describe('ExploreButton', () => {
   const setViewCoordinates = sinon.spy()
   const appState = {
-    sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS,
+    sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT,
     sidebarScope: SCOPE_CENSUS_TRACTS
   }
 
   const selectedObject = { id: 1 }
 
-  describe('with sidebarView = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+  describe('with sidebarView = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
     const wrapper = shallow(<ExploreButton appState={appState} selectedObject={selectedObject} />)
 
     it('renders the component', () => {

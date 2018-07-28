@@ -10,7 +10,7 @@ import {
   changeSidebarView,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
-  SIDEBAR_VIEW_SCOPED_OBJECTS
+  SIDEBAR_VIEW_SELECTED_OBJECT
 } from '../../Store/AppState/actions'
 
 import { selectNewSelectedCTObject } from '../../Store/CensusTracts/actions'
@@ -45,7 +45,7 @@ export class GeoJsonBoundaryGroup extends Component {
     this.props.setViewCoordinates(event.target.feature.properties.representativePoint, 14)
     this.props.dispatch(this.getSelectedObjectFunction(event))
     this.props.dispatch(changeSidebarScope(this.props.scope))
-    this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SCOPED_OBJECTS))
+    this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
     this.props.dispatch(this.props.sidebarAction())
   }
 

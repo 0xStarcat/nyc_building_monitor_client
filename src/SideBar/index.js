@@ -26,13 +26,15 @@ import {
 } from '../SharedStyles/__constants__/sidebarConstants.js'
 
 import {
+  SCOPE_NEIGHBORHOODS,
+  SCOPE_CENSUS_TRACTS,
   SIDEBAR_STATE_ACTIVE,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_INACTIVE,
   SIDEBAR_VIEW_BUILDING_LAYER_MENU,
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
-  SIDEBAR_VIEW_SCOPED_OBJECT,
   SIDEBAR_VIEW_SCOPE_MENU,
   SCOPE_VIOLATIONS,
   SCOPE_SERVICE_CALLS
@@ -104,19 +106,24 @@ class SideBar extends React.Component {
             />
           </div>
         )
-      case SIDEBAR_VIEW_SCOPED_OBJECTS:
+      default:
         return (
           <div className="sidebar-view-container">
-            <LayerInformationHeader selectedObject={selectedObject} sidebarScope={appState.sidebarScope} />
+            <LayerInformationHeader
+              selectedObject={selectedObject}
+              sidebarView={appState.sidebarView}
+              sidebarScope={appState.sidebarScope}
+            />
 
-            {appState.landscapeOrientation && (
-              <BuildingLayerButton
-                appState={appState}
-                buildingsPresent={this.props.buildingsPresent}
-                selectedObject={selectedObject}
-                setViewCoordinates={this.props.setViewCoordinates}
-              />
-            )}
+            {appState.landscapeOrientation &&
+              (appState.sidebarScope === SCOPE_NEIGHBORHOODS || appState.sidebarScope === SCOPE_CENSUS_TRACTS) && (
+                <BuildingLayerButton
+                  appState={appState}
+                  buildingsPresent={this.props.buildingsPresent}
+                  selectedObject={selectedObject}
+                  setViewCoordinates={this.props.setViewCoordinates}
+                />
+              )}
             <LayerInformationBox
               appState={appState}
               dispatch={this.props.dispatch}

@@ -1,4 +1,6 @@
 @import './SharedStyles/index.scss';
+@import './SharedStyles/buttons.scss';
+@import './SharedStyles/typography.scss';
 
 @font-face {
   font-family: 'Gandhi';
@@ -132,8 +134,8 @@ p {
 /* For SVG icons */
 /* http://svgicons.sparkk.fr/ */
 .control-icon-container {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
 }
 
 @media screen and (orientation: portrait) {

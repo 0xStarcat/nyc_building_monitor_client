@@ -1,13 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import SwitchViewButton from '../../../SharedComponents/SwitchViewButton'
+
+import { SCOPE_VIOLATIONS, SIDEBAR_VIEW_SCOPED_OBJECTS } from '../../../../Store/AppState/actions'
+import { updateSelectedViolation } from '../../../../Store/Violations/actions'
 import { convertTimestampToData, fillEmptyString } from '../../utils/informationUtils.js'
 import { InfoIcon, OpenIcon } from '../../../../SharedStyles/icons'
 import './style.scss'
 
 const ViolationRow = props => {
+  const selectViolation = () => {
+    props.dispatch(updateSelectedViolation(props.feature.properties))
+  }
   return (
-    <div className="row-box violation-row">
+    <SwitchViewButton
+      action={selectViolation}
+      className="hover-shadow row-box violation-row"
+      scopeSwitch={SCOPE_VIOLATIONS}
+      viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
+    >
       <div className="table-cell v-col0">
         <div>{props.index + 1}</div>
       </div>
@@ -21,13 +33,14 @@ const ViolationRow = props => {
           <OpenIcon />
         </i>
       </div>
-    </div>
+    </SwitchViewButton>
   )
 }
 
 ViolationRow.propTypes = {
+  dispatch: PropTypes.func,
   feature: PropTypes.object,
-  index: PropTypes.int
+  index: PropTypes.number
 }
 
 export default ViolationRow

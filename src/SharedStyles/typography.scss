@@ -1,0 +1,12 @@
+@import './index.scss';
+
+.underline {
+  text-decoration: underline;
+}
+
+.text-well {
+  box-sizing: border-box;
+  padding: $small-spacing;
+  border: 1px inset black;
+  background: WHITESMOKE;
+}

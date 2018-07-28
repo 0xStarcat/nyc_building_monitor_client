@@ -7,14 +7,14 @@ import { RightArrow } from '../../../SharedStyles/icons'
 import {
   activateSidebar,
   SIDEBAR_STATE_PREVIEW,
-  SIDEBAR_VIEW_SCOPED_OBJECTS,
-  SIDEBAR_VIEW_SCOPED_OBJECT
+  SIDEBAR_VIEW_SELECTED_OBJECT,
+  SIDEBAR_VIEW_SCOPED_OBJECTS
 } from '../../../Store/AppState/actions'
 
 const ControlExpandButton = props => {
   const disabled =
     props.sidebarState !== SIDEBAR_STATE_PREVIEW ||
-    !(props.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS || props.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECT)
+    !(props.sidebarView === SIDEBAR_VIEW_SELECTED_OBJECT || props.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS)
 
   return (
     <DispatchActionButton

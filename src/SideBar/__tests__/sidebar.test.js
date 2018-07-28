@@ -9,8 +9,8 @@ import {
   SIDEBAR_STATE_INACTIVE,
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_BUILDING_LAYER_MENU,
+  SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
-  SIDEBAR_VIEW_SCOPED_OBJECT,
   SIDEBAR_VIEW_SCOPE_MENU,
   SCOPE_CENSUS_TRACTS
 } from '../../Store/AppState/actions'
@@ -226,11 +226,11 @@ describe('Sidebar', () => {
     })
   })
 
-  describe('when sidebarView = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+  describe('when sidebarView = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
     const wrapper = shallow(
       <Sidebar
         store={store}
-        store={{ ...store, appState: { ...store.appState, sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS } }}
+        store={{ ...store, appState: { ...store.appState, sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT } }}
       />
     )
 

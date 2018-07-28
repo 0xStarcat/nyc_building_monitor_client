@@ -2,7 +2,10 @@
 
 .layerInformationBox {
   box-sizing: border-box;
-  overflow: scroll;
+  overflow-y: scroll;
+  position: relative;
+  height: 100%;
+  font-size: 14px;
 
   .information-box {
     padding: $small-spacing 0 $small-spacing 0;
@@ -14,6 +17,7 @@
 
   .layerInformationBox {
     overflow: scroll;
+    font-size: 13px;
     .information-box {
       padding: 0;
     }

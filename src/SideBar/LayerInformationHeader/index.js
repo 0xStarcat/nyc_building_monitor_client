@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { SCOPE_CENSUS_TRACTS, SCOPE_BUILDINGS } from '../../Store/AppState/actions'
+import { SCOPE_CENSUS_TRACTS, SCOPE_BUILDINGS, SIDEBAR_VIEW_SCOPED_OBJECTS } from '../../Store/AppState/actions'
 import './style.scss'
 
 const LayerInformationHeader = props => {
-  if (!props.selectedObject) return null
+  if (!props.selectedObject || props.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return null
   return (
     <div className="headerBar">
       <div className="title">
@@ -28,6 +28,7 @@ const LayerInformationHeader = props => {
 
 LayerInformationHeader.propTypes = {
   sidebarScope: PropTypes.string,
+  sidebarView: PropTypes.string,
   selectedObject: PropTypes.object
 }
 

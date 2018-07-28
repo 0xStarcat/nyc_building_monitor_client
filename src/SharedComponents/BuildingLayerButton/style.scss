@@ -4,6 +4,7 @@
   position: absolute;
   left: ($sidebar-width / 2) - ($sidebar-button-width / 2);
   top: $infoHeaderHeight;
+  z-index: 1;
 }
 
 @media screen and (orientation: portrait) {

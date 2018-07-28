@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import SwitchViewFetchButton from '../../SharedComponents/SwitchViewFetchButton'
-
 import {
+  SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_BOUNDARY_INFO,
   SCOPE_VIOLATIONS,
@@ -16,8 +16,7 @@ import { readViolationsByBuilding } from '../../../Store/Violations/actions'
 import { readServiceCallsByBuilding } from '../../../Store/ServiceCalls/actions'
 
 import { BuildingClassRow, ViolationRow, ServiceCallRow, TimeToResolveCallsRow, ServiceCallsOpenRow } from './Rows'
-
-import IconRow from '../../SharedComponents/IconRow'
+import { OpenIcon } from '../../../SharedStyles/icons'
 
 import '../SharedStyles/style.scss'
 import './style.scss'
@@ -52,24 +51,52 @@ const BuildingInformation = props => {
           <h5>2010 - Present</h5>
         </div>
         <BuildingClassRow value={props.selectedObject.buildingClass} />
-        <SwitchViewFetchButton action={getViolations} viewSwitch={SCOPE_VIOLATIONS}>
+        <SwitchViewFetchButton
+          action={getViolations}
+          viewSwitch={SIDEBAR_VIEW_SELECTED_OBJECT}
+          scopeSwitch={SCOPE_VIOLATIONS}
+        >
           <ViolationRow value={props.selectedObject.violationsTotal} />
-          <div className="icon-row-text-align">View Details</div>
+          <div className="icon-row icon-end icon-row-text-align underlined">
+            View Details
+            <i>
+              <OpenIcon />
+            </i>
+          </div>
         </SwitchViewFetchButton>
-        <SwitchViewFetchButton action={getServiceCalls} viewSwitch={SCOPE_SERVICE_CALLS}>
+        <SwitchViewFetchButton
+          action={getServiceCalls}
+          viewSwitch={SIDEBAR_VIEW_SELECTED_OBJECT}
+          scopeSwitch={SCOPE_SERVICE_CALLS}
+        >
           <ServiceCallRow value={props.selectedObject.serviceCallsTotal} />
-          <div className="icon-row-text-align">View Details</div>
+          <div className="icon-row icon-end icon-row-text-align underlined">
+            View Details
+            <i>
+              <OpenIcon />
+            </i>
+          </div>
         </SwitchViewFetchButton>
-        {props.selectedObject.serviceCallsTotal && (
+        {!!props.selectedObject.serviceCallsTotal && (
           <SwitchViewFetchButton>
             <TimeToResolveCallsRow value={props.selectedObject.averageDaysToResolveServiceCalls} />
-            <div className="icon-row-text-align">View Details</div>
+            <div className="icon-row icon-end icon-row-text-align underlined">
+              View Details
+              <i>
+                <OpenIcon />
+              </i>
+            </div>
           </SwitchViewFetchButton>
         )}
-        {props.selectedObject.serviceCallsTotal && (
+        {!!props.selectedObject.serviceCallsTotal && (
           <SwitchViewFetchButton>
             <ServiceCallsOpenRow value={props.selectedObject.serviceCallsPercentOpenOneMonth} />
-            <div className="icon-row-text-align">View Details</div>
+            <div className="icon-row icon-end icon-row-text-align underlined">
+              View Details
+              <i>
+                <OpenIcon />
+              </i>
+            </div>
           </SwitchViewFetchButton>
         )}
       </div>

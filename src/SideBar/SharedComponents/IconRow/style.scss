@@ -18,8 +18,15 @@
     margin-right: $tiny-spacing;
   }
 }
+
 .icon-row-text-align {
   padding-left: $tiny-spacing + $iconHeight;
+}
+
+.icon-end {
+  i {
+    padding-left: $tiny-spacing;
+  }
 }
 
 @media screen and (orientation: portrait) {

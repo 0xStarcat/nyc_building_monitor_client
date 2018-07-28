@@ -21,7 +21,7 @@ export const handleReadViolationsResponse = response => ({
   data: response.data
 })
 
-export const updateSelectedObject = event => ({
+export const updateSelectedViolation = event => ({
   type: UPDATE_SELECTED_VIOLATION_OBJECT,
   data: event
 })

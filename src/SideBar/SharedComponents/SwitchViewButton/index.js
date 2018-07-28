@@ -13,6 +13,7 @@ export class SwitchViewButton extends React.Component {
 
   onClick(event) {
     if (this.props.disabled) return null
+    if (this.props.action) this.props.action()
     if (this.props.scopeSwitch) this.props.dispatch(changeSidebarScope(this.props.scopeSwitch))
     if (this.props.viewSwitch) this.props.dispatch(changeSidebarView(this.props.viewSwitch))
     if (this.props.stateSwitch) this.props.dispatch(changeSidebarState(this.props.stateSwitch))
@@ -29,7 +30,9 @@ export class SwitchViewButton extends React.Component {
 
 SwitchViewButton.propTypes = {
   disabled: PropTypes.bool,
+  action: PropTypes.func,
   scopeSwitch: PropTypes.string,
+  stateSwitch: PropTypes.string,
   viewSwitch: PropTypes.string
 }
 

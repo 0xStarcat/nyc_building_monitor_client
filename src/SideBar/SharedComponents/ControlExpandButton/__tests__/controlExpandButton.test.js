@@ -7,15 +7,15 @@ import {
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_ACTIVE,
   SIDEBAR_VIEW_SCOPE_MENU,
-  SIDEBAR_VIEW_SCOPED_OBJECTS,
-  SIDEBAR_VIEW_SCOPED_OBJECT
+  SIDEBAR_VIEW_SELECTED_OBJECT,
+  SIDEBAR_VIEW_SCOPED_OBJECTS
 } from '../../../../Store/AppState/actions'
 
 configure({ adapter: new Adapter() })
 
 describe('ControlExpandButton', () => {
   const props = {
-    sidebarScope: SIDEBAR_VIEW_SCOPED_OBJECTS,
+    sidebarScope: SIDEBAR_VIEW_SELECTED_OBJECT,
     sidebarState: SIDEBAR_STATE_PREVIEW
   }
   const wrapper = shallow(<ControlExpandButton {...props} />)
@@ -27,7 +27,7 @@ describe('ControlExpandButton', () => {
   describe('when sidebarState != SIDEBAR_STATE_PREVIEW', () => {
     it('renders but hides the component', () => {
       const props = {
-        sidebarScope: SIDEBAR_VIEW_SCOPED_OBJECTS,
+        sidebarScope: SIDEBAR_VIEW_SELECTED_OBJECT,
         sidebarState: SIDEBAR_STATE_ACTIVE
       }
       const wrapper = shallow(<ControlExpandButton {...props} />)

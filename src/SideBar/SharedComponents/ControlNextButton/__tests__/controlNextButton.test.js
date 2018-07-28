@@ -6,7 +6,7 @@ import { ControlNextButton } from '../index.js'
 
 import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
-  SIDEBAR_VIEW_SCOPED_OBJECTS,
+  SIDEBAR_VIEW_SELECTED_OBJECT,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
   SCOPE_BUILDINGS
@@ -16,7 +16,7 @@ configure({ adapter: new Adapter() })
 
 const appState = {
   baseLayerScope: SCOPE_CENSUS_TRACTS,
-  sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS,
+  sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT,
   sidebarScope: SCOPE_CENSUS_TRACTS
 }
 
@@ -54,10 +54,10 @@ describe('ControlNextButton', () => {
         expect(nextButtonProps.disabled).toEqual(false)
       })
 
-      it('renders the next button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+      it('renders the next button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
         const nextButtonProps = wrapper.props()
         expect(nextButtonProps.scopeSwitch).toEqual(SCOPE_CENSUS_TRACTS)
-        expect(nextButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SCOPED_OBJECTS)
+        expect(nextButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SELECTED_OBJECT)
       })
 
       it('displays the proper text', () => {
@@ -71,7 +71,7 @@ describe('ControlNextButton', () => {
 
     describe('when scope = SCOPE_CENSUS_TRACTS and there is a selected building object', () => {
       const appState = {
-        sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS,
+        sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT,
         sidebarScope: SCOPE_CENSUS_TRACTS,
         baseLayerScope: SCOPE_CENSUS_TRACTS
       }
@@ -87,10 +87,10 @@ describe('ControlNextButton', () => {
         expect(nextButtonProps.disabled).toEqual(false)
       })
 
-      it('renders the next button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+      it('renders the next button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
         const nextButtonProps = wrapper.props()
         expect(nextButtonProps.scopeSwitch).toEqual(SCOPE_BUILDINGS)
-        expect(nextButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SCOPED_OBJECTS)
+        expect(nextButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SELECTED_OBJECT)
       })
 
       it('displays the proper text', () => {

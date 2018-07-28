@@ -6,7 +6,7 @@ import { ControlBackButton } from '../index.js'
 
 import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
-  SIDEBAR_VIEW_SCOPED_OBJECTS,
+  SIDEBAR_VIEW_SELECTED_OBJECT,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
   SCOPE_BUILDINGS
@@ -16,7 +16,7 @@ configure({ adapter: new Adapter() })
 
 const appState = {
   baseLayerScope: SCOPE_CENSUS_TRACTS,
-  sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS,
+  sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT,
   sidebarScope: SCOPE_CENSUS_TRACTS
 }
 
@@ -35,15 +35,15 @@ describe('ControlBackButton', () => {
       })
     })
 
-    describe('when scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+    describe('when scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
       const appState = {
-        sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS,
+        sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT,
         sidebarScope: SCOPE_CENSUS_TRACTS,
         landscapeOrientation: true
       }
       const wrapper = shallow(<ControlBackButton appState={appState} />)
 
-      it('renders the back button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+      it('renders the back button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
         const backButtonProps = wrapper.props()
         expect(backButtonProps.scopeSwitch).toEqual(SCOPE_CENSUS_TRACTS)
         expect(backButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_BOUNDARY_LAYER_MENU)
@@ -101,18 +101,18 @@ describe('ControlBackButton', () => {
       })
     })
 
-    describe('when scope = SCOPE_BUILDINGS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+    describe('when scope = SCOPE_BUILDINGS and view = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
       const appState = {
-        sidebarView: SIDEBAR_VIEW_SCOPED_OBJECTS,
+        sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT,
         sidebarScope: SCOPE_BUILDINGS
       }
 
       const wrapper = shallow(<ControlBackButton appState={appState} />)
 
-      it('renders the back button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SCOPED_OBJECTS', () => {
+      it('renders the back button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
         const backButtonProps = wrapper.props()
         expect(backButtonProps.scopeSwitch).toEqual(SCOPE_CENSUS_TRACTS)
-        expect(backButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SCOPED_OBJECTS)
+        expect(backButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_SELECTED_OBJECT)
       })
 
       describe('with a selected neighborhood', () => {
