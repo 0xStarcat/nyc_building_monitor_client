@@ -22,7 +22,7 @@ export const serviceCallsReducer = (serviceCallsState = Object.freeze(initialSta
     }
 
     case serviceCallsActions.HANDLE_READ_SERVICE_CALLS_RESPONSE: {
-      console.log('serviceCalls data received')
+      console.log('serviceCalls data received', action.data['features'])
       return {
         ...serviceCallsState,
         features: action.data['features']
@@ -36,6 +36,22 @@ export const serviceCallsReducer = (serviceCallsState = Object.freeze(initialSta
 
     case serviceCallsActions.UPDATE_SELECTED_SERVICE_CALL_OBJECT: {
       return { ...serviceCallsState, selectedObject: action.data }
+    }
+
+    case serviceCallsActions.NEXT_SELECTED_SERVICE_CALL: {
+      if (serviceCallsState.selectedObject.index + 1 >= serviceCallsState.features.length) return serviceCallsState
+      return {
+        ...serviceCallsState,
+        selectedObject: serviceCallsState.features[serviceCallsState.selectedObject.index + 1].properties
+      }
+    }
+
+    case serviceCallsActions.PREV_SELECTED_SERVICE_CALL: {
+      if (serviceCallsState.selectedObject.index <= 0) return serviceCallsState
+      return {
+        ...serviceCallsState,
+        selectedObject: serviceCallsState.features[serviceCallsState.selectedObject.index - 1].properties
+      }
     }
 
     case serviceCallsActions.CLEAR_SERVICE_CALLS: {

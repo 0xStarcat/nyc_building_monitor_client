@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import SwitchViewButton from '../../../SharedComponents/SwitchViewButton'
 
-import { SCOPE_VIOLATIONS, SIDEBAR_VIEW_SELECTED_OBJECT } from '../../../../Store/AppState/actions'
+import { SCOPE_SERVICE_CALLS, SIDEBAR_VIEW_SELECTED_OBJECT } from '../../../../Store/AppState/actions'
 import { updateSelectedServiceCall } from '../../../../Store/ServiceCalls/actions'
 import { convertTimestampToData, fillEmptyString } from '../../utils/informationUtils.js'
 import { InfoIcon, OpenIcon } from '../../../../SharedStyles/icons'
@@ -24,7 +24,7 @@ const ServiceCallRow = props => {
     <SwitchViewButton
       action={selectServiceCall}
       className="info-row hover-shadow row-box service-call-row"
-      scopeSwitch={SCOPE_VIOLATIONS}
+      scopeSwitch={SCOPE_SERVICE_CALLS}
       viewSwitch={SIDEBAR_VIEW_SELECTED_OBJECT}
     >
       <div className="table-cell col0">
@@ -38,7 +38,9 @@ const ServiceCallRow = props => {
         <div>{fillEmptyString(props.feature.properties.status)}</div>
       </div>
       <div className="table-cell sc-col3">
-        <div>{props.feature.properties.resolutionViolation ? 'Yes' : 'No'}</div>
+        {props.feature.properties.status.toLowerCase() !== 'open' && (
+          <div>{props.feature.properties.resolutionViolation ? 'Yes' : 'No'}</div>
+        )}
       </div>
       <div className="table-cell sc-col4">
         <i>

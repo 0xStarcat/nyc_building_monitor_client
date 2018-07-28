@@ -10,13 +10,7 @@ import { convertDepartmentToName, convertTimestampToData, fillEmptyString } from
 
 import { prevSelectedViolation, nextSelectedViolation } from '../../../Store/Violations/actions'
 
-import {
-  BuildingClassIcon,
-  ViolationIcon,
-  ServiceCallIcon,
-  ServiceCallOpenIcon,
-  TimeToResolveCallsIcon
-} from '../../../SharedStyles/icons'
+import { ViolationIcon } from '../../../SharedStyles/icons'
 
 import '../SharedStyles/style.scss'
 
