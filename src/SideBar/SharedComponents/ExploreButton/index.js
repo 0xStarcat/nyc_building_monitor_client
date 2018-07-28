@@ -7,6 +7,8 @@ import IconProfile from '../IconProfile'
 
 import { BuildingExploreIcon } from '../../../SharedStyles/icons'
 
+import './style.scss'
+
 const ExploreButton = props => {
   const onExploreClick = event => {
     props.setViewCoordinates(props.selectedObject.representativePoint, 16)
