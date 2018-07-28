@@ -34,7 +34,7 @@ const ViolationInformation = props => {
         )}
         <IconRow icon={ViolationIcon}>
           Code: <span>{props.selectedObject.code}</span>
-          <div>Read about this code</div>
+          <div>More information about this violation type.</div>
         </IconRow>
       </div>
     </div>
