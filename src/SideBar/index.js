@@ -10,7 +10,6 @@ import SidebarBuildingDetailButtons from './SidebarBuildingDetailButtons'
 
 import TopBar from './TopBar'
 import ControlRow from './SharedComponents/ControlRow'
-import BuildingLayerButton from '../SharedComponents/BuildingLayerButton'
 import ControlBackButton from './SharedComponents/ControlBackButton'
 import ControlNextButton from './SharedComponents/ControlNextButton'
 
@@ -30,7 +29,6 @@ import {
   SIDEBAR_STATE_ACTIVE,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_INACTIVE,
-  SIDEBAR_VIEW_BUILDING_LAYER_MENU,
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
@@ -83,15 +81,6 @@ class SideBar extends React.Component {
           <div className="sidebar-view-container">
             <SidebarLayerMenu
               buildingsPresent={this.props.buildingsPresent}
-              landscapeOrientation={appState.landscapeOrientation}
-              dispatch={this.props.dispatch}
-            />
-          </div>
-        )
-      case SIDEBAR_VIEW_BUILDING_LAYER_MENU:
-        return (
-          <div className="sidebar-view-container">
-            <SidebarBuildingDetailButtons
               landscapeOrientation={appState.landscapeOrientation}
               dispatch={this.props.dispatch}
             />

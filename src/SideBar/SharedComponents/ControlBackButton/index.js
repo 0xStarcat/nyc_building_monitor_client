@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import {
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
-  SIDEBAR_VIEW_BUILDING_LAYER_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SCOPE_NEIGHBORHOODS,
@@ -22,17 +21,11 @@ export const ControlBackButton = props => {
   const getBackView = () => {
     const appState = props.appState
 
-    if (appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU) return SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
-    if (appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU && props.buildingsPresent)
-      return SIDEBAR_VIEW_BUILDING_LAYER_MENU
-
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
-        if (props.buildingsPresent && !appState.landscapeOrientation) return SIDEBAR_VIEW_BUILDING_LAYER_MENU
-        else return SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+        return SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
       case SCOPE_CENSUS_TRACTS:
-        if (props.buildingsPresent && !appState.landscapeOrientation) return SIDEBAR_VIEW_BUILDING_LAYER_MENU
-        else return SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+        return SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
       case SCOPE_BUILDINGS:
         return SIDEBAR_VIEW_SELECTED_OBJECT
       case SCOPE_VIOLATIONS:
@@ -78,8 +71,6 @@ export const ControlBackButton = props => {
   const getBackText = () => {
     const appState = props.appState
 
-    if (appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU) return 'Map Details'
-    if (appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU && props.buildingsPresent) return 'Building Layers'
     if (appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU) return null
 
     switch (appState.sidebarScope) {
@@ -103,7 +94,6 @@ export const ControlBackButton = props => {
   }
 
   const disabled = props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
-  // props.appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU
 
   return (
     <SwitchViewButton

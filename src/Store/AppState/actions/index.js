@@ -22,7 +22,6 @@ export const SIDEBAR_STATE_ACTIVE = 'SIDEBAR_STATE_ACTIVE'
 
 // Views
 export const SIDEBAR_VIEW_BOUNDARY_LAYER_MENU = 'SIDEBAR_VIEW_BOUNDARY_LAYER_MENU'
-export const SIDEBAR_VIEW_BUILDING_LAYER_MENU = 'SIDEBAR_VIEW_BUILDING_LAYER_MENU'
 export const SIDEBAR_VIEW_SELECTED_OBJECT = 'SIDEBAR_VIEW_SELECTED_OBJECT'
 export const SIDEBAR_VIEW_SCOPED_OBJECTS = 'SIDE_VIEW_SCOPED_OBJECT'
 
@@ -102,16 +101,6 @@ export const changeBuildingBaseLayer = event => ({
 export const openBoundaryLayerMenu = event => dispatch => {
   dispatch(changeSidebarView(SIDEBAR_VIEW_BOUNDARY_LAYER_MENU))
   dispatch(previewSidebar())
-}
-
-export const openPortraitBuildingLayerMenu = event => dispatch => {
-  dispatch(changeSidebarView(SIDEBAR_VIEW_BUILDING_LAYER_MENU))
-  dispatch(previewSidebar())
-}
-
-export const openLandscapeBuildingLayerMenu = event => dispatch => {
-  dispatch(changeSidebarView(SIDEBAR_VIEW_BUILDING_LAYER_MENU))
-  dispatch(activateSidebar())
 }
 
 export const switchScopeWithFetch = event => dispatch => {
