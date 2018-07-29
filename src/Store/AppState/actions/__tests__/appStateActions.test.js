@@ -38,16 +38,3 @@ describe('openPortraitBuildingLayerMenu', () => {
     expect(actions).toEqual(expectedActions)
   })
 })
-
-describe('openScopeMenu', () => {
-  it('dispatches CHANGE_SIDEBAR_VIEW, PREVIEW_SIDEBAR on success', () => {
-    store.dispatch(appStateActions.openScopeMenu())
-    const actions = store.getActions()
-    const expectedActions = [
-      appStateActions.changeSidebarView(appStateActions.SIDEBAR_VIEW_SCOPE_MENU),
-      appStateActions.previewSidebar()
-    ]
-
-    expect(actions).toEqual(expectedActions)
-  })
-})

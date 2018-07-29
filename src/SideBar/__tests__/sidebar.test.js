@@ -11,7 +11,6 @@ import {
   SIDEBAR_VIEW_BUILDING_LAYER_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
-  SIDEBAR_VIEW_SCOPE_MENU,
   SCOPE_CENSUS_TRACTS
 } from '../../Store/AppState/actions'
 
@@ -195,16 +194,6 @@ describe('Sidebar', () => {
       it('returns a style object with the correct styles', () => {
         expect(wrapper.instance().storeStyle()).toEqual({ transform: 'translateY(100vh)' })
       })
-    })
-  })
-
-  describe('when sidebarView = SIDEBAR_VIEW_SCOPE_MENU', () => {
-    const wrapper = shallow(
-      <Sidebar store={{ ...store, appState: { ...store.appState, sidebarView: SIDEBAR_VIEW_SCOPE_MENU } }} />
-    )
-
-    it('renders the MobileSidebarScopeMenu', () => {
-      expect(wrapper.find(MobileSidebarScopeMenu).length).toEqual(1)
     })
   })
 

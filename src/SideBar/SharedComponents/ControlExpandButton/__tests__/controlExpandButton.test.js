@@ -6,7 +6,6 @@ import ControlExpandButton from '../index.js'
 import {
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_ACTIVE,
-  SIDEBAR_VIEW_SCOPE_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS
 } from '../../../../Store/AppState/actions'
@@ -29,18 +28,6 @@ describe('ControlExpandButton', () => {
       const props = {
         sidebarScope: SIDEBAR_VIEW_SELECTED_OBJECT,
         sidebarState: SIDEBAR_STATE_ACTIVE
-      }
-      const wrapper = shallow(<ControlExpandButton {...props} />)
-      expect(wrapper.find('.control-expand-button').length).toEqual(1)
-      expect(wrapper.find('.hidden-svg').length).toEqual(1)
-    })
-  })
-
-  describe('when sidebarScope == SIDEBAR_VIEW_SCOPE_MENU', () => {
-    it('renders but hides the component', () => {
-      const props = {
-        sidebarScope: SIDEBAR_VIEW_SCOPE_MENU,
-        sidebarState: SIDEBAR_STATE_PREVIEW
       }
       const wrapper = shallow(<ControlExpandButton {...props} />)
       expect(wrapper.find('.control-expand-button').length).toEqual(1)

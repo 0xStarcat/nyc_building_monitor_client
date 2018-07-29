@@ -5,26 +5,13 @@ import DispatchActionButton from '../../SideBar/SharedComponents/DispatchActionB
 import IconProfile from '../../SideBar/SharedComponents/IconProfile'
 
 import {
-  openScopeMenu,
   openBoundaryLayerMenu,
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
-  SIDEBAR_VIEW_SCOPE_MENU,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_INACTIVE
 } from '../../Store/AppState/actions'
 
 import { BoundaryLayersIcon, RegionIcon } from '../../SharedStyles/icons'
-
-const getAction = props => {
-  switch (props.appState.sidebarView) {
-    case SIDEBAR_VIEW_BOUNDARY_LAYER_MENU:
-      return openScopeMenu
-    case SIDEBAR_VIEW_SCOPE_MENU:
-      return openBoundaryLayerMenu
-    default:
-      return openScopeMenu
-  }
-}
 
 const MobileBoundaryLayerButton = props => {
   return (

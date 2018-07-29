@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import {
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
-  SIDEBAR_VIEW_SCOPE_MENU,
   SIDEBAR_VIEW_BUILDING_LAYER_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
@@ -103,7 +102,6 @@ export const ControlBackButton = props => {
     }
   }
 
-  // const disabled = props.appState.sidebarView === SIDEBAR_VIEW_SCOPE_MENU
   const disabled = props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
   // props.appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU
 

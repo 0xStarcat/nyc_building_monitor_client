@@ -4,7 +4,7 @@ import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import { SwitchViewButton } from '../index.js'
 
-import { SCOPE_CENSUS_TRACTS, SIDEBAR_VIEW_SCOPE_MENU } from '../../../../Store/AppState/actions'
+import { SCOPE_CENSUS_TRACTS, SIDEBAR_VIEW_BOUNDARY_LAYER_MENU } from '../../../../Store/AppState/actions'
 
 configure({ adapter: new Adapter() })
 
@@ -44,7 +44,7 @@ describe('SwitchViewButton', () => {
       describe('if viewSwitch prop', () => {
         const dispatchFn = sinon.spy()
         const wrapper = shallow(
-          <SwitchViewButton disabled={false} dispatch={dispatchFn} viewSwitch={SIDEBAR_VIEW_SCOPE_MENU} />
+          <SwitchViewButton disabled={false} dispatch={dispatchFn} viewSwitch={SIDEBAR_VIEW_BOUNDARY_LAYER_MENU} />
         )
         wrapper.find('.switch-view-button').simulate('click')
         it('calls the dispatch method once', () => {
@@ -59,7 +59,7 @@ describe('SwitchViewButton', () => {
             disabled={false}
             dispatch={dispatchFn}
             scopeSwitch={SCOPE_CENSUS_TRACTS}
-            viewSwitch={SIDEBAR_VIEW_SCOPE_MENU}
+            viewSwitch={SIDEBAR_VIEW_BOUNDARY_LAYER_MENU}
           />
         )
         wrapper.find('.switch-view-button').simulate('click')

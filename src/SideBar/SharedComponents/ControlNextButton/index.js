@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_BUILDING_LAYER_MENU,
-  SIDEBAR_VIEW_SCOPE_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
@@ -22,7 +21,6 @@ export const ControlNextButton = props => {
   const isView = () => {
     const appState = props.appState
     return (
-      appState.sidebarView === SIDEBAR_VIEW_SCOPE_MENU ||
       appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU ||
       appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU
     )
