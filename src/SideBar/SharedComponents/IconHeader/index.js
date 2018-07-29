@@ -7,7 +7,7 @@ const IconHeader = props => {
   return (
     <div className="icon-header">
       <i>{props.icon()}</i>
-      <h3>{props.children}</h3>
+      <h4>{props.children}</h4>
     </div>
   )
 }

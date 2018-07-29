@@ -244,9 +244,9 @@ export const CensusTractIcon = () => {
 export const BuildingExploreIcon = () => {
   return (
     <svg className="svg-icon" viewBox="0 0 33 35">
-      <polygon className="svg-icon-primary-color" points="33 35 0 35 0 0 17 0 17 10.99 33 10.99" />
+      <polygon className="svg-icon-secondary-color" points="33 35 0 35 0 0 17 0 17 10.99 33 10.99" />
       <path
-        className="svg-icon-primary-color"
+        className="svg-icon-dark-color"
         d="M27.012,32 L27.012,29.01 L30.012,29.01 L30.012,32 L27.012,32 Z M27.012,23.99 L30.012,23.99 L30.012,27.008 L27.012,27.008 L27.012,23.99 Z M27.012,18.998 L30.012,18.998 L30.012,21.987 L27.012,21.987 L27.012,19 L27.012,18.998 Z M27.012,14.005 L30.012,14.005 L30.012,17 L27.012,17 L27.012,14.01 L27.012,14.005 Z M22.012,29.01 L25.012,29.01 L25.012,32 L22.012,32 L22.012,29.01 Z M22.012,23.989 L25.012,23.989 L25.012,27.007 L22.012,27.007 L22.012,23.99 L22.012,23.989 Z M22.012,18.997 L25.012,18.997 L25.012,21.986 L22.012,21.986 L22.012,19 L22.012,18.997 Z M22.012,14.004 L25.012,14.004 L25.012,17 L22.012,17 L22.012,14.01 L22.012,14.004 Z M17,11 L19,11 L19,35 L17,35 L17,11 Z M3.994,30 L13.006,30 L13.006,32.015 L3.994,32.015 L3.994,30 Z M3.994,25 L13.006,25 L13.006,27.015 L3.994,27.015 L3.994,24.994 L3.994,25 Z M3.994,20 L13.006,20 L13.006,22.015 L3.994,22.015 L3.994,19.992 L3.994,20 Z M3.994,15 L13.006,15 L13.006,17.015 L3.994,17.015 L3.994,14.991 L3.994,15 Z M3.994,10 L13.006,10 L13.006,12 L3.994,12 L3.994,9.989 L3.994,10 Z M3.994,5 L13.006,5 L13.006,7 L3.994,7 L3.994,4.987 L3.994,5 Z"
         fill="white"
       />
@@ -257,9 +257,9 @@ export const BuildingExploreIcon = () => {
 export const BoundaryLayersIcon = () => {
   return (
     <svg className="svg-icon" viewBox="0 0 34 31">
-      <polygon fill="#FF6E6E" points="18 11.6 35.013 21.3 18 30.99 0.987 21.29" />
-      <polygon fill="#0C0058" points="18 5.8 35.013 15.5 18 25.2 0.987 15.5" />
-      <polygon fill="#FF6E6E" points="18 0.01 35.013 9.71 18 19.4 0.987 9.7" />
+      <polygon className="svg-icon-secondary-color" points="18 11.6 35.013 21.3 18 30.99 0.987 21.29" />
+      <polygon className="svg-icon-dark-color" points="18 5.8 35.013 15.5 18 25.2 0.987 15.5" />
+      <polygon className="svg-icon-secondary-color" points="18 0.01 35.013 9.71 18 19.4 0.987 9.7" />
     </svg>
   )
 }
@@ -268,7 +268,7 @@ export const RegionIcon = () => {
   return (
     <svg className="svg-icon" viewBox="0 0 30 35">
       <polygon className="svg-icon-primary-color" points="22 17 30 25 9 25 9 20 4 20 4 2 18 2 18 9 30 9" />
-      <path d="M0,0 L4,0 L4,35 L0,35 L0,0 Z M17,20 L9,25 L9,20 L17,20 Z" fill="#0C0058" />
+      <path d="M0,0 L4,0 L4,35 L0,35 L0,0 Z M17,20 L9,25 L9,20 L17,20 Z" className="svg-icon-dark-color" />
     </svg>
   )
 }
@@ -278,11 +278,11 @@ export const BuildingLayerIcon = () => {
     <svg className="svg-icon" viewBox="0 0 30 24">
       <path
         d="M0,0 L30,0 L30,4 L0,4 L0,0 Z M0,10 L30,10 L30,14 L0,14 L0,10 Z M0,20 L30,20 L30,24 L0,24 L0,20 Z"
-        fill="#FF6E6E"
+        className="svg-icon-secondary-color"
       />
       <path
         d="M0,0 L4,0 L4,4 L0,4 L0,0 Z M0,10 L4,10 L4,14 L0,14 L0,10 Z M0,20 L4,20 L4,24 L0,24 L0,20 Z M26,0 L30,0 L30,4 L26,4 L26,0 Z M26,10 L30,10 L30,14 L26,14 L26,10 Z M26,20 L30,20 L30,24 L26,24 L26,20 Z"
-        fill="#0C0058"
+        className="svg-icon-dark-color"
       />
     </svg>
   )

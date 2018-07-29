@@ -26,7 +26,7 @@ import {
   ServiceCallOpenIcon
 } from '../../SharedStyles/icons'
 
-export default class MobileSidebarBoundaryLayerMenu extends React.Component {
+export default class SidebarBoundaryDetailButtons extends React.Component {
   constructor(props) {
     super(props)
 
@@ -39,7 +39,7 @@ export default class MobileSidebarBoundaryLayerMenu extends React.Component {
 
   render() {
     return (
-      <div className="mobile-sidebar-scope-menu content-box">
+      <div className="sidebar-boundary-detail-buttons">
         <ButtonRow>
           <SwitchLayerButton
             action={this.switchLayer}
@@ -95,6 +95,6 @@ export default class MobileSidebarBoundaryLayerMenu extends React.Component {
   }
 }
 
-MobileSidebarBoundaryLayerMenu.propTypes = {
+SidebarBoundaryDetailButtons.propTypes = {
   dispatch: PropTypes.func
 }

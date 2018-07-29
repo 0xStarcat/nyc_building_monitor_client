@@ -114,6 +114,8 @@ p {
 }
 
 .menu-section {
+  box-shadow: 0 2px 4px 0 gray;
+  margin-top: $tiny-spacing;
   padding: $small-spacing 0;
 }
 
@@ -154,6 +156,14 @@ p {
 
 .svg-icon-primary-color {
   fill: #4691f6;
+}
+
+.svg-icon-secondary-color {
+  fill: #ff6e6e;
+}
+
+.svg-icon-dark-color {
+  fill: #0c0058;
 }
 
 .svg-icon-primary-color circle {

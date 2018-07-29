@@ -13,7 +13,7 @@ import {
 
 import { NeighborhoodIcon, CensusTractIcon } from '../../SharedStyles/icons'
 
-export default class MobileSidebarScopeMenu extends React.Component {
+export default class BoundaryScopeButtons extends React.Component {
   constructor(props) {
     super(props)
 
@@ -27,7 +27,7 @@ export default class MobileSidebarScopeMenu extends React.Component {
 
   render() {
     return (
-      <div className="mobile-sidebar-scope-menu content-box">
+      <div className="boundary-scope-buttons">
         <ButtonRow>
           <SwitchLayerButton
             action={this.switchScopeWithFetch}
@@ -49,6 +49,6 @@ export default class MobileSidebarScopeMenu extends React.Component {
   }
 }
 
-MobileSidebarScopeMenu.propTypes = {
+BoundaryScopeButtons.propTypes = {
   dispatch: PropTypes.func
 }

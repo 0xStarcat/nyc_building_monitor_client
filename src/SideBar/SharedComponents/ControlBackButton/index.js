@@ -103,8 +103,8 @@ export const ControlBackButton = props => {
     }
   }
 
-  const disabled = props.appState.sidebarView === SIDEBAR_VIEW_SCOPE_MENU
-  // props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU ||
+  // const disabled = props.appState.sidebarView === SIDEBAR_VIEW_SCOPE_MENU
+  const disabled = props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
   // props.appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU
 
   return (

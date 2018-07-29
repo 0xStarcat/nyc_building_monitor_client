@@ -6,7 +6,7 @@ import LayerInformationHeader from './LayerInformationHeader'
 
 import LayerInformationBox from './LayerInformationBox'
 import SidebarLayerMenu from './SidebarLayerMenu'
-import SidebarBuildingLayerMenu from './SidebarBuildingLayerMenu'
+import SidebarBuildingDetailButtons from './SidebarBuildingDetailButtons'
 
 import TopBar from './TopBar'
 import ControlRow from './SharedComponents/ControlRow'
@@ -78,22 +78,20 @@ class SideBar extends React.Component {
     const appState = this.props.store.appState
     const selectedObject = (this.props.store[appState.sidebarScope] || {}).selectedObject
     switch (appState.sidebarView) {
-      case SIDEBAR_VIEW_SCOPE_MENU:
-        return (
-          <div className="sidebar-view-container">
-            <SidebarLayerMenu landscapeOrientation={appState.landscapeOrientation} dispatch={this.props.dispatch} />
-          </div>
-        )
       case SIDEBAR_VIEW_BOUNDARY_LAYER_MENU:
         return (
           <div className="sidebar-view-container">
-            <SidebarLayerMenu landscapeOrientation={appState.landscapeOrientation} dispatch={this.props.dispatch} />
+            <SidebarLayerMenu
+              buildingsPresent={this.props.buildingsPresent}
+              landscapeOrientation={appState.landscapeOrientation}
+              dispatch={this.props.dispatch}
+            />
           </div>
         )
       case SIDEBAR_VIEW_BUILDING_LAYER_MENU:
         return (
           <div className="sidebar-view-container">
-            <SidebarBuildingLayerMenu
+            <SidebarBuildingDetailButtons
               landscapeOrientation={appState.landscapeOrientation}
               dispatch={this.props.dispatch}
             />
@@ -142,6 +140,7 @@ class SideBar extends React.Component {
 }
 
 SideBar.propTypes = {
+  buildingsPresent: PropTypes.bool,
   dispatch: PropTypes.func,
   store: PropTypes.object,
   setViewCoordinates: PropTypes.func

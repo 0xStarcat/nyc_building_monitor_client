@@ -15,7 +15,7 @@ import {
 
 import { BuildingIcon, ViolationIcon, ServiceCallIcon, BuildingLayerIcon } from '../../SharedStyles/icons'
 
-export default class SidebarBuildingLayerMenu extends React.Component {
+export default class SidebarBuildingDetailButtons extends React.Component {
   constructor(props) {
     super(props)
 
@@ -28,7 +28,7 @@ export default class SidebarBuildingLayerMenu extends React.Component {
 
   render() {
     return (
-      <div className="sidebar-building-layer-menu content-box">
+      <div className="sidebar-building-detail-buttons">
         {this.props.landscapeOrientation && <IconHeader icon={BuildingLayerIcon}>Layers</IconHeader>}
         <ButtonRow>
           <SwitchLayerButton
@@ -63,7 +63,7 @@ export default class SidebarBuildingLayerMenu extends React.Component {
   }
 }
 
-SidebarBuildingLayerMenu.propTypes = {
+SidebarBuildingDetailButtons.propTypes = {
   dispatch: PropTypes.func,
   landscapeOrientation: PropTypes.bool,
   switchLayer: PropTypes.func

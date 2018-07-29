@@ -26,7 +26,7 @@ import {
 import MobileSidebarScopeMenu from '../MobileSidebarScopeMenu'
 import SidebarLayerMenu from '../SidebarLayerMenu'
 import LayerInformationBox from '../LayerInformationBox'
-import SidebarBuildingLayerMenu from '../SidebarBuildingLayerMenu'
+import SidebarBuildingDetailButtons from '../SidebarBuildingDetailButtons'
 
 configure({ adapter: new Adapter() })
 
@@ -213,8 +213,8 @@ describe('Sidebar', () => {
       <Sidebar store={{ ...store, appState: { ...store.appState, sidebarView: SIDEBAR_VIEW_BUILDING_LAYER_MENU } }} />
     )
 
-    it('renders the SidebarBuildingLayerMenu', () => {
-      expect(wrapper.find(SidebarBuildingLayerMenu).length).toEqual(1)
+    it('renders the SidebarBuildingDetailButtons', () => {
+      expect(wrapper.find(SidebarBuildingDetailButtons).length).toEqual(1)
     })
   })
 

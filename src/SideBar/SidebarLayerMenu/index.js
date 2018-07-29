@@ -7,6 +7,7 @@ import IconHeader from '../SharedComponents/IconHeader'
 
 import SidebarBoundaryScopeButtons from '../SidebarBoundaryScopeButtons'
 import SidebarBoundaryDetailButtons from '../SidebarBoundaryDetailButtons'
+import SidebarBuildingDetailButtons from '../SidebarBuildingDetailButtons'
 
 import {
   changeBaseLayer,
@@ -22,18 +23,7 @@ import {
   BASE_LAYER_OPEN_311
 } from '../../Store/AppState/actions'
 
-import {
-  NeighborhoodIcon,
-  CensusTractIcon,
-  BlankBoundaryIcon,
-  IncomeIcon,
-  RentIcon,
-  RentChangeIcon,
-  PopulationIcon,
-  ServiceCallOpenIcon,
-  RegionIcon,
-  BoundaryLayersIcon
-} from '../../SharedStyles/icons'
+import { BuildingExploreIcon, RegionIcon, BoundaryLayersIcon } from '../../SharedStyles/icons'
 
 export default class SidebarLayerMenu extends React.Component {
   constructor(props) {
@@ -59,11 +49,16 @@ export default class SidebarLayerMenu extends React.Component {
           {this.props.landscapeOrientation && <IconHeader icon={RegionIcon}>Regions</IconHeader>}
           <SidebarBoundaryScopeButtons dispatch={this.props.dispatch} />
         </div>
-        <div className="thin-horizontal-row" />
         <div className="menu-section">
           {this.props.landscapeOrientation && <IconHeader icon={BoundaryLayersIcon}>Region Details</IconHeader>}
           <SidebarBoundaryDetailButtons dispatch={this.props.dispatch} />
         </div>
+        {this.props.buildingsPresent && (
+          <div className="menu-section">
+            {this.props.landscapeOrientation && <IconHeader icon={BuildingExploreIcon}>Building Details</IconHeader>}
+            <SidebarBuildingDetailButtons dispatch={this.props.dispatch} />
+          </div>
+        )}
       </div>
     )
   }
@@ -71,5 +66,6 @@ export default class SidebarLayerMenu extends React.Component {
 
 SidebarLayerMenu.propTypes = {
   dispatch: PropTypes.func,
+  buildingsPresent: PropTypes.bool,
   landscapeOrientation: PropTypes.bool
 }
