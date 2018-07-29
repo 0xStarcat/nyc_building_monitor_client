@@ -3,7 +3,6 @@ import { readNeighborhoods } from '../../Neighborhoods/actions'
 
 export const CHECK_ORIENTATION = 'CHECK_ORIENTATION'
 export const ALL_LAYERS_LOADED = 'ALL_LAYERS_LOADED'
-export const CHANGE_ZOOM_LEVEL = 'CHANGE_ZOOM_LEVEL'
 export const ACTIVATE_SIDEBAR = 'ACTIVATE_SIDEBAR'
 export const DEACTIVATE_SIDEBAR = 'DEACTIVATE_SIDEBAR'
 export const PREVIEW_SIDEBAR = 'PREVIEW_SIDEBAR'
@@ -14,6 +13,7 @@ export const CHANGE_SIDEBAR_SCOPE = 'CHANGE_SIDEBAR_SCOPE'
 export const CHANGE_SIDEBAR_VIEW = 'CHANGE_SIDEBAR_VIEW'
 export const CHANGE_BASE_LAYER = 'CHANGE_BASE_LAYER'
 export const CHANGE_BUILDING_BASE_LAYER = 'CHANGE_BUILDING_BASE_LAYER'
+export const CHANGE_INFORMATION_CONTENT_CODE = 'CHANGE_INFORMATION_CONTENT_CODE'
 
 // Sidebar States
 export const SIDEBAR_STATE_INACTIVE = 'SIDEBAR_STATE_INACTIVE'
@@ -24,6 +24,7 @@ export const SIDEBAR_STATE_ACTIVE = 'SIDEBAR_STATE_ACTIVE'
 export const SIDEBAR_VIEW_BOUNDARY_LAYER_MENU = 'SIDEBAR_VIEW_BOUNDARY_LAYER_MENU'
 export const SIDEBAR_VIEW_SELECTED_OBJECT = 'SIDEBAR_VIEW_SELECTED_OBJECT'
 export const SIDEBAR_VIEW_SCOPED_OBJECTS = 'SIDE_VIEW_SCOPED_OBJECT'
+export const SIDEBAR_VIEW_INFORMATION = 'SIDEBAR_VIEW_INFORMATION'
 
 // Scopes
 export const SCOPE_NEIGHBORHOODS = 'neighborhoods'
@@ -49,11 +50,6 @@ export const checkOrientation = event => ({
 
 export const allLayersLoaded = event => ({
   type: ALL_LAYERS_LOADED
-})
-
-export const changeZoomLevel = event => ({
-  type: CHANGE_ZOOM_LEVEL,
-  data: event
 })
 
 export const activateSidebar = event => ({
@@ -97,6 +93,17 @@ export const changeBuildingBaseLayer = event => ({
   type: CHANGE_BUILDING_BASE_LAYER,
   data: event
 })
+
+export const changeInformationContentCode = event => ({
+  type: CHANGE_INFORMATION_CONTENT_CODE,
+  data: event
+})
+
+export const openInformationBox = event => dispatch => {
+  dispatch(changeInformationContentCode(event))
+  dispatch(changeSidebarView(SIDEBAR_VIEW_INFORMATION))
+  dispatch(activateSidebar())
+}
 
 export const openBoundaryLayerMenu = event => dispatch => {
   dispatch(changeSidebarView(SIDEBAR_VIEW_BOUNDARY_LAYER_MENU))

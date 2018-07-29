@@ -38,7 +38,7 @@ describe('Sales reducer', () => {
   describe('UPDATE_SELECTED_SERVICE_CALL_OBJECT', () => {
     const object = { properties: {} }
     it('updates the selectedObject with the new object', () => {
-      expect(reducer.salesReducer(undefined, SalesActions.updateSelectedServiceCall(object))).toEqual({
+      expect(reducer.salesReducer(undefined, SalesActions.updateSelectedObject(object))).toEqual({
         ...reducer.initialState,
         selectedObject: object
       })

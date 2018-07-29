@@ -18,10 +18,11 @@ import {
   MOBILE_SIDEBAR_INACTIVE_X_TRANSLATION,
   MOBILE_SIDEBAR_ACTIVE_Y_TRANSLATION,
   MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION,
-  MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION
+  MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION,
+  MOBILE_SIDEBAR_LARGE_PREVIEW_Y_TRANSLATION,
+  MOBILE_SIDEBAR_XL_PREVIEW_Y_TRANSLATION
 } from '../../SharedStyles/__constants__/sidebarConstants.js'
 
-import MobileSidebarScopeMenu from '../MobileSidebarScopeMenu'
 import SidebarLayerMenu from '../SidebarLayerMenu'
 import LayerInformationBox from '../LayerInformationBox'
 import SidebarBuildingDetailButtons from '../SidebarBuildingDetailButtons'
@@ -132,19 +133,63 @@ describe('Sidebar', () => {
     })
 
     describe('with SIDEBAR_STATE_PREVIEW', () => {
-      const wrapper = shallow(
-        <Sidebar
-          store={{
-            ...store,
-            appState: { ...store.appState, landscapeOrientation: true, sidebarState: SIDEBAR_STATE_PREVIEW }
-          }}
-        />
-      )
-
-      it('calculates the active Y translation', () => {
-        expect(wrapper.instance().getSidebarStateYTransform()).toEqual(
-          `translateY(${MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION})`
+      describe('with boundary layer menu and no buildings', () => {
+        const wrapper = shallow(
+          <Sidebar
+            buildingsPresent={false}
+            store={{
+              ...store,
+              appState: { ...store.appState, landscapeOrientation: true, sidebarState: SIDEBAR_STATE_PREVIEW }
+            }}
+          />
         )
+
+        it('calculates the active Y translation', () => {
+          expect(wrapper.instance().getSidebarStateYTransform()).toEqual(
+            `translateY(${MOBILE_SIDEBAR_LARGE_PREVIEW_Y_TRANSLATION})`
+          )
+        })
+      })
+
+      describe('with boundary layer menu with buildings', () => {
+        const wrapper = shallow(
+          <Sidebar
+            buildingsPresent={true}
+            store={{
+              ...store,
+              appState: { ...store.appState, landscapeOrientation: true, sidebarState: SIDEBAR_STATE_PREVIEW }
+            }}
+          />
+        )
+
+        it('calculates the active Y translation', () => {
+          expect(wrapper.instance().getSidebarStateYTransform()).toEqual(
+            `translateY(${MOBILE_SIDEBAR_XL_PREVIEW_Y_TRANSLATION})`
+          )
+        })
+      })
+
+      describe('with VIEW: SIDEBAR_VIEW_SELECTED_OBJECT', () => {
+        const wrapper = shallow(
+          <Sidebar
+            buildingsPresent={false}
+            store={{
+              ...store,
+              appState: {
+                ...store.appState,
+                sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT,
+                landscapeOrientation: true,
+                sidebarState: SIDEBAR_STATE_PREVIEW
+              }
+            }}
+          />
+        )
+
+        it('calculates the active Y translation', () => {
+          expect(wrapper.instance().getSidebarStateYTransform()).toEqual(
+            `translateY(${MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION})`
+          )
+        })
       })
     })
 

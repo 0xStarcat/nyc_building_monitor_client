@@ -75,10 +75,10 @@ export const ControlBackButton = props => {
 
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
-        if (props.buildingsPresent && !appState.landscapeOrientation) return 'Building Layers'
+        if (props.buildingsPresent && !appState.landscapeOrientation) return 'Map Details'
         else return 'Map Details'
       case SCOPE_CENSUS_TRACTS:
-        if (props.buildingsPresent && !appState.landscapeOrientation) return 'Building Layers'
+        if (props.buildingsPresent && !appState.landscapeOrientation) return 'Map Details'
         else return 'Map Details'
       case SCOPE_BUILDINGS:
         return (props.selectedNeighborhood || {}).name || `#${(props.selectedCensusTract || {}).name}`

@@ -31,7 +31,7 @@ describe('ServiceCalls reducer', () => {
   })
 
   describe('HANDLE_READ_SERVICE_CALLS_RESPONSE', () => {
-    const response = { features: [{ serviceCall: 1 }] }
+    const response = { features: [{ properties: { index: 0, id: 1 } }] }
     it('fetches the ServiceCalls if present', () => {
       expect(
         reducer.serviceCallsReducer(undefined, ServiceCallsActions.handleReadServiceCallsResponse({ data: response }))
@@ -45,7 +45,7 @@ describe('ServiceCalls reducer', () => {
   describe('UPDATE_SELECTED_SERVICE_CALL_OBJECT', () => {
     const object = { properties: {} }
     it('updates the selectedObject with the new object', () => {
-      expect(reducer.serviceCallsReducer(undefined, ServiceCallsActions.updateSelectedObject(object))).toEqual({
+      expect(reducer.serviceCallsReducer(undefined, ServiceCallsActions.updateSelectedServiceCall(object))).toEqual({
         ...reducer.initialState,
         selectedObject: object
       })

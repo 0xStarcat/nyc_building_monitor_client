@@ -62,7 +62,7 @@ describe('ControlBackButton', () => {
               .children()
               .find('.button-label')
               .text()
-            expect(backButtonText).toEqual('Region Layers')
+            expect(backButtonText).toEqual('Map Details')
           })
         })
 
@@ -79,7 +79,7 @@ describe('ControlBackButton', () => {
               .children()
               .find('.button-label')
               .text()
-            expect(backButtonText).toEqual('Building Layers')
+            expect(backButtonText).toEqual('Map Details')
           })
         })
 
@@ -98,7 +98,7 @@ describe('ControlBackButton', () => {
             .children()
             .find('.button-label')
             .text()
-          expect(backButtonText).toEqual('Region Layers')
+          expect(backButtonText).toEqual('Map Details')
         })
       })
     })

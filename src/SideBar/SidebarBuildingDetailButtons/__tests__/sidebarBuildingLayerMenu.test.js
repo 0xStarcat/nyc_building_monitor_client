@@ -11,7 +11,7 @@ describe('SidebarBuildingDetailButtons', () => {
   const wrapper = shallow(<SidebarBuildingDetailButtons dispatch={dispatch} />)
 
   it('renders the component', () => {
-    expect(wrapper.find('.sidebar-building-layer-menu').length).toEqual(1)
+    expect(wrapper.find('.sidebar-building-detail-buttons').length).toEqual(1)
   })
 
   describe('#switchLayer', () => {

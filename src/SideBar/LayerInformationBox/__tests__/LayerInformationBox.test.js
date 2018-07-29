@@ -96,12 +96,11 @@ describe('LayerInformationBox', () => {
         <LayerInformationBox
           dispatch={dispatchFn}
           appState={{ ...appState, sidebarScope: SCOPE_SERVICE_CALLS }}
+          features={features}
           selectedObject={selectedObject}
         />
       )
-      expect(wrapper.instance().displayInformationBox()).toEqual(
-        <ServiceCallInformation selectedObject={selectedObject} />
-      )
+      expect(wrapper.find(ServiceCallInformation).length).toEqual(1)
     })
   })
 })

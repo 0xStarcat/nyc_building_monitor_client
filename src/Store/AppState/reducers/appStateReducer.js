@@ -5,12 +5,12 @@ export const initialState = {
   baseLayer: appStateActions.BASE_LAYER_BOUNDARY_BLANK,
   baseLayerScope: appStateActions.SCOPE_CENSUS_TRACTS,
   buildingBaseLayer: appStateActions.BASE_LAYER_BUILDING_CATEGORIES,
+  informationContentCode: '',
   landscapeOrientation: window.matchMedia('(orientation: landscape)').matches,
   selectedLayer: null,
   sidebarScope: null,
   sidebarState: appStateActions.SIDEBAR_STATE_INACTIVE,
-  sidebarView: appStateActions.SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
-  zoomLevel: 13
+  sidebarView: appStateActions.SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
 }
 
 export const appStateReducer = (appState = Object.freeze(initialState), action = { data: [] }) => {
@@ -20,10 +20,6 @@ export const appStateReducer = (appState = Object.freeze(initialState), action =
     }
     case appStateActions.ALL_LAYERS_LOADED: {
       return { ...appState, allLayersLoaded: true }
-    }
-    case appStateActions.CHANGE_ZOOM_LEVEL: {
-      console.log(action.data)
-      return { ...appState, zoomLevel: action.data }
     }
     case appStateActions.ACTIVATE_SIDEBAR: {
       return { ...appState, sidebarState: appStateActions.SIDEBAR_STATE_ACTIVE }
@@ -51,6 +47,9 @@ export const appStateReducer = (appState = Object.freeze(initialState), action =
     }
     case appStateActions.CHANGE_BUILDING_BASE_LAYER: {
       return { ...appState, buildingBaseLayer: action.data }
+    }
+    case appStateActions.CHANGE_INFORMATION_CONTENT_CODE: {
+      return { ...appState, informationContentCode: action.data }
     }
 
     default:

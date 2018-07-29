@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const DispatchActionButton = props => {
   const onClick = () => {
     if (props.disabled) return null
-    props.dispatch(props.action())
+    props.dispatch(props.action(props.actionArguments))
   }
   return (
     <div className={`button ${props.className}`} onClick={onClick}>
@@ -16,6 +16,7 @@ const DispatchActionButton = props => {
 
 DispatchActionButton.propTypes = {
   action: PropTypes.func,
+  actionArguments: PropTypes.any,
   className: PropTypes.string,
   disabled: PropTypes.bool
 }

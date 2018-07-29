@@ -4,11 +4,14 @@ import PropTypes from 'prop-types'
 import IconRow from '../../SharedComponents/IconRow'
 import DispatchActionButton from '../../SharedComponents/DispatchActionButton'
 import ButtonRow from '../../../SharedComponents/ButtonRow'
+import ActionCard from '../../SharedComponents/ActionCard'
+
 import { RightArrow } from '../../../SharedStyles/icons'
 
 import { convertDepartmentToName, convertTimestampToData, fillEmptyString } from '../utils/informationUtils.js'
 
 import { prevSelectedViolation, nextSelectedViolation } from '../../../Store/Violations/actions'
+import { openInformationBox } from '../../../Store/AppState/actions'
 
 import { ViolationIcon } from '../../../SharedStyles/icons'
 
@@ -47,10 +50,18 @@ const ViolationInformation = props => {
             A penalty of <span>{props.selectedObject.penalty}</span> was imposed.
           </IconRow>
         )}
-        <IconRow className="card" icon={ViolationIcon}>
-          Code: <span>{props.selectedObject.code}</span>
-          <div>Read more about this violation type.</div>
-        </IconRow>
+        <DispatchActionButton
+          action={openInformationBox}
+          actionArguments={`violationCode-${props.selectedObject.code}`}
+          className="row-box"
+        >
+          <ActionCard>
+            <IconRow icon={ViolationIcon}>
+              Code: <span>{props.selectedObject.code}</span>
+              <div>Read more</div>
+            </IconRow>
+          </ActionCard>
+        </DispatchActionButton>
         <div className="info-title">Status</div>
         <IconRow className="card" icon={ViolationIcon}>
           The status is: {props.selectedObject.status}

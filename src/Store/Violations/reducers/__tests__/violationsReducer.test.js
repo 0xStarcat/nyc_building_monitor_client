@@ -31,7 +31,7 @@ describe('Violations reducer', () => {
   })
 
   describe('HANDLE_READ_VIOLATIONS_RESPONSE', () => {
-    const response = { features: [{ violation: 1 }] }
+    const response = { features: [{ properties: { index: 0, id: 1 } }] }
     it('fetches the Violations if present', () => {
       expect(
         reducer.violationsReducer(undefined, ViolationsActions.handleReadViolationsResponse({ data: response }))

@@ -15,6 +15,7 @@ describe('GeoJsonBoundaryGroup', () => {
   const allLayersLoaded = false
   const features = []
   const dispatch = sinon.spy()
+  const getSelectedObjectId = sinon.spy()
   const onLoad = sinon.spy()
   const setViewCoordinates = sinon.spy()
   const sidebarAction = sinon.spy()
@@ -26,6 +27,7 @@ describe('GeoJsonBoundaryGroup', () => {
     allLayersLoaded,
     dispatch,
     features,
+    getSelectedObjectId,
     interactive,
     onLoad,
     setViewCoordinates,
@@ -50,6 +52,7 @@ describe('GeoJsonBoundaryGroup', () => {
 
       expect(dispatch.callCount).toEqual(4)
       expect(setViewCoordinates.calledOnce).toEqual(true)
+      expect(getSelectedObjectId.calledOnce).toEqual(true)
       expect(sidebarAction.calledOnce).toEqual(true)
     })
   })

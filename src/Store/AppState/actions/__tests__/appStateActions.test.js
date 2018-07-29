@@ -13,6 +13,17 @@ afterEach(() => {
   store.clearActions()
 })
 
-describe('pending tests', () => {
-  pending('pending')
+describe('openInformationBox', () => {
+  it('dispatches CHANGE_INFORMATION_CONTENT_CODE, CHANGE_SIDEBAR_VIEW, ACTIVATE_SIDEBAR on success', () => {
+    const code = 'A'
+    store.dispatch(appStateActions.openInformationBox(code))
+    const actions = store.getActions()
+    const expectedActions = [
+      appStateActions.changeInformationContentCode(code),
+      appStateActions.changeSidebarView(appStateActions.SIDEBAR_VIEW_INFORMATION),
+      appStateActions.activateSidebar()
+    ]
+
+    expect(actions).toEqual(expectedActions)
+  })
 })
