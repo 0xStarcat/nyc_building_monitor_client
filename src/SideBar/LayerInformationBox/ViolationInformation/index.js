@@ -39,6 +39,9 @@ const ViolationInformation = props => {
         <IconRow className="card" icon={ViolationIcon}>
           <div>{convertTimestampToData(props.selectedObject.date)}</div>
         </IconRow>
+        <IconRow className="card" icon={ViolationIcon}>
+          <div>Unique Id: {props.selectedObject.name}</div>
+        </IconRow>
         <div className="row-box text-well">
           <div>{fillEmptyString(props.selectedObject.description)}</div>
         </div>
