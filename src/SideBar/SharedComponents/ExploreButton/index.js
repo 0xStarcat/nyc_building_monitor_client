@@ -22,7 +22,7 @@ const ExploreButton = props => {
       (props.appState.sidebarScope === SCOPE_CENSUS_TRACTS || props.appState.sidebarScope === SCOPE_NEIGHBORHOODS)
     )
   }
-  console.log(showButton())
+
   if (showButton()) {
     return (
       <DispatchActionButton

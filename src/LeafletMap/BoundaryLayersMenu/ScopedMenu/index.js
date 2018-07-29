@@ -9,8 +9,9 @@ import {
   rentChangeLayerStyle,
   racePercentWhite2010,
   serviceCallsPercentOpenOneMonth,
-  neighborhoodBoundaryStyle
-} from '../../GeoJsonStyles'
+  neighborhoodBoundaryStyle,
+  boundaryStyle
+} from '../../GeoJsonBoundaryStyles'
 
 import {
   allLayersLoaded,
@@ -31,6 +32,9 @@ const ScropedMenu = props => {
       {/*<Overlay ref={props.neighborhoodOverlayRef} checked name="Neighborhood Boundaries">
           <Pane style={{ zIndex: 400 }}>
             <GeoJsonBoundaryGroup
+                      selectedLayerId={(props.selectedObject|| {}).id}
+
+            baseLayerScope={props.appState.baseLayerScope}
 
               onLoad={props.layerLoaded}
               features={props.store.neighborhoods.features}
@@ -51,6 +55,22 @@ const ScropedMenu = props => {
       </Overlay>
       <BaseLayer checked={props.appState.baseLayer === BASE_LAYER_MEDIAN_INCOME} name="Median Income, 2017">
         <GeoJsonBoundaryGroup
+          selectedLayerId={(props.selectedObject || {}).id}
+          baseLayerScope={props.appState.baseLayerScope}
+          sidebarAction={props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
+          setViewCoordinates={props.setViewCoordinates}
+          onLoad={props.layerLoaded}
+          interactive={true}
+          scope={props.appState.baseLayerScope}
+          features={props.features}
+          style={boundaryStyle}
+        />
+      </BaseLayer>
+      {/*<BaseLayer checked={props.appState.baseLayer === BASE_LAYER_MEDIAN_INCOME} name="Median Income, 2017">
+        <GeoJsonBoundaryGroup
+                  selectedLayerId={(props.selectedObject|| {}).id}
+
+          baseLayerScope={props.appState.baseLayerScope}
           sidebarAction={props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
           setViewCoordinates={props.setViewCoordinates}
           onLoad={props.layerLoaded}
@@ -62,6 +82,9 @@ const ScropedMenu = props => {
       </BaseLayer>
       <BaseLayer checked={props.appState.baseLayer === BASE_LAYER_MEDIAN_RENT} name="Median Rent, 2017">
         <GeoJsonBoundaryGroup
+                  selectedLayerId={(props.selectedObject|| {}).id}
+
+          baseLayerScope={props.appState.baseLayerScope}
           sidebarAction={props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
           setViewCoordinates={props.setViewCoordinates}
           onLoad={props.layerLoaded}
@@ -73,6 +96,9 @@ const ScropedMenu = props => {
       </BaseLayer>
       <BaseLayer checked={props.appState.baseLayer === BASE_LAYER_MEDIAN_RENT_CHANGE} name="Rent Change, 2011 - 2017">
         <GeoJsonBoundaryGroup
+                  selectedLayerId={(props.selectedObject|| {}).id}
+
+          baseLayerScope={props.appState.baseLayerScope}
           sidebarAction={props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
           setViewCoordinates={props.setViewCoordinates}
           onLoad={props.layerLoaded}
@@ -84,6 +110,9 @@ const ScropedMenu = props => {
       </BaseLayer>
       <BaseLayer checked={props.appState.baseLayer === BASE_LAYER_WHITE_POPULATION} name="% White 2010">
         <GeoJsonBoundaryGroup
+                  selectedLayerId={(props.selectedObject|| {}).id}
+
+          baseLayerScope={props.appState.baseLayerScope}
           sidebarAction={props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
           setViewCoordinates={props.setViewCoordinates}
           onLoad={props.layerLoaded}
@@ -95,6 +124,9 @@ const ScropedMenu = props => {
       </BaseLayer>
       <BaseLayer checked={props.appState.baseLayer === BASE_LAYER_OPEN_311} name="Percent Service Calls Open 1 Month">
         <GeoJsonBoundaryGroup
+                  selectedLayerId={(props.selectedObject|| {}).id}
+
+          baseLayerScope={props.appState.baseLayerScope}
           sidebarAction={props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
           setViewCoordinates={props.setViewCoordinates}
           onLoad={props.layerLoaded}
@@ -103,7 +135,7 @@ const ScropedMenu = props => {
           features={props.features}
           style={serviceCallsPercentOpenOneMonth}
         />
-      </BaseLayer>
+      </BaseLayer>*/}
     </LayersControl>
   )
 }
@@ -113,6 +145,7 @@ ScropedMenu.propTypes = {
   features: PropTypes.array,
   position: PropTypes.string,
   setViewCoordinates: PropTypes.func,
+  selectedObject: PropTypes.object,
   tileLayerLoadComplete: PropTypes.func,
   layerControlRef: PropTypes.object,
   layerLoaded: PropTypes.func

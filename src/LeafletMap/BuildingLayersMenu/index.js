@@ -40,7 +40,7 @@ class BuildingLayersMenu extends Component {
             style={buildingClassStyle}
           />
         </BaseLayer>
-        <BaseLayer
+        {/*<BaseLayer
           checked={this.props.appState.buildingBaseLayer === BASE_LAYER_TOTAL_VIOLATIONS}
           name="Building Violations"
         >
@@ -63,7 +63,7 @@ class BuildingLayersMenu extends Component {
             sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
             style={saleBuildingStyle}
           />
-        </BaseLayer>
+        </BaseLayer>*/}
       </LayersControl>
     )
   }

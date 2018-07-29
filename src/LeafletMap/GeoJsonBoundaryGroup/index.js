@@ -17,6 +17,8 @@ import { selectNewSelectedCTObject } from '../../Store/CensusTracts/actions'
 import { selectNewSelectedNeighborhoodObject } from '../../Store/Neighborhoods/actions'
 import { clearBuildings } from '../../Store/Buildings/actions'
 
+import { readBuildingsByScope } from '../../Store/Buildings/actions'
+
 export class GeoJsonBoundaryGroup extends Component {
   constructor(props) {
     super(props)
@@ -42,7 +44,11 @@ export class GeoJsonBoundaryGroup extends Component {
   }
 
   onClick(event) {
-    this.props.setViewCoordinates(event.target.feature.properties.representativePoint, 14)
+    const layerProperties = event.target.feature.properties
+    this.props.setViewCoordinates(layerProperties.representativePoint, 14)
+    if (layerProperties.id !== this.props.selectedLayerId)
+      this.props.dispatch(readBuildingsByScope(this.props.baseLayerScope, layerProperties.id))
+
     this.props.dispatch(this.getSelectedObjectFunction(event))
     this.props.dispatch(changeSidebarScope(this.props.scope))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
@@ -83,10 +89,12 @@ export class GeoJsonBoundaryGroup extends Component {
 }
 
 GeoJsonBoundaryGroup.propTypes = {
+  baseLayerScope: PropTypes.string,
   features: PropTypes.array,
   interactive: PropTypes.bool,
   onLoad: PropTypes.func,
   setViewCoordinates: PropTypes.func,
+  selectedLayerId: PropTypes.number,
   scope: PropTypes.string,
   sidebarAction: PropTypes.func,
   style: PropTypes.func

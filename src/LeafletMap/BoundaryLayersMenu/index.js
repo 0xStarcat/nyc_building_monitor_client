@@ -10,7 +10,7 @@ import {
   racePercentWhite2010,
   serviceCallsPercentOpenOneMonth,
   neighborhoodBoundaryStyle
-} from '../GeoJsonStyles'
+} from '../GeoJsonBoundaryStyles'
 
 import ScopedMenu from './ScopedMenu'
 
@@ -83,6 +83,7 @@ class BoundaryLayersMenu extends Component {
         layerLoaded={this.layerLoaded}
         position={this.props.position}
         setViewCoordinates={this.props.setViewCoordinates}
+        selectedObject={(this.props.store[this.props.store.appState.baseLayerScope] || {}).selectedObject}
         tileLayerLoadComplete={this.tileLayerLoadComplete}
       />
     )
@@ -91,7 +92,8 @@ class BoundaryLayersMenu extends Component {
 
 BoundaryLayersMenu.propTypes = {
   position: PropTypes.string,
-  setViewCoordinates: PropTypes.func
+  setViewCoordinates: PropTypes.func,
+  store: PropTypes.object
 }
 
 const mapStateToProps = state => {
