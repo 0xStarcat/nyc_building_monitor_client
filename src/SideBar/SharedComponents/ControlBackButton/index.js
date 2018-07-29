@@ -79,17 +79,17 @@ export const ControlBackButton = props => {
   const getBackText = () => {
     const appState = props.appState
 
-    if (appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU) return 'Region Layers'
+    if (appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU) return 'Map Details'
     if (appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU && props.buildingsPresent) return 'Building Layers'
     if (appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU) return null
 
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
         if (props.buildingsPresent && !appState.landscapeOrientation) return 'Building Layers'
-        else return 'Region Layers'
+        else return 'Map Details'
       case SCOPE_CENSUS_TRACTS:
         if (props.buildingsPresent && !appState.landscapeOrientation) return 'Building Layers'
-        else return 'Region Layers'
+        else return 'Map Details'
       case SCOPE_BUILDINGS:
         return (props.selectedNeighborhood || {}).name || `#${(props.selectedCensusTract || {}).name}`
       case SCOPE_VIOLATIONS:

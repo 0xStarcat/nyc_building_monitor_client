@@ -152,13 +152,11 @@ p {
   width: 100%;
 }
 
-.svg-icon path,
-.svg-icon polygon,
-.svg-icon rect {
+.svg-icon-primary-color {
   fill: #4691f6;
 }
 
-.svg-icon circle {
+.svg-icon-primary-color circle {
   stroke: #4691f6;
   stroke-width: 1;
 }

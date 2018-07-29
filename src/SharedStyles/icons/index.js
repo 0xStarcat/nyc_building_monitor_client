@@ -4,8 +4,9 @@ import React from 'react'
 
 export const IncomeIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         fill="none"
@@ -17,8 +18,9 @@ export const IncomeIcon = () => {
 
 export const RightArrow = props => {
   return (
-    <svg width="100%" height="100%" className={`svg-icon ${props ? props.className : ''}`} viewBox="0 0 20 20">
+    <svg className={`svg-icon ${props ? props.className : ''}`} viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         transform="rotate(45deg)"
@@ -31,8 +33,9 @@ export const RightArrow = props => {
 
 export const LeftArrow = props => {
   return (
-    <svg width="100%" height="100%" className={`svg-icon ${props ? props.className : ''}`} viewBox="0 0 20 20">
+    <svg className={`svg-icon ${props ? props.className : ''}`} viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         fill="none"
         d="M8.388,10.049l4.76-4.873c0.303-0.31,0.297-0.804-0.012-1.105c-0.309-0.304-0.803-0.293-1.105,0.012L6.726,9.516c-0.303,0.31-0.296,0.805,0.012,1.105l5.433,5.307c0.152,0.148,0.35,0.223,0.547,0.223c0.203,0,0.406-0.08,0.559-0.236c0.303-0.309,0.295-0.803-0.012-1.104L8.388,10.049z"
       />
@@ -42,8 +45,9 @@ export const LeftArrow = props => {
 
 export const OpenIcon = () => {
   return (
-    <svg class="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         fill="none"
         d="M13.388,9.624h-3.011v-3.01c0-0.208-0.168-0.377-0.376-0.377S9.624,6.405,9.624,6.613v3.01H6.613c-0.208,0-0.376,0.168-0.376,0.376s0.168,0.376,0.376,0.376h3.011v3.01c0,0.208,0.168,0.378,0.376,0.378s0.376-0.17,0.376-0.378v-3.01h3.011c0.207,0,0.377-0.168,0.377-0.376S13.595,9.624,13.388,9.624z M10,1.344c-4.781,0-8.656,3.875-8.656,8.656c0,4.781,3.875,8.656,8.656,8.656c4.781,0,8.656-3.875,8.656-8.656C18.656,5.219,14.781,1.344,10,1.344z M10,17.903c-4.365,0-7.904-3.538-7.904-7.903S5.635,2.096,10,2.096S17.903,5.635,17.903,10S14.365,17.903,10,17.903z"
       />
@@ -53,8 +57,9 @@ export const OpenIcon = () => {
 
 export const CloseIcon = () => {
   return (
-    <svg class="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         fill="none"
         d="M12.71,7.291c-0.15-0.15-0.393-0.15-0.542,0L10,9.458L7.833,7.291c-0.15-0.15-0.392-0.15-0.542,0c-0.149,0.149-0.149,0.392,0,0.541L9.458,10l-2.168,2.167c-0.149,0.15-0.149,0.393,0,0.542c0.15,0.149,0.392,0.149,0.542,0L10,10.542l2.168,2.167c0.149,0.149,0.392,0.149,0.542,0c0.148-0.149,0.148-0.392,0-0.542L10.542,10l2.168-2.168C12.858,7.683,12.858,7.44,12.71,7.291z M10,1.188c-4.867,0-8.812,3.946-8.812,8.812c0,4.867,3.945,8.812,8.812,8.812s8.812-3.945,8.812-8.812C18.812,5.133,14.867,1.188,10,1.188z M10,18.046c-4.444,0-8.046-3.603-8.046-8.046c0-4.444,3.603-8.046,8.046-8.046c4.443,0,8.046,3.602,8.046,8.046C18.046,14.443,14.443,18.046,10,18.046z"
       />
@@ -64,8 +69,9 @@ export const CloseIcon = () => {
 
 export const RentIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         fill="none"
@@ -77,8 +83,9 @@ export const RentIcon = () => {
 
 export const PopulationIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         d="M15.573,11.624c0.568-0.478,0.947-1.219,0.947-2.019c0-1.37-1.108-2.569-2.371-2.569s-2.371,1.2-2.371,2.569c0,0.8,0.379,1.542,0.946,2.019c-0.253,0.089-0.496,0.2-0.728,0.332c-0.743-0.898-1.745-1.573-2.891-1.911c0.877-0.61,1.486-1.666,1.486-2.812c0-1.79-1.479-3.359-3.162-3.359S4.269,5.443,4.269,7.233c0,1.146,0.608,2.202,1.486,2.812c-2.454,0.725-4.252,2.998-4.252,5.685c0,0.218,0.178,0.396,0.395,0.396h16.203c0.218,0,0.396-0.178,0.396-0.396C18.497,13.831,17.273,12.216,15.573,11.624 M12.568,9.605c0-0.822,0.689-1.779,1.581-1.779s1.58,0.957,1.58,1.779s-0.688,1.779-1.58,1.779S12.568,10.427,12.568,9.605 M5.06,7.233c0-1.213,1.014-2.569,2.371-2.569c1.358,0,2.371,1.355,2.371,2.569S8.789,9.802,7.431,9.802C6.073,9.802,5.06,8.447,5.06,7.233 M2.309,15.335c0.202-2.649,2.423-4.742,5.122-4.742s4.921,2.093,5.122,4.742H2.309z M13.346,15.335c-0.067-0.997-0.382-1.928-0.882-2.732c0.502-0.271,1.075-0.429,1.686-0.429c1.828,0,3.338,1.385,3.535,3.161H13.346z"
@@ -89,8 +96,9 @@ export const PopulationIcon = () => {
 
 export const BuildingIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         d="M18.121,9.88l-7.832-7.836c-0.155-0.158-0.428-0.155-0.584,0L1.842,9.913c-0.262,0.263-0.073,0.705,0.292,0.705h2.069v7.042c0,0.227,0.187,0.414,0.414,0.414h3.725c0.228,0,0.414-0.188,0.414-0.414v-3.313h2.483v3.313c0,0.227,0.187,0.414,0.413,0.414h3.726c0.229,0,0.414-0.188,0.414-0.414v-7.042h2.068h0.004C18.331,10.617,18.389,10.146,18.121,9.88 M14.963,17.245h-2.896v-3.313c0-0.229-0.186-0.415-0.414-0.415H8.342c-0.228,0-0.414,0.187-0.414,0.415v3.313H5.032v-6.628h9.931V17.245z M3.133,9.79l6.864-6.868l6.867,6.868H3.133z"
@@ -101,8 +109,9 @@ export const BuildingIcon = () => {
 
 export const RentChangeIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         d="M17.431,2.156h-3.715c-0.228,0-0.413,0.186-0.413,0.413v6.973h-2.89V6.687c0-0.229-0.186-0.413-0.413-0.413H6.285c-0.228,0-0.413,0.184-0.413,0.413v6.388H2.569c-0.227,0-0.413,0.187-0.413,0.413v3.942c0,0.228,0.186,0.413,0.413,0.413h14.862c0.228,0,0.413-0.186,0.413-0.413V2.569C17.844,2.342,17.658,2.156,17.431,2.156 M5.872,17.019h-2.89v-3.117h2.89V17.019zM9.587,17.019h-2.89V7.1h2.89V17.019z M13.303,17.019h-2.89v-6.651h2.89V17.019z M17.019,17.019h-2.891V2.982h2.891V17.019z"
@@ -113,8 +122,9 @@ export const RentChangeIcon = () => {
 
 export const ViolationIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         d="M18.344,16.174l-7.98-12.856c-0.172-0.288-0.586-0.288-0.758,0L1.627,16.217c0.339-0.543-0.603,0.668,0.384,0.682h15.991C18.893,16.891,18.167,15.961,18.344,16.174 M2.789,16.008l7.196-11.6l7.224,11.6H2.789z M10.455,7.552v3.561c0,0.244-0.199,0.445-0.443,0.445s-0.443-0.201-0.443-0.445V7.552c0-0.245,0.199-0.445,0.443-0.445S10.455,7.307,10.455,7.552M10.012,12.439c-0.733,0-1.33,0.6-1.33,1.336s0.597,1.336,1.33,1.336c0.734,0,1.33-0.6,1.33-1.336S10.746,12.439,10.012,12.439M10.012,14.221c-0.244,0-0.443-0.199-0.443-0.445c0-0.244,0.199-0.445,0.443-0.445s0.443,0.201,0.443,0.445C10.455,14.021,10.256,14.221,10.012,14.221"
@@ -125,8 +135,9 @@ export const ViolationIcon = () => {
 
 export const ViolationPerBuildingIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         d="M10,1.529c-4.679,0-8.471,3.792-8.471,8.471c0,4.68,3.792,8.471,8.471,8.471c4.68,0,8.471-3.791,8.471-8.471C18.471,5.321,14.68,1.529,10,1.529 M10,17.579c-4.18,0-7.579-3.399-7.579-7.579S5.82,2.421,10,2.421S17.579,5.82,17.579,10S14.18,17.579,10,17.579 M14.348,10c0,0.245-0.201,0.446-0.446,0.446h-5c-0.246,0-0.446-0.201-0.446-0.446s0.2-0.446,0.446-0.446h5C14.146,9.554,14.348,9.755,14.348,10 M14.348,12.675c0,0.245-0.201,0.446-0.446,0.446h-5c-0.246,0-0.446-0.201-0.446-0.446s0.2-0.445,0.446-0.445h5C14.146,12.229,14.348,12.43,14.348,12.675 M7.394,10c0,0.245-0.2,0.446-0.446,0.446H6.099c-0.245,0-0.446-0.201-0.446-0.446s0.201-0.446,0.446-0.446h0.849C7.194,9.554,7.394,9.755,7.394,10 M7.394,12.675c0,0.245-0.2,0.446-0.446,0.446H6.099c-0.245,0-0.446-0.201-0.446-0.446s0.201-0.445,0.446-0.445h0.849C7.194,12.229,7.394,12.43,7.394,12.675 M14.348,7.325c0,0.246-0.201,0.446-0.446,0.446h-5c-0.246,0-0.446-0.2-0.446-0.446c0-0.245,0.2-0.446,0.446-0.446h5C14.146,6.879,14.348,7.08,14.348,7.325 M7.394,7.325c0,0.246-0.2,0.446-0.446,0.446H6.099c-0.245,0-0.446-0.2-0.446-0.446c0-0.245,0.201-0.446,0.446-0.446h0.849C7.194,6.879,7.394,7.08,7.394,7.325"
@@ -137,8 +148,9 @@ export const ViolationPerBuildingIcon = () => {
 
 export const ServiceCallIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         fill="none"
@@ -150,8 +162,9 @@ export const ServiceCallIcon = () => {
 
 export const ServiceCallOpenIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         fill="none"
@@ -163,8 +176,9 @@ export const ServiceCallOpenIcon = () => {
 
 export const TimeToResolveCallsIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         fill="none"
@@ -176,8 +190,9 @@ export const TimeToResolveCallsIcon = () => {
 
 export const BuildingClassIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         fill="none"
@@ -189,8 +204,9 @@ export const BuildingClassIcon = () => {
 
 export const BlankBoundaryIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         d="M18.555,15.354V4.592c0-0.248-0.202-0.451-0.45-0.451H1.888c-0.248,0-0.451,0.203-0.451,0.451v10.808c0,0.559,0.751,0.451,0.451,0.451h16.217h0.005C18.793,15.851,18.478,14.814,18.555,15.354 M2.8,14.949l4.944-6.464l4.144,5.419c0.003,0.003,0.003,0.003,0.003,0.005l0.797,1.04H2.8z M13.822,14.949l-1.006-1.317l1.689-2.218l2.688,3.535H13.822z M17.654,14.064l-2.791-3.666c-0.181-0.237-0.535-0.237-0.716,0l-1.899,2.493l-4.146-5.42c-0.18-0.237-0.536-0.237-0.716,0l-5.047,6.598V5.042h15.316V14.064z M12.474,6.393c-0.869,0-1.577,0.707-1.577,1.576s0.708,1.576,1.577,1.576s1.577-0.707,1.577-1.576S13.343,6.393,12.474,6.393 M12.474,8.645c-0.371,0-0.676-0.304-0.676-0.676s0.305-0.676,0.676-0.676c0.372,0,0.676,0.304,0.676,0.676S12.846,8.645,12.474,8.645"
@@ -201,8 +217,9 @@ export const BlankBoundaryIcon = () => {
 
 export const NeighborhoodIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         d="M18.555,15.354V4.592c0-0.248-0.202-0.451-0.45-0.451H1.888c-0.248,0-0.451,0.203-0.451,0.451v10.808c0,0.559,0.751,0.451,0.451,0.451h16.217h0.005C18.793,15.851,18.478,14.814,18.555,15.354 M2.8,14.949l4.944-6.464l4.144,5.419c0.003,0.003,0.003,0.003,0.003,0.005l0.797,1.04H2.8z M13.822,14.949l-1.006-1.317l1.689-2.218l2.688,3.535H13.822z M17.654,14.064l-2.791-3.666c-0.181-0.237-0.535-0.237-0.716,0l-1.899,2.493l-4.146-5.42c-0.18-0.237-0.536-0.237-0.716,0l-5.047,6.598V5.042h15.316V14.064z M12.474,6.393c-0.869,0-1.577,0.707-1.577,1.576s0.708,1.576,1.577,1.576s1.577-0.707,1.577-1.576S13.343,6.393,12.474,6.393 M12.474,8.645c-0.371,0-0.676-0.304-0.676-0.676s0.305-0.676,0.676-0.676c0.372,0,0.676,0.304,0.676,0.676S12.846,8.645,12.474,8.645"
@@ -213,8 +230,9 @@ export const NeighborhoodIcon = () => {
 
 export const CensusTractIcon = () => {
   return (
-    <svg width="100%" height="100%" className="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path
+        className="svg-icon-primary-color"
         width="100%"
         height="100%"
         d="M14.68,12.621c-0.9,0-1.702,0.43-2.216,1.09l-4.549-2.637c0.284-0.691,0.284-1.457,0-2.146l4.549-2.638c0.514,0.661,1.315,1.09,2.216,1.09c1.549,0,2.809-1.26,2.809-2.808c0-1.548-1.26-2.809-2.809-2.809c-1.548,0-2.808,1.26-2.808,2.809c0,0.38,0.076,0.741,0.214,1.073l-4.55,2.638c-0.515-0.661-1.316-1.09-2.217-1.09c-1.548,0-2.808,1.26-2.808,2.809s1.26,2.808,2.808,2.808c0.9,0,1.702-0.43,2.217-1.09l4.55,2.637c-0.138,0.332-0.214,0.693-0.214,1.074c0,1.549,1.26,2.809,2.808,2.809c1.549,0,2.809-1.26,2.809-2.809S16.229,12.621,14.68,12.621M14.68,2.512c1.136,0,2.06,0.923,2.06,2.06S15.815,6.63,14.68,6.63s-2.059-0.923-2.059-2.059S13.544,2.512,14.68,2.512M5.319,12.061c-1.136,0-2.06-0.924-2.06-2.06s0.923-2.059,2.06-2.059c1.135,0,2.06,0.923,2.06,2.059S6.454,12.061,5.319,12.061M14.68,17.488c-1.136,0-2.059-0.922-2.059-2.059s0.923-2.061,2.059-2.061s2.06,0.924,2.06,2.061S15.815,17.488,14.68,17.488"
@@ -225,9 +243,10 @@ export const CensusTractIcon = () => {
 
 export const BuildingExploreIcon = () => {
   return (
-    <svg width="100%" height="100%" viewBox="0 0 33 35">
-      <polygon fill="#4691f6" points="33 35 0 35 0 0 17 0 17 10.99 33 10.99" />
+    <svg className="svg-icon" viewBox="0 0 33 35">
+      <polygon className="svg-icon-primary-color" points="33 35 0 35 0 0 17 0 17 10.99 33 10.99" />
       <path
+        className="svg-icon-primary-color"
         d="M27.012,32 L27.012,29.01 L30.012,29.01 L30.012,32 L27.012,32 Z M27.012,23.99 L30.012,23.99 L30.012,27.008 L27.012,27.008 L27.012,23.99 Z M27.012,18.998 L30.012,18.998 L30.012,21.987 L27.012,21.987 L27.012,19 L27.012,18.998 Z M27.012,14.005 L30.012,14.005 L30.012,17 L27.012,17 L27.012,14.01 L27.012,14.005 Z M22.012,29.01 L25.012,29.01 L25.012,32 L22.012,32 L22.012,29.01 Z M22.012,23.989 L25.012,23.989 L25.012,27.007 L22.012,27.007 L22.012,23.99 L22.012,23.989 Z M22.012,18.997 L25.012,18.997 L25.012,21.986 L22.012,21.986 L22.012,19 L22.012,18.997 Z M22.012,14.004 L25.012,14.004 L25.012,17 L22.012,17 L22.012,14.01 L22.012,14.004 Z M17,11 L19,11 L19,35 L17,35 L17,11 Z M3.994,30 L13.006,30 L13.006,32.015 L3.994,32.015 L3.994,30 Z M3.994,25 L13.006,25 L13.006,27.015 L3.994,27.015 L3.994,24.994 L3.994,25 Z M3.994,20 L13.006,20 L13.006,22.015 L3.994,22.015 L3.994,19.992 L3.994,20 Z M3.994,15 L13.006,15 L13.006,17.015 L3.994,17.015 L3.994,14.991 L3.994,15 Z M3.994,10 L13.006,10 L13.006,12 L3.994,12 L3.994,9.989 L3.994,10 Z M3.994,5 L13.006,5 L13.006,7 L3.994,7 L3.994,4.987 L3.994,5 Z"
         fill="white"
       />
@@ -237,7 +256,7 @@ export const BuildingExploreIcon = () => {
 
 export const BoundaryLayersIcon = () => {
   return (
-    <svg width="100%" height="100%" viewBox="0 0 34 31">
+    <svg className="svg-icon" viewBox="0 0 34 31">
       <polygon fill="#FF6E6E" points="18 11.6 35.013 21.3 18 30.99 0.987 21.29" />
       <polygon fill="#0C0058" points="18 5.8 35.013 15.5 18 25.2 0.987 15.5" />
       <polygon fill="#FF6E6E" points="18 0.01 35.013 9.71 18 19.4 0.987 9.7" />
@@ -247,8 +266,8 @@ export const BoundaryLayersIcon = () => {
 
 export const RegionIcon = () => {
   return (
-    <svg width="100%" height="100%" viewBox="0 0 30 35">
-      <polygon fill="#4691f6" points="22 17 30 25 9 25 9 20 4 20 4 2 18 2 18 9 30 9" />
+    <svg className="svg-icon" viewBox="0 0 30 35">
+      <polygon className="svg-icon-primary-color" points="22 17 30 25 9 25 9 20 4 20 4 2 18 2 18 9 30 9" />
       <path d="M0,0 L4,0 L4,35 L0,35 L0,0 Z M17,20 L9,25 L9,20 L17,20 Z" fill="#0C0058" />
     </svg>
   )
@@ -256,7 +275,7 @@ export const RegionIcon = () => {
 
 export const BuildingLayerIcon = () => {
   return (
-    <svg width="100%" height="100%" viewBox="0 0 30 24">
+    <svg className="svg-icon" viewBox="0 0 30 24">
       <path
         d="M0,0 L30,0 L30,4 L0,4 L0,0 Z M0,10 L30,10 L30,14 L0,14 L0,10 Z M0,20 L30,20 L30,24 L0,24 L0,20 Z"
         fill="#FF6E6E"
@@ -271,7 +290,7 @@ export const BuildingLayerIcon = () => {
 
 export const SearchIcon = () => {
   return (
-    <svg class="svg-icon" viewBox="0 0 20 20">
+    <svg className="svg-icon" viewBox="0 0 20 20">
       <path d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z" />
     </svg>
   )
@@ -279,7 +298,7 @@ export const SearchIcon = () => {
 
 export const InfoIcon = () => {
   return (
-    <svg x="0px" y="0px" width="100%" height="100%" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
+    <svg className="svg-icon" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
       <g id="Bounding_Boxes">
         <g id="ui_x5F_spec_x5F_header_copy_3" display="none" />
         <path fill="none" d="M0,0h24v24H0V0z" />
@@ -290,7 +309,7 @@ export const InfoIcon = () => {
           <path
             stroke-width="1"
             stroke="#4691f6"
-            fill="#4691f6"
+            className="svg-icon-primary-color"
             d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,17L12,17c-0.55,0-1-0.45-1-1v-4
       c0-0.55,0.45-1,1-1h0c0.55,0,1,0.45,1,1v4C13,16.55,12.55,17,12,17z M13,9h-2V7h2V9z"
           />
@@ -309,8 +328,8 @@ export const InfoIcon = () => {
       <g id="Outline">
         <g id="ui_x5F_spec_x5F_header" display="none" />
         <g>
-          <rect fill="#4691f6" x="11" y="7" width="2" height="2" />
-          <rect fill="#4691f6" x="11" y="11" width="2" height="6" />
+          <rect className="svg-icon-primary-color" x="11" y="7" width="2" height="2" />
+          <rect className="svg-icon-primary-color" x="11" y="11" width="2" height="6" />
           <path
             stroke-width="1"
             stroke="#4691f6"
@@ -324,15 +343,15 @@ export const InfoIcon = () => {
         <g id="ui_x5F_spec_x5F_header_copy_2" />
         <g display="inline">
           <path
-            fill="#4691f6"
+            className="svg-icon-primary-color"
             opacity="0.3"
             d="M12,4c-4.41,0-8,3.59-8,8c0,4.41,3.59,8,8,8s8-3.59,8-8C20,7.59,16.41,4,12,4z M13,17h-2v-6h2V17z M13,9h-2
       V7h2V9z"
           />
-          <rect fill="#4691f6" x="11" y="7" width="2" height="1" />
-          <rect fill="#4691f6" x="11" y="11" width="2" height="1" />
+          <rect className="svg-icon-primary-color" x="11" y="7" width="2" height="1" />
+          <rect className="svg-icon-primary-color" x="11" y="11" width="2" height="1" />
           <path
-            fill="#4691f6"
+            className="svg-icon-primary-color"
             d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.41,0-8-3.59-8-8
       c0-4.41,3.59-8,8-8s8,3.59,8,8C20,16.41,16.41,20,12,20z"
           />

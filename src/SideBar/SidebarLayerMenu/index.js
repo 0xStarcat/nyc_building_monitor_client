@@ -61,7 +61,7 @@ export default class SidebarLayerMenu extends React.Component {
         </div>
         <div className="thin-horizontal-row" />
         <div className="menu-section">
-          {this.props.landscapeOrientation && <IconHeader icon={BoundaryLayersIcon}>Layers</IconHeader>}
+          {this.props.landscapeOrientation && <IconHeader icon={BoundaryLayersIcon}>Region Details</IconHeader>}
           <SidebarBoundaryDetailButtons dispatch={this.props.dispatch} />
         </div>
       </div>

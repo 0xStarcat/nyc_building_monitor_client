@@ -1,9 +1,21 @@
 @import '../../../SharedStyles/index.scss';
 
 .icon-header {
-  height: 160px;
-  width: 160px;
+  display: block;
+  height: 100%;
+  position: relative;
+  width: 100%;
   margin: 0 auto;
+  max-width: 300px;
+  min-width: 0;
   text-align: center;
   margin-bottom: $medium-spacing;
+
+  i {
+    svg {
+      height: 160px;
+      margin: 0 auto;
+      width: 160px;
+    }
+  }
 }
