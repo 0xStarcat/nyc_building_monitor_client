@@ -6,7 +6,7 @@ import IconProfile from '../../SideBar/SharedComponents/IconProfile'
 
 import {
   openBoundaryLayerMenu,
-  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_INACTIVE
 } from '../../Store/AppState/actions'

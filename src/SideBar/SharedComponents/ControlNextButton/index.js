@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import PropTypes from 'prop-types'
 import {
-  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
@@ -19,7 +19,7 @@ import { RightArrow } from '../../../SharedStyles/icons'
 export const ControlNextButton = props => {
   const isView = () => {
     const appState = props.appState
-    return appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+    return appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU
   }
   const getNextView = () => {
     const appState = props.appState

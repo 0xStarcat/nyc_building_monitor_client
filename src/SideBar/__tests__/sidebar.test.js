@@ -7,7 +7,7 @@ import {
   SIDEBAR_STATE_ACTIVE,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_INACTIVE,
-  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SCOPE_CENSUS_TRACTS
@@ -35,7 +35,7 @@ describe('Sidebar', () => {
     appState: {
       sidebarState: SIDEBAR_STATE_ACTIVE,
       landscapeOrientation: true,
-      sidebarView: SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+      sidebarView: SIDEBAR_VIEW_MAP_DETAILS_MENU,
       sidebarScope: SCOPE_CENSUS_TRACTS
     },
     censusTracts: {
@@ -241,7 +241,7 @@ describe('Sidebar', () => {
     })
   })
 
-  describe('when sidebarView = SIDEBAR_VIEW_BOUNDARY_LAYER_MENU', () => {
+  describe('when sidebarView = SIDEBAR_VIEW_MAP_DETAILS_MENU', () => {
     const wrapper = shallow(<Sidebar store={store} />)
 
     it('renders the SidebarLayerMenu', () => {

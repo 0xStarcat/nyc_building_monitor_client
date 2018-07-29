@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import { ControlBackButton } from '../index.js'
 
 import {
-  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SCOPE_NEIGHBORHOODS,
@@ -24,9 +24,9 @@ const appState = {
 
 describe('ControlBackButton', () => {
   describe('when rendering the back button', () => {
-    describe('when view = SIDEBAR_VIEW_BOUNDARY_LAYER_MENU', () => {
+    describe('when view = SIDEBAR_VIEW_MAP_DETAILS_MENU', () => {
       const appState = {
-        sidebarView: SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+        sidebarView: SIDEBAR_VIEW_MAP_DETAILS_MENU,
         sidebarScope: SCOPE_CENSUS_TRACTS
       }
       const wrapper = shallow(<ControlBackButton appState={appState} />)
@@ -48,7 +48,7 @@ describe('ControlBackButton', () => {
       it('renders the back button with scope = SCOPE_CENSUS_TRACTS and view = SIDEBAR_VIEW_SELECTED_OBJECT', () => {
         const backButtonProps = wrapper.props()
         expect(backButtonProps.scopeSwitch).toEqual(SCOPE_CENSUS_TRACTS)
-        expect(backButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_BOUNDARY_LAYER_MENU)
+        expect(backButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_MAP_DETAILS_MENU)
       })
 
       describe('with buildings present', () => {

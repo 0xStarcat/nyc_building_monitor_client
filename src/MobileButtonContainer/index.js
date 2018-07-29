@@ -7,7 +7,7 @@ import {
   SIDEBAR_STATE_INACTIVE,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_ACTIVE,
-  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+  SIDEBAR_VIEW_MAP_DETAILS_MENU
 } from '../Store/AppState/actions'
 
 import {
@@ -32,7 +32,7 @@ const setTransationStyle = props => {
 const MobileButtonContainer = props => {
   const containerStyle = { transform: setTransationStyle(props) }
   if (
-    props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU &&
+    props.appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU &&
     props.appState.sidebarState !== SIDEBAR_STATE_INACTIVE
   ) {
     return null

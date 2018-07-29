@@ -10,7 +10,7 @@ export const initialState = {
   selectedLayer: null,
   sidebarScope: null,
   sidebarState: appStateActions.SIDEBAR_STATE_INACTIVE,
-  sidebarView: appStateActions.SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+  sidebarView: appStateActions.SIDEBAR_VIEW_MAP_DETAILS_MENU
 }
 
 export const appStateReducer = (appState = Object.freeze(initialState), action = { data: [] }) => {

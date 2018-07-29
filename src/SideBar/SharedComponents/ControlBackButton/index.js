@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import {
   SIDEBAR_STATE_PREVIEW,
-  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_VIEW_INFORMATION,
@@ -24,9 +24,9 @@ export const ControlBackButton = props => {
 
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
-        return SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+        return SIDEBAR_VIEW_MAP_DETAILS_MENU
       case SCOPE_CENSUS_TRACTS:
-        return SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+        return SIDEBAR_VIEW_MAP_DETAILS_MENU
       case SCOPE_BUILDINGS:
         return SIDEBAR_VIEW_SELECTED_OBJECT
       case SCOPE_VIOLATIONS:
@@ -75,7 +75,7 @@ export const ControlBackButton = props => {
   const getBackText = () => {
     const appState = props.appState
 
-    if (appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU) return null
+    if (appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU) return null
 
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
@@ -99,7 +99,7 @@ export const ControlBackButton = props => {
     }
   }
 
-  const disabled = props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+  const disabled = props.appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU
 
   return (
     <SwitchViewButton

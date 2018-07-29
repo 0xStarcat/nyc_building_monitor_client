@@ -30,7 +30,7 @@ import {
   SIDEBAR_STATE_ACTIVE,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_INACTIVE,
-  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_VIEW_INFORMATION,
@@ -78,7 +78,7 @@ class SideBar extends React.Component {
     const appState = this.props.store.appState
     const selectedObject = (this.props.store[appState.sidebarScope] || {}).selectedObject
     switch (appState.sidebarView) {
-      case SIDEBAR_VIEW_BOUNDARY_LAYER_MENU:
+      case SIDEBAR_VIEW_MAP_DETAILS_MENU:
         return (
           <SidebarLayerMenu
             buildingsPresent={this.props.buildingsPresent}

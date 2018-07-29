@@ -6,7 +6,7 @@ import ExploreButton from '../index.js'
 import DispatchActionButton from '../../DispatchActionButton'
 
 import {
-  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SCOPE_CENSUS_TRACTS
 } from '../../../../Store/AppState/actions'
@@ -30,10 +30,10 @@ describe('ExploreButton', () => {
     })
   })
 
-  describe('with sidebarView = SIDEBAR_VIEW_BOUNDARY_LAYER_MENU', () => {
+  describe('with sidebarView = SIDEBAR_VIEW_MAP_DETAILS_MENU', () => {
     const wrapper = shallow(
       <ExploreButton
-        appState={{ ...appState, sidebarView: SIDEBAR_VIEW_BOUNDARY_LAYER_MENU }}
+        appState={{ ...appState, sidebarView: SIDEBAR_VIEW_MAP_DETAILS_MENU }}
         selectedObject={selectedObject}
       />
     )

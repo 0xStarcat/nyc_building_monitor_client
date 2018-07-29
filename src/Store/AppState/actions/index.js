@@ -21,7 +21,7 @@ export const SIDEBAR_STATE_PREVIEW = 'SIDEBAR_STATE_PREVIEW'
 export const SIDEBAR_STATE_ACTIVE = 'SIDEBAR_STATE_ACTIVE'
 
 // Views
-export const SIDEBAR_VIEW_BOUNDARY_LAYER_MENU = 'SIDEBAR_VIEW_BOUNDARY_LAYER_MENU'
+export const SIDEBAR_VIEW_MAP_DETAILS_MENU = 'SIDEBAR_VIEW_MAP_DETAILS_MENU'
 export const SIDEBAR_VIEW_SELECTED_OBJECT = 'SIDEBAR_VIEW_SELECTED_OBJECT'
 export const SIDEBAR_VIEW_SCOPED_OBJECTS = 'SIDE_VIEW_SCOPED_OBJECT'
 export const SIDEBAR_VIEW_INFORMATION = 'SIDEBAR_VIEW_INFORMATION'
@@ -106,7 +106,7 @@ export const openInformationBox = event => dispatch => {
 }
 
 export const openBoundaryLayerMenu = event => dispatch => {
-  dispatch(changeSidebarView(SIDEBAR_VIEW_BOUNDARY_LAYER_MENU))
+  dispatch(changeSidebarView(SIDEBAR_VIEW_MAP_DETAILS_MENU))
   dispatch(previewSidebar())
 }
 

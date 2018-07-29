@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import { ControlNextButton } from '../index.js'
 
 import {
-  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+  SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
@@ -22,9 +22,9 @@ const appState = {
 
 describe('ControlNextButton', () => {
   describe('when rendering the next button', () => {
-    describe('when view = SIDEBAR_VIEW_BOUNDARY_LAYER_MENU and there is no selected census tract object', () => {
+    describe('when view = SIDEBAR_VIEW_MAP_DETAILS_MENU and there is no selected census tract object', () => {
       const appState = {
-        sidebarView: SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+        sidebarView: SIDEBAR_VIEW_MAP_DETAILS_MENU,
         sidebarScope: SCOPE_CENSUS_TRACTS
       }
 
@@ -36,9 +36,9 @@ describe('ControlNextButton', () => {
       })
     })
 
-    describe('when view = SIDEBAR_VIEW_BOUNDARY_LAYER_MENU and there is a selected census tract object', () => {
+    describe('when view = SIDEBAR_VIEW_MAP_DETAILS_MENU and there is a selected census tract object', () => {
       const appState = {
-        sidebarView: SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
+        sidebarView: SIDEBAR_VIEW_MAP_DETAILS_MENU,
         sidebarScope: SCOPE_CENSUS_TRACTS,
         baseLayerScope: SCOPE_CENSUS_TRACTS
       }
