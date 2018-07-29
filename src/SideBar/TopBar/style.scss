@@ -1,16 +1,16 @@
 @import '../../SharedStyles/index.scss';
 
 .top-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  z-index: 1;
-  width: 100%;
   background-color: white;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  height: 40px;
+  justify-content: flex-start;
+  padding-top: 10px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
 }
 
 .control-bar {
@@ -27,6 +27,6 @@
 
 @media screen and (orientation: portrait) {
   .top-bar {
-    justify-content: center;
+    justify-content: flex-start;
   }
 }

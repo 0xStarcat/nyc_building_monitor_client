@@ -7,6 +7,7 @@ export const CHANGE_ZOOM_LEVEL = 'CHANGE_ZOOM_LEVEL'
 export const ACTIVATE_SIDEBAR = 'ACTIVATE_SIDEBAR'
 export const DEACTIVATE_SIDEBAR = 'DEACTIVATE_SIDEBAR'
 export const PREVIEW_SIDEBAR = 'PREVIEW_SIDEBAR'
+export const LARGE_PREVIEW_SIDEBAR = 'LARGE_PREVIEW_SIDEBAR'
 
 export const CHANGE_SIDEBAR_STATE = 'CHANGE_SIDEBAR_STATE'
 export const CHANGE_BASE_LAYER_SCOPE = 'CHANGE_BASE_LAYER_SCOPE'
@@ -17,6 +18,7 @@ export const CHANGE_BUILDING_BASE_LAYER = 'CHANGE_BUILDING_BASE_LAYER'
 
 // Sidebar States
 export const SIDEBAR_STATE_INACTIVE = 'SIDEBAR_STATE_INACTIVE'
+export const SIDEBAR_STATE_LARGE_PREVIEW = 'SIDEBAR_STATE_LARGE_PREVIEW'
 export const SIDEBAR_STATE_PREVIEW = 'SIDEBAR_STATE_PREVIEW'
 export const SIDEBAR_STATE_ACTIVE = 'SIDEBAR_STATE_ACTIVE'
 
@@ -66,6 +68,10 @@ export const previewSidebar = event => ({
   type: PREVIEW_SIDEBAR
 })
 
+export const largePreviewSidebar = event => ({
+  type: LARGE_PREVIEW_SIDEBAR
+})
+
 export const changeSidebarState = event => ({
   type: CHANGE_SIDEBAR_STATE,
   data: event
@@ -102,7 +108,7 @@ export const changeBuildingBaseLayer = event => ({
 
 export const openBoundaryLayerMenu = event => dispatch => {
   dispatch(changeSidebarView(SIDEBAR_VIEW_BOUNDARY_LAYER_MENU))
-  dispatch(previewSidebar())
+  dispatch(largePreviewSidebar())
 }
 
 export const openPortraitBuildingLayerMenu = event => dispatch => {

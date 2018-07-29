@@ -48,7 +48,7 @@ const BuildingInformation = props => {
   return (
     <div className="building-information">
       {props.sidebarState === SIDEBAR_STATE_PREVIEW && <div className="preview-section">{getPreviewRow(props)}</div>}
-      <div className="information-box">
+      <div className="">
         <div className="info-title">
           <h5>2010 - Present</h5>
         </div>

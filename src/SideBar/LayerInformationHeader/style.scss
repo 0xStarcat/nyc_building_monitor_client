@@ -32,9 +32,9 @@
 @media screen and (orientation: portrait) {
   .headerBar {
     justify-content: flex-end;
-    height: 110px;
+    height: 60px;
     margin-bottom: 0;
-    padding-top: $small-spacing;
+    padding-top: 0;
     padding-bottom: $tiny-spacing;
 
     .headerSubTitle {

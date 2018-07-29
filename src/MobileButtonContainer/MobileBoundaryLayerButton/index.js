@@ -27,22 +27,11 @@ const getAction = props => {
 }
 
 const MobileBoundaryLayerButton = props => {
-  if (
-    props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU ||
-    props.appState.sidebarState === SIDEBAR_STATE_INACTIVE
-  ) {
-    return (
-      <DispatchActionButton className="mobile-button bordered" scopeSwitch={null} action={openScopeMenu}>
-        <IconProfile className="button-row-child" icon={RegionIcon} label="Regions" />
-      </DispatchActionButton>
-    )
-  } else {
-    return (
-      <DispatchActionButton className="mobile-button bordered" scopeSwitch={null} action={openBoundaryLayerMenu}>
-        <IconProfile className="button-row-child small" icon={BoundaryLayersIcon} label="Region Layers" />
-      </DispatchActionButton>
-    )
-  }
+  return (
+    <DispatchActionButton className="mobile-button bordered" scopeSwitch={null} action={openBoundaryLayerMenu}>
+      <IconProfile className="button-row-child small" icon={BoundaryLayersIcon} label="Map Details" />
+    </DispatchActionButton>
+  )
 }
 
 MobileBoundaryLayerButton.propTypes = {
