@@ -7,6 +7,7 @@ import LayerInformationHeader from './LayerInformationHeader'
 import LayerInformationBox from './LayerInformationBox'
 import SidebarLayerMenu from './SidebarLayerMenu'
 import SidebarBuildingDetailButtons from './SidebarBuildingDetailButtons'
+import InformationDisplayBox from './InformationDisplayBox'
 
 import TopBar from './TopBar'
 import ControlRow from './SharedComponents/ControlRow'
@@ -32,6 +33,7 @@ import {
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
+  SIDEBAR_VIEW_INFORMATION,
   SCOPE_VIOLATIONS,
   SCOPE_SERVICE_CALLS
 } from '../Store/AppState/actions'
@@ -78,17 +80,17 @@ class SideBar extends React.Component {
     switch (appState.sidebarView) {
       case SIDEBAR_VIEW_BOUNDARY_LAYER_MENU:
         return (
-          <div className="sidebar-view-container">
-            <SidebarLayerMenu
-              buildingsPresent={this.props.buildingsPresent}
-              landscapeOrientation={appState.landscapeOrientation}
-              dispatch={this.props.dispatch}
-            />
-          </div>
+          <SidebarLayerMenu
+            buildingsPresent={this.props.buildingsPresent}
+            landscapeOrientation={appState.landscapeOrientation}
+            dispatch={this.props.dispatch}
+          />
         )
+      case SIDEBAR_VIEW_INFORMATION:
+        return <InformationDisplayBox informationContentCode={appState.informationContentCode} />
       default:
         return (
-          <div className="sidebar-view-container">
+          <div>
             <LayerInformationHeader
               selectedObject={selectedObject}
               sidebarView={appState.sidebarView}
@@ -122,7 +124,7 @@ class SideBar extends React.Component {
     return (
       <div id="sidebar" style={this.storeStyle()}>
         <TopBar dispatch={this.props.dispatch} appState={this.props.store.appState} />
-        {this.getView()}
+        <div className="sidebar-view-container">{this.getView()}</div>
       </div>
     )
   }
