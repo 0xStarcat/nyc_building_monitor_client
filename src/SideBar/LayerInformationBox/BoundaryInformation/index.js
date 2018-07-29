@@ -25,6 +25,7 @@ import {
 
 import IconRow from '../../SharedComponents/IconRow'
 import '../SharedStyles/style.scss'
+import './style.scss'
 
 const getPreviewRow = props => {
   switch (props.baseLayer) {

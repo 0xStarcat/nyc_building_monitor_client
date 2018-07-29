@@ -107,16 +107,6 @@ class SideBar extends React.Component {
               sidebarView={appState.sidebarView}
               sidebarScope={appState.sidebarScope}
             />
-
-            {appState.landscapeOrientation &&
-              (appState.sidebarScope === SCOPE_NEIGHBORHOODS || appState.sidebarScope === SCOPE_CENSUS_TRACTS) && (
-                <BuildingLayerButton
-                  appState={appState}
-                  buildingsPresent={this.props.buildingsPresent}
-                  selectedObject={selectedObject}
-                  setViewCoordinates={this.props.setViewCoordinates}
-                />
-              )}
             <LayerInformationBox
               appState={appState}
               dispatch={this.props.dispatch}

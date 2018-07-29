@@ -16,19 +16,15 @@ import {
 import './style.scss'
 
 const getButton = props => {
-  return props.buildingsPresent ? (
-    <DispatchActionButton
-      className="mobile-button round hover-shadow bordered building-layer-view-button"
-      action={props.appState.landscapeOrientation ? openLandscapeBuildingLayerMenu : openPortraitBuildingLayerMenu}
-    >
-      <IconProfile className="button-row-child small" icon={BuildingLayerIcon} label="Building Layers" />
-    </DispatchActionButton>
-  ) : (
-    <ExploreButton
-      appState={props.appState}
-      selectedObject={props.selectedObject}
-      setViewCoordinates={props.setViewCoordinates}
-    />
+  return (
+    props.buildingsPresent && (
+      <DispatchActionButton
+        className="mobile-button round hover-shadow bordered building-layer-view-button"
+        action={props.appState.landscapeOrientation ? openLandscapeBuildingLayerMenu : openPortraitBuildingLayerMenu}
+      >
+        <IconProfile className="button-row-child small" icon={BuildingLayerIcon} label="Building Layers" />
+      </DispatchActionButton>
+    )
   )
 }
 
