@@ -18,7 +18,7 @@ const ViolationsTable = props => {
         <div className="table-header">
           <label className="col0 table-cell" />
           <label className="v-col1 table-cell">Date</label>
-          <label className="v-col2 table-cell">Id</label>
+          <label className="v-col2 table-cell">Violation Id</label>
           <label className="v-col3 table-cell" />
         </div>
         {props.features.map((feature, index) => {

@@ -4,7 +4,6 @@
   border: none;
   display: flex;
   flex-direction: row;
-  padding: $tiny-spacing 0 $tiny-spacing 0;
 
   p {
     font-size: 14px;
@@ -15,13 +14,13 @@
     height: $iconHeight;
     width: $iconHeight;
     flex-shrink: 0;
-    margin-right: $tiny-spacing;
+    margin-right: $small-spacing;
   }
 }
 
 .icon-row-text-align {
   padding-top: 0;
-  padding-left: $small-spacing + $iconHeight + $tiny-spacing;
+  padding-left: $iconHeight + $tiny-spacing;
 }
 
 .icon-end {

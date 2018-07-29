@@ -23,6 +23,10 @@ export const ControlBackButton = props => {
   const getBackView = () => {
     const appState = props.appState
 
+    if (appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU) return SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+    if (appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU && props.buildingsPresent)
+      return SIDEBAR_VIEW_BUILDING_LAYER_MENU
+
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
         if (props.buildingsPresent && !appState.landscapeOrientation) return SIDEBAR_VIEW_BUILDING_LAYER_MENU
@@ -75,6 +79,10 @@ export const ControlBackButton = props => {
   const getBackText = () => {
     const appState = props.appState
 
+    if (appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU) return 'Region Layers'
+    if (appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU && props.buildingsPresent) return 'Building Layers'
+    if (appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU) return null
+
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
         if (props.buildingsPresent && !appState.landscapeOrientation) return 'Building Layers'
@@ -95,10 +103,9 @@ export const ControlBackButton = props => {
     }
   }
 
-  const disabled =
-    props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU ||
-    props.appState.sidebarView === SIDEBAR_VIEW_SCOPE_MENU ||
-    props.appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU
+  const disabled = props.appState.sidebarView === SIDEBAR_VIEW_SCOPE_MENU
+  // props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU ||
+  // props.appState.sidebarView === SIDEBAR_VIEW_BUILDING_LAYER_MENU
 
   return (
     <SwitchViewButton

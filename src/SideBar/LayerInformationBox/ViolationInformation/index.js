@@ -33,24 +33,33 @@ const ViolationInformation = props => {
         </DispatchActionButton>
       </ButtonRow>
       <div className="info-section">
-        <IconRow icon={ViolationIcon}>
+        <IconRow className="card" icon={ViolationIcon}>
           <div>{convertTimestampToData(props.selectedObject.date)}</div>
         </IconRow>
         <div className="row-box text-well">
           <div>{fillEmptyString(props.selectedObject.description)}</div>
         </div>
-        <IconRow icon={ViolationIcon}>
+        <IconRow className="card" icon={ViolationIcon}>
           Issued by the <span>{convertDepartmentToName(props.selectedObject.source)}</span>
         </IconRow>
         {!!props.selectedObject.penalty && (
-          <IconRow icon={ViolationIcon}>
+          <IconRow className="card" icon={ViolationIcon}>
             A penalty of <span>{props.selectedObject.penalty}</span> was imposed.
           </IconRow>
         )}
-        <IconRow icon={ViolationIcon}>
+        <IconRow className="card" icon={ViolationIcon}>
           Code: <span>{props.selectedObject.code}</span>
           <div>Read more about this violation type.</div>
         </IconRow>
+        <div className="info-title">Status</div>
+        <IconRow className="card" icon={ViolationIcon}>
+          The status is: {props.selectedObject.status}
+        </IconRow>
+        {!!props.selectedObject.statusDescription && (
+          <div className="row-box text-well">
+            <div>{fillEmptyString(props.selectedObject.statusDescription)}</div>
+          </div>
+        )}
       </div>
     </div>
   )

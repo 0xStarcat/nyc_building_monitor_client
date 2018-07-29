@@ -50,11 +50,18 @@ const BoundaryInformation = props => {
         <div className="info-title">
           <h5>Summary</h5>
         </div>
-        {!!props.selectedObject.incomeMedian2017 && <IncomeRow value={props.selectedObject.incomeMedian2017} />}
-        {!!props.selectedObject.rentMedian2017 && <RentRow value={props.selectedObject.rentMedian2017} />}
-        {!!props.selectedObject.racePercentWhite2010 && <RaceRow value={props.selectedObject.racePercentWhite2010} />}
+        {!!props.selectedObject.incomeMedian2017 && (
+          <IncomeRow className="card info-card" value={props.selectedObject.incomeMedian2017} />
+        )}
+        {!!props.selectedObject.rentMedian2017 && (
+          <RentRow className="card info-card" value={props.selectedObject.rentMedian2017} />
+        )}
+        {!!props.selectedObject.racePercentWhite2010 && (
+          <RaceRow className="card info-card" value={props.selectedObject.racePercentWhite2010} />
+        )}
         {!!props.selectedObject.buildingsTotal && (
           <TotalBuildingsRow
+            className="card info-card"
             value1={props.selectedObject.buildingsTotal}
             value2={props.selectedObject.residentialBuildingsTotal}
           />
@@ -64,19 +71,29 @@ const BoundaryInformation = props => {
         <div className="info-title">
           <h5>2010 - Present</h5>
         </div>
-        {!!props.selectedObject.rentChange20112017 && <RentChangeRow value={props.selectedObject.rentChange20112017} />}
-        {!!props.selectedObject.violationsTotal && <TotalViolationsRow value={props.selectedObject.violationsTotal} />}
+        {!!props.selectedObject.rentChange20112017 && (
+          <RentChangeRow className="card info-card" value={props.selectedObject.rentChange20112017} />
+        )}
         {!!props.selectedObject.violationsTotal && (
-          <ViolationsPerBuildingRow value={props.selectedObject.violationsPerBuilding} />
+          <TotalViolationsRow className="card info-card" value={props.selectedObject.violationsTotal} />
+        )}
+        {!!props.selectedObject.violationsTotal && (
+          <ViolationsPerBuildingRow className="card info-card" value={props.selectedObject.violationsPerBuilding} />
         )}
         {!!props.selectedObject.serviceCallsTotal && (
-          <TotalServiceCallsRow value={props.selectedObject.serviceCallsTotal} />
+          <TotalServiceCallsRow className="card info-card" value={props.selectedObject.serviceCallsTotal} />
         )}
         {!!props.selectedObject.serviceCallsTotal && (
-          <TimeToResolveCallsRow value={props.selectedObject.averageDaysToResolveServiceCalls} />
+          <TimeToResolveCallsRow
+            className="card info-card"
+            value={props.selectedObject.averageDaysToResolveServiceCalls}
+          />
         )}
         {!!props.selectedObject.serviceCallsTotal && (
-          <ServiceCallsOpenRow value={props.selectedObject.serviceCallsPercentOpenOneMonth} />
+          <ServiceCallsOpenRow
+            className="card info-card"
+            value={props.selectedObject.serviceCallsPercentOpenOneMonth}
+          />
         )}
       </div>
     </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SwitchViewFetchButton from '../../SharedComponents/SwitchViewFetchButton'
 import IconRow from '../../SharedComponents/IconRow'
-
+import ActionCard from '../../SharedComponents/ActionCard'
 import {
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_STATE_PREVIEW,
@@ -18,7 +18,7 @@ import { readViolationsByBuilding } from '../../../Store/Violations/actions'
 import { readServiceCallsByBuilding } from '../../../Store/ServiceCalls/actions'
 
 import { BuildingClassRow, ViolationRow, ServiceCallRow, TimeToResolveCallsRow, ServiceCallsOpenRow } from './Rows'
-import { OpenIcon, ViolationIcon } from '../../../SharedStyles/icons'
+import { RightArrow, ViolationIcon } from '../../../SharedStyles/icons'
 
 import '../SharedStyles/style.scss'
 import './style.scss'
@@ -52,56 +52,38 @@ const BuildingInformation = props => {
         <div className="info-title">
           <h5>2010 - Present</h5>
         </div>
-        <BuildingClassRow value={props.selectedObject.buildingClass} />
+        <BuildingClassRow className="card info-card" value={props.selectedObject.buildingClass} />
         <SwitchViewFetchButton
           action={getViolations}
           viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
           scopeSwitch={SCOPE_VIOLATIONS}
         >
-          <ViolationRow value={props.selectedObject.violationsTotal} />
-          <div className="icon-row icon-end icon-row-text-align underlined">
-            View Details
-            <i>
-              <OpenIcon />
-            </i>
-          </div>
+          <ActionCard>
+            <ViolationRow value={props.selectedObject.violationsTotal} />
+          </ActionCard>
         </SwitchViewFetchButton>
         <SwitchViewFetchButton
           action={getServiceCalls}
           viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
           scopeSwitch={SCOPE_SERVICE_CALLS}
         >
-          <ServiceCallRow value={props.selectedObject.serviceCallsTotal} />
-          <div className="icon-row icon-end icon-row-text-align underlined">
-            View Details
-            <i>
-              <OpenIcon />
-            </i>
-          </div>
+          <ActionCard>
+            <ServiceCallRow value={props.selectedObject.serviceCallsTotal} />
+          </ActionCard>
         </SwitchViewFetchButton>
         {!!props.selectedObject.serviceCallsTotal && (
-          <SwitchViewFetchButton>
-            <TimeToResolveCallsRow value={props.selectedObject.averageDaysToResolveServiceCalls} />
-            <div className="icon-row icon-end icon-row-text-align underlined">
-              View Details
-              <i>
-                <OpenIcon />
-              </i>
-            </div>
-          </SwitchViewFetchButton>
+          <TimeToResolveCallsRow
+            className="card info-card"
+            value={props.selectedObject.averageDaysToResolveServiceCalls}
+          />
         )}
         {!!props.selectedObject.serviceCallsTotal && (
-          <SwitchViewFetchButton>
-            <ServiceCallsOpenRow value={props.selectedObject.serviceCallsPercentOpenOneMonth} />
-            <div className="icon-row icon-end icon-row-text-align underlined">
-              View Details
-              <i>
-                <OpenIcon />
-              </i>
-            </div>
-          </SwitchViewFetchButton>
+          <ServiceCallsOpenRow
+            className="card info-card"
+            value={props.selectedObject.serviceCallsPercentOpenOneMonth}
+          />
         )}
-        <IconRow icon={ViolationIcon}>
+        <IconRow className="card info-card" icon={ViolationIcon}>
           <a
             href={`http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?boro=${
               props.selectedObject.boroCode

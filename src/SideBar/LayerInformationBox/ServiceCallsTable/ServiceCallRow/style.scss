@@ -3,7 +3,6 @@
 .service-call-row {
   align-items: center;
   display: flex;
-  flex-align: row;
+  flex-direction: row;
   font-size: 14px;
-  padding-bottom: $small-spacing;
 }

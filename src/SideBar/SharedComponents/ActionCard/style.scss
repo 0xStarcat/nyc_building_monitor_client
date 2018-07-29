@@ -1,0 +1,27 @@
+@import '../../../SharedStyles/index.scss';
+
+.action-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 20px;
+  width: 100%;
+
+  .action-card-children {
+    flex-grow: 1;
+  }
+
+  i {
+    height: $iconHeight;
+    width: $iconHeight;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}
+
+.action-card:hover {
+  box-shadow: -10px 0 10px 0 $primaryBackground;
+  transform: translateX($tiny-spacing);
+}

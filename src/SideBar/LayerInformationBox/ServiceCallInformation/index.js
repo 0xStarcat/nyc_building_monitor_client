@@ -24,7 +24,7 @@ const getServiceCallResult = selectedObject => {
   else if (selectedObject.resolutionNoAction)
     return (
       <span>
-        The inspectors investigated and <span className="resolution-result">found no issues.</span>.
+        The inspectors investigated and <span className="resolution-result">found no issues.</span>
       </span>
     )
   else if (selectedObject.resolutionUnableToInvestigate)
@@ -57,17 +57,20 @@ const ServiceCallInformation = props => {
         </DispatchActionButton>
       </ButtonRow>
       <div className="info-section">
-        <IconRow icon={ServiceCallIcon}>
+        <IconRow className="card" icon={ServiceCallIcon}>
           <div>Open: {convertTimestampToData(props.selectedObject.date)}</div>
         </IconRow>
         <div className="row-box text-well">
+          <div>{props.selectedObject.complaintType}</div>
           <div>{fillEmptyString(props.selectedObject.description)}</div>
         </div>
-        <IconRow icon={ServiceCallIcon}>
+        <IconRow className="card" icon={ServiceCallIcon}>
           Assigned to the <span>{convertDepartmentToName(props.selectedObject.source)}</span>
         </IconRow>
         {props.selectedObject.openOverMonth && (
-          <IconRow icon={ServiceCallIcon}>This call has been open for over a month.</IconRow>
+          <IconRow className="card" icon={ServiceCallIcon}>
+            This call has been open for over a month.
+          </IconRow>
         )}
       </div>
       {props.selectedObject.closedDate && (
@@ -75,14 +78,18 @@ const ServiceCallInformation = props => {
           <h5 className="info-title">Resolution</h5>
 
           <div>
-            <IconRow icon={ServiceCallIcon}>
+            <IconRow className="card" icon={ServiceCallIcon}>
               <div>Closed: {convertTimestampToData(props.selectedObject.closedDate)}</div>
             </IconRow>
             <div className="row-box text-well">
               <div>{fillEmptyString(props.selectedObject.resolutionDescription)}</div>
             </div>
-            {parsedResult && <IconRow icon={ServiceCallIcon}>{parsedResult}</IconRow>}
-            <IconRow icon={ServiceCallIcon}>
+            {parsedResult && (
+              <IconRow className="card" icon={ServiceCallIcon}>
+                {parsedResult}
+              </IconRow>
+            )}
+            <IconRow className="card" icon={ServiceCallIcon}>
               This call took {props.selectedObject.daysToResolve} day(s) to resolve.
             </IconRow>
           </div>

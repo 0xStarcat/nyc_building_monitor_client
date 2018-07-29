@@ -22,11 +22,17 @@
 
 .info-section {
   padding: $small-spacing 0;
+  padding-bottom: 0;
 }
 
-.info-row {
-  padding-left: $small-spacing;
-  padding-right: $small-spacing;
+.card {
+  box-sizing: border-box;
+  margin: 5px 0;
+  padding: 10px 20px;
+}
+
+.info-card {
+  padding-right: $medium-spacing;
 }
 
 @media screen and (orientation: portrait) {
@@ -35,5 +41,10 @@
   }
   .info-section {
     padding-top: 0;
+  }
+
+  .info-row {
+    padding-top: $mini-spacing;
+    padding-bottom: $mini-spacing;
   }
 }

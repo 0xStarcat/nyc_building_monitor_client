@@ -1,3 +1,25 @@
+@import '../../../SharedStyles/index.scss';
+
 .building-class-description {
   background-color: GAINSBORO;
+}
+
+.building-information {
+  @for $i from 1 through 10 {
+    .building-row:nth-child(#{$i}) {
+      animation: ($i / 2) + s ease-out 0s 1 bumpIn;
+    }
+  }
+}
+
+@keyframes bumpIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

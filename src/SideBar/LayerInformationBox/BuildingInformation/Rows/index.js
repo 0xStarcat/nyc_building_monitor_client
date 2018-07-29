@@ -14,7 +14,7 @@ import {
 
 export const BuildingClassRow = props => {
   return (
-    <IconRow icon={BuildingClassIcon}>
+    <IconRow className={props.className} icon={BuildingClassIcon}>
       This building class is:{' '}
       <span>
         {props.value} which is labeled as:{' '}
@@ -26,7 +26,7 @@ export const BuildingClassRow = props => {
 
 export const ViolationRow = props => {
   return (
-    <IconRow icon={ViolationIcon}>
+    <IconRow className={props.className} icon={ViolationIcon}>
       There are <span>{props.value} total violations.</span>
     </IconRow>
   )
@@ -34,7 +34,7 @@ export const ViolationRow = props => {
 
 export const ServiceCallRow = props => {
   return (
-    <IconRow icon={ServiceCallIcon}>
+    <IconRow className={props.className} icon={ServiceCallIcon}>
       There are <span>{props.value} total 311-calls.</span>
     </IconRow>
   )
@@ -42,12 +42,16 @@ export const ServiceCallRow = props => {
 
 export const TimeToResolveCallsRow = props => {
   return (
-    <IconRow icon={TimeToResolveCallsIcon}>
+    <IconRow className={props.className} icon={TimeToResolveCallsIcon}>
       It takes an average of {props.value} days for the city to resolve 311-calls here.
     </IconRow>
   )
 }
 
 export const ServiceCallsOpenRow = props => {
-  return <IconRow icon={ServiceCallOpenIcon}>{props.value}% of current 311-calls have been open over 1 month.</IconRow>
+  return (
+    <IconRow className={props.className} icon={ServiceCallOpenIcon}>
+      {props.value}% of current 311-calls have been open over 1 month.
+    </IconRow>
+  )
 }
