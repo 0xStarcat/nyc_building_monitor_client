@@ -1,16 +1,17 @@
 @import '../../SharedStyles/index.scss';
 
 .button-row {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  display: flex;
+  flex-wrap: no-wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow: scroll;
 
   .button-row-child {
     border-radius: 50%;
     border: 1px solid transparent;
-    margin: $small-spacing;
+    margin: $tiny-spacing;
     height: 80px;
     width: 80px;
   }
@@ -22,11 +23,6 @@
 
 @media screen and (orientation: portrait) {
   .button-row {
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: flex-start;
-    overflow: scroll;
-
     .button-row-child {
       border-radius: 8px;
       height: 90px;

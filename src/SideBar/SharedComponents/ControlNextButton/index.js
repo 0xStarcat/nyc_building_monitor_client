@@ -60,7 +60,7 @@ export const ControlNextButton = props => {
   const getNextText = () => {
     const appState = props.appState
     if (isView()) {
-      return (props.selectedNeighborhood || {}).name || `#${(props.selectedCensusTract || {}).name}`
+      return (props.selectedNeighborhood || {}).name || `Tract #${(props.selectedCensusTract || {}).name}`
     }
 
     switch (appState.sidebarScope) {

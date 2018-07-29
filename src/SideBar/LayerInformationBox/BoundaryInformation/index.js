@@ -16,6 +16,7 @@ import {
 
 import {
   SIDEBAR_STATE_PREVIEW,
+  BASE_LAYER_BOUNDARY_BLANK,
   BASE_LAYER_MEDIAN_INCOME,
   BASE_LAYER_MEDIAN_RENT,
   BASE_LAYER_MEDIAN_RENT_CHANGE,
@@ -29,6 +30,13 @@ import './style.scss'
 
 const getPreviewRow = props => {
   switch (props.baseLayer) {
+    case BASE_LAYER_BOUNDARY_BLANK:
+      return (
+        <TotalBuildingsRow
+          value1={props.selectedObject.buildingsTotal}
+          value2={props.selectedObject.residentialBuildingsTotal}
+        />
+      )
     case BASE_LAYER_MEDIAN_INCOME:
       return <IncomeRow value={props.selectedObject.incomeMedian2017} />
     case BASE_LAYER_MEDIAN_RENT:

@@ -3,7 +3,12 @@ import PropTypes from 'prop-types'
 
 import MobileBoundaryLayerButton from './MobileBoundaryLayerButton'
 
-import { SIDEBAR_STATE_INACTIVE, SIDEBAR_STATE_PREVIEW, SIDEBAR_STATE_ACTIVE } from '../Store/AppState/actions'
+import {
+  SIDEBAR_STATE_INACTIVE,
+  SIDEBAR_STATE_PREVIEW,
+  SIDEBAR_STATE_ACTIVE,
+  SIDEBAR_VIEW_BOUNDARY_LAYER_MENU
+} from '../Store/AppState/actions'
 
 import {
   MOBILE_BUTTONS_INACTIVE_Y_TRANSLATION,
@@ -26,11 +31,18 @@ const setTransationStyle = props => {
 }
 const MobileButtonContainer = props => {
   const containerStyle = { transform: setTransationStyle(props) }
-  return (
-    <div className="mobile-button-container" style={containerStyle}>
-      <MobileBoundaryLayerButton appState={props.appState} selectedObject={props.selectedObject} />
-    </div>
-  )
+  if (
+    props.appState.sidebarView === SIDEBAR_VIEW_BOUNDARY_LAYER_MENU &&
+    props.appState.sidebarState !== SIDEBAR_STATE_INACTIVE
+  ) {
+    return null
+  } else {
+    return (
+      <div className="mobile-button-container" style={containerStyle}>
+        <MobileBoundaryLayerButton appState={props.appState} selectedObject={props.selectedObject} />
+      </div>
+    )
+  }
 }
 
 MobileButtonContainer.propTypes = {

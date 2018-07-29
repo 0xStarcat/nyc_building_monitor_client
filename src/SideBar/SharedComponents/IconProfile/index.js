@@ -5,7 +5,7 @@ import './style.scss'
 
 const IconProfile = props => {
   return (
-    <div className={`icon-profile ${props.className}`}>
+    <div className={`icon-profile ${props.className ? props.className : ''}`}>
       <i>{props.icon()}</i>
       <label>{props.label}</label>
     </div>
