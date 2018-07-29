@@ -9,6 +9,7 @@ import {
   switchScopeWithFetch,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
+  BASE_LAYER_BOUNDARY_BLANK,
   BASE_LAYER_MEDIAN_INCOME,
   BASE_LAYER_MEDIAN_RENT,
   BASE_LAYER_MEDIAN_RENT_CHANGE,
@@ -16,7 +17,14 @@ import {
   BASE_LAYER_OPEN_311
 } from '../../Store/AppState/actions'
 
-import { IncomeIcon, RentIcon, RentChangeIcon, PopulationIcon, ServiceCallOpenIcon } from '../../SharedStyles/icons'
+import {
+  BlankBoundaryIcon,
+  IncomeIcon,
+  RentIcon,
+  RentChangeIcon,
+  PopulationIcon,
+  ServiceCallOpenIcon
+} from '../../SharedStyles/icons'
 
 export default class MobileSidebarBoundaryLayerMenu extends React.Component {
   constructor(props) {
@@ -34,6 +42,14 @@ export default class MobileSidebarBoundaryLayerMenu extends React.Component {
       <div className="mobile-sidebar-scope-menu content-box">
         <div className="menu-section">
           <ButtonRow>
+            <SwitchLayerButton
+              action={this.switchLayer}
+              className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+              dispatch={this.props.dispatch}
+              layer={BASE_LAYER_BOUNDARY_BLANK}
+            >
+              <IconProfile className="button-row-child" icon={BlankBoundaryIcon} label="Blank Layer" />
+            </SwitchLayerButton>
             <SwitchLayerButton
               action={this.switchLayer}
               className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}

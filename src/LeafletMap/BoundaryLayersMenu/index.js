@@ -37,10 +37,25 @@ class BoundaryLayersMenu extends Component {
     this.layersLoaded = 0
 
     this.tileLayerLoaded = false
+    this.getSelectedObjectId = this.getSelectedObjectId.bind(this)
     this.tileLayerLoadComplete = this.tileLayerLoadComplete.bind(this)
     this.checkLayerLoadStatus = this.checkLayerLoadStatus.bind(this)
   }
 
+  shouldComponentUpdate() {
+    return !this.props.store.allLayersLoaded
+  }
+
+  componentDidMount() {
+    if (this.layerControlRef.current) {
+      this.layerControlRef.current.leafletElement._container.style.display = 'none'
+    }
+  }
+
+  getSelectedObjectId() {
+    const selectedObject = (this.props.store[this.props.store.appState.baseLayerScope] || {}).selectedObject
+    return selectedObject ? selectedObject.id : null
+  }
   layerLoaded() {
     this.layersLoaded++
     this.checkLayerLoadStatus()
@@ -64,16 +79,6 @@ class BoundaryLayersMenu extends Component {
     }
   }
 
-  shouldComponentUpdate() {
-    return !this.props.store.allLayersLoaded
-  }
-
-  componentDidMount() {
-    if (this.layerControlRef.current) {
-      this.layerControlRef.current.leafletElement._container.style.display = 'none'
-    }
-  }
-
   render() {
     return (
       <ScopedMenu
@@ -83,7 +88,7 @@ class BoundaryLayersMenu extends Component {
         layerLoaded={this.layerLoaded}
         position={this.props.position}
         setViewCoordinates={this.props.setViewCoordinates}
-        selectedObject={(this.props.store[this.props.store.appState.baseLayerScope] || {}).selectedObject}
+        getSelectedObjectId={this.getSelectedObjectId}
         tileLayerLoadComplete={this.tileLayerLoadComplete}
       />
     )

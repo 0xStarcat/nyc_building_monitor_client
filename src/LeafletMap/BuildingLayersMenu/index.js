@@ -20,6 +20,61 @@ class BuildingLayersMenu extends Component {
     super(props)
 
     this.layerControlRef = React.createRef()
+    this.getLayer = this.getLayer.bind(this)
+  }
+
+  getLayer() {
+    switch (this.props.appState.buildingBaseLayer) {
+      case BASE_LAYER_BUILDING_CATEGORIES:
+        return (
+          <BaseLayer checked name="Building Categories">
+            <GeoJsonBuildingLayer
+              setViewCoordinates={this.props.setViewCoordinates}
+              features={this.props.buildings}
+              interactive={true}
+              sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
+              style={buildingClassStyle}
+            />
+          </BaseLayer>
+        )
+      case BASE_LAYER_BUILDING_CATEGORIES:
+        return (
+          <BaseLayer checked name="Building Categories">
+            <GeoJsonBuildingLayer
+              setViewCoordinates={this.props.setViewCoordinates}
+              features={this.props.buildings}
+              interactive={true}
+              sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
+              style={buildingClassStyle}
+            />
+          </BaseLayer>
+        )
+      case BASE_LAYER_TOTAL_VIOLATIONS:
+        return (
+          <BaseLayer checked name="Building Violations">
+            <GeoJsonBuildingLayer
+              setViewCoordinates={this.props.setViewCoordinates}
+              features={this.props.buildings}
+              interactive={true}
+              sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
+              style={violationBuildingStyle}
+            />
+          </BaseLayer>
+        )
+
+      case BASE_LAYER_TOTAL_BUILDING_OPEN_311:
+        return (
+          <BaseLayer checked name="Building Open 311 Calls">
+            <GeoJsonBuildingLayer
+              setViewCoordinates={this.props.setViewCoordinates}
+              features={this.props.buildings}
+              interactive={true}
+              sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
+              style={saleBuildingStyle}
+            />
+          </BaseLayer>
+        )
+    }
   }
 
   componentDidMount() {
@@ -31,39 +86,7 @@ class BuildingLayersMenu extends Component {
   render() {
     return (
       <LayersControl className="hidden" collapsed={true} position={this.props.position} ref={this.layerControlRef}>
-        <BaseLayer checked={this.props.appState.buildingBaseLayer === BASE_LAYER_BUILDING_CATEGORIES} name="Plain">
-          <GeoJsonBuildingLayer
-            setViewCoordinates={this.props.setViewCoordinates}
-            features={this.props.buildings}
-            interactive={true}
-            sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
-            style={buildingClassStyle}
-          />
-        </BaseLayer>
-        {/*<BaseLayer
-          checked={this.props.appState.buildingBaseLayer === BASE_LAYER_TOTAL_VIOLATIONS}
-          name="Building Violations"
-        >
-          <GeoJsonBuildingLayer
-            setViewCoordinates={this.props.setViewCoordinates}
-            features={this.props.buildings}
-            interactive={true}
-            sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
-            style={violationBuildingStyle}
-          />
-        </BaseLayer>
-        <BaseLayer
-          checked={this.props.appState.buildingBaseLayer === BASE_LAYER_TOTAL_BUILDING_OPEN_311}
-          name="Building Sales"
-        >
-          <GeoJsonBuildingLayer
-            setViewCoordinates={this.props.setViewCoordinates}
-            features={this.props.buildings}
-            interactive={true}
-            sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
-            style={saleBuildingStyle}
-          />
-        </BaseLayer>*/}
+        {this.getLayer()}
       </LayersControl>
     )
   }

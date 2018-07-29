@@ -2,7 +2,7 @@
 const boundaryStyle = feature => {
   return {
     color: 'hotpink',
-    fillColor: 'white',
+    fillColor: 'cornsilk',
     opacity: 1,
     fillOpacity: 0.5,
     weight: 1

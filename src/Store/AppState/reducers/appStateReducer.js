@@ -2,7 +2,7 @@ import * as appStateActions from '../actions'
 
 export const initialState = {
   allLayersLoaded: false,
-  baseLayer: appStateActions.BASE_LAYER_MEDIAN_INCOME,
+  baseLayer: appStateActions.BASE_LAYER_BOUNDARY_BLANK,
   baseLayerScope: appStateActions.SCOPE_CENSUS_TRACTS,
   buildingBaseLayer: appStateActions.BASE_LAYER_BUILDING_CATEGORIES,
   landscapeOrientation: window.matchMedia('(orientation: landscape)').matches,

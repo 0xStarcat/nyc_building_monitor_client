@@ -46,13 +46,12 @@ export class GeoJsonBoundaryGroup extends Component {
   onClick(event) {
     const layerProperties = event.target.feature.properties
     this.props.setViewCoordinates(layerProperties.representativePoint, 14)
-    if (layerProperties.id !== this.props.selectedLayerId)
-      this.props.dispatch(readBuildingsByScope(this.props.baseLayerScope, layerProperties.id))
-
-    this.props.dispatch(this.getSelectedObjectFunction(event))
     this.props.dispatch(changeSidebarScope(this.props.scope))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
     this.props.dispatch(this.props.sidebarAction())
+    if (layerProperties.id !== this.props.getSelectedObjectId())
+      this.props.dispatch(readBuildingsByScope(this.props.baseLayerScope, layerProperties.id))
+    this.props.dispatch(this.getSelectedObjectFunction(event))
   }
 
   shouldComponentUpdate() {
@@ -94,7 +93,7 @@ GeoJsonBoundaryGroup.propTypes = {
   interactive: PropTypes.bool,
   onLoad: PropTypes.func,
   setViewCoordinates: PropTypes.func,
-  selectedLayerId: PropTypes.number,
+  getSelectedObjectId: PropTypes.func,
   scope: PropTypes.string,
   sidebarAction: PropTypes.func,
   style: PropTypes.func
