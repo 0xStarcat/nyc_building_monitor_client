@@ -46,54 +46,49 @@ const BuildingInformation = props => {
   }
 
   return (
-    <div className="building-information">
+    <div className={`boundary-information ${props.sidebarState !== SIDEBAR_STATE_PREVIEW ? 'scroll-box' : ''}`}>
       {props.sidebarState === SIDEBAR_STATE_PREVIEW && <div className="preview-section">{getPreviewRow(props)}</div>}
-      <div className="">
-        <div className="info-title">
-          <h5>2010 - Present</h5>
-        </div>
-        <BuildingClassRow className="card info-card" value={props.selectedObject.buildingClass} />
-        <SwitchViewFetchButton
-          action={getViolations}
-          viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
-          scopeSwitch={SCOPE_VIOLATIONS}
-        >
-          <ActionCard>
-            <ViolationRow value={props.selectedObject.violationsTotal} />
-          </ActionCard>
-        </SwitchViewFetchButton>
-        <SwitchViewFetchButton
-          action={getServiceCalls}
-          viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
-          scopeSwitch={SCOPE_SERVICE_CALLS}
-        >
-          <ActionCard>
-            <ServiceCallRow value={props.selectedObject.serviceCallsTotal} />
-          </ActionCard>
-        </SwitchViewFetchButton>
-        {!!props.selectedObject.serviceCallsTotal && (
-          <TimeToResolveCallsRow
-            className="card info-card"
-            value={props.selectedObject.averageDaysToResolveServiceCalls}
-          />
-        )}
-        {!!props.selectedObject.serviceCallsTotal && (
-          <ServiceCallsOpenRow
-            className="card info-card"
-            value={props.selectedObject.serviceCallsPercentOpenOneMonth}
-          />
-        )}
-        <IconRow className="card info-card" icon={ViolationIcon}>
-          <a
-            href={`http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?boro=${
-              props.selectedObject.boroCode
-            }&block=${props.selectedObject.block}&lot=${props.selectedObject.lot}`}
-            target="_blank"
-          >
-            You can view this building's BIS documents here.
-          </a>
-        </IconRow>
+      <div className="info-title">
+        <h5>2010 - Present</h5>
       </div>
+      <BuildingClassRow className="card info-card" value={props.selectedObject.buildingClass} />
+      <SwitchViewFetchButton
+        action={getViolations}
+        viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
+        scopeSwitch={SCOPE_VIOLATIONS}
+      >
+        <ActionCard>
+          <ViolationRow value={props.selectedObject.violationsTotal} />
+        </ActionCard>
+      </SwitchViewFetchButton>
+      <SwitchViewFetchButton
+        action={getServiceCalls}
+        viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
+        scopeSwitch={SCOPE_SERVICE_CALLS}
+      >
+        <ActionCard>
+          <ServiceCallRow value={props.selectedObject.serviceCallsTotal} />
+        </ActionCard>
+      </SwitchViewFetchButton>
+      {!!props.selectedObject.serviceCallsTotal && (
+        <TimeToResolveCallsRow
+          className="card info-card"
+          value={props.selectedObject.averageDaysToResolveServiceCalls}
+        />
+      )}
+      {!!props.selectedObject.serviceCallsTotal && (
+        <ServiceCallsOpenRow className="card info-card" value={props.selectedObject.serviceCallsPercentOpenOneMonth} />
+      )}
+      <IconRow className="card info-card" icon={ViolationIcon}>
+        <a
+          href={`http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?boro=${
+            props.selectedObject.boroCode
+          }&block=${props.selectedObject.block}&lot=${props.selectedObject.lot}`}
+          target="_blank"
+        >
+          You can view this building's BIS documents here.
+        </a>
+      </IconRow>
     </div>
   )
 }

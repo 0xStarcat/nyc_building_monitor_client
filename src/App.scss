@@ -107,6 +107,10 @@ p {
   padding: $small-spacing;
 }
 
+.full-height {
+  height: 100%;
+}
+
 @media screen and (orientation: portrait) {
   .content-box {
     padding: $tiny-spacing $small-spacing;

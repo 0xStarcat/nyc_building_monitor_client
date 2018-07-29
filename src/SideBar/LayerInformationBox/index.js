@@ -95,11 +95,7 @@ class LayerInformationBox extends React.Component {
   }
 
   render() {
-    return (
-      <div className="layerInformationBox">
-        <div className="information-box">{this.displayInformationBox()}</div>
-      </div>
-    )
+    return <div className="layerInformationBox">{this.displayInformationBox()}</div>
   }
 }
 

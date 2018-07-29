@@ -9,18 +9,18 @@ import './style.scss'
 
 const ViolationsTable = props => {
   return (
-    <div className="violations-table">
+    <div className="violations-table sidebar-table">
       <div className="headerBar">
         <h3>Violations for</h3>
         <h5>{props.building.name}</h5>
       </div>
-      <div className="info-section">
-        <div className="table-header">
-          <label className="col0 table-cell" />
-          <label className="v-col1 table-cell">Date</label>
-          <label className="v-col2 table-cell">Violation Id</label>
-          <label className="v-col3 table-cell" />
-        </div>
+      <div className="table-header">
+        <label className="col0 table-cell" />
+        <label className="v-col1 table-cell">Date</label>
+        <label className="v-col2 table-cell">Violation Id</label>
+        <label className="v-col3 table-cell" />
+      </div>
+      <div className="scroll-box">
         {props.features.map((feature, index) => {
           return (
             <ViolationRow

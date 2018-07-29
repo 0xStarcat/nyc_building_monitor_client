@@ -45,7 +45,7 @@ const getPreviewRow = props => {
 const BoundaryInformation = props => {
   if (!props.selectedObject) return null
   return (
-    <div className="boundary-information">
+    <div className={`boundary-information ${props.sidebarState !== SIDEBAR_STATE_PREVIEW ? 'scroll-box' : ''}`}>
       {props.sidebarState === SIDEBAR_STATE_PREVIEW && <div className="preview-section">{getPreviewRow(props)}</div>}
       <div className="info-section">
         <div className="info-title">
@@ -102,7 +102,7 @@ const BoundaryInformation = props => {
 }
 
 BoundaryInformation.propTypes = {
-  baseLayer: PropTypes.string,
+  baseLaye: PropTypes.string,
   sidebarState: PropTypes.string,
   selectedObject: PropTypes.object
 }

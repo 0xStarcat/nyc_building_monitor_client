@@ -9,19 +9,19 @@ import './style.scss'
 
 const ServiceCallsTable = props => {
   return (
-    <div className="service-calls-table">
+    <div className="service-calls-table sidebar-table">
       <div className="headerBar">
         <h3>311-Calls for</h3>
         <h5>{props.building.name}</h5>
       </div>
-      <div className="info-section">
-        <div className="table-header">
-          <label className="col0 table-cell" />
-          <label className="sc-col1 table-cell">Date</label>
-          <label className="sc-col2 table-cell">Status</label>
-          <label className="sc-col3 table-cell">Violation?</label>
-          <label className="sc-col4 table-cell" />
-        </div>
+      <div className="table-header">
+        <label className="col0 table-cell" />
+        <label className="sc-col1 table-cell">Date</label>
+        <label className="sc-col2 table-cell">Status</label>
+        <label className="sc-col3 table-cell">Violation?</label>
+        <label className="sc-col4 table-cell" />
+      </div>
+      <div className="scroll-box">
         {props.features.map((feature, index) => {
           return (
             <ServiceCallRow

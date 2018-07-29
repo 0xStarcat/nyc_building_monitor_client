@@ -1,7 +1,8 @@
 @import './index.scss';
 
-.information-box {
-  padding: $small-spacing 0 $small-spacing 0;
+.scroll-box {
+  height: 100%;
+  overflow-y: scroll;
 
   a {
     font-size: 13px;
@@ -36,7 +37,7 @@
 }
 
 @media screen and (orientation: portrait) {
-  .information-box {
+  .scroll-box {
     padding: 0;
   }
   .info-section {

@@ -1,5 +1,9 @@
 @import './SharedStyles/index.scss';
 
+.sidebar-table {
+  height: 100%;
+}
+
 .table-header {
   display: flex;
   flex-direction: row;

@@ -13,6 +13,7 @@ const ViolationRow = props => {
   const selectViolation = () => {
     props.dispatch(updateSelectedViolation(props.feature.properties))
   }
+
   return (
     <SwitchViewButton
       action={selectViolation}
