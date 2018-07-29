@@ -6,9 +6,6 @@ import LayerInformationHeader from './LayerInformationHeader'
 
 import LayerInformationBox from './LayerInformationBox'
 import SidebarLayerMenu from './SidebarLayerMenu'
-import MobileSidebarScopeMenu from './MobileSidebarScopeMenu'
-import MobileSidebarBoundaryLayerMenu from './MobileSidebarBoundaryLayerMenu'
-
 import SidebarBuildingLayerMenu from './SidebarBuildingLayerMenu'
 
 import TopBar from './TopBar'
@@ -80,23 +77,15 @@ class SideBar extends React.Component {
       case SIDEBAR_VIEW_SCOPE_MENU:
         return (
           <div className="sidebar-view-container">
-            <MobileSidebarScopeMenu dispatch={this.props.dispatch} />
+            <SidebarLayerMenu landscapeOrientation={appState.landscapeOrientation} dispatch={this.props.dispatch} />
           </div>
         )
       case SIDEBAR_VIEW_BOUNDARY_LAYER_MENU:
-        if (appState.landscapeOrientation) {
-          return (
-            <div className="sidebar-view-container">
-              <SidebarLayerMenu landscapeOrientation={appState.landscapeOrientation} dispatch={this.props.dispatch} />
-            </div>
-          )
-        } else {
-          return (
-            <div className="sidebar-view-container">
-              <MobileSidebarBoundaryLayerMenu dispatch={this.props.dispatch} />
-            </div>
-          )
-        }
+        return (
+          <div className="sidebar-view-container">
+            <SidebarLayerMenu landscapeOrientation={appState.landscapeOrientation} dispatch={this.props.dispatch} />
+          </div>
+        )
       case SIDEBAR_VIEW_BUILDING_LAYER_MENU:
         return (
           <div className="sidebar-view-container">

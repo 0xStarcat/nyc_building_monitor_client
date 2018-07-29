@@ -50,6 +50,5 @@ export default class MobileSidebarScopeMenu extends React.Component {
 }
 
 MobileSidebarScopeMenu.propTypes = {
-  dispatch: PropTypes.func,
-  landscapeOrientation: PropTypes.bool
+  dispatch: PropTypes.func
 }
