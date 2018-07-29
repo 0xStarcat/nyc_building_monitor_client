@@ -11,6 +11,8 @@ import {
   MOBILE_BUTTONS_PREVIEW_Y_TRANSLATION
 } from '../SharedStyles/__constants__/sidebarConstants.js'
 
+import { getMobileButtonsYTranslation } from '../SharedUtilities/previewUtils'
+
 import './style.scss'
 
 const setTransationStyle = props => {
@@ -18,7 +20,7 @@ const setTransationStyle = props => {
     case SIDEBAR_STATE_INACTIVE:
       return `translateY(${MOBILE_BUTTONS_INACTIVE_Y_TRANSLATION})`
     case SIDEBAR_STATE_PREVIEW:
-      return `translateY(${MOBILE_BUTTONS_PREVIEW_Y_TRANSLATION})`
+      return `translateY(${getMobileButtonsYTranslation(props.appState.sidebarView, props.buildingsPresent)})`
     case SIDEBAR_STATE_ACTIVE:
       return `translateY(${MOBILE_BUTTONS_PREVIEW_Y_TRANSLATION})`
   }

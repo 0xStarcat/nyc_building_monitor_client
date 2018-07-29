@@ -14,12 +14,13 @@ import BuildingLayerButton from '../SharedComponents/BuildingLayerButton'
 import ControlBackButton from './SharedComponents/ControlBackButton'
 import ControlNextButton from './SharedComponents/ControlNextButton'
 
+import { getPreviewYTranslation } from '../SharedUtilities/previewUtils'
+
 import {
   MOBILE_SIDEBAR_ACTIVE_X_TRANSLATION,
   MOBILE_SIDEBAR_INACTIVE_X_TRANSLATION,
   MOBILE_SIDEBAR_ACTIVE_Y_TRANSLATION,
   MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION,
-  MOBILE_SIDEBAR_LARGE_PREVIEW_Y_TRANSLATION,
   MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION
 } from '../SharedStyles/__constants__/sidebarConstants.js'
 
@@ -28,7 +29,6 @@ import {
   SCOPE_CENSUS_TRACTS,
   SIDEBAR_STATE_ACTIVE,
   SIDEBAR_STATE_PREVIEW,
-  SIDEBAR_STATE_LARGE_PREVIEW,
   SIDEBAR_STATE_INACTIVE,
   SIDEBAR_VIEW_BUILDING_LAYER_MENU,
   SIDEBAR_VIEW_BOUNDARY_LAYER_MENU,
@@ -66,9 +66,10 @@ class SideBar extends React.Component {
       case SIDEBAR_STATE_ACTIVE:
         return `translateY(${MOBILE_SIDEBAR_ACTIVE_Y_TRANSLATION})`
       case SIDEBAR_STATE_PREVIEW:
-        return `translateY(${MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION})`
-      case SIDEBAR_STATE_LARGE_PREVIEW:
-        return `translateY(${MOBILE_SIDEBAR_LARGE_PREVIEW_Y_TRANSLATION})`
+        return `translateY(${getPreviewYTranslation(
+          this.props.store.appState.sidebarView,
+          this.props.buildingsPresent
+        )})`
       case SIDEBAR_STATE_INACTIVE:
         return `translateY(${MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION})`
     }

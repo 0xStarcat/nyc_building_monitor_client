@@ -34,9 +34,6 @@ export const appStateReducer = (appState = Object.freeze(initialState), action =
     case appStateActions.PREVIEW_SIDEBAR: {
       return { ...appState, sidebarState: appStateActions.SIDEBAR_STATE_PREVIEW }
     }
-    case appStateActions.LARGE_PREVIEW_SIDEBAR: {
-      return { ...appState, sidebarState: appStateActions.SIDEBAR_STATE_LARGE_PREVIEW }
-    }
     case appStateActions.CHANGE_SIDEBAR_STATE: {
       return { ...appState, sidebarState: action.data }
     }
