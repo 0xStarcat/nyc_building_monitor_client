@@ -16,7 +16,7 @@ const ViolationRow = props => {
   return (
     <SwitchViewButton
       action={selectViolation}
-      className="info-row row-box violation-row"
+      className="row-box violation-row"
       scopeSwitch={SCOPE_VIOLATIONS}
       viewSwitch={SIDEBAR_VIEW_SELECTED_OBJECT}
     >

@@ -23,7 +23,7 @@ const ServiceCallRow = props => {
   return (
     <SwitchViewButton
       action={selectServiceCall}
-      className="info-row row-box service-call-row"
+      className="row-box service-call-row"
       scopeSwitch={SCOPE_SERVICE_CALLS}
       viewSwitch={SIDEBAR_VIEW_SELECTED_OBJECT}
     >
