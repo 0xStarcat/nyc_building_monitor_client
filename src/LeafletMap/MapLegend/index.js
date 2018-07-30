@@ -25,9 +25,7 @@ export default class MapLegend extends React.Component {
     return (
       <div className={classNames('map-legend', { 'open-legend': this.state.open })}>
         <div className="legend-button highlight-button-left" onClick={this.toggleLegend}>
-          <i>
-            <RightArrow className={classNames({ 'svg-flip': !this.state.open })} />
-          </i>
+          <RightArrow className={classNames({ 'svg-flip': !this.state.open })} />
         </div>
         {this.state.open && (
           <div className="legend-wrapper">
