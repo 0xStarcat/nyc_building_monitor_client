@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
 const SwitchLayerButton = props => {
@@ -6,7 +7,7 @@ const SwitchLayerButton = props => {
     props.action(props.layer)
   }
   return (
-    <div className={`button layer-menu-button ${props.className}`} onClick={switchLayer}>
+    <div className={classNames('button', 'layer-menu-button', props.className)} onClick={switchLayer}>
       {props.children}
     </div>
   )

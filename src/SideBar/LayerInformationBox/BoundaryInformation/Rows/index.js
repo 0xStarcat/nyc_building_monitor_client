@@ -1,5 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import classNames from 'classnames'
+
 import IconRow from '../../../SharedComponents/IconRow'
 
 import {
@@ -17,7 +18,7 @@ import {
 
 export const IncomeRow = props => {
   return (
-    <IconRow className={`${props.className ? props.className : ''}`} icon={IncomeIcon}>
+    <IconRow className={classNames(props.className)} icon={IncomeIcon}>
       The median income in 2017 was <span>${props.value}</span>
     </IconRow>
   )
@@ -25,7 +26,7 @@ export const IncomeRow = props => {
 
 export const RentRow = props => {
   return (
-    <IconRow className={`${props.className ? props.className : ''}`} icon={RentIcon}>
+    <IconRow className={classNames(props.className)} icon={RentIcon}>
       The median rent in 2017 was <span>${props.value}</span>
     </IconRow>
   )
@@ -33,7 +34,7 @@ export const RentRow = props => {
 
 export const RaceRow = props => {
   return (
-    <IconRow className={`${props.className ? props.className : ''}`} icon={PopulationIcon}>
+    <IconRow className={classNames(props.className)} icon={PopulationIcon}>
       The population in 2010 was <span>{props.value}%</span> white.
     </IconRow>
   )
@@ -41,7 +42,7 @@ export const RaceRow = props => {
 
 export const TotalBuildingsRow = props => {
   return (
-    <IconRow className={`${props.className ? props.className : ''}`} icon={BuildingIcon}>
+    <IconRow className={classNames(props.className)} icon={BuildingIcon}>
       There are <span>{props.value1}</span> buildings and <span>{props.value2}</span> residential buildings in this
       area.{' '}
     </IconRow>
@@ -50,7 +51,7 @@ export const TotalBuildingsRow = props => {
 
 export const RentChangeRow = props => {
   return (
-    <IconRow className={`${props.className ? props.className : ''}`} icon={RentChangeIcon}>
+    <IconRow className={classNames(props.className)} icon={RentChangeIcon}>
       The rent changed by <span>${props.value}</span>
     </IconRow>
   )
@@ -58,7 +59,7 @@ export const RentChangeRow = props => {
 
 export const TotalViolationsRow = props => {
   return (
-    <IconRow className={`${props.className ? props.className : ''}`} icon={ViolationIcon}>
+    <IconRow className={classNames(props.className)} icon={ViolationIcon}>
       There are <span>{props.value} total violations.</span>
     </IconRow>
   )
@@ -66,7 +67,7 @@ export const TotalViolationsRow = props => {
 
 export const ViolationsPerBuildingRow = props => {
   return (
-    <IconRow className={`${props.className ? props.className : ''}`} icon={ViolationPerBuildingIcon}>
+    <IconRow className={classNames(props.className)} icon={ViolationPerBuildingIcon}>
       There are <span>{props.value} violations per building.</span>
     </IconRow>
   )
@@ -74,7 +75,7 @@ export const ViolationsPerBuildingRow = props => {
 
 export const TotalServiceCallsRow = props => {
   return (
-    <IconRow className={`${props.className ? props.className : ''}`} icon={ServiceCallIcon}>
+    <IconRow className={classNames(props.className)} icon={ServiceCallIcon}>
       There are <span>{props.value} total 311-calls.</span>
     </IconRow>
   )
@@ -82,7 +83,7 @@ export const TotalServiceCallsRow = props => {
 
 export const TimeToResolveCallsRow = props => {
   return (
-    <IconRow className={`${props.className ? props.className : ''}`} icon={TimeToResolveCallsIcon}>
+    <IconRow className={classNames(props.className)} icon={TimeToResolveCallsIcon}>
       It takes an average of {props.value} days for the city to resolve 311-calls here.{' '}
     </IconRow>
   )
@@ -90,7 +91,7 @@ export const TimeToResolveCallsRow = props => {
 
 export const ServiceCallsOpenRow = props => {
   return (
-    <IconRow className={`${props.className ? props.className : ''}`} icon={ServiceCallOpenIcon}>
+    <IconRow className={classNames(props.className)} icon={ServiceCallOpenIcon}>
       {props.value}% of current 311-calls have been open over 1 month.
     </IconRow>
   )

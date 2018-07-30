@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import SwitchViewButton from '../../../SharedComponents/SwitchViewButton'
 import ActionCard from '../../../SharedComponents/ActionCard'
 import { SCOPE_SERVICE_CALLS, SIDEBAR_VIEW_SELECTED_OBJECT } from '../../../../Store/AppState/actions'
 import { updateSelectedServiceCall } from '../../../../Store/ServiceCalls/actions'
 import { convertTimestampToData, fillEmptyString } from '../../utils/informationUtils.js'
-import { InfoIcon, OpenIcon } from '../../../../SharedStyles/icons'
+
 import './style.scss'
 
 const ServiceCallRow = props => {
@@ -20,7 +21,7 @@ const ServiceCallRow = props => {
   }
 
   const resolutionResolved = properties => {
-    if (properties.resolutionViolation) return tr
+    if (properties.resolutionViolation) return ''
     if (properties.resolutionNoAction) return properties.resolutionNoAction
     if (properties.resolutionUnableToInvestigate) return properties.resolutionUnableToInvestigate
     if (properties.status.toLowerCase() === 'open') return properties.status
@@ -32,7 +33,7 @@ const ServiceCallRow = props => {
       scopeSwitch={SCOPE_SERVICE_CALLS}
       viewSwitch={SIDEBAR_VIEW_SELECTED_OBJECT}
     >
-      <ActionCard className={`${props.className ? props.className : ''}`}>
+      <ActionCard className={classNames(props.className)}>
         <div className="table-row">
           <div className="table-cell col0">
             <div>{props.index + 1}</div>

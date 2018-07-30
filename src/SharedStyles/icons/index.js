@@ -1,6 +1,7 @@
 // http://svgicons.sparkk.fr/
 
 import React from 'react'
+import classNames from 'classnames'
 
 export const IncomeIcon = () => {
   return (
@@ -18,7 +19,7 @@ export const IncomeIcon = () => {
 
 export const RightArrow = props => {
   return (
-    <svg className={`svg-icon ${props ? props.className : ''}`} viewBox="0 0 20 20">
+    <svg className={classNames('svg-icon', props.className)} viewBox="0 0 20 20">
       <path
         className="svg-icon-primary-color"
         width="100%"
@@ -33,7 +34,7 @@ export const RightArrow = props => {
 
 export const LeftArrow = props => {
   return (
-    <svg className={`svg-icon ${props ? props.className : ''}`} viewBox="0 0 20 20">
+    <svg className={classNames('svg-icon', props.className)} viewBox="0 0 20 20">
       <path
         className="svg-icon-primary-color"
         fill="none"

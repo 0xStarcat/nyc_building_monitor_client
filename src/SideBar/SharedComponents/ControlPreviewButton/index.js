@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import classNames from 'classnames'
 import DispatchActionButton from '../../SharedComponents/DispatchActionButton'
 import { RightArrow } from '../../../SharedStyles/icons'
 
@@ -12,10 +12,12 @@ const ControlPreviewButton = props => {
   return (
     <DispatchActionButton
       action={previewSidebar}
-      className={`control-hide-button control-button ${props.className}`}
+      className={classNames('preview-button', 'control-button', props.className)}
       disabled={disabled}
     >
-      <div className={`control-icon-container round button-border-bottom ${disabled ? 'hidden-svg' : ''}`}>
+      <div
+        className={classNames('control-icon-container', 'round', 'button-border-bottom', { 'hidden-svg': disabled })}
+      >
         <RightArrow className="svg-rotate-right" />
       </div>
     </DispatchActionButton>

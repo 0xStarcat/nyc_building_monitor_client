@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import SwitchViewButton from '../../../SharedComponents/SwitchViewButton'
 import ActionCard from '../../../SharedComponents/ActionCard'
@@ -21,7 +22,7 @@ const ViolationRow = props => {
       scopeSwitch={SCOPE_VIOLATIONS}
       viewSwitch={SIDEBAR_VIEW_SELECTED_OBJECT}
     >
-      <ActionCard className={`${props.className ? props.className : ''}`}>
+      <ActionCard className={classNames(props.className)}>
         <div className="table-row">
           <div className="table-cell col0">
             <div>{props.index + 1}</div>

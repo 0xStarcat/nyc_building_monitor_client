@@ -54,7 +54,7 @@ const BoundaryInformation = props => {
   if (!props.selectedObject) return null
   if (props.sidebarState === SIDEBAR_STATE_PREVIEW) {
     return (
-      <article className="boundary-information menu-section">
+      <article className="boundary-information">
         <div className="preview-section">{getPreviewRow(props)}</div>
       </article>
     )

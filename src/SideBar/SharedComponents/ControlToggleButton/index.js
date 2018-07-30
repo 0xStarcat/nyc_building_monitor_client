@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
+
 import DispatchActionButton from '../../SharedComponents/DispatchActionButton'
 import IconProfile from '../../SharedComponents/IconProfile'
 import { LeftArrow, RightArrow } from '../../../SharedStyles/icons'
@@ -40,7 +42,7 @@ export default class ControlToggleButton extends React.Component {
     return (
       <DispatchActionButton
         action={this.buttonAction()}
-        className={`toggle-button-container toggle-button ${this.buttonClassName()}`}
+        className={classNames('toggle-button-container', 'toggle-button', this.buttonClassName())}
       >
         {this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ? <LeftArrow /> : <RightArrow />}
       </DispatchActionButton>

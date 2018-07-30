@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import SwitchLayerButton from '../SharedComponents/SwitchLayerButton'
 import ButtonRow from '../../SharedComponents/ButtonRow'
@@ -45,7 +46,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
         <ButtonRow>
           <SwitchLayerButton
             action={this.switchLayer}
-            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            className={classNames({ 'round hover-shadow': this.props.landscapeOrientation })}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_BOUNDARY_BLANK}
           >
@@ -53,7 +54,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
-            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            className={classNames({ 'round hover-shadow': this.props.landscapeOrientation })}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_BOUNDARY_MEDIAN_INCOME}
           >
@@ -61,7 +62,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
-            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            className={classNames({ 'round hover-shadow': this.props.landscapeOrientation })}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_BOUNDARY_MEDIAN_RENT}
           >
@@ -69,7 +70,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
-            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            className={classNames({ 'round hover-shadow': this.props.landscapeOrientation })}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_BOUNDARY_MEDIAN_RENT_CHANGE}
           >
@@ -77,7 +78,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
-            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            className={classNames({ 'round hover-shadow': this.props.landscapeOrientation })}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_BOUNDARY_WHITE_POPULATION}
           >
@@ -85,7 +86,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
-            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            className={classNames({ 'round hover-shadow': this.props.landscapeOrientation })}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_BOUNDARY_OPEN_311}
           >
@@ -93,7 +94,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
-            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            className={classNames({ 'round hover-shadow': this.props.landscapeOrientation })}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_BOUNDARY_AVERAGE_RESPONSE_311}
           >
@@ -106,5 +107,6 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
 }
 
 SidebarBoundaryDetailButtons.propTypes = {
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  landscapeOrientation: PropTypes.bool
 }

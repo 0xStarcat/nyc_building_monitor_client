@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SwitchLayerButton from '../SharedComponents/SwitchLayerButton'
-import ButtonRow from '../../SharedComponents/ButtonRow'
-import IconProfile from '../SharedComponents/IconProfile'
+import classNames from 'classnames'
 import IconHeader from '../SharedComponents/IconHeader'
 
 import SidebarBoundaryScopeButtons from '../SidebarBoundaryScopeButtons'
@@ -33,20 +31,35 @@ export default class SidebarLayerMenu extends React.Component {
   render() {
     return (
       <div
-        className={`sidebar-layer-menu sidebar-wrapper ${
-          this.props.landscapeOrientation ? 'content-box headerless-scroll-container' : ''
-        }`}
+        className={classNames('sidebar-layer-menu', 'sidebar-wrapper', {
+          'content-box headerless-scroll-container': this.props.landscapeOrientation
+        })}
       >
-        <div className={`${this.props.landscapeOrientation ? 'menu-section' : 'condensed-menu-section'}`}>
+        <div
+          className={classNames(
+            { 'menu-section': this.props.landscapeOrientation },
+            { 'condensed-menu-section': this.props.landscapeOrientation }
+          )}
+        >
           {this.props.landscapeOrientation && <IconHeader icon={RegionIcon}>Regions</IconHeader>}
           <SidebarBoundaryScopeButtons dispatch={this.props.dispatch} />
         </div>
-        <div className={`${this.props.landscapeOrientation ? 'menu-section' : 'condensed-menu-section'}`}>
+        <div
+          className={classNames(
+            { 'menu-section': this.props.landscapeOrientation },
+            { 'condensed-menu-section': this.props.landscapeOrientation }
+          )}
+        >
           {this.props.landscapeOrientation && <IconHeader icon={BoundaryLayersIcon}>Region Details</IconHeader>}
           <SidebarBoundaryDetailButtons dispatch={this.props.dispatch} />
         </div>
         {this.props.buildingsPresent && (
-          <div className={`${this.props.landscapeOrientation ? 'menu-section' : 'condensed-menu-section'}`}>
+          <div
+            className={classNames(
+              { 'menu-section': this.props.landscapeOrientation },
+              { 'condensed-menu-section': this.props.landscapeOrientation }
+            )}
+          >
             {this.props.landscapeOrientation && <IconHeader icon={BuildingExploreIcon}>Building Details</IconHeader>}
             <SidebarBuildingDetailButtons dispatch={this.props.dispatch} />
           </div>

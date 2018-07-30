@@ -1,11 +1,13 @@
 import React from 'react'
+import classNames from 'classnames'
+
 import PropTypes from 'prop-types'
 
 import './style.scss'
 
 const IconRow = props => {
   return (
-    <div className={`icon-row ${props.className}`}>
+    <div className={classNames('icon-row', props.className)}>
       <i>{props.icon()}</i>
       <p>{props.children}</p>
     </div>

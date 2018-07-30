@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import './style.scss'
 
 const ButtonRow = props => {
-  return <div className={`button-row ${props.className ? props.className : ''}`}>{props.children}</div>
+  return <div className={classNames('button-row', props.className)}>{props.children}</div>
 }
 
-ButtonRow.propTypes = {}
+ButtonRow.propTypes = {
+  className: PropTypes.string
+}
 
 export default ButtonRow

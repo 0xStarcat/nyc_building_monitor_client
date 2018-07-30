@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import classNames from 'classnames'
 
 import PropTypes from 'prop-types'
 import {
@@ -103,13 +104,13 @@ export const ControlBackButton = props => {
 
   return (
     <SwitchViewButton
-      className={`back-button control-button ${disabled ? 'disabled-button' : ''} ${props.className}`}
+      className={classNames('back-button', 'control-button', { 'disabled-button': disabled }, props.className)}
       disabled={disabled}
       stateSwitch={getBackState()}
       scopeSwitch={getBackScope()}
       viewSwitch={getBackView()}
     >
-      <div className={`control-icon-container round button-border-left ${disabled ? 'hidden-svg' : ''}`}>
+      <div className={classNames('control-icon-container', 'round', 'button-border-left', { 'hidden-svg': disabled })}>
         <RightArrow className="svg-flip" />
       </div>
       <div className="button-label left-label">{disabled ? '' : getBackText()}</div>
@@ -119,6 +120,7 @@ export const ControlBackButton = props => {
 
 ControlBackButton.propTypes = {
   appState: PropTypes.object,
+  className: PropTypes.string,
   buildingsPresent: PropTypes.bool,
   selectedNeighborhood: PropTypes.object,
   selectedCensusTract: PropTypes.object,

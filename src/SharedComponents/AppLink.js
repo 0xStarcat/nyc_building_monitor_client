@@ -1,4 +1,6 @@
 import React from 'react'
+import classNames from 'classnames'
+
 import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
@@ -10,7 +12,7 @@ class AppLink extends React.Component {
 
   render() {
     return (
-      <Link className={`link-element ${this.props.className || ''}`} to={this.props.href}>
+      <Link className={classNames('link-element', this.props.className)} to={this.props.href}>
         {this.props.children}
       </Link>
     )

@@ -1,11 +1,12 @@
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
 import './style.scss'
 
 const IconProfile = props => {
   return (
-    <div className={`icon-profile ${props.className ? props.className : ''}`}>
+    <div className={classNames('icon-profile', props.className)}>
       <i>{props.icon()}</i>
       <label>{props.label}</label>
     </div>

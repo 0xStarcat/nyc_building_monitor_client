@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
@@ -11,7 +12,7 @@ export class SwitchViewButton extends React.Component {
     this.onClick = this.onClick.bind(this)
   }
 
-  onClick(event) {
+  onClick() {
     if (this.props.disabled) return null
     if (this.props.action) this.props.action()
     if (this.props.scopeSwitch) this.props.dispatch(changeSidebarScope(this.props.scopeSwitch))
@@ -21,7 +22,7 @@ export class SwitchViewButton extends React.Component {
 
   render() {
     return (
-      <div className={`button switch-view-button ${this.props.className}`} onClick={this.onClick}>
+      <div className={classNames('button', 'switch-view-button', this.props.className)} onClick={this.onClick}>
         {this.props.children}
       </div>
     )

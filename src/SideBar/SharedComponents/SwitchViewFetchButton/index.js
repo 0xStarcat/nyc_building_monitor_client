@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
@@ -13,7 +14,7 @@ export class SwitchViewFetchButton extends React.Component {
     this.onClick = this.onClick.bind(this)
   }
 
-  onClick(event) {
+  onClick() {
     this.props.dispatch(this.props.action())
     this.props.dispatch(changeSidebarScope(this.props.scopeSwitch))
     this.props.dispatch(changeSidebarView(this.props.viewSwitch))
@@ -21,7 +22,7 @@ export class SwitchViewFetchButton extends React.Component {
 
   render() {
     return (
-      <div className={`switch-view-fetch-button button ${this.props.className}`} onClick={this.onClick}>
+      <div className={classNames('button', 'switch-view-fetch-button', this.props.className)} onClick={this.onClick}>
         {this.props.children}
       </div>
     )

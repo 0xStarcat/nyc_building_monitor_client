@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 const DispatchActionButton = props => {
   const onClick = () => {
@@ -8,7 +9,7 @@ const DispatchActionButton = props => {
     props.dispatch(props.action(props.actionArguments))
   }
   return (
-    <div className={`button ${props.className}`} onClick={onClick}>
+    <div className={classNames('button', props.className)} onClick={onClick}>
       {props.children}
     </div>
   )
