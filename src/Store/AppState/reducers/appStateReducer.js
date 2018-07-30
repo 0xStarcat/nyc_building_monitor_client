@@ -7,8 +7,9 @@ export const initialState = {
   buildingBaseLayer: appStateActions.BASE_LAYER_BUILDING_CATEGORIES,
   informationContentCode: '',
   landscapeOrientation: window.matchMedia('(orientation: landscape)').matches,
+  legendScope: appStateActions.SCOPE_CENSUS_TRACTS,
   selectedLayer: null,
-  sidebarScope: null,
+  sidebarScope: appStateActions.SCOPE_CENSUS_TRACTS,
   sidebarState: appStateActions.SIDEBAR_STATE_INACTIVE,
   sidebarView: appStateActions.SIDEBAR_VIEW_MAP_DETAILS_MENU
 }
@@ -50,6 +51,12 @@ export const appStateReducer = (appState = Object.freeze(initialState), action =
     }
     case appStateActions.CHANGE_INFORMATION_CONTENT_CODE: {
       return { ...appState, informationContentCode: action.data }
+    }
+    case appStateActions.SET_LEGEND_SCOPE_BOUNDARIES: {
+      return { ...appState, legendScopeBoundaries: true }
+    }
+    case appStateActions.SET_LEGEND_SCOPE_BUILDINGS: {
+      return { ...appState, legendScopeBoundaries: false }
     }
 
     default:

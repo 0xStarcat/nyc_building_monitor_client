@@ -8,6 +8,7 @@ import IconHeader from '../SharedComponents/IconHeader'
 import ButtonRow from '../../SharedComponents/ButtonRow'
 
 import {
+  setLegendScopeBuildings,
   changeBuildingBaseLayer,
   BASE_LAYER_BUILDING_CATEGORIES,
   BASE_LAYER_BUILDING_TOTAL_VIOLATIONS,
@@ -31,6 +32,7 @@ export default class SidebarBuildingDetailButtons extends React.Component {
   }
 
   switchLayer(layer) {
+    this.props.dispatch(setLegendScopeBuildings())
     this.props.dispatch(changeBuildingBaseLayer(layer))
   }
 

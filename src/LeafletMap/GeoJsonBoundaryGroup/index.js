@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { GeoJSON, LayerGroup, Pane } from 'react-leaflet'
-import CensusTractPopup from '../Popups/CensusTractPopup'
-import { createSelector } from 'reselect'
 import {
+  setLegendScopeBuildings,
   changeSidebarScope,
   changeSidebarView,
   SCOPE_NEIGHBORHOODS,
@@ -15,7 +14,6 @@ import {
 
 import { selectNewSelectedCTObject } from '../../Store/CensusTracts/actions'
 import { selectNewSelectedNeighborhoodObject } from '../../Store/Neighborhoods/actions'
-import { clearBuildings } from '../../Store/Buildings/actions'
 
 import { readBuildingsByScope } from '../../Store/Buildings/actions'
 
@@ -49,6 +47,7 @@ export class GeoJsonBoundaryGroup extends Component {
       layerProperties.representativePoint,
       this.props.scope === SCOPE_NEIGHBORHOODS ? 14 : 15
     )
+    this.props.dispatch(setLegendScopeBuildings())
     this.props.dispatch(changeSidebarScope(this.props.scope))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
     this.props.dispatch(this.props.sidebarAction())

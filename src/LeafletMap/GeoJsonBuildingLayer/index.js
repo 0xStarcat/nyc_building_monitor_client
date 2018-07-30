@@ -6,12 +6,10 @@ import { clearViolations } from '../../Store/Violations/actions'
 import { clearServiceCalls } from '../../Store/ServiceCalls/actions'
 
 import { GeoJSON, LayerGroup, Pane } from 'react-leaflet'
-import CensusTractPopup from '../Popups/CensusTractPopup'
-import { createSelector } from 'reselect'
 import {
+  setLegendScopeBuildings,
   changeSidebarScope,
   changeSidebarView,
-  previewSidebar,
   SCOPE_BUILDINGS,
   SIDEBAR_VIEW_SELECTED_OBJECT
 } from '../../Store/AppState/actions'
@@ -39,6 +37,7 @@ export class GeoJsonBuildingLayer extends Component {
 
   onClick(event) {
     this.props.setViewCoordinates(event.target.feature.properties.representativePoint, 17)
+    this.props.dispatch(setLegendScopeBuildings())
     this.props.dispatch(updateSelectedBuildingObject(event.target.feature.properties))
     this.props.dispatch(changeSidebarScope(SCOPE_BUILDINGS))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))

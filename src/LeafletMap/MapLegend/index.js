@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import { RightArrow } from '../../SharedStyles/icons'
+import { getLegendContent, getLegendTitle } from './utils/legendUtils'
+import { SCOPE_BUILDINGS, SCOPE_NEIGHBORHOODS, SCOPE_CENSUS_TRACTS } from '../../Store/AppState/actions'
 
 import './style.scss'
 
@@ -10,15 +12,21 @@ export default class MapLegend extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      open: true
+      open: false
     }
     this.toggleLegend = this.toggleLegend.bind(this)
+    this.getScope = this.getScope.bind(this)
   }
 
   toggleLegend() {
     this.setState({
       open: !this.state.open
     })
+  }
+
+  getScope() {
+    if (this.props.buildingsPresent && this.props.legendScopeBoundaries) return this.props.buildingBaseLayer
+    else return this.props.baseLayer
   }
 
   render() {
@@ -29,51 +37,8 @@ export default class MapLegend extends React.Component {
         </div>
         {this.state.open && (
           <div className="legend-wrapper">
-            <div className="legend-content">
-              <div className="legend-scale-column">
-                <div className="legend-group">
-                  <span className="scale-marker" />
-                  <label className="scale-label">1</label>
-                </div>
-                <div className="legend-group">
-                  <span className="scale-marker" />
-                  <label className="scale-label">10</label>
-                </div>
-                <div className="legend-group">
-                  <span className="scale-marker" />
-                  <label className="scale-label">100</label>
-                </div>
-                <div className="legend-group">
-                  <span className="scale-marker" />
-                  <label className="scale-label">1000</label>
-                </div>
-                <div className="legend-group">
-                  <span className="scale-marker" />
-                  <label className="scale-label">10000</label>
-                </div>
-                <div className="legend-group">
-                  <span className="scale-marker" />
-                  <label className="scale-label">100000</label>
-                </div>
-                <div className="legend-group">
-                  <span className="scale-marker" />
-                  <label className="scale-label">1000000</label>
-                </div>
-                <div className="legend-group">
-                  <span className="scale-marker" />
-                  <label className="scale-label">10000000</label>
-                </div>
-                <div className="legend-group">
-                  <span className="scale-marker" />
-                  <label className="scale-label">1000</label>
-                </div>
-                <div className="legend-group">
-                  <span className="scale-marker" />
-                  <label className="scale-label">1000</label>
-                </div>
-              </div>
-            </div>
-            <div className="legend-title">Title!</div>
+            <div className="legend-content">{getLegendContent(this.getScope())}</div>
+            <div className="legend-title">{getLegendTitle(this.getScope())}</div>
           </div>
         )}
       </div>
@@ -83,7 +48,7 @@ export default class MapLegend extends React.Component {
 
 MapLegend.propTypes = {
   baseLayer: PropTypes.string,
-  baseLayerScope: PropTypes.string,
+  buildingsPresent: PropTypes.bool,
   buildingBaseLayer: PropTypes.string,
-  sidebarScope: PropTypes.string
+  legendScopeBoundaries: PropTypes.bool
 }

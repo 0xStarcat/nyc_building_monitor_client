@@ -7,6 +7,7 @@ import IconProfile from '../SharedComponents/IconProfile'
 
 import {
   changeBaseLayer,
+  setLegendScopeBoundaries,
   switchScopeWithFetch,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
@@ -37,6 +38,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
   }
 
   switchLayer(layer) {
+    this.props.dispatch(setLegendScopeBoundaries())
     this.props.dispatch(changeBaseLayer(layer))
   }
 

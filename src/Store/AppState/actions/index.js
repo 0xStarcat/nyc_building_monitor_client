@@ -14,6 +14,8 @@ export const CHANGE_SIDEBAR_VIEW = 'CHANGE_SIDEBAR_VIEW'
 export const CHANGE_BASE_LAYER = 'CHANGE_BASE_LAYER'
 export const CHANGE_BUILDING_BASE_LAYER = 'CHANGE_BUILDING_BASE_LAYER'
 export const CHANGE_INFORMATION_CONTENT_CODE = 'CHANGE_INFORMATION_CONTENT_CODE'
+export const SET_LEGEND_SCOPE_BOUNDARIES = 'SET_LEGEND_SCOPE_BOUNDARIES'
+export const SET_LEGEND_SCOPE_BUILDINGS = 'SET_LEGEND_SCOPE_BUILDINGS'
 
 // Sidebar States
 export const SIDEBAR_STATE_INACTIVE = 'SIDEBAR_STATE_INACTIVE'
@@ -98,6 +100,16 @@ export const changeBuildingBaseLayer = event => ({
 
 export const changeInformationContentCode = event => ({
   type: CHANGE_INFORMATION_CONTENT_CODE,
+  data: event
+})
+
+export const setLegendScopeBoundaries = event => ({
+  type: SET_LEGEND_SCOPE_BUILDINGS,
+  data: event
+})
+
+export const setLegendScopeBuildings = event => ({
+  type: SET_LEGEND_SCOPE_BOUNDARIES,
   data: event
 })
 
