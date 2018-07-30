@@ -37,7 +37,9 @@ export default class MapLegend extends React.Component {
         </div>
         {this.state.open && (
           <div className="legend-wrapper">
-            <div className="legend-content">{getLegendContent(this.getScope())}</div>
+            <div className="legend-content">
+              <div className="legend-scale-column">{getLegendContent(this.getScope())}</div>
+            </div>
             <div className="legend-title">{getLegendTitle(this.getScope())}</div>
           </div>
         )}

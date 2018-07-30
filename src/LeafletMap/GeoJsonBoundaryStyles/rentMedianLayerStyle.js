@@ -7,7 +7,7 @@ const rentMedianLayerStyle = feature => {
       fillOpacity: 0.3,
       weight: 2
     }
-  } else if (feature.properties.rentMedian2017 >= 2000) {
+  } else if (feature.properties.rentMedian2017 >= 2800) {
     return {
       color: 'white',
       fillColor: '#005a32',
@@ -15,7 +15,7 @@ const rentMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 2
     }
-  } else if (feature.properties.rentMedian2017 >= 1800) {
+  } else if (feature.properties.rentMedian2017 >= 2400) {
     return {
       color: 'white',
       fillColor: '#238b45',
@@ -23,7 +23,7 @@ const rentMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 2
     }
-  } else if (feature.properties.rentMedian2017 >= 1600) {
+  } else if (feature.properties.rentMedian2017 >= 2000) {
     return {
       color: 'white',
       fillColor: '#41ab5d',
@@ -31,7 +31,7 @@ const rentMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 2
     }
-  } else if (feature.properties.rentMedian2017 >= 1400) {
+  } else if (feature.properties.rentMedian2017 >= 1600) {
     return {
       color: 'white',
       fillColor: '#74c476',
@@ -47,7 +47,7 @@ const rentMedianLayerStyle = feature => {
       fillOpacity: 0.7,
       weight: 2
     }
-  } else if (feature.properties.rentMedian2017 >= 1000) {
+  } else if (feature.properties.rentMedian2017 >= 800) {
     return {
       color: 'white',
       fillColor: '#c7e9c0',

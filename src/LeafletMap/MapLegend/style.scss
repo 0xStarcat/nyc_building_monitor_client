@@ -37,9 +37,11 @@ $legend-icon-size: 20px;
 }
 
 .legend-title {
-  height: 20px;
+  height: 40px;
   flex-shrink: 0;
   flex-grow: 0;
+  font-size: 12px;
+  text-align: center;
 }
 
 .legend-content {
@@ -75,6 +77,7 @@ $legend-icon-size: 20px;
 .scale-label {
   flex-grow: 0;
   flex-shrink: 0;
+  font-size: 13px;
   text-align: right;
   whitespace: nowrap;
   width: calc(100% - #{$legend-icon-size});
