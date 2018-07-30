@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import { GeoJSON, LayerGroup, Pane } from 'react-leaflet'
 import {
+  openLegend,
   setLegendScopeBuildings,
   changeSidebarScope,
   changeSidebarView,
@@ -48,6 +49,7 @@ export class GeoJsonBoundaryGroup extends Component {
       this.props.scope === SCOPE_NEIGHBORHOODS ? 14 : 15
     )
     this.props.dispatch(setLegendScopeBuildings())
+    this.props.dispatch(openLegend())
     this.props.dispatch(changeSidebarScope(this.props.scope))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
     this.props.dispatch(this.props.sidebarAction())

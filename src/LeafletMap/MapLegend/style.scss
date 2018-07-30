@@ -1,7 +1,7 @@
 @import '../../SharedStyles/index.scss';
 $legend-height: 260px;
 $legend-width: 140px;
-$legend-width-mobile: 140px;
+$legend-width-mobile: 100px;
 $legend-icon-size: 20px;
 
 .map-legend {
@@ -146,5 +146,9 @@ div.open-legend {
   .map-legend {
     top: 80px;
     right: 12px;
+  }
+
+  div.open-legend {
+    width: $legend-width-mobile;
   }
 }
