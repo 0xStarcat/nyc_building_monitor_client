@@ -15,9 +15,9 @@ describe('SidebarBuildingDetailButtons', () => {
   })
 
   describe('#switchLayer', () => {
-    it('calls dispatch once', () => {
+    it('calls dispatch thrice', () => {
       wrapper.instance().switchLayer()
-      expect(dispatch.calledOnce).toEqual(true)
+      expect(dispatch.calledThrice).toEqual(true)
     })
   })
 })

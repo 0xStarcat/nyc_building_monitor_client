@@ -46,11 +46,11 @@ describe('GeoJsonBoundaryGroup', () => {
   describe('onClick', () => {
     const wrapper = shallow(<GeoJsonBoundaryGroup {...props} />)
 
-    it('calls dispatch 4 times, setViewcoordinates, and sidebarAction', () => {
+    it('calls dispatch 6 times, setViewcoordinates, and sidebarAction', () => {
       const event = { target: { feature: { properties: { representativePoint: [0, 0] } } } }
       wrapper.instance().onClick(event)
 
-      expect(dispatch.callCount).toEqual(4)
+      expect(dispatch.callCount).toEqual(6)
       expect(setViewCoordinates.calledOnce).toEqual(true)
       expect(getSelectedObjectId.calledOnce).toEqual(true)
       expect(sidebarAction.calledOnce).toEqual(true)
