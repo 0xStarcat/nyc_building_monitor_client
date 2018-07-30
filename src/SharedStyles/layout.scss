@@ -30,9 +30,15 @@ article {
   padding-bottom: $small-spacing;
 }
 
+@media screen and (orientation: portrait) {
+  .menu-section {
+    padding-top: $tiny-spacing;
+    padding-bottom: $tiny-spacing;
+  }
+}
+
 .condensed-menu-section {
   box-shadow: 0 2px 4px 0 gray;
-  margin-top: $tiny-spacing;
   padding: 0 $tiny-spacing;
 }
 

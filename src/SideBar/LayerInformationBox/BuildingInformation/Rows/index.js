@@ -17,7 +17,7 @@ export const BuildingClassRow = props => {
     <IconRow className={props.className} icon={BuildingClassIcon}>
       This building class is:{' '}
       <span>
-        {props.value} which is labeled as:{' '}
+        {props.value} which is a:{' '}
         <span className="building-class-description">{convertBuildingCodeToDescription(props.value)}</span>
       </span>
     </IconRow>

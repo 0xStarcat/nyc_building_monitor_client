@@ -1,8 +1,8 @@
 @import '../../../SharedStyles/index.scss';
 
 .preview-section {
-  padding: 0 $small-spacing;
-  margin: $small-spacing 0;
+  padding: $small-spacing;
+  box-shadow: 0 2px 4px 0 gray;
   overflow: hidden;
   * {
     padding: 0;

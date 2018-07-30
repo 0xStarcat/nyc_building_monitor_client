@@ -31,8 +31,9 @@
 }
 
 @media screen and (orientation: portrait) {
-  .headerBar {
+  div.headerBar {
     height: $infoHeaderHeightMobile;
+    margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: $tiny-spacing;
