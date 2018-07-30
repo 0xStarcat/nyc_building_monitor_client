@@ -30,49 +30,52 @@ export default class MapLegend extends React.Component {
           </i>
         </div>
         {this.state.open && (
-          <div className="legend-content">
-            <div className="legend-scale-column">
-              <div className="legend-group">
-                <span className="scale-marker" />
-                <label className="scale-label">1</label>
-              </div>
-              <div className="legend-group">
-                <span className="scale-marker" />
-                <label className="scale-label">10</label>
-              </div>
-              <div className="legend-group">
-                <span className="scale-marker" />
-                <label className="scale-label">100</label>
-              </div>
-              <div className="legend-group">
-                <span className="scale-marker" />
-                <label className="scale-label">1000</label>
-              </div>
-              <div className="legend-group">
-                <span className="scale-marker" />
-                <label className="scale-label">10000</label>
-              </div>
-              <div className="legend-group">
-                <span className="scale-marker" />
-                <label className="scale-label">100000</label>
-              </div>
-              <div className="legend-group">
-                <span className="scale-marker" />
-                <label className="scale-label">1000000</label>
-              </div>
-              <div className="legend-group">
-                <span className="scale-marker" />
-                <label className="scale-label">10000000</label>
-              </div>
-              <div className="legend-group">
-                <span className="scale-marker" />
-                <label className="scale-label">1000</label>
-              </div>
-              <div className="legend-group">
-                <span className="scale-marker" />
-                <label className="scale-label">1000</label>
+          <div className="legend-wrapper">
+            <div className="legend-content">
+              <div className="legend-scale-column">
+                <div className="legend-group">
+                  <span className="scale-marker" />
+                  <label className="scale-label">1</label>
+                </div>
+                <div className="legend-group">
+                  <span className="scale-marker" />
+                  <label className="scale-label">10</label>
+                </div>
+                <div className="legend-group">
+                  <span className="scale-marker" />
+                  <label className="scale-label">100</label>
+                </div>
+                <div className="legend-group">
+                  <span className="scale-marker" />
+                  <label className="scale-label">1000</label>
+                </div>
+                <div className="legend-group">
+                  <span className="scale-marker" />
+                  <label className="scale-label">10000</label>
+                </div>
+                <div className="legend-group">
+                  <span className="scale-marker" />
+                  <label className="scale-label">100000</label>
+                </div>
+                <div className="legend-group">
+                  <span className="scale-marker" />
+                  <label className="scale-label">1000000</label>
+                </div>
+                <div className="legend-group">
+                  <span className="scale-marker" />
+                  <label className="scale-label">10000000</label>
+                </div>
+                <div className="legend-group">
+                  <span className="scale-marker" />
+                  <label className="scale-label">1000</label>
+                </div>
+                <div className="legend-group">
+                  <span className="scale-marker" />
+                  <label className="scale-label">1000</label>
+                </div>
               </div>
             </div>
+            <div className="legend-title">Title!</div>
           </div>
         )}
       </div>

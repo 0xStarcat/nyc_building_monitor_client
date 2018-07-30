@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import SwitchLayerButton from '../SharedComponents/SwitchLayerButton'
 import IconProfile from '../SharedComponents/IconProfile'
 import IconHeader from '../SharedComponents/IconHeader'
@@ -17,7 +18,6 @@ import {
 import {
   BuildingIcon,
   ViolationIcon,
-  ServiceCallIcon,
   BuildingLayerIcon,
   ServiceCallOpenIcon,
   ResponseTimeIcon
