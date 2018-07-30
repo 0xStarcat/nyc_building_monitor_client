@@ -5,7 +5,7 @@ const rentMedianLayerStyle = feature => {
       fillColor: '#ffdba5',
       opacity: 1,
       fillOpacity: 0.3,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentMedian2017 >= 2000) {
     return {
@@ -13,7 +13,7 @@ const rentMedianLayerStyle = feature => {
       fillColor: '#005a32',
       opacity: 0.5,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentMedian2017 >= 1800) {
     return {
@@ -21,7 +21,7 @@ const rentMedianLayerStyle = feature => {
       fillColor: '#238b45',
       opacity: 0.5,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentMedian2017 >= 1600) {
     return {
@@ -29,7 +29,7 @@ const rentMedianLayerStyle = feature => {
       fillColor: '#41ab5d',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentMedian2017 >= 1400) {
     return {
@@ -37,7 +37,7 @@ const rentMedianLayerStyle = feature => {
       fillColor: '#74c476',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentMedian2017 >= 1200) {
     return {
@@ -45,7 +45,7 @@ const rentMedianLayerStyle = feature => {
       fillColor: '#a1d99b',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentMedian2017 >= 1000) {
     return {
@@ -53,7 +53,7 @@ const rentMedianLayerStyle = feature => {
       fillColor: '#c7e9c0',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else {
     return {
@@ -61,7 +61,7 @@ const rentMedianLayerStyle = feature => {
       fillColor: '#edf8e9',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   }
 }

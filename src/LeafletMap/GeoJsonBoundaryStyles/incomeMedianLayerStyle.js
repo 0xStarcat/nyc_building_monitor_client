@@ -6,7 +6,7 @@ const incomeMedianLayerStyle = feature => {
       fillColor: '#252525',
       opacity: 1,
       fillOpacity: 0.3,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.incomeMedian2017 >= 110000) {
     return {
@@ -14,7 +14,7 @@ const incomeMedianLayerStyle = feature => {
       fillColor: '#005a32',
       opacity: 0.5,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.incomeMedian2017 >= 90000) {
     return {
@@ -22,7 +22,7 @@ const incomeMedianLayerStyle = feature => {
       fillColor: '#238443',
       opacity: 0.5,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.incomeMedian2017 >= 70000) {
     return {
@@ -30,7 +30,7 @@ const incomeMedianLayerStyle = feature => {
       fillColor: '#41ab5d',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.incomeMedian2017 >= 50000) {
     return {
@@ -38,7 +38,7 @@ const incomeMedianLayerStyle = feature => {
       fillColor: '#addd8e',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.incomeMedian2017 >= 30000) {
     return {
@@ -46,7 +46,7 @@ const incomeMedianLayerStyle = feature => {
       fillColor: '#d9f0a3',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.incomeMedian2017 >= 10000) {
     return {
@@ -54,7 +54,7 @@ const incomeMedianLayerStyle = feature => {
       fillColor: '#ffffcc',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else {
     return {
@@ -62,7 +62,7 @@ const incomeMedianLayerStyle = feature => {
       fillColor: '#edf8e9',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   }
 }

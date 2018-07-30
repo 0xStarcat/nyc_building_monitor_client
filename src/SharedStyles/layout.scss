@@ -43,17 +43,6 @@ article {
 .scroll-container {
   height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeight} - 40px);
   overflow-y: scroll;
-
-  a {
-    font-size: 13px;
-    text-decoration: wavy underline;
-    color: blue;
-    z-index: 1;
-  }
-
-  a:hover {
-    text-decoration: double underline;
-  }
 }
 
 .info-section {

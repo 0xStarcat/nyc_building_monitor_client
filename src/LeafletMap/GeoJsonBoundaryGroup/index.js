@@ -45,7 +45,10 @@ export class GeoJsonBoundaryGroup extends Component {
 
   onClick(event) {
     const layerProperties = event.target.feature.properties
-    this.props.setViewCoordinates(layerProperties.representativePoint, 14)
+    this.props.setViewCoordinates(
+      layerProperties.representativePoint,
+      this.props.scope === SCOPE_NEIGHBORHOODS ? 14 : 15
+    )
     this.props.dispatch(changeSidebarScope(this.props.scope))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
     this.props.dispatch(this.props.sidebarAction())

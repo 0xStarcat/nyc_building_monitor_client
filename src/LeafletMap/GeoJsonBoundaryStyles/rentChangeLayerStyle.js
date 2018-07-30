@@ -5,7 +5,7 @@ const rentChangeLayerStyle = feature => {
       fillColor: '#ffdba5',
       opacity: 1,
       fillOpacity: 0.3,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentChange20112017 >= 500) {
     return {
@@ -13,7 +13,7 @@ const rentChangeLayerStyle = feature => {
       fillColor: '#005a32',
       opacity: 0.5,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentChange20112017 >= 400) {
     return {
@@ -21,7 +21,7 @@ const rentChangeLayerStyle = feature => {
       fillColor: '#238b45',
       opacity: 0.5,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentChange20112017 >= 300) {
     return {
@@ -29,7 +29,7 @@ const rentChangeLayerStyle = feature => {
       fillColor: '#41ab5d',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentChange20112017 >= 200) {
     return {
@@ -37,7 +37,7 @@ const rentChangeLayerStyle = feature => {
       fillColor: '#74c476',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentChange20112017 >= 0) {
     return {
@@ -45,7 +45,7 @@ const rentChangeLayerStyle = feature => {
       fillColor: '#d9f0a3',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentChange20112017 >= -100) {
     return {
@@ -53,7 +53,7 @@ const rentChangeLayerStyle = feature => {
       fillColor: '#fc8d59',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.rentChange20112017 < -100) {
     return {
@@ -61,7 +61,7 @@ const rentChangeLayerStyle = feature => {
       fillColor: '#d73027',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else {
     return {
@@ -69,7 +69,7 @@ const rentChangeLayerStyle = feature => {
       fillColor: 'lightgray',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   }
 }

@@ -31,10 +31,10 @@ const ScopedMenu = props => {
   return (
     <LayersControl collapsed={true} ref={props.layerControlRef} position={props.position}>
       <Overlay checked name="Street and Landmark Labels">
-        <Pane style={{ zIndex: 410 }}>
+        <Pane style={{ zIndex: 430 }}>
           <TileLayer
             onLoad={props.tileLayerLoadComplete}
-            url="https://api.mapbox.com/styles/v1/starcat/cjjm9p2z85m3j2rme8ectwukv/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3RhcmNhdCIsImEiOiJjamlpYmlsc28wbjlmM3FwbXdwaXozcWEzIn0.kLmWiUbmdqNLA1atmnTXXA"
+            url="https://api.mapbox.com/styles/v1/starcat/cjk7pxxpx4f492rpemzfn2blk/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3RhcmNhdCIsImEiOiJjamlpYmlsc28wbjlmM3FwbXdwaXozcWEzIn0.kLmWiUbmdqNLA1atmnTXXA"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           />
         </Pane>

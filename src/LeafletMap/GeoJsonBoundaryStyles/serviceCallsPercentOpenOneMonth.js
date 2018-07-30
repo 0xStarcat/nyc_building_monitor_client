@@ -5,7 +5,7 @@ const serviceCallsPercentOpenOneMonth = feature => {
       fillColor: '#ffdba5',
       opacity: 1,
       fillOpacity: 0.5,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.serviceCallsPercentOpenOneMonth >= 12) {
     return {
@@ -13,7 +13,7 @@ const serviceCallsPercentOpenOneMonth = feature => {
       fillColor: '#005a32',
       opacity: 0.5,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.serviceCallsPercentOpenOneMonth >= 10) {
     return {
@@ -21,7 +21,7 @@ const serviceCallsPercentOpenOneMonth = feature => {
       fillColor: '#238443',
       opacity: 0.5,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.serviceCallsPercentOpenOneMonth >= 8) {
     return {
@@ -29,7 +29,7 @@ const serviceCallsPercentOpenOneMonth = feature => {
       fillColor: '#41ab5d',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.serviceCallsPercentOpenOneMonth >= 6) {
     return {
@@ -37,7 +37,7 @@ const serviceCallsPercentOpenOneMonth = feature => {
       fillColor: '#addd8e',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.serviceCallsPercentOpenOneMonth >= 4) {
     return {
@@ -45,7 +45,7 @@ const serviceCallsPercentOpenOneMonth = feature => {
       fillColor: '#d9f0a3',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.serviceCallsPercentOpenOneMonth >= 2) {
     return {
@@ -53,7 +53,7 @@ const serviceCallsPercentOpenOneMonth = feature => {
       fillColor: '#ffffcc',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.serviceCallsPercentOpenOneMonth >= 0) {
     return {
@@ -61,7 +61,7 @@ const serviceCallsPercentOpenOneMonth = feature => {
       fillColor: '#edf8e9',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   } else {
     return {
@@ -69,7 +69,7 @@ const serviceCallsPercentOpenOneMonth = feature => {
       fillColor: 'lightgray',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 1
+      weight: 2
     }
   }
 }

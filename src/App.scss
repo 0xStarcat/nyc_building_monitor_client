@@ -39,16 +39,6 @@ body {
   padding: 0;
 }
 
-a {
-  text-decoration: underline dashed;
-  color: dodgerblue;
-  line-height: 200%;
-}
-
-a:visited {
-  color: inherit;
-}
-
 .hidden {
   display: none;
 }
@@ -79,20 +69,15 @@ a:visited {
 }
 
 .svg-icon-primary-color {
-  fill: #4691f6;
+  fill: $svg-primary-color;
 }
 
 .svg-icon-secondary-color {
-  fill: #ff6e6e;
+  fill: $svg-secondary-color;
 }
 
 .svg-icon-dark-color {
-  fill: #0c0058;
-}
-
-.svg-icon-primary-color circle {
-  stroke: #4691f6;
-  stroke-width: 1;
+  fill: $svg-dark-color;
 }
 
 .svg-rotate-right {

@@ -7,7 +7,7 @@ const racePercentWhite2010 = feature => {
       fillColor: '#ffdba5',
       opacity: 1,
       fillOpacity: 0.3,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.racePercentWhite2010 >= 70) {
     return {
@@ -15,7 +15,7 @@ const racePercentWhite2010 = feature => {
       fillColor: '#f2f0f7',
       opacity: 0.5,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.racePercentWhite2010 >= 60) {
     return {
@@ -23,7 +23,7 @@ const racePercentWhite2010 = feature => {
       fillColor: '#dadaeb',
       opacity: 0.5,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.racePercentWhite2010 >= 50) {
     return {
@@ -31,7 +31,7 @@ const racePercentWhite2010 = feature => {
       fillColor: '#bcbddc',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.racePercentWhite2010 >= 40) {
     return {
@@ -39,7 +39,7 @@ const racePercentWhite2010 = feature => {
       fillColor: '#9e9ac8',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.racePercentWhite2010 >= 30) {
     return {
@@ -47,7 +47,7 @@ const racePercentWhite2010 = feature => {
       fillColor: '#807dba',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else if (feature.properties.racePercentWhite2010 >= 20) {
     return {
@@ -55,7 +55,7 @@ const racePercentWhite2010 = feature => {
       fillColor: '#6a51a3',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   } else {
     return {
@@ -63,7 +63,7 @@ const racePercentWhite2010 = feature => {
       fillColor: '#4a1486',
       opacity: 1,
       fillOpacity: 0.7,
-      weight: 1
+      weight: 2
     }
   }
 }

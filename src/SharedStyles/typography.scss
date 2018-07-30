@@ -46,6 +46,17 @@ h6 {
   padding: 0;
 }
 
+a {
+  text-decoration: underline dashed;
+  color: $link-color;
+  line-height: 200%;
+}
+
+a:visited {
+  color: $link-color;
+}
+
+
 .sub-section-title {
   color: gray;
   padding: 0 $small-spacing;
