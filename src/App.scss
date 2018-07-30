@@ -4,6 +4,17 @@
 @import './SharedStyles/layout.scss';
 @import './SharedStyles/table.scss';
 
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: RGBA(255, 105, 180, 0.6);
+  -webkit-box-shadow: 0 0 4px rgba(255, 255, 255, 1);
+}
+
 @font-face {
   font-family: 'Gandhi';
   font-style: normal;

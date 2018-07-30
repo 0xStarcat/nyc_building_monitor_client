@@ -37,16 +37,16 @@ export default class SidebarLayerMenu extends React.Component {
           this.props.landscapeOrientation ? 'content-box headerless-scroll-container' : ''
         }`}
       >
-        <div className="menu-section">
+        <div className={`${this.props.landscapeOrientation ? 'menu-section' : 'condensed-menu-section'}`}>
           {this.props.landscapeOrientation && <IconHeader icon={RegionIcon}>Regions</IconHeader>}
           <SidebarBoundaryScopeButtons dispatch={this.props.dispatch} />
         </div>
-        <div className="menu-section">
+        <div className={`${this.props.landscapeOrientation ? 'menu-section' : 'condensed-menu-section'}`}>
           {this.props.landscapeOrientation && <IconHeader icon={BoundaryLayersIcon}>Region Details</IconHeader>}
           <SidebarBoundaryDetailButtons dispatch={this.props.dispatch} />
         </div>
         {this.props.buildingsPresent && (
-          <div className="menu-section">
+          <div className={`${this.props.landscapeOrientation ? 'menu-section' : 'condensed-menu-section'}`}>
             {this.props.landscapeOrientation && <IconHeader icon={BuildingExploreIcon}>Building Details</IconHeader>}
             <SidebarBuildingDetailButtons dispatch={this.props.dispatch} />
           </div>

@@ -33,6 +33,9 @@ const ViolationRow = props => {
           <div className="table-cell v-col2">
             <div>{fillEmptyString(props.feature.properties.name)}</div>
           </div>
+          <div className="table-cell v-col3">
+            <div>{fillEmptyString(props.feature.properties.status)}</div>
+          </div>
         </div>
       </ActionCard>
     </SwitchViewButton>

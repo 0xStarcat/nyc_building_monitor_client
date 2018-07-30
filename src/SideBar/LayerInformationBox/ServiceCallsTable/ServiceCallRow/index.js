@@ -14,6 +14,11 @@ const ServiceCallRow = props => {
     props.dispatch(updateSelectedServiceCall(props.feature.properties))
   }
 
+  const getViolationText = () => {
+    if (props.feature.properties.status.toLowerCase() === 'open') return '(still open)'
+    else return props.feature.properties.resolutionViolation ? 'Yes' : 'No'
+  }
+
   const resolutionResolved = properties => {
     if (properties.resolutionViolation) return tr
     if (properties.resolutionNoAction) return properties.resolutionNoAction
@@ -39,11 +44,7 @@ const ServiceCallRow = props => {
           <div className="table-cell sc-col2">
             <div>{fillEmptyString(props.feature.properties.status)}</div>
           </div>
-          <div className="table-cell sc-col3">
-            {props.feature.properties.status.toLowerCase() !== 'open' && (
-              <div>{props.feature.properties.resolutionViolation ? 'Yes' : 'No'}</div>
-            )}
-          </div>
+          <div className="table-cell sc-col3">{<div>{getViolationText()}</div>}</div>
         </div>
       </ActionCard>
     </SwitchViewButton>
