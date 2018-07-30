@@ -1,7 +1,47 @@
 @import './index.scss';
 
-.scroll-container {
+article {
   height: 100%;
+}
+
+.article-section {
+  padding: $small-spacing 0;
+}
+
+.content-box {
+  height: 100%;
+  padding: $small-spacing;
+}
+
+.full-height {
+  height: 100%;
+}
+
+@media screen and (orientation: portrait) {
+  .content-box {
+    padding: $tiny-spacing $small-spacing;
+  }
+}
+
+.menu-section {
+  box-shadow: 0 2px 4px 0 gray;
+  margin-top: $tiny-spacing;
+  padding: $small-spacing 0;
+}
+
+@media screen and (orientation: portrait) {
+  .menu-section {
+    padding: 0;
+  }
+}
+
+.headerless-scroll-container {
+  height: calc(100% - #{$top-bar-height} - 40px);
+  overflow-y: scroll;
+}
+
+.scroll-container {
+  height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeight} - 40px);
   overflow-y: scroll;
 
   a {
@@ -33,6 +73,9 @@
 }
 
 @media screen and (orientation: portrait) {
+  .scroll-container {
+    height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeightMobile} - 40px);
+  }
   .info-section {
     padding-top: 0;
   }

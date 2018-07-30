@@ -44,7 +44,11 @@ export default class SidebarLayerMenu extends React.Component {
 
   render() {
     return (
-      <div className={`sidebar-layer-menu ${this.props.landscapeOrientation ? 'content-box scroll-container' : ''}`}>
+      <div
+        className={`sidebar-layer-menu ${
+          this.props.landscapeOrientation ? 'content-box headerless-scroll-container' : ''
+        }`}
+      >
         <div className="menu-section">
           {this.props.landscapeOrientation && <IconHeader icon={RegionIcon}>Regions</IconHeader>}
           <SidebarBoundaryScopeButtons dispatch={this.props.dispatch} />

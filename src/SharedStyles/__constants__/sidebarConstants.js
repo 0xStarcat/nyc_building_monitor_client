@@ -1,6 +1,6 @@
-const previewHeight = '180px'
-const largePreviewHeight = '270px'
-const xlPReviewHeight = '370px'
+const previewHeight = '220px'
+const largePreviewHeight = '280px'
+const xlPReviewHeight = '380px'
 
 export const MOBILE_SIDEBAR_ACTIVE_X_TRANSLATION = '0'
 export const MOBILE_SIDEBAR_INACTIVE_X_TRANSLATION = '-400px'

@@ -19,7 +19,7 @@ import '../SharedStyles/style.scss'
 
 const ViolationInformation = props => {
   return (
-    <div className="violation-information">
+    <article className="violation-information">
       <ButtonRow className="split">
         <DispatchActionButton
           action={prevSelectedViolation}
@@ -35,47 +35,51 @@ const ViolationInformation = props => {
           <RightArrow />
         </DispatchActionButton>
       </ButtonRow>
-      <div className="info-section">
-        <IconRow className="card" icon={ViolationIcon}>
-          <div>{convertTimestampToData(props.selectedObject.date)}</div>
-        </IconRow>
-        <IconRow className="card" icon={ViolationIcon}>
-          <div>Unique Id: {props.selectedObject.name}</div>
-        </IconRow>
-        <div className="row-box text-well">
-          <div>{fillEmptyString(props.selectedObject.description)}</div>
-        </div>
-        <IconRow className="card" icon={ViolationIcon}>
-          Issued by the <span>{convertDepartmentToName(props.selectedObject.source)}</span>
-        </IconRow>
-        {!!props.selectedObject.penalty && (
+      <div className="info-section scroll-container">
+        <section>
           <IconRow className="card" icon={ViolationIcon}>
-            A penalty of <span>{props.selectedObject.penalty}</span> was imposed.
+            <div>{convertTimestampToData(props.selectedObject.date)}</div>
           </IconRow>
-        )}
-        <DispatchActionButton
-          action={openInformationBox}
-          actionArguments={`violationCode-${props.selectedObject.code}`}
-          className="row-box"
-        >
-          <ActionCard>
-            <IconRow icon={ViolationIcon}>
-              Code: <span>{props.selectedObject.code}</span>
-              <div>Read more</div>
-            </IconRow>
-          </ActionCard>
-        </DispatchActionButton>
-        <div className="sub-section-title">Status</div>
-        <IconRow className="card" icon={ViolationIcon}>
-          The status is: {props.selectedObject.status}
-        </IconRow>
-        {!!props.selectedObject.statusDescription && (
+          <IconRow className="card" icon={ViolationIcon}>
+            <div>Unique Id: {props.selectedObject.name}</div>
+          </IconRow>
           <div className="row-box text-well">
-            <div>{fillEmptyString(props.selectedObject.statusDescription)}</div>
+            <div>{fillEmptyString(props.selectedObject.description)}</div>
           </div>
-        )}
+          <IconRow className="card" icon={ViolationIcon}>
+            Issued by the <span>{convertDepartmentToName(props.selectedObject.source)}</span>
+          </IconRow>
+          {!!props.selectedObject.penalty && (
+            <IconRow className="card" icon={ViolationIcon}>
+              A penalty of <span>{props.selectedObject.penalty}</span> was imposed.
+            </IconRow>
+          )}
+          <DispatchActionButton
+            action={openInformationBox}
+            actionArguments={`violationCode-${props.selectedObject.code}`}
+            className="row-box"
+          >
+            <ActionCard>
+              <IconRow icon={ViolationIcon}>
+                Code: <span>{props.selectedObject.code}</span>
+                <div>Read more</div>
+              </IconRow>
+            </ActionCard>
+          </DispatchActionButton>
+        </section>
+        <section>
+          <div className="sub-section-title">Status</div>
+          <IconRow className="card" icon={ViolationIcon}>
+            The status is: {props.selectedObject.status}
+          </IconRow>
+          {!!props.selectedObject.statusDescription && (
+            <div className="row-box text-well">
+              <div>{fillEmptyString(props.selectedObject.statusDescription)}</div>
+            </div>
+          )}
+        </section>
       </div>
-    </div>
+    </article>
   )
 }
 

@@ -40,7 +40,7 @@ const ServiceCallInformation = props => {
   const parsedResult = getServiceCallResult(props.selectedObject)
 
   return (
-    <div className="violation-information">
+    <article className="violation-information">
       <ButtonRow className="split">
         <DispatchActionButton
           action={prevSelectedServiceCall}
@@ -56,46 +56,48 @@ const ServiceCallInformation = props => {
           <RightArrow />
         </DispatchActionButton>
       </ButtonRow>
-      <div className="info-section">
-        <IconRow className="card" icon={ServiceCallIcon}>
-          <div>Open: {convertTimestampToData(props.selectedObject.date)}</div>
-        </IconRow>
-        <div className="row-box text-well">
-          <div>{props.selectedObject.complaintType}</div>
-          <div>{fillEmptyString(props.selectedObject.description)}</div>
-        </div>
-        <IconRow className="card" icon={ServiceCallIcon}>
-          Assigned to the <span>{convertDepartmentToName(props.selectedObject.source)}</span>
-        </IconRow>
-        {props.selectedObject.openOverMonth && (
+      <div className="scroll-container">
+        <section>
           <IconRow className="card" icon={ServiceCallIcon}>
-            This call has been open for over a month.
+            <div>Open: {convertTimestampToData(props.selectedObject.date)}</div>
           </IconRow>
+          <div className="row-box text-well">
+            <div>{props.selectedObject.complaintType}</div>
+            <div>{fillEmptyString(props.selectedObject.description)}</div>
+          </div>
+          <IconRow className="card" icon={ServiceCallIcon}>
+            Assigned to the <span>{convertDepartmentToName(props.selectedObject.source)}</span>
+          </IconRow>
+          {props.selectedObject.openOverMonth && (
+            <IconRow className="card" icon={ServiceCallIcon}>
+              This call has been open for over a month.
+            </IconRow>
+          )}
+        </section>
+        {props.selectedObject.closedDate && (
+          <section>
+            <h5 className="sub-section-title">Resolution</h5>
+
+            <div>
+              <IconRow className="card" icon={ServiceCallIcon}>
+                <div>Closed: {convertTimestampToData(props.selectedObject.closedDate)}</div>
+              </IconRow>
+              <div className="row-box text-well">
+                <div>{fillEmptyString(props.selectedObject.resolutionDescription)}</div>
+              </div>
+              {parsedResult && (
+                <IconRow className="card" icon={ServiceCallIcon}>
+                  {parsedResult}
+                </IconRow>
+              )}
+              <IconRow className="card" icon={ServiceCallIcon}>
+                This call took {props.selectedObject.daysToResolve} day(s) to resolve.
+              </IconRow>
+            </div>
+          </section>
         )}
       </div>
-      {props.selectedObject.closedDate && (
-        <div className="info-section">
-          <h5 className="sub-section-title">Resolution</h5>
-
-          <div>
-            <IconRow className="card" icon={ServiceCallIcon}>
-              <div>Closed: {convertTimestampToData(props.selectedObject.closedDate)}</div>
-            </IconRow>
-            <div className="row-box text-well">
-              <div>{fillEmptyString(props.selectedObject.resolutionDescription)}</div>
-            </div>
-            {parsedResult && (
-              <IconRow className="card" icon={ServiceCallIcon}>
-                {parsedResult}
-              </IconRow>
-            )}
-            <IconRow className="card" icon={ServiceCallIcon}>
-              This call took {props.selectedObject.daysToResolve} day(s) to resolve.
-            </IconRow>
-          </div>
-        </div>
-      )}
-    </div>
+    </article>
   )
 }
 

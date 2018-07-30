@@ -1,12 +1,12 @@
 @import '../../SharedStyles/index.scss';
 
 .headerBar {
-  background-color: white;
+  background-color: $primaryBackground;
   box-sizing: border-box;
-  color: black;
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   height: $infoHeaderHeight;
   padding: $small-spacing;
   overflow: hidden;
@@ -32,8 +32,7 @@
 
 @media screen and (orientation: portrait) {
   .headerBar {
-    justify-content: flex-end;
-    height: 60px;
+    height: $infoHeaderHeightMobile;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: $tiny-spacing;

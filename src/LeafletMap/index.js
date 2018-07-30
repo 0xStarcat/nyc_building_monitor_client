@@ -40,7 +40,7 @@ export default class LeafletMap extends Component {
           {initialBoundaryDataLoaded(this.props.store) && (
             <BoundaryLayersMenu position="topright" setViewCoordinates={this.props.setViewCoordinates} />
           )}
-          {this.props.store.buildings.features.length && (
+          {!!this.props.store.buildings.features.length && (
             <BuildingLayersMenu position="topright" setViewCoordinates={this.props.setViewCoordinates} />
           )}
         </Map>

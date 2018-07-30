@@ -1,21 +1,50 @@
 @import './index.scss';
 
 a,
-p,
+p
+ {
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  word-break: break-word;
+    margin: 0;
+
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-span,
-div {
-  box-sizing: border-box;
-  white-space: pre-wrap;
-  word-break: break-word;
+h6 {
+  font-family: courier, helvetica, arial, sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
 }
-
-
 
 .sub-section-title {
   color: gray;
@@ -36,7 +65,7 @@ div {
 }
 
 div.text-box {
-  height: calc(100% - #{$top-bar-height} - #{$source-box-height} - 120px;
+  height: calc(100% - #{$top-bar-height} - 160px;
 }
 
 .text-section-title {

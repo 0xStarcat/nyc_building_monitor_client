@@ -52,61 +52,68 @@ const getPreviewRow = props => {
 
 const BoundaryInformation = props => {
   if (!props.selectedObject) return null
-  return (
-    <div className={`boundary-information ${props.sidebarState !== SIDEBAR_STATE_PREVIEW ? 'scroll-container' : ''}`}>
-      {props.sidebarState === SIDEBAR_STATE_PREVIEW && <div className="preview-section">{getPreviewRow(props)}</div>}
-      <div className="info-section">
-        <div className="sub-section-title">
-          <h5>Summary</h5>
-        </div>
-        {!!props.selectedObject.incomeMedian2017 && (
-          <IncomeRow className="card info-card" value={props.selectedObject.incomeMedian2017} />
-        )}
-        {!!props.selectedObject.rentMedian2017 && (
-          <RentRow className="card info-card" value={props.selectedObject.rentMedian2017} />
-        )}
-        {!!props.selectedObject.racePercentWhite2010 && (
-          <RaceRow className="card info-card" value={props.selectedObject.racePercentWhite2010} />
-        )}
-        {!!props.selectedObject.buildingsTotal && (
-          <TotalBuildingsRow
-            className="card info-card"
-            value1={props.selectedObject.buildingsTotal}
-            value2={props.selectedObject.residentialBuildingsTotal}
-          />
-        )}
-      </div>
-      <div className="info-section">
-        <div className="sub-section-title">
-          <h5>2010 - Present</h5>
-        </div>
-        {!!props.selectedObject.rentChange20112017 && (
-          <RentChangeRow className="card info-card" value={props.selectedObject.rentChange20112017} />
-        )}
-        {!!props.selectedObject.violationsTotal && (
-          <TotalViolationsRow className="card info-card" value={props.selectedObject.violationsTotal} />
-        )}
-        {!!props.selectedObject.violationsTotal && (
-          <ViolationsPerBuildingRow className="card info-card" value={props.selectedObject.violationsPerBuilding} />
-        )}
-        {!!props.selectedObject.serviceCallsTotal && (
-          <TotalServiceCallsRow className="card info-card" value={props.selectedObject.serviceCallsTotal} />
-        )}
-        {!!props.selectedObject.serviceCallsTotal && (
-          <TimeToResolveCallsRow
-            className="card info-card"
-            value={props.selectedObject.averageDaysToResolveServiceCalls}
-          />
-        )}
-        {!!props.selectedObject.serviceCallsTotal && (
-          <ServiceCallsOpenRow
-            className="card info-card"
-            value={props.selectedObject.serviceCallsPercentOpenOneMonth}
-          />
-        )}
-      </div>
-    </div>
-  )
+  if (props.sidebarState === SIDEBAR_STATE_PREVIEW) {
+    return (
+      <article className="boundary-information">
+        <div className="preview-section">{getPreviewRow(props)}</div>
+      </article>
+    )
+  } else {
+    return (
+      <article className="boundary-information scroll-container article-section">
+        <section className="info-section">
+          <div className="sub-section-title">
+            <h5>Summary</h5>
+          </div>
+          {!!props.selectedObject.incomeMedian2017 && (
+            <IncomeRow className="card info-card" value={props.selectedObject.incomeMedian2017} />
+          )}
+          {!!props.selectedObject.rentMedian2017 && (
+            <RentRow className="card info-card" value={props.selectedObject.rentMedian2017} />
+          )}
+          {!!props.selectedObject.racePercentWhite2010 && (
+            <RaceRow className="card info-card" value={props.selectedObject.racePercentWhite2010} />
+          )}
+          {!!props.selectedObject.buildingsTotal && (
+            <TotalBuildingsRow
+              className="card info-card"
+              value1={props.selectedObject.buildingsTotal}
+              value2={props.selectedObject.residentialBuildingsTotal}
+            />
+          )}
+        </section>
+        <section className="info-section">
+          <div className="sub-section-title">
+            <h5>2010 - Present</h5>
+          </div>
+          {!!props.selectedObject.rentChange20112017 && (
+            <RentChangeRow className="card info-card" value={props.selectedObject.rentChange20112017} />
+          )}
+          {!!props.selectedObject.violationsTotal && (
+            <TotalViolationsRow className="card info-card" value={props.selectedObject.violationsTotal} />
+          )}
+          {!!props.selectedObject.violationsTotal && (
+            <ViolationsPerBuildingRow className="card info-card" value={props.selectedObject.violationsPerBuilding} />
+          )}
+          {!!props.selectedObject.serviceCallsTotal && (
+            <TotalServiceCallsRow className="card info-card" value={props.selectedObject.serviceCallsTotal} />
+          )}
+          {!!props.selectedObject.serviceCallsTotal && (
+            <TimeToResolveCallsRow
+              className="card info-card"
+              value={props.selectedObject.averageDaysToResolveServiceCalls}
+            />
+          )}
+          {!!props.selectedObject.serviceCallsTotal && (
+            <ServiceCallsOpenRow
+              className="card info-card"
+              value={props.selectedObject.serviceCallsPercentOpenOneMonth}
+            />
+          )}
+        </section>
+      </article>
+    )
+  }
 }
 
 BoundaryInformation.propTypes = {
