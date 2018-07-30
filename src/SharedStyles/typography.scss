@@ -1,7 +1,46 @@
 @import './index.scss';
 
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+div {
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+
+.sub-section-title {
+  color: gray;
+  padding: 0 $small-spacing;
+}
+
+.clipped-title {
+  > * {
+    min-width: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
 .underline {
   text-decoration: underline;
+}
+
+div.text-box {
+  height: calc(100% - #{$top-bar-height} - #{$source-box-height} - 120px;
+}
+
+.text-section-title {
+  margin-bottom: $small-spacing;
 }
 
 .text-well {
@@ -13,4 +52,28 @@
 
   background: $LIGHTGRAY;
   margin: $tiny-spacing 0;
+}
+
+.text-container {
+  font-family: 'Hind', Helvetica, Arial, sans-serif;
+    padding: 0 $medium-spacing;
+
+  p {
+    font-size: 15px;
+    line-height: 200%;
+    padding: $tiny-spacing 0;
+    text-align: justify;
+    letter-spacin: 0.01px;
+  }
+
+  .source-box {
+    font-size: 10px;
+    white-space: nowrap;
+    padding: $tiny-spacing 0;
+
+    label {
+      display: block;
+      color: gray;
+    }
+  }
 }

@@ -11,15 +11,6 @@
   padding: $small-spacing;
   overflow: hidden;
 
-  .title {
-    > * {
-      min-width: 0;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-    }
-  }
-
   .headerSubTitle {
     align-items: center;
     display: flex;

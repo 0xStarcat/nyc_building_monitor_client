@@ -75,7 +75,7 @@ const ServiceCallInformation = props => {
       </div>
       {props.selectedObject.closedDate && (
         <div className="info-section">
-          <h5 className="info-title">Resolution</h5>
+          <h5 className="sub-section-title">Resolution</h5>
 
           <div>
             <IconRow className="card" icon={ServiceCallIcon}>

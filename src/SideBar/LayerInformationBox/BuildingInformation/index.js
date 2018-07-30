@@ -46,9 +46,9 @@ const BuildingInformation = props => {
   }
 
   return (
-    <div className={`boundary-information ${props.sidebarState !== SIDEBAR_STATE_PREVIEW ? 'scroll-box' : ''}`}>
+    <div className={`boundary-information ${props.sidebarState !== SIDEBAR_STATE_PREVIEW ? 'scroll-container' : ''}`}>
       {props.sidebarState === SIDEBAR_STATE_PREVIEW && <div className="preview-section">{getPreviewRow(props)}</div>}
-      <div className="info-title">
+      <div className="sub-section-title">
         <h5>2010 - Present</h5>
       </div>
       <BuildingClassRow className="card info-card" value={props.selectedObject.buildingClass} />

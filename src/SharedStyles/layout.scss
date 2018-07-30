@@ -1,6 +1,6 @@
 @import './index.scss';
 
-.scroll-box {
+.scroll-container {
   height: 100%;
   overflow-y: scroll;
 
@@ -16,12 +16,8 @@
   }
 }
 
-.info-title {
-  color: gray;
-  padding: 0 $small-spacing;
-}
-
 .info-section {
+  height: 100%;
   padding: $small-spacing 0;
   padding-bottom: 0;
 }
@@ -37,9 +33,6 @@
 }
 
 @media screen and (orientation: portrait) {
-  .scroll-box {
-    padding: 0;
-  }
   .info-section {
     padding-top: 0;
   }

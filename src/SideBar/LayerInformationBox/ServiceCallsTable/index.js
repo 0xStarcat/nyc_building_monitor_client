@@ -21,7 +21,7 @@ const ServiceCallsTable = props => {
         <label className="sc-col3 table-cell">Violation?</label>
         <label className="sc-col4 table-cell" />
       </div>
-      <div className="scroll-box">
+      <div className="scroll-container">
         {props.features.map((feature, index) => {
           return (
             <ServiceCallRow

@@ -40,16 +40,21 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline dashed;
+  color: dodgerblue;
   line-height: 200%;
-}
-
-a:hover {
-  text-decoration: wavy underline rosybrown;
 }
 
 a:visited {
   color: inherit;
+}
+
+article {
+  height: 100%;
+}
+
+section {
+  height: 100%;
 }
 
 h1 {
@@ -104,6 +109,7 @@ p {
 }
 
 .content-box {
+  height: 100%;
   padding: $small-spacing;
 }
 

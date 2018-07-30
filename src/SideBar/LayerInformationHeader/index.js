@@ -20,7 +20,7 @@ const LayerInformationHeader = props => {
   if (!props.selectedObject || props.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS) return null
   return (
     <div className="headerBar">
-      <div className="title">
+      <div className="clipped-title">
         <h4>
           {getPrefix()}
           {props.selectedObject.name}

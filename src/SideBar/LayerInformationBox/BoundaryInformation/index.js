@@ -53,10 +53,10 @@ const getPreviewRow = props => {
 const BoundaryInformation = props => {
   if (!props.selectedObject) return null
   return (
-    <div className={`boundary-information ${props.sidebarState !== SIDEBAR_STATE_PREVIEW ? 'scroll-box' : ''}`}>
+    <div className={`boundary-information ${props.sidebarState !== SIDEBAR_STATE_PREVIEW ? 'scroll-container' : ''}`}>
       {props.sidebarState === SIDEBAR_STATE_PREVIEW && <div className="preview-section">{getPreviewRow(props)}</div>}
       <div className="info-section">
-        <div className="info-title">
+        <div className="sub-section-title">
           <h5>Summary</h5>
         </div>
         {!!props.selectedObject.incomeMedian2017 && (
@@ -77,7 +77,7 @@ const BoundaryInformation = props => {
         )}
       </div>
       <div className="info-section">
-        <div className="info-title">
+        <div className="sub-section-title">
           <h5>2010 - Present</h5>
         </div>
         {!!props.selectedObject.rentChange20112017 && (

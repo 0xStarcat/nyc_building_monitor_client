@@ -65,7 +65,7 @@ const ViolationInformation = props => {
             </IconRow>
           </ActionCard>
         </DispatchActionButton>
-        <div className="info-title">Status</div>
+        <div className="sub-section-title">Status</div>
         <IconRow className="card" icon={ViolationIcon}>
           The status is: {props.selectedObject.status}
         </IconRow>

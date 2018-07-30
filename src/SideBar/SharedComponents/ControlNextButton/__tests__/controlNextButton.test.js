@@ -65,7 +65,7 @@ describe('ControlNextButton', () => {
           .children()
           .find('.button-label')
           .text()
-        expect(nextButtonText).toEqual('#12345')
+        expect(nextButtonText).toEqual('Tract #12345')
       })
     })
 

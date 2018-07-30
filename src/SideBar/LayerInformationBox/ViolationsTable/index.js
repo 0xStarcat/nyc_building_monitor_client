@@ -20,7 +20,7 @@ const ViolationsTable = props => {
         <label className="v-col2 table-cell">Violation Id</label>
         <label className="v-col3 table-cell" />
       </div>
-      <div className="scroll-box">
+      <div className="scroll-container">
         {props.features.map((feature, index) => {
           return (
             <ViolationRow
