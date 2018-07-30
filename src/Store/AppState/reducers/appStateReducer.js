@@ -8,7 +8,7 @@ export const initialState = {
   informationContentCode: '',
   landscapeOrientation: window.matchMedia('(orientation: landscape)').matches,
   legendOpen: false,
-  legendScope: appStateActions.SCOPE_CENSUS_TRACTS,
+  legendScopeBoundaries: true,
   selectedLayer: null,
   sidebarScope: appStateActions.SCOPE_CENSUS_TRACTS,
   sidebarState: appStateActions.SIDEBAR_STATE_INACTIVE,
@@ -60,7 +60,6 @@ export const appStateReducer = (appState = Object.freeze(initialState), action =
       return { ...appState, legendScopeBoundaries: false }
     }
     case appStateActions.OPEN_LEGEND: {
-      console.log('hi')
       return { ...appState, legendOpen: true }
     }
     case appStateActions.CLOSE_LEGEND: {

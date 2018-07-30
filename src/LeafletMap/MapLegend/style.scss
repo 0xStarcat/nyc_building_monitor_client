@@ -39,6 +39,38 @@ $legend-icon-size: 20px;
   height: 40px;
 }
 
+.legend-scope-toggle {
+  align-items: center;
+  box-shadow: 0px 2px 2px 0 gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 30px;
+
+  .disabled {
+    border: 1px solid $DARKGRAY;
+    background-color: $DARKGRAY;
+  }
+
+  div {
+    border: 1px solid $primaryColor;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 12px;
+    flex-basis: 50%;
+    height: 100%;
+    text-align: center;
+  }
+
+  div:hover {
+    border: 1px solid $secondaryColor;
+  }
+
+  div:active {
+    border: 1px solid $tertiaryColor;
+  }
+}
+
 .legend-wrapper {
   display: flex;
   flex-direction: column;

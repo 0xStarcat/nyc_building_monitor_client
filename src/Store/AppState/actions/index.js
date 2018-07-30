@@ -106,11 +106,11 @@ export const changeInformationContentCode = event => ({
 })
 
 export const setLegendScopeBoundaries = () => ({
-  type: SET_LEGEND_SCOPE_BUILDINGS
+  type: SET_LEGEND_SCOPE_BOUNDARIES
 })
 
 export const setLegendScopeBuildings = () => ({
-  type: SET_LEGEND_SCOPE_BOUNDARIES
+  type: SET_LEGEND_SCOPE_BUILDINGS
 })
 
 export const openLegend = () => ({
