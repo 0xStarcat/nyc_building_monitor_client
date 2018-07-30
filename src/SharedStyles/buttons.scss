@@ -109,6 +109,30 @@
   white-space: nowrap;
 }
 
+.highlight-button-left {
+  box-shadow: -10px 0px 20px 1px $secondaryColor;
+}
+
+.highlight-button-left:hover {
+  box-shadow: -10px 0px 20px 1px $primaryColor;
+}
+
+.highlight-button-left:active {
+  box-shadow: -4px 0 24px 1px $tertiaryColor;
+}
+
+.highlight-button-right {
+  box-shadow: 10px 0px 20px 1px $secondaryColor;
+}
+
+.highlight-button-right:hover {
+  box-shadow: 10px 0px 20px 1px $primaryColor;
+}
+
+.highlight-button-right:active {
+  box-shadow: 4px 0 24px 1px $tertiaryColor;
+}
+
 @media screen and (orientation: portrait) {
   .button-label {
     top: 20px;

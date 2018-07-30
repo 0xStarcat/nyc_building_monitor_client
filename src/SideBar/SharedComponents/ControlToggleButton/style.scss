@@ -12,7 +12,6 @@ $toggle-button-width: 20px;
 
   border: 1px solid white;
   border-bottom: 4px solid white;
-  box-shadow: 10px 0px 20px 1px $secondaryColor;
   box-sizing: border-box;
   height: $medium-spacing;
   position: absolute;
@@ -23,22 +22,6 @@ $toggle-button-width: 20px;
 
 .show-button {
   right: -$toggle-button-width;
-}
-
-.show-button:hover {
-  box-shadow: 10px 0px 20px 1px $primaryColor;
-}
-
-.show-button:active {
-  box-shadow: 4px 0 24px 1px $tertiaryColor;
-}
-
-.hide-button:hover {
-  box-shadow: 10px 0px 20px 1px $primaryColor;
-}
-
-.hide-button:active {
-  box-shadow: 4px 0 24px 1px $tertiaryColor;
 }
 
 .hide-button {

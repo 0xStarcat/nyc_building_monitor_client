@@ -42,7 +42,12 @@ export default class ControlToggleButton extends React.Component {
     return (
       <DispatchActionButton
         action={this.buttonAction()}
-        className={classNames('toggle-button-container', 'toggle-button', this.buttonClassName())}
+        className={classNames(
+          'toggle-button-container',
+          'toggle-button',
+          'highlight-button-right',
+          this.buttonClassName()
+        )}
       >
         {this.props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ? <LeftArrow /> : <RightArrow />}
       </DispatchActionButton>

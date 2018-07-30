@@ -1,0 +1,87 @@
+@import '../../SharedStyles/index.scss';
+$legend-width: 200px;
+$legend-width-mobile: 140px;
+$legend-icon-size: 20px;
+
+.map-legend {
+  align-items: center;
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 2px 0 8px gray;
+  bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  justify-content: flex-start;
+  position: absolute;
+  right: 40px;
+  transition: height 0.2s linear;
+  transition: width 0.2s linear;
+  width: 20px;
+  z-index: 500;
+}
+
+.legend-button {
+  flex-shrink: 0;
+  cursor: pointer;
+  height: 100%;
+  width: 20px;
+}
+
+.legend-content {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - #{$tiny-spacing});
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: $tiny-spacing;
+  width: calc(100% - #{$tiny-spacing});
+}
+
+.legend-scale-column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.legend-group {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.scale-label {
+  flex-grow: 0;
+  flex-shrink: 0;
+  text-align: right;
+  whitespace: nowrap;
+  width: calc(100% - #{$legend-icon-size});
+}
+
+.scale-marker {
+  background-color: red;
+  border: 1px solid black;
+  box-sizing: border-box;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: $legend-icon-size;
+  width: $legend-icon-size;
+}
+
+div.open-legend {
+  height: 200px;
+  width: $legend-width;
+}
+
+@media screen and (orientation: portrait) {
+  .map-legend {
+    top: 80px;
+    right: 12px;
+  }
+}

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import LeafletMap from '../../LeafletMap'
 import SideBar from '../../SideBar'
 import MobileButtonContainer from '../../MobileButtonContainer'
-
+import MapLegend from '../../LeafletMap/MapLegend'
 import Layout from '../Layout'
 
 export class MapPage extends React.Component {
@@ -52,6 +52,12 @@ export class MapPage extends React.Component {
             selectedObject={(this.props.store[this.props.store.appState.sidebarScope] || {}).selectedObject}
           />
         )}
+        <MapLegend
+          baseLayer={this.props.store.appState.baseLayer}
+          baseLayerScope={this.props.store.appState.baseLayerScope}
+          buildingBaseLayer={this.props.store.appState.buildingBaseLayer}
+          sidebarScope={this.props.store.appState.sidebarScope}
+        />
         <LeafletMap
           dispatch={this.props.dispatch}
           mapRef={this.mapRef}
