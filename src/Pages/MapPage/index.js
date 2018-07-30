@@ -54,9 +54,10 @@ export class MapPage extends React.Component {
         )}
         <MapLegend
           baseLayer={this.props.store.appState.baseLayer}
-          buildingsPresent={this.props.buildingsPresent}
           buildingBaseLayer={this.props.store.appState.buildingBaseLayer}
+          dispatch={this.props.dispatch}
           legendScopeBoundaries={this.props.store.appState.legendScopeBoundaries}
+          open={this.props.store.appState.legendOpen}
         />
         <LeafletMap
           dispatch={this.props.dispatch}

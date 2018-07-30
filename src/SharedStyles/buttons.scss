@@ -125,6 +125,22 @@
   box-shadow: 10px 0px 20px 1px $secondaryColor;
 }
 
+.highlight-button-bottom {
+  box-shadow: 0px 10px 20px 1px $secondaryColor;
+}
+
+.highlight-button-bottom:hover {
+  box-shadow: 0px 10px 20px 1px $primaryColor;
+}
+
+.highlight-button-bottom:active {
+  box-shadow: 0px 4px 24px 1px $tertiaryColor;
+}
+
+.highlight-button-right {
+  box-shadow: 10px 0px 20px 1px $secondaryColor;
+}
+
 .highlight-button-right:hover {
   box-shadow: 10px 0px 20px 1px $primaryColor;
 }

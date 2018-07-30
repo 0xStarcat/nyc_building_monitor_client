@@ -7,25 +7,11 @@ import SidebarBoundaryScopeButtons from '../SidebarBoundaryScopeButtons'
 import SidebarBoundaryDetailButtons from '../SidebarBoundaryDetailButtons'
 import SidebarBuildingDetailButtons from '../SidebarBuildingDetailButtons'
 
-import { changeBaseLayer, switchScopeWithFetch, changeBaseLayerScope } from '../../Store/AppState/actions'
-
 import { BuildingExploreIcon, RegionIcon, BoundaryLayersIcon } from '../../SharedStyles/icons'
 
 export default class SidebarLayerMenu extends React.Component {
   constructor(props) {
     super(props)
-
-    this.switchLayer = this.switchLayer.bind(this)
-    this.switchScopeWithFetch = this.switchScopeWithFetch.bind(this)
-  }
-
-  switchScopeWithFetch(scope) {
-    this.props.dispatch(changeBaseLayerScope(scope))
-    this.props.dispatch(switchScopeWithFetch(scope))
-  }
-
-  switchLayer(layer) {
-    this.props.dispatch(changeBaseLayer(layer))
   }
 
   render() {
@@ -38,7 +24,7 @@ export default class SidebarLayerMenu extends React.Component {
         <div
           className={classNames(
             { 'menu-section': this.props.landscapeOrientation },
-            { 'condensed-menu-section': this.props.landscapeOrientation }
+            { 'condensed-menu-section': !this.props.landscapeOrientation }
           )}
         >
           {this.props.landscapeOrientation && <IconHeader icon={RegionIcon}>Regions</IconHeader>}
@@ -47,7 +33,7 @@ export default class SidebarLayerMenu extends React.Component {
         <div
           className={classNames(
             { 'menu-section': this.props.landscapeOrientation },
-            { 'condensed-menu-section': this.props.landscapeOrientation }
+            { 'condensed-menu-section': !this.props.landscapeOrientation }
           )}
         >
           {this.props.landscapeOrientation && <IconHeader icon={BoundaryLayersIcon}>Region Details</IconHeader>}
@@ -57,7 +43,7 @@ export default class SidebarLayerMenu extends React.Component {
           <div
             className={classNames(
               { 'menu-section': this.props.landscapeOrientation },
-              { 'condensed-menu-section': this.props.landscapeOrientation }
+              { 'condensed-menu-section': !this.props.landscapeOrientation }
             )}
           >
             {this.props.landscapeOrientation && <IconHeader icon={BuildingExploreIcon}>Building Details</IconHeader>}

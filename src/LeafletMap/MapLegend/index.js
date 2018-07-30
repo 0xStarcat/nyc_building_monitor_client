@@ -2,26 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import { RightArrow } from '../../SharedStyles/icons'
+import { RightArrow, CloseIcon } from '../../SharedStyles/icons'
 import { getLegendContent, getLegendTitle } from './utils/legendUtils'
-import { SCOPE_BUILDINGS, SCOPE_NEIGHBORHOODS, SCOPE_CENSUS_TRACTS } from '../../Store/AppState/actions'
+import { openLegend, closeLegend } from '../../Store/AppState/actions'
 
 import './style.scss'
 
 export default class MapLegend extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      open: false
-    }
+
     this.toggleLegend = this.toggleLegend.bind(this)
     this.getScope = this.getScope.bind(this)
   }
 
   toggleLegend() {
-    this.setState({
-      open: !this.state.open
-    })
+    this.props.dispatch(this.props.open ? closeLegend() : openLegend())
   }
 
   getScope() {
@@ -31,11 +27,8 @@ export default class MapLegend extends React.Component {
 
   render() {
     return (
-      <div className={classNames('map-legend', { 'open-legend': this.state.open })}>
-        <div className="legend-button highlight-button-left" onClick={this.toggleLegend}>
-          <RightArrow className={classNames({ 'svg-flip': !this.state.open })} />
-        </div>
-        {this.state.open && (
+      <div className={classNames('map-legend', { 'open-legend': this.props.open })}>
+        {this.props.open && (
           <div className="legend-wrapper">
             <div className="legend-content">
               <div className="legend-scale-column">{getLegendContent(this.getScope())}</div>
@@ -43,6 +36,16 @@ export default class MapLegend extends React.Component {
             <div className="legend-title">{getLegendTitle(this.getScope())}</div>
           </div>
         )}
+        <div
+          className={classNames(
+            'legend-button',
+            this.props.open ? ['highlight-button-bottom', 'legend-open'] : ['highlight-button-left', 'legend-close']
+          )}
+          onClick={this.toggleLegend}
+        >
+          {!this.props.open && <RightArrow className="svg-flip" />}
+          {this.props.open && <CloseIcon />}
+        </div>
       </div>
     )
   }
@@ -52,5 +55,7 @@ MapLegend.propTypes = {
   baseLayer: PropTypes.string,
   buildingsPresent: PropTypes.bool,
   buildingBaseLayer: PropTypes.string,
-  legendScopeBoundaries: PropTypes.bool
+  dispatch: PropTypes.func,
+  legendScopeBoundaries: PropTypes.bool,
+  open: PropTypes.bool
 }

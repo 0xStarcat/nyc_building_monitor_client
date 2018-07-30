@@ -16,6 +16,8 @@ export const CHANGE_BUILDING_BASE_LAYER = 'CHANGE_BUILDING_BASE_LAYER'
 export const CHANGE_INFORMATION_CONTENT_CODE = 'CHANGE_INFORMATION_CONTENT_CODE'
 export const SET_LEGEND_SCOPE_BOUNDARIES = 'SET_LEGEND_SCOPE_BOUNDARIES'
 export const SET_LEGEND_SCOPE_BUILDINGS = 'SET_LEGEND_SCOPE_BUILDINGS'
+export const OPEN_LEGEND = 'OPEN_LEGEND'
+export const CLOSE_LEGEND = 'CLOSE_LEGEND'
 
 // Sidebar States
 export const SIDEBAR_STATE_INACTIVE = 'SIDEBAR_STATE_INACTIVE'
@@ -103,14 +105,20 @@ export const changeInformationContentCode = event => ({
   data: event
 })
 
-export const setLegendScopeBoundaries = event => ({
-  type: SET_LEGEND_SCOPE_BUILDINGS,
-  data: event
+export const setLegendScopeBoundaries = () => ({
+  type: SET_LEGEND_SCOPE_BUILDINGS
 })
 
-export const setLegendScopeBuildings = event => ({
-  type: SET_LEGEND_SCOPE_BOUNDARIES,
-  data: event
+export const setLegendScopeBuildings = () => ({
+  type: SET_LEGEND_SCOPE_BOUNDARIES
+})
+
+export const openLegend = () => ({
+  type: OPEN_LEGEND
+})
+
+export const closeLegend = () => ({
+  type: CLOSE_LEGEND
 })
 
 export const openInformationBox = event => dispatch => {

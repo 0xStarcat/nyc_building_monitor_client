@@ -12,6 +12,8 @@ import {
   BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311
 } from '../../../Store/AppState/actions'
 
+import LegendGroup from '../LegendGroup'
+
 const incomeLayerData = [
   { value: 110000, label: '(+)$110,000', color: '#005a32' },
   { value: 90000, label: '(+)$90,000', color: '#238443' },
@@ -44,93 +46,43 @@ export const getLegendContent = baseLayer => {
   switch (baseLayer) {
     case BASE_LAYER_BOUNDARY_MEDIAN_INCOME:
       return incomeLayerData.map((group, index) => {
-        return (
-          <div key={`legendGroup-${baseLayer}-${index}`} className="legend-group">
-            <span className="scale-marker" style={{ backgroundColor: group.color }} />
-            <label className="scale-label">{group.label}</label>
-          </div>
-        )
+        return <LegendGroup key={`legendGroup-${baseLayer}-${index}`} color={group.color} label={group.label} />
       })
     case BASE_LAYER_BOUNDARY_MEDIAN_RENT:
       return rentLayerData.map((group, index) => {
-        return (
-          <div key={`legendGroup-${baseLayer}-${index}`} className="legend-group">
-            <span className="scale-marker" style={{ backgroundColor: group.color }} />
-            <label className="scale-label">{group.label}</label>
-          </div>
-        )
+        return <LegendGroup key={`legendGroup-${baseLayer}-${index}`} color={group.color} label={group.label} />
       })
     case BASE_LAYER_BOUNDARY_MEDIAN_RENT_CHANGE:
       return rentChangeLayerData.map((group, index) => {
-        return (
-          <div key={`legendGroup-${baseLayer}-${index}`} className="legend-group">
-            <span className="scale-marker" style={{ backgroundColor: group.color }} />
-            <label className="scale-label">{group.label}</label>
-          </div>
-        )
+        return <LegendGroup key={`legendGroup-${baseLayer}-${index}`} color={group.color} label={group.label} />
       })
     case BASE_LAYER_BOUNDARY_WHITE_POPULATION:
       return populationLayerData.map((group, index) => {
-        return (
-          <div key={`legendGroup-${baseLayer}-${index}`} className="legend-group">
-            <span className="scale-marker" style={{ backgroundColor: group.color }} />
-            <label className="scale-label">{group.label}</label>
-          </div>
-        )
+        return <LegendGroup key={`legendGroup-${baseLayer}-${index}`} color={group.color} label={group.label} />
       })
     case BASE_LAYER_BOUNDARY_OPEN_311:
       return boundaryOpen311LayerData.map((group, index) => {
-        return (
-          <div key={`legendGroup-${baseLayer}-${index}`} className="legend-group">
-            <span className="scale-marker" style={{ backgroundColor: group.color }} />
-            <label className="scale-label">{group.label}</label>
-          </div>
-        )
+        return <LegendGroup key={`legendGroup-${baseLayer}-${index}`} color={group.color} label={group.label} />
       })
     case BASE_LAYER_BOUNDARY_AVERAGE_RESPONSE_311:
       return boundaryAverageResponseLayerData.map((group, index) => {
-        return (
-          <div key={`legendGroup-${baseLayer}-${index}`} className="legend-group">
-            <span className="scale-marker" style={{ backgroundColor: group.color }} />
-            <label className="scale-label">{group.label}</label>
-          </div>
-        )
+        return <LegendGroup key={`legendGroup-${baseLayer}-${index}`} color={group.color} label={group.label} />
       })
     case BASE_LAYER_BUILDING_CATEGORIES:
       return buildingClassLayerData.map((group, index) => {
-        return (
-          <div key={`legendGroup-${baseLayer}-${index}`} className="legend-group">
-            <span className="scale-marker" style={{ backgroundColor: group.color }} />
-            <label className="scale-label">{group.label}</label>
-          </div>
-        )
+        return <LegendGroup key={`legendGroup-${baseLayer}-${index}`} color={group.color} label={group.label} />
       })
     case BASE_LAYER_BUILDING_TOTAL_VIOLATIONS:
       return buildingViolationLayerData.map((group, index) => {
-        return (
-          <div key={`legendGroup-${baseLayer}-${index}`} className="legend-group">
-            <span className="scale-marker" style={{ backgroundColor: group.color }} />
-            <label className="scale-label">{group.label}</label>
-          </div>
-        )
+        return <LegendGroup key={`legendGroup-${baseLayer}-${index}`} color={group.color} label={group.label} />
       })
     case BASE_LAYER_BUILDING_OPEN_311:
       return buildingOpen311LayerData.map((group, index) => {
-        return (
-          <div key={`legendGroup-${baseLayer}-${index}`} className="legend-group">
-            <span className="scale-marker" style={{ backgroundColor: group.color }} />
-            <label className="scale-label">{group.label}</label>
-          </div>
-        )
+        return <LegendGroup key={`legendGroup-${baseLayer}-${index}`} color={group.color} label={group.label} />
       })
     case BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311:
       return buildingAverageResponseLayerData.map((group, index) => {
-        return (
-          <div key={`legendGroup-${baseLayer}-${index}`} className="legend-group">
-            <span className="scale-marker" style={{ backgroundColor: group.color }} />
-            <label className="scale-label">{group.label}</label>
-          </div>
-        )
+        return <LegendGroup key={`legendGroup-${baseLayer}-${index}`} color={group.color} label={group.label} />
       })
     default:
       return (

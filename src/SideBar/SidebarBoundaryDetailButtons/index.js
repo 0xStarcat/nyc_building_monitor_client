@@ -6,6 +6,7 @@ import ButtonRow from '../../SharedComponents/ButtonRow'
 import IconProfile from '../SharedComponents/IconProfile'
 
 import {
+  openLegend,
   changeBaseLayer,
   setLegendScopeBoundaries,
   switchScopeWithFetch,
@@ -38,6 +39,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
   }
 
   switchLayer(layer) {
+    this.props.dispatch(openLegend())
     this.props.dispatch(setLegendScopeBoundaries())
     this.props.dispatch(changeBaseLayer(layer))
   }
