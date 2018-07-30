@@ -10,8 +10,8 @@ import {
   SCOPE_VIOLATIONS,
   SCOPE_SERVICE_CALLS,
   BASE_LAYER_BUILDING_CATEGORIES,
-  BASE_LAYER_TOTAL_VIOLATIONS,
-  BASE_LAYER_TOTAL_BUILDING_OPEN_311
+  BASE_LAYER_BUILDING_TOTAL_VIOLATIONS,
+  BASE_LAYER_BUILDING_OPEN_311
 } from '../../../Store/AppState/actions'
 
 import { readViolationsByBuilding } from '../../../Store/Violations/actions'
@@ -38,9 +38,9 @@ const BuildingInformation = props => {
     switch (props.buildingBaseLayer) {
       case BASE_LAYER_BUILDING_CATEGORIES:
         return <BuildingClassRow value={props.selectedObject.buildingClass} />
-      case BASE_LAYER_TOTAL_VIOLATIONS:
+      case BASE_LAYER_BUILDING_TOTAL_VIOLATIONS:
         return <ViolationRow value={props.selectedObject.violationsTotal} />
-      case BASE_LAYER_TOTAL_BUILDING_OPEN_311:
+      case BASE_LAYER_BUILDING_OPEN_311:
         return <ServiceCallRow value={props.selectedObject.serviceCallsTotal} />
     }
   }
@@ -54,50 +54,52 @@ const BuildingInformation = props => {
   } else {
     return (
       <article className="building-information scroll-container article-section">
-        <div className="sub-section-title">
-          <h5>2010 - Present</h5>
-        </div>
-        <BuildingClassRow className="card info-card" value={props.selectedObject.buildingClass} />
-        <SwitchViewFetchButton
-          action={getViolations}
-          viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
-          scopeSwitch={SCOPE_VIOLATIONS}
-        >
-          <ActionCard>
-            <ViolationRow value={props.selectedObject.violationsTotal} />
-          </ActionCard>
-        </SwitchViewFetchButton>
-        <SwitchViewFetchButton
-          action={getServiceCalls}
-          viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
-          scopeSwitch={SCOPE_SERVICE_CALLS}
-        >
-          <ActionCard>
-            <ServiceCallRow value={props.selectedObject.serviceCallsTotal} />
-          </ActionCard>
-        </SwitchViewFetchButton>
-        {!!props.selectedObject.serviceCallsTotal && (
-          <TimeToResolveCallsRow
-            className="card info-card"
-            value={props.selectedObject.averageDaysToResolveServiceCalls}
-          />
-        )}
-        {!!props.selectedObject.serviceCallsTotal && (
-          <ServiceCallsOpenRow
-            className="card info-card"
-            value={props.selectedObject.serviceCallsPercentOpenOneMonth}
-          />
-        )}
-        <IconRow className="card info-card" icon={ViolationIcon}>
-          <a
-            href={`http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?boro=${
-              props.selectedObject.boroCode
-            }&block=${props.selectedObject.block}&lot=${props.selectedObject.lot}`}
-            target="_blank"
+        <div className="menu-section">
+          <div className="sub-section-title">
+            <h5>2010 - Present</h5>
+          </div>
+          <BuildingClassRow className="card info-card" value={props.selectedObject.buildingClass} />
+          <SwitchViewFetchButton
+            action={getViolations}
+            viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
+            scopeSwitch={SCOPE_VIOLATIONS}
           >
-            You can view this building's BIS documents here.
-          </a>
-        </IconRow>
+            <ActionCard>
+              <ViolationRow value={props.selectedObject.violationsTotal} />
+            </ActionCard>
+          </SwitchViewFetchButton>
+          <SwitchViewFetchButton
+            action={getServiceCalls}
+            viewSwitch={SIDEBAR_VIEW_SCOPED_OBJECTS}
+            scopeSwitch={SCOPE_SERVICE_CALLS}
+          >
+            <ActionCard>
+              <ServiceCallRow value={props.selectedObject.serviceCallsTotal} />
+            </ActionCard>
+          </SwitchViewFetchButton>
+          {!!props.selectedObject.serviceCallsTotal && (
+            <TimeToResolveCallsRow
+              className="card info-card"
+              value={props.selectedObject.averageDaysToResolveServiceCalls}
+            />
+          )}
+          {!!props.selectedObject.serviceCallsTotal && (
+            <ServiceCallsOpenRow
+              className="card info-card"
+              value={props.selectedObject.serviceCallsPercentOpenOneMonth}
+            />
+          )}
+          <IconRow className="card info-card" icon={ViolationIcon}>
+            <a
+              href={`http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?boro=${
+                props.selectedObject.boroCode
+              }&block=${props.selectedObject.block}&lot=${props.selectedObject.lot}`}
+              target="_blank"
+            >
+              You can view this building's BIS documents here.
+            </a>
+          </IconRow>
+        </div>
       </article>
     )
   }

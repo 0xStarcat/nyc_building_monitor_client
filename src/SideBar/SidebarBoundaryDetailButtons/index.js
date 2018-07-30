@@ -10,14 +10,16 @@ import {
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
   BASE_LAYER_BOUNDARY_BLANK,
-  BASE_LAYER_MEDIAN_INCOME,
-  BASE_LAYER_MEDIAN_RENT,
-  BASE_LAYER_MEDIAN_RENT_CHANGE,
-  BASE_LAYER_WHITE_POPULATION,
-  BASE_LAYER_OPEN_311
+  BASE_LAYER_BOUNDARY_MEDIAN_INCOME,
+  BASE_LAYER_BOUNDARY_MEDIAN_RENT,
+  BASE_LAYER_BOUNDARY_MEDIAN_RENT_CHANGE,
+  BASE_LAYER_BOUNDARY_WHITE_POPULATION,
+  BASE_LAYER_BOUNDARY_OPEN_311,
+  BASE_LAYER_BOUNDARY_AVERAGE_RESPONSE_311
 } from '../../Store/AppState/actions'
 
 import {
+  ResponseTimeIcon,
   BlankBoundaryIcon,
   IncomeIcon,
   RentIcon,
@@ -53,7 +55,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
             action={this.switchLayer}
             className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
-            layer={BASE_LAYER_MEDIAN_INCOME}
+            layer={BASE_LAYER_BOUNDARY_MEDIAN_INCOME}
           >
             <IconProfile className="button-row-child" icon={IncomeIcon} label="Income" />
           </SwitchLayerButton>
@@ -61,7 +63,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
             action={this.switchLayer}
             className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
-            layer={BASE_LAYER_MEDIAN_RENT}
+            layer={BASE_LAYER_BOUNDARY_MEDIAN_RENT}
           >
             <IconProfile className="button-row-child" icon={RentIcon} label="Rent" />
           </SwitchLayerButton>
@@ -69,7 +71,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
             action={this.switchLayer}
             className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
-            layer={BASE_LAYER_MEDIAN_RENT_CHANGE}
+            layer={BASE_LAYER_BOUNDARY_MEDIAN_RENT_CHANGE}
           >
             <IconProfile className="button-row-child" icon={RentChangeIcon} label="Rent Change" />
           </SwitchLayerButton>
@@ -77,7 +79,7 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
             action={this.switchLayer}
             className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
-            layer={BASE_LAYER_WHITE_POPULATION}
+            layer={BASE_LAYER_BOUNDARY_WHITE_POPULATION}
           >
             <IconProfile className="button-row-child" icon={PopulationIcon} label="Race" />
           </SwitchLayerButton>
@@ -85,9 +87,17 @@ export default class SidebarBoundaryDetailButtons extends React.Component {
             action={this.switchLayer}
             className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
-            layer={BASE_LAYER_OPEN_311}
+            layer={BASE_LAYER_BOUNDARY_OPEN_311}
           >
-            <IconProfile className="button-row-child" icon={ServiceCallOpenIcon} label="Open 311 Calls" />
+            <IconProfile className="button-row-child" icon={ServiceCallOpenIcon} label="Open 311-Calls" />
+          </SwitchLayerButton>
+          <SwitchLayerButton
+            action={this.switchLayer}
+            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            dispatch={this.props.dispatch}
+            layer={BASE_LAYER_BOUNDARY_AVERAGE_RESPONSE_311}
+          >
+            <IconProfile className="button-row-child" icon={ResponseTimeIcon} label="Response time" />
           </SwitchLayerButton>
         </ButtonRow>
       </div>

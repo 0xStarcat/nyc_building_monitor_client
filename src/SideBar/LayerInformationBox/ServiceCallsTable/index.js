@@ -10,7 +10,7 @@ import './style.scss'
 const ServiceCallsTable = props => {
   return (
     <div className="service-calls-table sidebar-table">
-      <div className="headerBar">
+      <div className="headerBar menu-section">
         <h3>311-Calls for</h3>
         <h5>{props.building.name}</h5>
       </div>

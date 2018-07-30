@@ -9,11 +9,19 @@ import ButtonRow from '../../SharedComponents/ButtonRow'
 import {
   changeBuildingBaseLayer,
   BASE_LAYER_BUILDING_CATEGORIES,
-  BASE_LAYER_TOTAL_VIOLATIONS,
-  BASE_LAYER_TOTAL_BUILDING_OPEN_311
+  BASE_LAYER_BUILDING_TOTAL_VIOLATIONS,
+  BASE_LAYER_BUILDING_OPEN_311,
+  BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311
 } from '../../Store/AppState/actions'
 
-import { BuildingIcon, ViolationIcon, ServiceCallIcon, BuildingLayerIcon } from '../../SharedStyles/icons'
+import {
+  BuildingIcon,
+  ViolationIcon,
+  ServiceCallIcon,
+  BuildingLayerIcon,
+  ServiceCallOpenIcon,
+  ResponseTimeIcon
+} from '../../SharedStyles/icons'
 
 export default class SidebarBuildingDetailButtons extends React.Component {
   constructor(props) {
@@ -44,18 +52,25 @@ export default class SidebarBuildingDetailButtons extends React.Component {
             action={this.switchLayer}
             className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
-            layer={BASE_LAYER_TOTAL_VIOLATIONS}
+            layer={BASE_LAYER_BUILDING_TOTAL_VIOLATIONS}
           >
             <IconProfile className="button-row-child" icon={ViolationIcon} label="Violations" />
           </SwitchLayerButton>
-
           <SwitchLayerButton
             action={this.switchLayer}
             className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
             dispatch={this.props.dispatch}
-            layer={BASE_LAYER_TOTAL_BUILDING_OPEN_311}
+            layer={BASE_LAYER_BUILDING_OPEN_311}
           >
-            <IconProfile className="button-row-child" icon={ServiceCallIcon} label="311-Calls" />
+            <IconProfile className="button-row-child" icon={ServiceCallOpenIcon} label="Open 311-Calls" />
+          </SwitchLayerButton>
+          <SwitchLayerButton
+            action={this.switchLayer}
+            className={`${this.props.landscapeOrientation ? 'round hover-shadow' : ''}`}
+            dispatch={this.props.dispatch}
+            layer={BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311}
+          >
+            <IconProfile className="button-row-child" icon={ResponseTimeIcon} label="Response Time" />
           </SwitchLayerButton>
         </ButtonRow>
       </div>

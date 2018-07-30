@@ -4,15 +4,23 @@ const racePercentWhite2010 = feature => {
   if (!feature.properties.racePercentWhite2010) {
     return {
       color: 'white',
-      fillColor: '#ffdba5',
+      fillColor: 'GRAY',
       opacity: 1,
       fillOpacity: 0.3,
+      weight: 2
+    }
+  } else if (feature.properties.racePercentWhite2010 >= 80) {
+    return {
+      color: 'white',
+      fillColor: '#fcfbfd',
+      opacity: 0.5,
+      fillOpacity: 0.7,
       weight: 2
     }
   } else if (feature.properties.racePercentWhite2010 >= 70) {
     return {
       color: 'white',
-      fillColor: '#f2f0f7',
+      fillColor: '#efedf5',
       opacity: 0.5,
       fillOpacity: 0.7,
       weight: 2
@@ -29,7 +37,7 @@ const racePercentWhite2010 = feature => {
     return {
       color: 'white',
       fillColor: '#bcbddc',
-      opacity: 1,
+      opacity: 0.5,
       fillOpacity: 0.7,
       weight: 2
     }
@@ -57,10 +65,18 @@ const racePercentWhite2010 = feature => {
       fillOpacity: 0.7,
       weight: 2
     }
+  } else if (feature.properties.racePercentWhite2010 >= 10) {
+    return {
+      color: 'white',
+      fillColor: '#54278f',
+      opacity: 1,
+      fillOpacity: 0.7,
+      weight: 2
+    }
   } else {
     return {
       color: 'white',
-      fillColor: '#4a1486',
+      fillColor: '#3f007d',
       opacity: 1,
       fillOpacity: 0.7,
       weight: 2

@@ -26,7 +26,8 @@ article {
 .menu-section {
   box-shadow: 0 2px 4px 0 gray;
   margin-top: $tiny-spacing;
-  padding: $small-spacing 0;
+  padding-top: $small-spacing;
+  padding-bottom: $small-spacing;
 }
 
 @media screen and (orientation: portrait) {
@@ -41,12 +42,11 @@ article {
 }
 
 .scroll-container {
-  height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeight} - 40px);
+  height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeight} - 20px);
   overflow-y: scroll;
 }
 
 .info-section {
-  height: 100%;
   padding: $small-spacing 0;
   padding-bottom: 0;
 }

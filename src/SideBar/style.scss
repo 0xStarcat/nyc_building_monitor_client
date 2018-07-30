@@ -7,6 +7,10 @@
     height: 100%;
     position: relative;
     overflow-y: hidden;
+
+    > .sidebar-wrapper {
+      height: 100%;
+    }
   }
 
   background-color: white;

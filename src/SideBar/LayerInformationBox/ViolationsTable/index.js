@@ -10,7 +10,7 @@ import './style.scss'
 const ViolationsTable = props => {
   return (
     <div className="violations-table sidebar-table">
-      <div className="headerBar">
+      <div className="headerBar menu-section">
         <h3>Violations for</h3>
         <h5>{props.building.name}</h5>
       </div>

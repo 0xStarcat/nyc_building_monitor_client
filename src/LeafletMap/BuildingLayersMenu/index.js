@@ -4,13 +4,19 @@ import { FeatureGroup, LayerGroup, LayersControl, GeoJSON, TileLayer, Pane } fro
 
 import GeoJsonBuildingLayer from '../GeoJsonBuildingLayer'
 
-import { buildingClassStyle, violationBuildingStyle, saleBuildingStyle } from '../GeoJsonBuildingStyles'
+import {
+  buildingClassStyle,
+  violationBuildingStyle,
+  serviceCallOpenBuildingStyle,
+  averageDaysToResolveServiceCalls
+} from '../GeoJsonBuildingStyles'
 import {
   activateSidebar,
   previewSidebar,
   BASE_LAYER_BUILDING_CATEGORIES,
-  BASE_LAYER_TOTAL_VIOLATIONS,
-  BASE_LAYER_TOTAL_BUILDING_OPEN_311
+  BASE_LAYER_BUILDING_TOTAL_VIOLATIONS,
+  BASE_LAYER_BUILDING_OPEN_311,
+  BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311
 } from '../../Store/AppState/actions'
 
 const { BaseLayer, Overlay } = LayersControl
@@ -49,7 +55,7 @@ class BuildingLayersMenu extends Component {
             />
           </BaseLayer>
         )
-      case BASE_LAYER_TOTAL_VIOLATIONS:
+      case BASE_LAYER_BUILDING_TOTAL_VIOLATIONS:
         return (
           <BaseLayer checked name="Building Violations">
             <GeoJsonBuildingLayer
@@ -61,8 +67,7 @@ class BuildingLayersMenu extends Component {
             />
           </BaseLayer>
         )
-
-      case BASE_LAYER_TOTAL_BUILDING_OPEN_311:
+      case BASE_LAYER_BUILDING_OPEN_311:
         return (
           <BaseLayer checked name="Building Open 311 Calls">
             <GeoJsonBuildingLayer
@@ -70,7 +75,19 @@ class BuildingLayersMenu extends Component {
               features={this.props.buildings}
               interactive={true}
               sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
-              style={saleBuildingStyle}
+              style={serviceCallOpenBuildingStyle}
+            />
+          </BaseLayer>
+        )
+      case BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311:
+        return (
+          <BaseLayer checked name="311 call average response">
+            <GeoJsonBuildingLayer
+              setViewCoordinates={this.props.setViewCoordinates}
+              features={this.props.buildings}
+              interactive={true}
+              sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
+              style={averageDaysToResolveServiceCalls}
             />
           </BaseLayer>
         )

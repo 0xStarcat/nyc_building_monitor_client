@@ -17,11 +17,11 @@ import {
 import {
   SIDEBAR_STATE_PREVIEW,
   BASE_LAYER_BOUNDARY_BLANK,
-  BASE_LAYER_MEDIAN_INCOME,
-  BASE_LAYER_MEDIAN_RENT,
-  BASE_LAYER_MEDIAN_RENT_CHANGE,
-  BASE_LAYER_WHITE_POPULATION,
-  BASE_LAYER_OPEN_311
+  BASE_LAYER_BOUNDARY_MEDIAN_INCOME,
+  BASE_LAYER_BOUNDARY_MEDIAN_RENT,
+  BASE_LAYER_BOUNDARY_MEDIAN_RENT_CHANGE,
+  BASE_LAYER_BOUNDARY_WHITE_POPULATION,
+  BASE_LAYER_BOUNDARY_OPEN_311
 } from '../../../Store/AppState/actions'
 
 import IconRow from '../../SharedComponents/IconRow'
@@ -37,15 +37,15 @@ const getPreviewRow = props => {
           value2={props.selectedObject.residentialBuildingsTotal}
         />
       )
-    case BASE_LAYER_MEDIAN_INCOME:
+    case BASE_LAYER_BOUNDARY_MEDIAN_INCOME:
       return <IncomeRow value={props.selectedObject.incomeMedian2017} />
-    case BASE_LAYER_MEDIAN_RENT:
+    case BASE_LAYER_BOUNDARY_MEDIAN_RENT:
       return <RentRow value={props.selectedObject.rentMedian2017} />
-    case BASE_LAYER_MEDIAN_RENT_CHANGE:
+    case BASE_LAYER_BOUNDARY_MEDIAN_RENT_CHANGE:
       return <RentChangeRow value={props.selectedObject.rentChange20112017} />
-    case BASE_LAYER_WHITE_POPULATION:
+    case BASE_LAYER_BOUNDARY_WHITE_POPULATION:
       return <RaceRow value={props.selectedObject.racePercentWhite2010} />
-    case BASE_LAYER_OPEN_311:
+    case BASE_LAYER_BOUNDARY_OPEN_311:
       return <ServiceCallsOpenRow value={props.selectedObject.serviceCallsPercentOpenOneMonth} />
   }
 }
@@ -54,14 +54,14 @@ const BoundaryInformation = props => {
   if (!props.selectedObject) return null
   if (props.sidebarState === SIDEBAR_STATE_PREVIEW) {
     return (
-      <article className="boundary-information">
+      <article className="boundary-information menu-section">
         <div className="preview-section">{getPreviewRow(props)}</div>
       </article>
     )
   } else {
     return (
       <article className="boundary-information scroll-container article-section">
-        <section className="info-section">
+        <section className="info-section menu-section">
           <div className="sub-section-title">
             <h5>Summary</h5>
           </div>
@@ -82,7 +82,7 @@ const BoundaryInformation = props => {
             />
           )}
         </section>
-        <section className="info-section">
+        <section className="info-section menu-section">
           <div className="sub-section-title">
             <h5>2010 - Present</h5>
           </div>

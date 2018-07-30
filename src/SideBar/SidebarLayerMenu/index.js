@@ -9,19 +9,7 @@ import SidebarBoundaryScopeButtons from '../SidebarBoundaryScopeButtons'
 import SidebarBoundaryDetailButtons from '../SidebarBoundaryDetailButtons'
 import SidebarBuildingDetailButtons from '../SidebarBuildingDetailButtons'
 
-import {
-  changeBaseLayer,
-  switchScopeWithFetch,
-  changeBaseLayerScope,
-  SCOPE_NEIGHBORHOODS,
-  SCOPE_CENSUS_TRACTS,
-  BASE_LAYER_BOUNDARY_BLANK,
-  BASE_LAYER_MEDIAN_INCOME,
-  BASE_LAYER_MEDIAN_RENT,
-  BASE_LAYER_MEDIAN_RENT_CHANGE,
-  BASE_LAYER_WHITE_POPULATION,
-  BASE_LAYER_OPEN_311
-} from '../../Store/AppState/actions'
+import { changeBaseLayer, switchScopeWithFetch, changeBaseLayerScope } from '../../Store/AppState/actions'
 
 import { BuildingExploreIcon, RegionIcon, BoundaryLayersIcon } from '../../SharedStyles/icons'
 
@@ -45,7 +33,7 @@ export default class SidebarLayerMenu extends React.Component {
   render() {
     return (
       <div
-        className={`sidebar-layer-menu ${
+        className={`sidebar-layer-menu sidebar-wrapper ${
           this.props.landscapeOrientation ? 'content-box headerless-scroll-container' : ''
         }`}
       >

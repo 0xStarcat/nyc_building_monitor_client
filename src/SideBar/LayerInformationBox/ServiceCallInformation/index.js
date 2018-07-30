@@ -57,7 +57,7 @@ const ServiceCallInformation = props => {
         </DispatchActionButton>
       </ButtonRow>
       <div className="scroll-container">
-        <section>
+        <section className="menu-section">
           <IconRow className="card" icon={ServiceCallIcon}>
             <div>Open: {convertTimestampToData(props.selectedObject.date)}</div>
           </IconRow>
@@ -75,7 +75,7 @@ const ServiceCallInformation = props => {
           )}
         </section>
         {props.selectedObject.closedDate && (
-          <section>
+          <section className="menu-section">
             <h5 className="sub-section-title">Resolution</h5>
 
             <div>

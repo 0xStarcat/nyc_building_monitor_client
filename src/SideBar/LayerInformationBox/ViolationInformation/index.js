@@ -35,8 +35,8 @@ const ViolationInformation = props => {
           <RightArrow />
         </DispatchActionButton>
       </ButtonRow>
-      <div className="info-section scroll-container">
-        <section>
+      <div className="scroll-container">
+        <section className="menu-section">
           <IconRow className="card" icon={ViolationIcon}>
             <div>{convertTimestampToData(props.selectedObject.date)}</div>
           </IconRow>
@@ -67,8 +67,8 @@ const ViolationInformation = props => {
             </ActionCard>
           </DispatchActionButton>
         </section>
-        <section>
-          <div className="sub-section-title">Status</div>
+        <section className="menu-section">
+          <h5 className="sub-section-title">Status</h5>
           <IconRow className="card" icon={ViolationIcon}>
             The status is: {props.selectedObject.status}
           </IconRow>

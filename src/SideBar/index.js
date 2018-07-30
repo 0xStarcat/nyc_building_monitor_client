@@ -90,7 +90,7 @@ class SideBar extends React.Component {
         return <InformationDisplayBox informationContentCode={appState.informationContentCode} />
       default:
         return (
-          <div>
+          <div className="sidebar-wrapper">
             <LayerInformationHeader
               selectedObject={selectedObject}
               sidebarView={appState.sidebarView}
