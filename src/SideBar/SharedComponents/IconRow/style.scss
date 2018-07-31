@@ -24,6 +24,17 @@
   }
 }
 
+.active-icon-row {
+  path {
+    fill: $primaryColor;
+  }
+
+  p {
+    color: $primaryColor;
+    text-decoration: none;
+  }
+}
+
 @media screen and (orientation: portrait) {
   .icon-row {
     label {

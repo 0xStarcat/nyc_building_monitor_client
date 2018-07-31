@@ -14,9 +14,9 @@ const IconProfile = props => {
 }
 
 IconProfile.propTypes = {
-  active: PropTypes.string,
+  active: PropTypes.bool,
   className: PropTypes.string,
-  disabled: PropTypes.string,
+  disabled: PropTypes.bool,
   icon: PropTypes.func,
   label: PropTypes.string
 }

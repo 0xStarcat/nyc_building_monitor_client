@@ -7,7 +7,7 @@ import './style.scss'
 
 const IconRow = props => {
   return (
-    <div className={classNames('icon-row', props.className)}>
+    <div className={classNames('icon-row', props.className, { 'active-icon-row': props.active })}>
       <i>{props.icon()}</i>
       <p>{props.children}</p>
     </div>
@@ -15,6 +15,8 @@ const IconRow = props => {
 }
 
 IconRow.propTypes = {
+  active: PropTypes.bool,
+  disabled: PropTypes.bool,
   icon: PropTypes.func
 }
 

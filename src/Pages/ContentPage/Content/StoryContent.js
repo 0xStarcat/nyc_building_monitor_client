@@ -21,11 +21,11 @@ const StoryContent = () => {
           light. I called the landlord and got the news that the gas in the entire building had just been shut off.
         </p>
         <p>
-          The ensuing days were full of stress and anxiety - we had no hot water, no heat, and no stove to cook on. We
-          didn’t know who could solve our issues - the landlord? The city? A lawyer? Thankfully, the landlord replaced
-          the hot water heaters - which ran on gas - with electric ones and they gave us space-heaters and electric
-          stovetops within a few days. They knew that not providing these things would put them in violation of the
-          lease.
+          The ensuing days were full of stress and anxiety - we had no hot water to shower with, no heat keep warm at
+          night, and no stove to cook on. We didn’t know who could solve our issues - the landlord? The city? A lawyer?
+          We demanded a solution from the landlord and thankfully, they replaced the hot water heaters - which ran on
+          gas - with electric ones and they gave us space-heaters and electric stovetops within a few days. They knew
+          that not providing these things would put them in violation of the lease.
         </p>
         <p>
           I had many questions. Why did this happen in the first place? Why did it have to happen so suddenly in the
@@ -48,7 +48,7 @@ const StoryContent = () => {
         <p>
           Full disclosure - I am not a native of Williamsburg or NYC and I have privileges that some residents of
           Williamsburg do not. With that said, I cannot afford to live in one of the new developments that have sprung
-          up on my block in recent years and I do NOT eat Kale or call the cops on people.
+          up on my block in recent years and I do NOT eat Quinoa salad or call the cops on people.
         </p>
         <p>
           I spent countless days scraping data from the NYC databases, running statistical formulas on it to find any
@@ -69,7 +69,7 @@ const StoryContent = () => {
         </p>
         <p>
           The violation described the discovery of an illegal gas connection. THAT was why we lost gas - not because of
-          the sprinkler system. The landlords decided to hide the fact that they were operating an illegal gas line from
+          the sprinkler system. The landlord decided to hide the fact that they were operating an illegal gas line from
           us the whole time.
         </p>
         <p>

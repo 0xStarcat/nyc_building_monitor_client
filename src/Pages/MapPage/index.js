@@ -48,6 +48,7 @@ export class MapPage extends React.Component {
           setViewCoordinates={this.setViewCoordinates}
           buildingsPresent={this.props.buildingsPresent}
           dispatch={this.props.dispatch}
+          router={this.props.router}
           store={this.props.store}
         />
         {!this.props.store.appState.landscapeOrientation && (

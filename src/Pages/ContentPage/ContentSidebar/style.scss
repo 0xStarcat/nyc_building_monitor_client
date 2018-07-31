@@ -1,0 +1,24 @@
+@import '../../../SharedStyles/index';
+
+.content-sidebar {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  transition: transform 0.5s ease-out;
+  z-index: 10;
+}
+
+.content-sidebar-button {
+  background-color: $secondaryColor;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  position: absolute;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.5s ease-in;
+  // transform: translateX(120vw);
+}

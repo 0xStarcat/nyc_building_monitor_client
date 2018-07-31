@@ -38,12 +38,12 @@ class App extends Component {
       <div className="App">
         <Router history={history}>
           <Switch>
-            <Route exact path="/" render={() => <MapPage />} />
+            <Route exact path="/" render={router => <MapPage router={router} />} />
             <Route
               exact
               path="/about"
-              render={() => (
-                <ContentPage>
+              render={router => (
+                <ContentPage router={router}>
                   <AboutContent />
                 </ContentPage>
               )}
@@ -51,8 +51,8 @@ class App extends Component {
             <Route
               exact
               path="/story"
-              render={() => (
-                <ContentPage>
+              render={router => (
+                <ContentPage router={router}>
                   <StoryContent />
                 </ContentPage>
               )}
@@ -60,8 +60,8 @@ class App extends Component {
             <Route
               exact
               path="/support"
-              render={() => (
-                <ContentPage>
+              render={router => (
+                <ContentPage router={router}>
                   <SupportContent />
                 </ContentPage>
               )}

@@ -1,6 +1,8 @@
 @import '../../../SharedStyles/index';
 
 .text-content {
+  box-sizing: border-box;
+
   h5 {
     margin: 40% 0 20% 0;
   }

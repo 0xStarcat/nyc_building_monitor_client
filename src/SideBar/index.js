@@ -4,7 +4,7 @@ import LayerInformationHeader from './LayerInformationHeader'
 
 import LayerInformationBox from './LayerInformationBox'
 import SidebarLayerMenu from './SidebarLayerMenu'
-import LinkMenu from './LinkMenu'
+import LinkMenu from '../SharedComponents/LinkMenu'
 import InformationDisplayBox from './InformationDisplayBox'
 
 import TopBar from './TopBar'
@@ -70,7 +70,7 @@ class SideBar extends React.Component {
     const selectedObject = (this.props.store[appState.sidebarScope] || {}).selectedObject
     switch (appState.sidebarView) {
       case SIDEBAR_VIEW_LINKS_MENU:
-        return <LinkMenu />
+        return <LinkMenu router={this.props.router} />
       case SIDEBAR_VIEW_MAP_DETAILS_MENU:
         return (
           <SidebarLayerMenu
@@ -129,6 +129,7 @@ class SideBar extends React.Component {
 SideBar.propTypes = {
   buildingsPresent: PropTypes.bool,
   dispatch: PropTypes.func,
+  router: PropTypes.object,
   store: PropTypes.object,
   setViewCoordinates: PropTypes.func
 }
