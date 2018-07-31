@@ -17,19 +17,51 @@ import {
 } from '../../../../SharedStyles/icons'
 
 const incomeValueClass = value => {
-  if (value > 90000) {
-    return 'value-high'
-  } else if (value > 50000) {
-    return 'value-middle'
-  } else {
-    return 'value-low'
-  }
+  if (value > 90000) return 'value-5'
+  if (value > 70000) return 'value-4'
+  if (value > 50000) return 'value-3'
+  if (value > 30000) return 'value-2'
+
+  return 'value-1'
+}
+
+const rentValueClass = value => {
+  if (value > 2400) return 'value-5'
+  if (value > 2000) return 'value-4'
+  if (value > 1600) return 'value-3'
+  if (value > 1200) return 'value-2'
+
+  return 'value-1'
+}
+
+const raceValueClass = value => {
+  if (value > 80) return 'value-5'
+  if (value > 60) return 'value-4'
+  if (value > 40) return 'value-3'
+  if (value > 20) return 'value-2'
+
+  return 'value-1'
+}
+
+const rentChangeValueClass = value => {
+  if (value > 500) return 'value-5-diverge'
+  if (value > 300) return 'value-4-diverge'
+  if (value > 0) return 'value-3-diverge'
+  if (value >= -100) return 'value-2-diverge'
+  if (value < -100) return 'value-1-diverge'
 }
 
 export const IncomeRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={IncomeIcon}>
-      The median income in 2017 was <span className={classNames(incomeValueClass(props.value))}>${props.value}</span>
+      {props.value ? (
+        <div>
+          <span>The median income in 2017 was </span>
+          <span className={classNames('value-text', incomeValueClass(props.value))}>${props.value}</span>
+        </div>
+      ) : (
+        <span>(No income data available)</span>
+      )}
     </IconRow>
   )
 }
@@ -37,7 +69,14 @@ export const IncomeRow = props => {
 export const RentRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={RentIcon}>
-      The median rent in 2017 was <span>${props.value}</span>
+      {props.value ? (
+        <div>
+          <span>The median rent in 2017 was </span>
+          <span className={classNames('value-text', rentValueClass(props.value))}>${props.value}</span>
+        </div>
+      ) : (
+        <span>(No rent data available)</span>
+      )}
     </IconRow>
   )
 }
@@ -45,7 +84,14 @@ export const RentRow = props => {
 export const RaceRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={PopulationIcon}>
-      The population in 2010 was <span>{props.value}%</span> white.
+      {props.value ? (
+        <div>
+          <span>The population in 2010 was </span>
+          <span className={classNames('value-text', raceValueClass(props.value))}>{props.value}%</span> white.
+        </div>
+      ) : (
+        <span>(No race data available)</span>
+      )}
     </IconRow>
   )
 }
@@ -53,8 +99,16 @@ export const RaceRow = props => {
 export const TotalBuildingsRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={BuildingIcon}>
-      There are <span>{props.value1}</span> buildings and <span>{props.value2}</span> residential buildings in this
-      area.{' '}
+      {props.value1 ? (
+        <div>
+          <span>
+            There are <span>{props.value1}</span> buildings and <span>{props.value2}</span> residential buildings in
+            this area.
+          </span>
+        </div>
+      ) : (
+        <span>(No building data available)</span>
+      )}
     </IconRow>
   )
 }
@@ -62,7 +116,16 @@ export const TotalBuildingsRow = props => {
 export const RentChangeRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={RentChangeIcon}>
-      The rent changed by <span>${props.value}</span>
+      {props.value ? (
+        <div>
+          <span>
+            The rent changed by{' '}
+            <span className={classNames('value-text', rentChangeValueClass(props.value))}>${props.value}</span>
+          </span>
+        </div>
+      ) : (
+        <span>(No historical rent data available)</span>
+      )}
     </IconRow>
   )
 }

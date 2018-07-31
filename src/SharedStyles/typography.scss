@@ -115,14 +115,60 @@ div.text-box {
   }
 }
 
-.value-high {
-  background: blue;
+.value-text {
+  border-radius: 20px;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
-.value-middle {
-  background: yellow;
+.value-5 {
+  background: #253494;
+  border: 1px dotted white;
+  color: white;
+}
+.value-4 {
+  background: #2c7fb8;
+  border: 1px dotted white;
+  color: white;
+}
+.value-3 {
+  background: #41b6c4;
+  border: 1px dotted white;
+  color: white;
+}
+.value-2 {
+  background: #a1dab4;
+  border: 1px dotted gray;
+  color: black;
+}
+.value-1 {
+  background: #ffffcc;
+  border: 1px dotted gray;
+  color: black;
 }
 
-.value-low {
-  background: red;
+.value-5-diverge {
+  background: #005a32;
+  border: 1px dotted white;
+  color: white;
+}
+.value-4-diverge {
+  background: #41ab5d;
+  border: 1px dotted white;
+  color: white;
+}
+.value-3-diverge {
+  background: #d9f0a3;
+  border: 1px dotted black;
+  color: black;
+}
+.value-2-diverge {
+  background: #fc8d59;
+  border: 1px dotted gray;
+  color: black;
+}
+.value-1-diverge {
+  background: #d73027;
+  border: 1px dotted white;
+  color: white;
 }
