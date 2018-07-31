@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import IconRow from '../../SharedComponents/IconRow'
-import DispatchActionButton from '../../SharedComponents/DispatchActionButton'
+import DispatchActionButton from '../../../SharedComponents/DispatchActionButton'
 import ButtonRow from '../../../SharedComponents/ButtonRow'
 import ActionCard from '../../SharedComponents/ActionCard'
 

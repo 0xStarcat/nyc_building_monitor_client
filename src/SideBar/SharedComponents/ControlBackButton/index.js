@@ -5,6 +5,8 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import {
   SIDEBAR_STATE_PREVIEW,
+  SIDEBAR_STATE_ACTIVE,
+  SIDEBAR_VIEW_LINKS_MENU,
   SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
@@ -16,12 +18,13 @@ import {
   SCOPE_SERVICE_CALLS
 } from '../../../Store/AppState/actions'
 
-import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
+import SwitchViewButton from '../../../SharedComponents/SwitchViewButton'
 import { RightArrow } from '../../../SharedStyles/icons'
 
 export const ControlBackButton = props => {
   const getBackView = () => {
     const appState = props.appState
+    if (appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU) return SIDEBAR_VIEW_LINKS_MENU
 
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
@@ -48,7 +51,7 @@ export const ControlBackButton = props => {
 
     switch (appState.sidebarScope) {
       case SCOPE_BUILDINGS:
-        if (!!props.selectedCensusTract) return SCOPE_CENSUS_TRACTS
+        if (props.selectedCensusTract) return SCOPE_CENSUS_TRACTS
         else return SCOPE_NEIGHBORHOODS
       case SCOPE_VIOLATIONS:
         if (appState.sidebarView === SIDEBAR_VIEW_SELECTED_OBJECT || appState.sidebarView === SIDEBAR_VIEW_INFORMATION)
@@ -66,6 +69,9 @@ export const ControlBackButton = props => {
   const getBackState = () => {
     const appState = props.appState
     if (appState.landscapeOrientation) return null
+    if (appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU) return SIDEBAR_STATE_ACTIVE
+    if (appState.sidebarView === SIDEBAR_VIEW_LINKS_MENU) return SIDEBAR_STATE_PREVIEW
+
     if (appState.sidebarScope === SCOPE_CENSUS_TRACTS || appState.sidebarScope === SCOPE_NEIGHBORHOODS) {
       return SIDEBAR_STATE_PREVIEW
     } else {
@@ -76,7 +82,7 @@ export const ControlBackButton = props => {
   const getBackText = () => {
     const appState = props.appState
 
-    if (appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU) return null
+    if (appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU) return 'Menu'
 
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
@@ -100,7 +106,7 @@ export const ControlBackButton = props => {
     }
   }
 
-  const disabled = props.appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU
+  const disabled = false
 
   return (
     <SwitchViewButton

@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import DispatchActionButton from '../../SharedComponents/DispatchActionButton'
-import IconProfile from '../../SharedComponents/IconProfile'
+import DispatchActionButton from '../../../SharedComponents/DispatchActionButton'
 import { LeftArrow, RightArrow } from '../../../SharedStyles/icons'
 
 import { SIDEBAR_STATE_ACTIVE, deactivateSidebar, activateSidebar } from '../../../Store/AppState/actions'

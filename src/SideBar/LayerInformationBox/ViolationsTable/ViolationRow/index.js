@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import SwitchViewButton from '../../../SharedComponents/SwitchViewButton'
+import SwitchViewButton from '../../../../SharedComponents/SwitchViewButton'
 import ActionCard from '../../../SharedComponents/ActionCard'
 import { SCOPE_VIOLATIONS, SIDEBAR_VIEW_SELECTED_OBJECT } from '../../../../Store/AppState/actions'
 import { updateSelectedViolation } from '../../../../Store/Violations/actions'

@@ -35,7 +35,11 @@ const getOrientationRow = props => {
       )}
       {(props.appState.sidebarState === SIDEBAR_STATE_ACTIVE ||
         props.appState.sidebarState === SIDEBAR_STATE_INACTIVE) && (
-        <ControlPreviewButton className="control-row-child" sidebarState={props.appState.sidebarState} />
+        <ControlPreviewButton
+          className="control-row-child"
+          sidebarState={props.appState.sidebarState}
+          sidebarView={props.appState.sidebarView}
+        />
       )}
 
       <ControlExpandButton

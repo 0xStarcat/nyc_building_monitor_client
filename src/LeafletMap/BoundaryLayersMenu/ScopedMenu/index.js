@@ -9,13 +9,11 @@ import {
   rentChangeLayerStyle,
   racePercentWhite2010,
   serviceCallsPercentOpenOneMonth,
-  neighborhoodBoundaryStyle,
   averageDaysToResolveServiceCalls,
   boundaryStyle
 } from '../../GeoJsonBoundaryStyles'
 
 import {
-  allLayersLoaded,
   activateSidebar,
   previewSidebar,
   BASE_LAYER_BOUNDARY_BLANK,

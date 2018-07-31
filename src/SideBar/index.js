@@ -1,18 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react'
-import AppLink from '../SharedComponents/AppLink'
 import LayerInformationHeader from './LayerInformationHeader'
 
 import LayerInformationBox from './LayerInformationBox'
 import SidebarLayerMenu from './SidebarLayerMenu'
-import SidebarBuildingDetailButtons from './SidebarBuildingDetailButtons'
+import LinkMenu from './LinkMenu'
 import InformationDisplayBox from './InformationDisplayBox'
 
 import TopBar from './TopBar'
-import ControlRow from './SharedComponents/ControlRow'
-import ControlBackButton from './SharedComponents/ControlBackButton'
-import ControlNextButton from './SharedComponents/ControlNextButton'
 
 import { getPreviewYTranslation } from '../SharedUtilities/previewUtils'
 
@@ -20,19 +15,15 @@ import {
   MOBILE_SIDEBAR_ACTIVE_X_TRANSLATION,
   MOBILE_SIDEBAR_INACTIVE_X_TRANSLATION,
   MOBILE_SIDEBAR_ACTIVE_Y_TRANSLATION,
-  MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION,
   MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION
 } from '../SharedStyles/__constants__/sidebarConstants.js'
 
 import {
-  SCOPE_NEIGHBORHOODS,
-  SCOPE_CENSUS_TRACTS,
   SIDEBAR_STATE_ACTIVE,
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_INACTIVE,
+  SIDEBAR_VIEW_LINKS_MENU,
   SIDEBAR_VIEW_MAP_DETAILS_MENU,
-  SIDEBAR_VIEW_SELECTED_OBJECT,
-  SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_VIEW_INFORMATION,
   SCOPE_VIOLATIONS,
   SCOPE_SERVICE_CALLS
@@ -78,6 +69,8 @@ class SideBar extends React.Component {
     const appState = this.props.store.appState
     const selectedObject = (this.props.store[appState.sidebarScope] || {}).selectedObject
     switch (appState.sidebarView) {
+      case SIDEBAR_VIEW_LINKS_MENU:
+        return <LinkMenu />
       case SIDEBAR_VIEW_MAP_DETAILS_MENU:
         return (
           <SidebarLayerMenu

@@ -1,0 +1,24 @@
+@import '../../SharedStyles/index';
+
+.more-info-button {
+  background-color: $secondaryColor;
+  border: 1px dotted $LIGHTGRAY;
+  border-radius: 50%;
+  box-shadow: -1px 1px 4px 0 gray;
+  box-sizing: border-box;
+  color: white;
+  font-size: 22px;
+  height: $medium-spacing;
+  left: 20px;
+  line-height: $medium-spacing;
+  position: absolute;
+  text-align: center;
+  top: 20px;
+  width: $medium-spacing;
+  z-index: 500;
+}
+
+@media screen and (orientation: portrait) {
+  .more-info-button {
+  }
+}

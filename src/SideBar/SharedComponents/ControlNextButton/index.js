@@ -14,7 +14,7 @@ import {
   SIDEBAR_VIEW_SCOPED_OBJECTS
 } from '../../../Store/AppState/actions'
 
-import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
+import SwitchViewButton from '../../../SharedComponents/SwitchViewButton'
 import { RightArrow } from '../../../SharedStyles/icons'
 
 export const ControlNextButton = props => {

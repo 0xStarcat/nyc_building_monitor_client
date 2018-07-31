@@ -1,10 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import LeafletMap from '../../LeafletMap'
+
+import Layout from '../Layout'
 import SideBar from '../../SideBar'
 import MobileButtonContainer from '../../MobileButtonContainer'
 import MapLegend from '../../LeafletMap/MapLegend'
-import Layout from '../Layout'
+import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
+
+import { activateSidebar, SIDEBAR_VIEW_LINKS_MENU } from '../../Store/AppState/actions'
+
+import './style.scss'
 
 export class MapPage extends React.Component {
   constructor(props) {
@@ -59,6 +65,13 @@ export class MapPage extends React.Component {
           legendScopeBoundaries={this.props.store.appState.legendScopeBoundaries}
           open={this.props.store.appState.legendOpen}
         />
+        <SwitchViewButton
+          className="more-info-button hover-shadow"
+          dispatchAction={activateSidebar}
+          viewSwitch={SIDEBAR_VIEW_LINKS_MENU}
+        >
+          ?
+        </SwitchViewButton>
         <LeafletMap
           dispatch={this.props.dispatch}
           mapRef={this.mapRef}

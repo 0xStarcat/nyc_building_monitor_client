@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import DispatchActionButton from '../../SideBar/SharedComponents/DispatchActionButton'
+import DispatchActionButton from '../../SharedComponents/DispatchActionButton'
 import IconProfile from '../../SideBar/SharedComponents/IconProfile'
 
 import {
