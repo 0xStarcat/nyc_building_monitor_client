@@ -2,10 +2,10 @@
 
 .content-sidebar {
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: $sidebarWidth;
   transition: transform 0.5s ease-out;
   z-index: 10;
 }
@@ -22,5 +22,10 @@
   height: 40px;
   border-radius: 50%;
   transition: transform 0.5s ease-in;
-  // transform: translateX(120vw);
+}
+
+@media screen and (orientation: portrait) {
+  .content-sidebar {
+    width: 100%;
+  }
 }

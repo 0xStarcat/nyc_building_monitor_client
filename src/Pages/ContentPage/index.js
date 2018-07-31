@@ -5,7 +5,7 @@ import ContentSidebar from './ContentSidebar'
 const ContentPage = props => {
   return (
     <div className="content-page">
-      <ContentSidebar router={props.router} />
+      <ContentSidebar landscapeOrientation={props.landscapeOrientation} router={props.router} />
       {props.children}
     </div>
   )

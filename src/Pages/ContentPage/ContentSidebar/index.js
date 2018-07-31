@@ -23,9 +23,13 @@ class ContentSidebar extends React.Component {
   }
 
   render() {
+    const buttonXTranslate = this.props.landscapeOrientation
+      ? 'translateX(calc(400px - 60px))'
+      : 'translateX(calc(100vw - 60px))'
+
     const sidebarTransform = this.state.active ? { transform: 'translateX(0px)' } : { transform: 'translateX(-110vw)' }
     const buttonTransform = this.state.active
-      ? { transform: 'translateX(calc(100vw - 60px)) translateY(25px)' }
+      ? { transform: `${buttonXTranslate} translateY(25px)` }
       : { transform: 'translateX(112vw) translateY(20px)' }
 
     return (
@@ -40,6 +44,7 @@ class ContentSidebar extends React.Component {
 }
 
 ContentSidebar.propTypes = {
+  landscapeOrientation: PropTypes.bool,
   router: PropTypes.object
 }
 

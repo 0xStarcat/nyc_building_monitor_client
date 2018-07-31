@@ -20,9 +20,9 @@
   left: 0;
   position: fixed;
   top: 0;
-  transform: translateX(-$sidebar-width);
+  transform: translateX(-$sidebarWidth);
   transition: transform 0.3s ease-in-out;
-  width: $sidebar-width;
+  width: $sidebarWidth;
   z-index: 1050;
 
   .thin-horizontal-row {

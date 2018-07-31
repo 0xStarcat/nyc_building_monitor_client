@@ -43,7 +43,7 @@ class App extends Component {
               exact
               path="/about"
               render={router => (
-                <ContentPage router={router}>
+                <ContentPage landscapeOrientation={this.props.landscapeOrientation} router={router}>
                   <AboutContent />
                 </ContentPage>
               )}
@@ -52,7 +52,7 @@ class App extends Component {
               exact
               path="/story"
               render={router => (
-                <ContentPage router={router}>
+                <ContentPage landscapeOrientation={this.props.landscapeOrientation} router={router}>
                   <StoryContent />
                 </ContentPage>
               )}
@@ -61,7 +61,7 @@ class App extends Component {
               exact
               path="/support"
               render={router => (
-                <ContentPage router={router}>
+                <ContentPage landscapeOrientation={this.props.landscapeOrientation} router={router}>
                   <SupportContent />
                 </ContentPage>
               )}
@@ -73,4 +73,10 @@ class App extends Component {
   }
 }
 
-export default connect()(App)
+const mapStateToProps = state => {
+  return {
+    landscapeOrientation: state.appState.landscapeOrientation
+  }
+}
+
+export default connect(mapStateToProps)(App)
