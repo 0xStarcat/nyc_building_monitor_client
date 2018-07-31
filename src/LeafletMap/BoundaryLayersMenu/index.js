@@ -15,7 +15,6 @@ class BoundaryLayersMenu extends Component {
     this.layersLoaded = 0
 
     this.tileLayerLoaded = false
-    this.getSelectedObjectId = this.getSelectedObjectId.bind(this)
     this.tileLayerLoadComplete = this.tileLayerLoadComplete.bind(this)
     this.checkLayerLoadStatus = this.checkLayerLoadStatus.bind(this)
   }
@@ -26,9 +25,6 @@ class BoundaryLayersMenu extends Component {
     }
   }
 
-  getSelectedObjectId() {
-    return this.props.selectedObject ? this.props.selectedObject.id : null
-  }
   layerLoaded() {
     this.layersLoaded++
     this.checkLayerLoadStatus()
@@ -59,12 +55,9 @@ class BoundaryLayersMenu extends Component {
         baseLayerScope={this.props.baseLayerScope}
         dispatch={this.props.dispatch}
         features={this.props.features}
-        landscapeOrientation={this.props.landscapeOrientation}
         layerControlRef={this.layerControlRef}
         layerLoaded={this.layerLoaded}
-        position={this.props.position}
         setViewCoordinates={this.props.setViewCoordinates}
-        getSelectedObjectId={this.getSelectedObjectId}
         tileLayerLoadComplete={this.tileLayerLoadComplete}
       />
     )
@@ -78,13 +71,9 @@ BoundaryLayersMenu.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    allLayersLoaded: state.appState.allLayersLoaded,
     baseLayer: state.appState.baseLayer,
     baseLayerScope: state.appState.baseLayerScope,
-    buildingBaseLayer: state.appState.buildingBaseLayer,
-    features: state[state.appState.baseLayerScope].features,
-    landscapeOrientation: state.appState.landscapeOrientation,
-    selectedObject: (state[state.appState.baseLayerScope] || {}).selectedObject
+    features: state[state.appState.baseLayerScope].features
   }
 }
 

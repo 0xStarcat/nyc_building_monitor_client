@@ -26,7 +26,7 @@ describe('LegendInfo', () => {
       const wrapper = shallow(
         <LegendInfo dispatch={dispatch} landscapeOrientation={true} legendScopeBoundaries={false} />
       )
-      expect(wrapper.text()).toEqual('Load building details from the sidebar menu.')
+      expect(wrapper.text()).toEqual('Tap on a region to load its buildings.')
     })
   })
 
@@ -42,7 +42,7 @@ describe('LegendInfo', () => {
       const wrapper = shallow(
         <LegendInfo dispatch={dispatch} landscapeOrientation={false} legendScopeBoundaries={false} />
       )
-      expect(wrapper.text()).toEqual("Tap 'Map Details' and choose a building detail.")
+      expect(wrapper.text()).toEqual('Tap on a region to load its buildings.')
     })
   })
 })

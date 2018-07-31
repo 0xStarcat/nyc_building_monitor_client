@@ -22,9 +22,9 @@ export class GeoJsonBoundaryGroup extends Component {
     }
   }
 
-  shouldComponentUpdate() {
-    return false
-  }
+  // shouldComponentUpdate() {
+  //   return false
+  // }
 
   render() {
     console.log('rendering GEOboundary')

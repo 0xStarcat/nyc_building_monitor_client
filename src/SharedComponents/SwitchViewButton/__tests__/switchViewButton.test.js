@@ -4,7 +4,7 @@ import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import { SwitchViewButton } from '../index.js'
 
-import { SCOPE_CENSUS_TRACTS, SIDEBAR_VIEW_MAP_DETAILS_MENU } from '../../../../Store/AppState/actions'
+import { SCOPE_CENSUS_TRACTS, SIDEBAR_VIEW_MAP_DETAILS_MENU } from '../../../Store/AppState/actions'
 
 configure({ adapter: new Adapter() })
 

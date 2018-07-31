@@ -3,11 +3,9 @@ import { configure, shallow } from 'enzyme'
 import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import { GeoJsonBoundaryGroup } from '../index.js'
-import { GeoJSON, LayerGroup } from 'react-leaflet'
+import { LayerGroup } from 'react-leaflet'
 
-import { SCOPE_NEIGHBORHOODS, SCOPE_CENSUS_TRACTS } from '../../../Store/AppState/actions'
-import { selectNewSelectedCTObject } from '../../../Store/CensusTracts/actions'
-import { selectNewSelectedNeighborhoodObject } from '../../../Store/Neighborhoods/actions'
+import { SCOPE_CENSUS_TRACTS } from '../../../Store/AppState/actions'
 
 configure({ adapter: new Adapter() })
 
@@ -40,20 +38,6 @@ describe('GeoJsonBoundaryGroup', () => {
     const wrapper = shallow(<GeoJsonBoundaryGroup {...props} />)
     it('should render', () => {
       expect(wrapper.find(LayerGroup).exists()).toBe(true)
-    })
-  })
-
-  describe('onClick', () => {
-    const wrapper = shallow(<GeoJsonBoundaryGroup {...props} />)
-
-    it('calls dispatch 6 times, setViewcoordinates, and sidebarAction', () => {
-      const event = { target: { feature: { properties: { representativePoint: [0, 0] } } } }
-      wrapper.instance().onClick(event)
-
-      expect(dispatch.callCount).toEqual(6)
-      expect(setViewCoordinates.calledOnce).toEqual(true)
-      expect(getSelectedObjectId.calledOnce).toEqual(true)
-      expect(sidebarAction.calledOnce).toEqual(true)
     })
   })
 })

@@ -14,15 +14,6 @@ import {
 } from '../../GeoJsonBoundaryStyles'
 
 import {
-  activateSidebar,
-  previewSidebar,
-  openLegend,
-  setLegendScopeBuildings,
-  changeSidebarScope,
-  changeSidebarView,
-  changeBuildingBaseLayer,
-  SIDEBAR_VIEW_SELECTED_OBJECT,
-  BASE_LAYER_BUILDING_CATEGORIES,
   BASE_LAYER_BOUNDARY_BLANK,
   BASE_LAYER_BOUNDARY_MEDIAN_INCOME,
   BASE_LAYER_BOUNDARY_MEDIAN_RENT,
@@ -31,40 +22,21 @@ import {
   BASE_LAYER_BOUNDARY_OPEN_311,
   BASE_LAYER_BOUNDARY_AVERAGE_RESPONSE_311,
   SCOPE_NEIGHBORHOODS,
-  SCOPE_CENSUS_TRACTS
+  onRegionClick
 } from '../../../Store/AppState/actions'
-
-import { selectNewSelectedCTObject } from '../../../Store/CensusTracts/actions'
-import { selectNewSelectedNeighborhoodObject } from '../../../Store/Neighborhoods/actions'
-import { readBuildingsByScope } from '../../../Store/Buildings/actions'
 
 const { BaseLayer, Overlay } = LayersControl
 
 const ScopedMenu = props => {
-  const getSelectedObjectFunction = event => {
-    switch (props.baseLayerScope) {
-      case SCOPE_NEIGHBORHOODS:
-        return selectNewSelectedNeighborhoodObject(event.target.feature.properties)
-      case SCOPE_CENSUS_TRACTS:
-        return selectNewSelectedCTObject(event.target.feature.properties)
-    }
-  }
   const onClick = event => {
-    const layerProperties = event.target.feature.properties
-    props.setViewCoordinates(layerProperties.representativePoint, props.scope === SCOPE_NEIGHBORHOODS ? 14 : 15)
-    props.dispatch(setLegendScopeBuildings())
-    props.dispatch(openLegend())
-    if (!props.buildingBaseLayer) props.dispatch(changeBuildingBaseLayer(BASE_LAYER_BUILDING_CATEGORIES))
-    props.dispatch(changeSidebarScope(props.baseLayerScope))
-    props.dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
-    props.dispatch(props.landscapeOrientation ? activateSidebar : previewSidebar)
-    if (layerProperties.id !== props.getSelectedObjectId()) {
-      props.dispatch(readBuildingsByScope(props.baseLayerScope, layerProperties.id))
-    }
-    props.dispatch(getSelectedObjectFunction(event))
+    props.setViewCoordinates(
+      event.target.feature.properties.representativePoint,
+      props.baseLayerScope === SCOPE_NEIGHBORHOODS ? 14 : 15
+    )
+    props.dispatch(onRegionClick(event))
   }
   return (
-    <LayersControl collapsed={true} ref={props.layerControlRef} position={props.position}>
+    <LayersControl collapsed={true} ref={props.layerControlRef} position="topright">
       <Overlay checked name="Street and Landmark Labels">
         <Pane style={{ zIndex: 430 }}>
           <TileLayer
@@ -147,12 +119,9 @@ const ScopedMenu = props => {
 ScopedMenu.propTypes = {
   baseLayer: PropTypes.string,
   baseLayerScope: PropTypes.string,
-  buildingBaseLayer: PropTypes.string,
+  dispatch: PropTypes.func,
   features: PropTypes.array,
-  landscapeOrientation: PropTypes.bool,
-  position: PropTypes.string,
   setViewCoordinates: PropTypes.func,
-  getSelectedObjectId: PropTypes.func,
   tileLayerLoadComplete: PropTypes.func,
   layerControlRef: PropTypes.object,
   layerLoaded: PropTypes.func

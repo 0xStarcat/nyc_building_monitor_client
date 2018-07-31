@@ -1,5 +1,8 @@
-import { readCensusTracts } from '../../CensusTracts/actions'
-import { readNeighborhoods } from '../../Neighborhoods/actions'
+import { readCensusTracts, selectNewSelectedCTObject } from '../../CensusTracts/actions'
+import { readNeighborhoods, selectNewSelectedNeighborhoodObject } from '../../Neighborhoods/actions'
+import { readBuildingsByScope } from '../../Buildings/actions'
+
+import store from '../../store'
 
 export const CHECK_ORIENTATION = 'CHECK_ORIENTATION'
 export const ALL_LAYERS_LOADED = 'ALL_LAYERS_LOADED'
@@ -144,4 +147,28 @@ export const switchScopeWithFetch = event => dispatch => {
   }
   dispatch(changeSidebarScope(event))
   dispatch(fetchMethod()())
+}
+
+const getSelectedObjectFunction = event => {
+  switch (store.getState().appState.baseLayerScope) {
+    case SCOPE_NEIGHBORHOODS:
+      return selectNewSelectedNeighborhoodObject(event.target.feature.properties)
+    default:
+      return selectNewSelectedCTObject(event.target.feature.properties)
+  }
+}
+
+export const onRegionClick = event => dispatch => {
+  const layerProperties = event.target.feature.properties
+  const selectedObject = (store.getState()[store.getState().appState.baseLayerScope] || {}).selectedObject
+  dispatch(setLegendScopeBuildings())
+  dispatch(openLegend())
+  if (!store.getState().appState.buildingBaseLayer) dispatch(changeBuildingBaseLayer(BASE_LAYER_BUILDING_CATEGORIES))
+  dispatch(changeSidebarScope(store.getState().appState.baseLayerScope))
+  dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
+  dispatch(store.getState().appState.landscapeOrientation ? activateSidebar : previewSidebar)
+  if (layerProperties.id !== (selectedObject || {}).id) {
+    dispatch(readBuildingsByScope(store.getState().appState.baseLayerScope, layerProperties.id))
+  }
+  dispatch(getSelectedObjectFunction(event))
 }

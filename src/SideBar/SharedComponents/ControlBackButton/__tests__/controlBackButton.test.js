@@ -1,26 +1,19 @@
 import React from 'react'
 import { configure, shallow } from 'enzyme'
-import sinon from 'sinon'
 import Adapter from 'enzyme-adapter-react-16'
 import { ControlBackButton } from '../index.js'
 
 import {
+  SIDEBAR_VIEW_LINKS_MENU,
   SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
-  SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
   SCOPE_BUILDINGS,
   SCOPE_VIOLATIONS
 } from '../../../../Store/AppState/actions'
 
 configure({ adapter: new Adapter() })
-
-const appState = {
-  baseLayerScope: SCOPE_CENSUS_TRACTS,
-  sidebarView: SIDEBAR_VIEW_SELECTED_OBJECT,
-  sidebarScope: SCOPE_CENSUS_TRACTS
-}
 
 describe('ControlBackButton', () => {
   describe('when rendering the back button', () => {
@@ -31,9 +24,9 @@ describe('ControlBackButton', () => {
       }
       const wrapper = shallow(<ControlBackButton appState={appState} />)
 
-      it('disables the back button', () => {
+      it('renders the back button with view = SIDEBAR_VIEW_LINKS_MENU', () => {
         const backButtonProps = wrapper.props()
-        expect(backButtonProps.disabled).toEqual(true)
+        expect(backButtonProps.viewSwitch).toEqual(SIDEBAR_VIEW_LINKS_MENU)
       })
     })
 

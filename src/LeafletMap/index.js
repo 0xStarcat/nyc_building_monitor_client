@@ -5,19 +5,18 @@ import BoundaryLayersMenu from './BoundaryLayersMenu'
 import BuildingLayersMenu from './BuildingLayersMenu'
 import Loading from '../SharedComponents/Loading'
 
-import { initialBoundaryDataLoaded, nothingLoading, layersLoaded } from '../SharedUtilities/storeUtils'
+import { initialBoundaryDataLoaded, nothingLoading } from '../SharedUtilities/storeUtils'
 import { Map, TileLayer, ZoomControl } from 'react-leaflet'
 
 import './style.scss'
 
 export default class LeafletMap extends Component {
-  constructor(props) {
+  constructor() {
     super()
   }
 
   render() {
     const position = [40.6881, -73.9671]
-    const controls = document.querySelector('.leaflet-control-layers.leaflet-control')
     return (
       <div>
         <Map
@@ -38,7 +37,7 @@ export default class LeafletMap extends Component {
           />
 
           {initialBoundaryDataLoaded(this.props.store) && (
-            <BoundaryLayersMenu position="topright" setViewCoordinates={this.props.setViewCoordinates} />
+            <BoundaryLayersMenu setViewCoordinates={this.props.setViewCoordinates} />
           )}
           {!!this.props.store.buildings.features.length && (
             <BuildingLayersMenu position="topright" setViewCoordinates={this.props.setViewCoordinates} />

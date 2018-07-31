@@ -1,7 +1,8 @@
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import * as appStateActions from '../index.js'
-
+import { readBuildingsByScope } from '../../../Buildings/actions'
+import { selectNewSelectedCTObject } from '../../../CensusTracts/actions'
 const middlewares = [thunk]
 const mockStore = configureStore(middlewares)
 
@@ -34,6 +35,26 @@ describe('openBoundaryLayerMenu', () => {
     const expectedActions = [
       appStateActions.changeSidebarView(appStateActions.SIDEBAR_VIEW_MAP_DETAILS_MENU),
       appStateActions.previewSidebar()
+    ]
+
+    expect(actions).toEqual(expectedActions)
+  })
+})
+
+describe('onRegionClick', () => {
+  it('dispatches CHANGE_SIDEBAR_VIEW, PREVIEW_SIDEBAR', () => {
+    const event = { target: { feature: { properties: { id: 1 } } } }
+    store.dispatch(appStateActions.onRegionClick(event))
+    const actions = store.getActions()
+    const expectedActions = [
+      appStateActions.setLegendScopeBuildings(),
+      appStateActions.openLegend(),
+      appStateActions.changeBuildingBaseLayer(appStateActions.BASE_LAYER_BUILDING_CATEGORIES),
+      appStateActions.changeSidebarScope(undefined),
+      appStateActions.changeSidebarView(appStateActions.SIDEBAR_VIEW_SELECTED_OBJECT),
+      { data: {}, type: 'AWAITING_BUILDINGS_RESPONSE' },
+      { data: { id: 1 }, type: 'UPDATE_SELECTED_CENSUS_TRACT_OBJECT' },
+      { type: 'CLEAR_BUILDINGS' }
     ]
 
     expect(actions).toEqual(expectedActions)
