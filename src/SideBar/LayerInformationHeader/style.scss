@@ -1,6 +1,6 @@
 @import '../../SharedStyles/index.scss';
 
-.headerBar {
+div.headerBar {
   background-color: $primaryColor;
   box-sizing: border-box;
   color: white;
@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: center;
   height: $infoHeaderHeight;
+  margin-top: 0;
   padding: $small-spacing;
   overflow: hidden;
 

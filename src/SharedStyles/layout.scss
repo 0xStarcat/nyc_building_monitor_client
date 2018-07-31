@@ -5,7 +5,10 @@ article {
 }
 
 .article-section {
-  padding: $small-spacing 0;
+  padding: 0;
+}
+
+@media screen and (orientation: portrait) {
 }
 
 .content-box {
@@ -39,6 +42,7 @@ article {
 }
 
 .condensed-menu-section {
+  background-color: white;
   box-shadow: 0 2px 4px 0 gray;
   padding: 0 $tiny-spacing;
 }
@@ -70,9 +74,9 @@ article {
 
 @media screen and (orientation: portrait) {
   .scroll-container {
-    height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeightMobile} - 40px);
+    height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeightMobile} + 40px);
   }
   .info-section {
-    padding-top: 0;
+    padding-top: $small-spacing;
   }
 }

@@ -1,5 +1,11 @@
 @import '../../SharedStyles/index.scss';
 
+.link-menu {
+  > div {
+    margin-top: 0;
+  }
+}
+
 .menu-link {
   * {
     font-family: 'Hind-Light';
