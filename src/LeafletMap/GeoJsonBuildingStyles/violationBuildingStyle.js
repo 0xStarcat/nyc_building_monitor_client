@@ -1,14 +1,22 @@
 // http://colorbrewer2.org/#type=sequential&scheme=PuRd&n=7
 const violationBuildingStyle = feature => {
-  if (feature.properties.violationsTotal >= 60) {
+  if (feature.properties.violationsTotal >= 105) {
     return {
-      color: '#91003f',
-      fillColor: '#91003f',
+      color: '#67001f',
+      fillColor: '#67001f',
       opacity: 1,
       fillOpacity: 0.5,
       weight: 1
     }
-  } else if (feature.properties.violationsTotal >= 50) {
+  } else if (feature.properties.violationsTotal >= 90) {
+    return {
+      color: '#980043',
+      fillColor: '#980043',
+      opacity: 1,
+      fillOpacity: 0.5,
+      weight: 1
+    }
+  } else if (feature.properties.violationsTotal >= 75) {
     return {
       color: '#ce1256',
       fillColor: '#ce1256',
@@ -16,7 +24,7 @@ const violationBuildingStyle = feature => {
       fillOpacity: 0.5,
       weight: 1
     }
-  } else if (feature.properties.violationsTotal >= 40) {
+  } else if (feature.properties.violationsTotal >= 60) {
     return {
       color: '#e7298a',
       fillColor: '#e7298a',
@@ -24,7 +32,7 @@ const violationBuildingStyle = feature => {
       fillOpacity: 0.5,
       weight: 1
     }
-  } else if (feature.properties.violationsTotal >= 30) {
+  } else if (feature.properties.violationsTotal >= 45) {
     return {
       color: '#df65b0',
       fillColor: '#df65b0',
@@ -32,7 +40,7 @@ const violationBuildingStyle = feature => {
       fillOpacity: 0.5,
       weight: 1
     }
-  } else if (feature.properties.violationsTotal >= 20) {
+  } else if (feature.properties.violationsTotal >= 30) {
     return {
       color: '#c994c7',
       fillColor: '#c994c7',
@@ -40,7 +48,7 @@ const violationBuildingStyle = feature => {
       fillOpacity: 0.5,
       weight: 1
     }
-  } else if (feature.properties.violationsTotal > 10) {
+  } else if (feature.properties.violationsTotal >= 15) {
     return {
       color: '#d4b9da',
       fillColor: '#d4b9da',
@@ -48,18 +56,18 @@ const violationBuildingStyle = feature => {
       fillOpacity: 0.5,
       weight: 1
     }
-  } else if (feature.properties.violationsTotal <= 0) {
+  } else if (feature.properties.violationsTotal > 0) {
     return {
-      color: '#f1eef6',
-      fillColor: '#f1eef6',
+      color: '#e7e1ef',
+      fillColor: '#e7e1ef',
       opacity: 1,
       fillOpacity: 0.5,
       weight: 1
     }
   } else {
     return {
-      color: '#f1eef6',
-      fillColor: '#f1eef6',
+      color: '#f7f4f9',
+      fillColor: '#f7f4f9',
       opacity: 1,
       fillOpacity: 0.5,
       weight: 1

@@ -21,10 +21,10 @@ import {
   BASE_LAYER_BOUNDARY_MEDIAN_RENT,
   BASE_LAYER_BOUNDARY_MEDIAN_RENT_CHANGE,
   BASE_LAYER_BOUNDARY_WHITE_POPULATION,
-  BASE_LAYER_BOUNDARY_OPEN_311
+  BASE_LAYER_BOUNDARY_OPEN_311,
+  BASE_LAYER_BOUNDARY_AVERAGE_RESPONSE_311
 } from '../../../Store/AppState/actions'
 
-import IconRow from '../../SharedComponents/IconRow'
 import '../SharedStyles/style.scss'
 import './style.scss'
 
@@ -47,6 +47,8 @@ const getPreviewRow = props => {
       return <RaceRow value={props.selectedObject.racePercentWhite2010} />
     case BASE_LAYER_BOUNDARY_OPEN_311:
       return <ServiceCallsOpenRow value={props.selectedObject.serviceCallsPercentOpenOneMonth} />
+    case BASE_LAYER_BOUNDARY_AVERAGE_RESPONSE_311:
+      return <TimeToResolveCallsRow value={props.selectedObject.averageDaysToResolveServiceCalls} />
   }
 }
 

@@ -1,4 +1,7 @@
 // https://www1.nyc.gov/assets/finance/jump/hlpbldgcode.html
+// AND
+// https://www.propertyshark.com/mason/text/nyc_building_class.html
+
 export const convertBuildingCodeToDescription = code => {
   switch (code) {
     case 'A0':
@@ -285,6 +288,8 @@ export const convertBuildingCodeToDescription = code => {
       return 'OFFICE SPACE'
     case 'RC':
       return 'MIXED COMMERCIAL/CONDOMINIUM'
+    case 'RD':
+      return 'MIXED RESIDENTIAL CONDO BUILDING'
     case 'RG':
       return 'INDOOR PARKING'
     case 'RH':

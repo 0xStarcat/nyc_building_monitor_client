@@ -5,7 +5,6 @@ $legend-width-mobile: 100px;
 $legend-icon-size: 20px;
 
 .map-legend {
-  // align-items: center;
   background-color: white;
   box-sizing: border-box;
   box-shadow: 2px 0 8px gray;
@@ -121,9 +120,8 @@ $legend-icon-size: 20px;
 .scale-label {
   flex-grow: 0;
   flex-shrink: 0;
-  font-size: 13px;
+  font-size: 12px;
   text-align: right;
-  whitespace: nowrap;
   width: calc(100% - #{$legend-icon-size});
 }
 
@@ -149,6 +147,7 @@ div.open-legend {
   }
 
   div.open-legend {
+    height: 240px;
     width: $legend-width-mobile;
   }
 }

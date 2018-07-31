@@ -6,19 +6,19 @@ import ActionCard from '../../SharedComponents/ActionCard'
 import {
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SIDEBAR_STATE_PREVIEW,
-  SIDEBAR_BOUNDARY_INFO,
   SCOPE_VIOLATIONS,
   SCOPE_SERVICE_CALLS,
   BASE_LAYER_BUILDING_CATEGORIES,
   BASE_LAYER_BUILDING_TOTAL_VIOLATIONS,
-  BASE_LAYER_BUILDING_OPEN_311
+  BASE_LAYER_BUILDING_OPEN_311,
+  BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311
 } from '../../../Store/AppState/actions'
 
 import { readViolationsByBuilding } from '../../../Store/Violations/actions'
 import { readServiceCallsByBuilding } from '../../../Store/ServiceCalls/actions'
 
 import { BuildingClassRow, ViolationRow, ServiceCallRow, TimeToResolveCallsRow, ServiceCallsOpenRow } from './Rows'
-import { RightArrow, ViolationIcon } from '../../../SharedStyles/icons'
+import { ViolationIcon } from '../../../SharedStyles/icons'
 
 import '../SharedStyles/style.scss'
 import './style.scss'
@@ -42,6 +42,8 @@ const BuildingInformation = props => {
         return <ViolationRow value={props.selectedObject.violationsTotal} />
       case BASE_LAYER_BUILDING_OPEN_311:
         return <ServiceCallRow value={props.selectedObject.serviceCallsTotal} />
+      case BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311:
+        return <TimeToResolveCallsRow value={props.selectedObject.averageDaysToResolveServiceCalls} />
     }
   }
 

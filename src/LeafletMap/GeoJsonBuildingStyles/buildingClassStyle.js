@@ -148,6 +148,7 @@ const buildingClassStyle = feature => {
     }
   } else if (
     buildingClass === 'RM' ||
+    buildingClass === 'RD' ||
     buildingClass === 'RC' ||
     buildingClass === 'R0' ||
     buildingClass === 'R1' ||
@@ -179,7 +180,7 @@ const buildingClassStyle = feature => {
   } else if (firstChar === 'T') {
     return {
       color: 'IVORY',
-      fillColor: '#d9d9d9',
+      fillColor: 'AZURE',
       opacity: 1,
       fillOpacity: 0.9,
       weight: 1
@@ -187,7 +188,7 @@ const buildingClassStyle = feature => {
   } else if (firstChar === 'U') {
     return {
       color: 'IVORY',
-      fillColor: '#d9d9d9',
+      fillColor: 'AZURE',
       opacity: 1,
       fillOpacity: 0.9,
       weight: 1
@@ -219,7 +220,7 @@ const buildingClassStyle = feature => {
   } else if (firstChar === 'Z') {
     return {
       color: 'IVORY',
-      fillColor: '#dd3497',
+      fillColor: 'MEDIUMSLATEBLUE',
       opacity: 1,
       fillOpacity: 0.9,
       weight: 1
