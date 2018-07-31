@@ -47,4 +47,76 @@ describe('AppState reducer', () => {
       ).toEqual(expectedState)
     })
   })
+
+  describe('CHANGE_BASE_LAYER', () => {
+    const newValue = 'new_base_layer'
+    const expectedState = { ...reducer.initialState, baseLayer: newValue }
+
+    it('sets baseLayer to the specific value', () => {
+      expect(reducer.appStateReducer(undefined, AppStateActions.changeBaseLayer(newValue))).toEqual(expectedState)
+    })
+  })
+
+  describe('CHANGE_BASE_LAYER_SCOPE', () => {
+    const newValue = 'new_base_layer_scope'
+    const expectedState = { ...reducer.initialState, baseLayerScope: newValue }
+
+    it('sets baseLayerScope to the specific value', () => {
+      expect(reducer.appStateReducer(undefined, AppStateActions.changeBaseLayerScope(newValue))).toEqual(expectedState)
+    })
+  })
+
+  describe('CHANGE_BUILDING_BASE_LAYER', () => {
+    const newValue = 'new_building_base_layer_scope'
+    const expectedState = { ...reducer.initialState, buildingBaseLayer: newValue }
+
+    it('sets buildingBaseLayer to the specific value', () => {
+      expect(reducer.appStateReducer(undefined, AppStateActions.changeBuildingBaseLayer(newValue))).toEqual(
+        expectedState
+      )
+    })
+  })
+
+  describe('CHANGE_INFORMATION_CONTENT_CODE', () => {
+    const newValue = 'new_code'
+    const expectedState = { ...reducer.initialState, informationContentCode: newValue }
+
+    it('sets informationContentCode to the specific value', () => {
+      expect(reducer.appStateReducer(undefined, AppStateActions.changeInformationContentCode(newValue))).toEqual(
+        expectedState
+      )
+    })
+  })
+
+  describe('SET_LEGEND_SCOPE_BOUNDARIES', () => {
+    const expectedState = { ...reducer.initialState, legendScopeBoundaries: true }
+
+    it('sets legendScopeBoundaries to true', () => {
+      expect(reducer.appStateReducer(undefined, AppStateActions.setLegendScopeBoundaries())).toEqual(expectedState)
+    })
+  })
+
+  describe('SET_LEGEND_SCOPE_BUILDINGS', () => {
+    const expectedState = { ...reducer.initialState, legendScopeBoundaries: false }
+
+    it('sets legendScopeBoundaries to false', () => {
+      expect(reducer.appStateReducer(undefined, AppStateActions.setLegendScopeBuildings())).toEqual(expectedState)
+    })
+  })
+
+  describe('OPEN_LEGEND', () => {
+    const expectedState = { ...reducer.initialState, legendOpen: true }
+
+    it('sets legendOpen to true', () => {
+      expect(reducer.appStateReducer(undefined, AppStateActions.openLegend())).toEqual(expectedState)
+    })
+  })
+
+  describe('CLOSE_LEGEND', () => {
+    const expectedState = { ...reducer.initialState, legendOpen: false }
+
+    it('sets legendOpen to false', () => {
+      expect(reducer.appStateReducer(undefined, AppStateActions.closeLegend())).toEqual(expectedState)
+    })
+  })
 })

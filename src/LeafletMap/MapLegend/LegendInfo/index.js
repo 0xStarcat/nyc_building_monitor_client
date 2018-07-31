@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-const LegendInfo = props => {
+export const LegendInfo = props => {
   const getText = () => {
     if (props.landscapeOrientation) {
       return props.legendScopeBoundaries
@@ -22,7 +22,7 @@ const LegendInfo = props => {
 }
 
 LegendInfo.propTypes = {
-  dispatch: PropTypes.dispatch,
+  dispatch: PropTypes.func,
   landscapeOrientation: PropTypes.bool,
   legendScopeBoundaries: PropTypes.bool
 }
