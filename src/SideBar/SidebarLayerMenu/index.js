@@ -27,7 +27,7 @@ export default class SidebarLayerMenu extends React.Component {
             { 'condensed-menu-section': !this.props.landscapeOrientation }
           )}
         >
-          {this.props.landscapeOrientation && <IconHeader icon={RegionIcon}>Regions</IconHeader>}
+          {this.props.landscapeOrientation && <IconHeader icon={RegionIcon}>Region Levels</IconHeader>}
           <SidebarBoundaryScopeButtons dispatch={this.props.dispatch} />
         </div>
         <div

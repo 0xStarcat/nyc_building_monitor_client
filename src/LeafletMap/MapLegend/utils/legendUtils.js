@@ -13,6 +13,7 @@ import {
 } from '../../../Store/AppState/actions'
 
 import LegendGroup from '../LegendGroup'
+import LegendInfo from '../LegendInfo'
 
 const incomeLayerData = [
   { value: 110000, label: '> $110,000', color: '#005a32' },
@@ -156,11 +157,7 @@ export const getLegendContent = baseLayer => {
         return <LegendGroup key={`legendGroup-${baseLayer}-${index}`} color={group.color} label={group.label} />
       })
     default:
-      return (
-        <div className="legend-group">
-          <label className="scale-label">Tap "Map Details" to load data.</label>
-        </div>
-      )
+      return <LegendInfo />
   }
 }
 

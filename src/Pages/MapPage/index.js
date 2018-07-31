@@ -19,7 +19,7 @@ export class MapPage extends React.Component {
     const currentZoom = this.mapRef.current.leafletElement.getZoom()
     const zoomLevel = zoom > currentZoom ? zoom : currentZoom
 
-    const topPortraitOffset = zoomLevel > 18 ? -(0.0025 / zoomLevel) : -(0.01 / zoomLevel)
+    const topPortraitOffset = zoomLevel > 18 ? -(0.003 / zoomLevel) : -(0.017 / zoomLevel)
     const topOffset = this.props.store.appState.landscapeOrientation ? 0 : topPortraitOffset // -0.0075
 
     const leftLandscapeZoomOffset = zoomLevel > 14 ? -(0.035 / zoomLevel - 0.001) : -(0.5 / zoomLevel - 0.02)
