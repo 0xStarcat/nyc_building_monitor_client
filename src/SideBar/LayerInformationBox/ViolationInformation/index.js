@@ -38,14 +38,12 @@ const ViolationInformation = props => {
       <div className="scroll-container">
         <section className="menu-section">
           <IconRow className="card" icon={ViolationIcon}>
-            <div>{convertTimestampToData(props.selectedObject.date)}</div>
+            {convertTimestampToData(props.selectedObject.date)}
           </IconRow>
           <IconRow className="card" icon={ViolationIcon}>
-            <div>Unique Id: {props.selectedObject.name}</div>
+            Unique Id: {props.selectedObject.name}
           </IconRow>
-          <div className="row-box text-well">
-            <div>{fillEmptyString(props.selectedObject.description)}</div>
-          </div>
+          <div className="row-box text-well">{fillEmptyString(props.selectedObject.description)}</div>
           <IconRow className="card" icon={ViolationIcon}>
             Issued by the <span>{convertDepartmentToName(props.selectedObject.source)}</span>
           </IconRow>
@@ -62,7 +60,7 @@ const ViolationInformation = props => {
             <ActionCard>
               <IconRow icon={ViolationIcon}>
                 Code: <span>{props.selectedObject.code}</span>
-                <div>Read more</div>
+                <br />Read more
               </IconRow>
             </ActionCard>
           </DispatchActionButton>

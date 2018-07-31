@@ -13,7 +13,7 @@ article {
 
 .content-box {
   height: 100%;
-  padding: $small-spacing;
+  padding: $small-spacing 0;
 }
 
 .full-height {
@@ -32,6 +32,7 @@ article {
   margin-top: $tiny-spacing;
   padding-top: $small-spacing;
   padding-bottom: $small-spacing;
+  overflow-x: hidden;
 }
 
 @media screen and (orientation: portrait) {

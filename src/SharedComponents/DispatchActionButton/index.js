@@ -4,9 +4,13 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 export const DispatchActionButton = props => {
+  const converArgs = args => {
+    if (!args) return
+    return typeof props.actionArguments === 'object' ? { ...props.actionArguments } : props.actionArguments
+  }
   const onClick = () => {
     if (props.disabled) return null
-    props.dispatch(props.action(props.actionArguments ? { ...props.actionArguments } : undefined))
+    props.dispatch(props.action(converArgs(props.actionArguments)))
   }
   return (
     <div className={classNames('button', props.className)} onClick={onClick}>
