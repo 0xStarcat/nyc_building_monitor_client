@@ -28,7 +28,7 @@ export default class SidebarLayerMenu extends React.Component {
           )}
         >
           {this.props.landscapeOrientation && <IconHeader icon={RegionIcon}>Region Levels</IconHeader>}
-          <SidebarBoundaryScopeButtons dispatch={this.props.dispatch} />
+          <SidebarBoundaryScopeButtons dispatch={this.props.dispatch} sidebarScope={this.props.sidebarScope} />
         </div>
         <div
           className={classNames(
@@ -37,7 +37,7 @@ export default class SidebarLayerMenu extends React.Component {
           )}
         >
           {this.props.landscapeOrientation && <IconHeader icon={BoundaryLayersIcon}>Region Details</IconHeader>}
-          <SidebarBoundaryDetailButtons dispatch={this.props.dispatch} />
+          <SidebarBoundaryDetailButtons dispatch={this.props.dispatch} baseLayer={this.props.baseLayer} />
         </div>
         {this.props.buildingsPresent && (
           <div
@@ -47,7 +47,10 @@ export default class SidebarLayerMenu extends React.Component {
             )}
           >
             {this.props.landscapeOrientation && <IconHeader icon={BuildingExploreIcon}>Building Details</IconHeader>}
-            <SidebarBuildingDetailButtons dispatch={this.props.dispatch} />
+            <SidebarBuildingDetailButtons
+              dispatch={this.props.dispatch}
+              buildingBaseLayer={this.props.buildingBaseLayer}
+            />
           </div>
         )}
       </div>
@@ -57,6 +60,8 @@ export default class SidebarLayerMenu extends React.Component {
 
 SidebarLayerMenu.propTypes = {
   dispatch: PropTypes.func,
+  baseLayer: PropTypes.string,
+  buildingBaseLayer: PropTypes.string,
   buildingsPresent: PropTypes.bool,
   landscapeOrientation: PropTypes.bool
 }

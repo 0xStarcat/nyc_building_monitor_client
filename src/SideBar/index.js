@@ -75,8 +75,11 @@ class SideBar extends React.Component {
         return (
           <SidebarLayerMenu
             buildingsPresent={this.props.buildingsPresent}
+            baseLayer={this.props.store.appState.baseLayer}
+            buildingBaseLayer={this.props.store.appState.buildingBaseLayer}
             landscapeOrientation={appState.landscapeOrientation}
             dispatch={this.props.dispatch}
+            sidebarScope={this.props.store.appState.sidebarScope}
           />
         )
       case SIDEBAR_VIEW_INFORMATION:

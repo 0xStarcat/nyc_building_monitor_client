@@ -31,6 +31,7 @@ export default class BoundaryScopeButtons extends React.Component {
         <ButtonRow>
           <SwitchLayerButton
             action={this.switchScopeWithFetch}
+            active={this.props.sidebarScope === SCOPE_NEIGHBORHOODS}
             dispatch={this.props.dispatch}
             layer={SCOPE_NEIGHBORHOODS}
           >
@@ -38,6 +39,7 @@ export default class BoundaryScopeButtons extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchScopeWithFetch}
+            active={this.props.sidebarScope === SCOPE_CENSUS_TRACTS}
             dispatch={this.props.dispatch}
             layer={SCOPE_CENSUS_TRACTS}
           >
@@ -50,5 +52,6 @@ export default class BoundaryScopeButtons extends React.Component {
 }
 
 BoundaryScopeButtons.propTypes = {
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  sidebarScope: PropTypes.string
 }

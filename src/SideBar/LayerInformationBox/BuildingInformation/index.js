@@ -98,7 +98,7 @@ const BuildingInformation = props => {
               }&block=${props.selectedObject.block}&lot=${props.selectedObject.lot}`}
               target="_blank"
             >
-              You can view this building's BIS documents here.
+              City BIS documents for this building.
             </a>
           </IconRow>
         </div>

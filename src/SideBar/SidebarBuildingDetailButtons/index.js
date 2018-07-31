@@ -45,6 +45,7 @@ export default class SidebarBuildingDetailButtons extends React.Component {
         <ButtonRow>
           <SwitchLayerButton
             action={this.switchLayer}
+            active={this.props.buildingBaseLayer === BASE_LAYER_BUILDING_CATEGORIES}
             className={classNames({ 'round hover-shadow': this.props.landscapeOrientation })}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_BUILDING_CATEGORIES}
@@ -54,6 +55,7 @@ export default class SidebarBuildingDetailButtons extends React.Component {
 
           <SwitchLayerButton
             action={this.switchLayer}
+            active={this.props.buildingBaseLayer === BASE_LAYER_BUILDING_TOTAL_VIOLATIONS}
             className={classNames({ 'round hover-shadow': this.props.landscapeOrientation })}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_BUILDING_TOTAL_VIOLATIONS}
@@ -62,6 +64,7 @@ export default class SidebarBuildingDetailButtons extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
+            active={this.props.buildingBaseLayer === BASE_LAYER_BUILDING_OPEN_311}
             className={classNames({ 'round hover-shadow': this.props.landscapeOrientation })}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_BUILDING_OPEN_311}
@@ -70,6 +73,7 @@ export default class SidebarBuildingDetailButtons extends React.Component {
           </SwitchLayerButton>
           <SwitchLayerButton
             action={this.switchLayer}
+            active={this.props.buildingBaseLayer === BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311}
             className={classNames({ 'round hover-shadow': this.props.landscapeOrientation })}
             dispatch={this.props.dispatch}
             layer={BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311}
@@ -83,6 +87,7 @@ export default class SidebarBuildingDetailButtons extends React.Component {
 }
 
 SidebarBuildingDetailButtons.propTypes = {
+  buildingBaseLayer: PropTypes.string,
   dispatch: PropTypes.func,
   landscapeOrientation: PropTypes.bool,
   switchLayer: PropTypes.func

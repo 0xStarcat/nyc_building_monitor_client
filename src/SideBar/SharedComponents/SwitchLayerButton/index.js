@@ -7,7 +7,10 @@ const SwitchLayerButton = props => {
     props.action(props.layer)
   }
   return (
-    <div className={classNames('button', 'layer-menu-button', props.className)} onClick={switchLayer}>
+    <div
+      className={classNames('button', 'layer-menu-button', { 'active-button': props.active }, props.className)}
+      onClick={switchLayer}
+    >
       {props.children}
     </div>
   )
@@ -15,6 +18,7 @@ const SwitchLayerButton = props => {
 
 SwitchLayerButton.propTypes = {
   action: PropTypes.func,
+  active: PropTypes.bool,
   buttonText: PropTypes.string,
   layer: PropTypes.string
 }
