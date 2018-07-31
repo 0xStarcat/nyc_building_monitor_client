@@ -52,6 +52,7 @@ describe('onRegionClick', () => {
       appStateActions.changeBuildingBaseLayer(appStateActions.BASE_LAYER_BUILDING_CATEGORIES),
       appStateActions.changeSidebarScope(undefined),
       appStateActions.changeSidebarView(appStateActions.SIDEBAR_VIEW_SELECTED_OBJECT),
+      appStateActions.previewSidebar(),
       { data: {}, type: 'AWAITING_BUILDINGS_RESPONSE' },
       { data: { id: 1 }, type: 'UPDATE_SELECTED_CENSUS_TRACT_OBJECT' },
       { type: 'CLEAR_BUILDINGS' }

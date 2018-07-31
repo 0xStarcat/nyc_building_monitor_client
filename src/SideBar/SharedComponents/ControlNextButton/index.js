@@ -4,6 +4,7 @@ import classNames from 'classnames'
 
 import PropTypes from 'prop-types'
 import {
+  SIDEBAR_VIEW_LINKS_MENU,
   SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
   SCOPE_NEIGHBORHOODS,
@@ -24,6 +25,7 @@ export const ControlNextButton = props => {
   }
   const getNextView = () => {
     const appState = props.appState
+    if (appState.sidebarView === SIDEBAR_VIEW_LINKS_MENU) return SIDEBAR_VIEW_MAP_DETAILS_MENU
 
     if (isView()) return SIDEBAR_VIEW_SELECTED_OBJECT
     switch (appState.sidebarScope) {
@@ -60,6 +62,8 @@ export const ControlNextButton = props => {
 
   const getNextText = () => {
     const appState = props.appState
+    if (appState.sidebarView === SIDEBAR_VIEW_LINKS_MENU) return 'Map Details'
+
     if (isView()) {
       return (props.selectedNeighborhood || {}).name || `Tract #${(props.selectedCensusTract || {}).name}`
     }
@@ -72,7 +76,6 @@ export const ControlNextButton = props => {
       case SCOPE_BUILDINGS:
         return props.violationsPresent ? 'Violations' : '311-Calls'
       case SCOPE_VIOLATIONS:
-        console.log(props.violations)
         if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS)
           return `Violation #${props.selectedViolation.index + 1}`
         else return null
@@ -87,6 +90,7 @@ export const ControlNextButton = props => {
   const hasNext = () => {
     const appState = props.appState
     return (
+      appState.sidebarView === SIDEBAR_VIEW_LINKS_MENU ||
       (isView() && (!!props.selectedCensusTract || !!props.selectedNeighborhood)) ||
       ((appState.sidebarScope === SCOPE_CENSUS_TRACTS || appState.sidebarScope === SCOPE_NEIGHBORHOODS) &&
         !!props.selectedBuilding) ||

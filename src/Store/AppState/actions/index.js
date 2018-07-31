@@ -166,7 +166,7 @@ export const onRegionClick = event => dispatch => {
   if (!store.getState().appState.buildingBaseLayer) dispatch(changeBuildingBaseLayer(BASE_LAYER_BUILDING_CATEGORIES))
   dispatch(changeSidebarScope(store.getState().appState.baseLayerScope))
   dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
-  dispatch(store.getState().appState.landscapeOrientation ? activateSidebar : previewSidebar)
+  dispatch(store.getState().appState.landscapeOrientation ? activateSidebar() : previewSidebar())
   if (layerProperties.id !== (selectedObject || {}).id) {
     dispatch(readBuildingsByScope(store.getState().appState.baseLayerScope, layerProperties.id))
   }

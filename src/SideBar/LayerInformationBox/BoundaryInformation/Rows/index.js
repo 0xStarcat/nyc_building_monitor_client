@@ -16,10 +16,20 @@ import {
   TimeToResolveCallsIcon
 } from '../../../../SharedStyles/icons'
 
+const incomeValueClass = value => {
+  if (value > 90000) {
+    return 'value-high'
+  } else if (value > 50000) {
+    return 'value-middle'
+  } else {
+    return 'value-low'
+  }
+}
+
 export const IncomeRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={IncomeIcon}>
-      The median income in 2017 was <span>${props.value}</span>
+      The median income in 2017 was <span className={classNames(incomeValueClass(props.value))}>${props.value}</span>
     </IconRow>
   )
 }

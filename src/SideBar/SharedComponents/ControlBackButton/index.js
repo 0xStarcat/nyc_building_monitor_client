@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import {
   SIDEBAR_STATE_PREVIEW,
   SIDEBAR_STATE_ACTIVE,
+  SIDEBAR_STATE_INACTIVE,
   SIDEBAR_VIEW_LINKS_MENU,
   SIDEBAR_VIEW_MAP_DETAILS_MENU,
   SIDEBAR_VIEW_SELECTED_OBJECT,
@@ -25,6 +26,7 @@ export const ControlBackButton = props => {
   const getBackView = () => {
     const appState = props.appState
     if (appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU) return SIDEBAR_VIEW_LINKS_MENU
+    if (appState.sidebarView === SIDEBAR_VIEW_LINKS_MENU) return SIDEBAR_VIEW_LINKS_MENU
 
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
@@ -68,9 +70,12 @@ export const ControlBackButton = props => {
 
   const getBackState = () => {
     const appState = props.appState
-    if (appState.landscapeOrientation) return null
-    if (appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU) return SIDEBAR_STATE_ACTIVE
+    if (appState.sidebarView === SIDEBAR_VIEW_LINKS_MENU) return SIDEBAR_STATE_INACTIVE
+    if (appState.landscapeOrientation) return props.appState.sidebarState
+
     if (appState.sidebarView === SIDEBAR_VIEW_LINKS_MENU) return SIDEBAR_STATE_PREVIEW
+
+    if (appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU) return SIDEBAR_STATE_ACTIVE
 
     if (appState.sidebarScope === SCOPE_CENSUS_TRACTS || appState.sidebarScope === SCOPE_NEIGHBORHOODS) {
       return SIDEBAR_STATE_PREVIEW
@@ -83,6 +88,7 @@ export const ControlBackButton = props => {
     const appState = props.appState
 
     if (appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU) return 'Menu'
+    if (appState.sidebarView === SIDEBAR_VIEW_LINKS_MENU) return 'Close'
 
     switch (appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
@@ -102,7 +108,7 @@ export const ControlBackButton = props => {
         if (appState.sidebarView === SIDEBAR_VIEW_INFORMATION) return `Call #${props.selectedServiceCall.name}`
         else return props.selectedBuilding.name
       default:
-        return 'Back'
+        return 'Close'
     }
   }
 
