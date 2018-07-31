@@ -35,6 +35,98 @@ const ScopedMenu = props => {
     )
     props.dispatch(onRegionClick(event))
   }
+
+  const getLayer = () => {
+    switch (props.baseLayer) {
+      case BASE_LAYER_BOUNDARY_BLANK:
+        return (
+          <BaseLayer checked name="Blank">
+            <GeoJsonBoundaryGroup
+              checked
+              onClick={onClick}
+              onLoad={props.layerLoaded}
+              interactive={true}
+              features={props.features}
+              style={boundaryStyle}
+            />
+          </BaseLayer>
+        )
+      case BASE_LAYER_BOUNDARY_MEDIAN_INCOME:
+        return (
+          <BaseLayer checked name="Median Income, 2017">
+            <GeoJsonBoundaryGroup
+              onClick={onClick}
+              onLoad={props.layerLoaded}
+              interactive={true}
+              features={props.features}
+              style={incomeMedianLayerStyle}
+            />
+          </BaseLayer>
+        )
+      case BASE_LAYER_BOUNDARY_MEDIAN_RENT:
+        return (
+          <BaseLayer checked name="Median Rent, 2017">
+            <GeoJsonBoundaryGroup
+              onClick={onClick}
+              onLoad={props.layerLoaded}
+              interactive={true}
+              features={props.features}
+              style={rentMedianLayerStyle}
+            />
+          </BaseLayer>
+        )
+      case BASE_LAYER_BOUNDARY_MEDIAN_RENT_CHANGE:
+        return (
+          <BaseLayer checked name="Rent Change, 2011 - 2017">
+            <GeoJsonBoundaryGroup
+              onClick={onClick}
+              onLoad={props.layerLoaded}
+              interactive={true}
+              features={props.features}
+              style={rentChangeLayerStyle}
+            />
+          </BaseLayer>
+        )
+      case BASE_LAYER_BOUNDARY_WHITE_POPULATION:
+        return (
+          <BaseLayer checked name="% White 2010">
+            <GeoJsonBoundaryGroup
+              onClick={onClick}
+              onLoad={props.layerLoaded}
+              interactive={true}
+              features={props.features}
+              style={racePercentWhite2010}
+            />
+          </BaseLayer>
+        )
+      case BASE_LAYER_BOUNDARY_OPEN_311:
+        return (
+          <BaseLayer checked name="Percent Service Calls Open 1 Month">
+            <GeoJsonBoundaryGroup
+              onClick={onClick}
+              onLoad={props.layerLoaded}
+              interactive={true}
+              features={props.features}
+              style={serviceCallsPercentOpenOneMonth}
+            />
+          </BaseLayer>
+        )
+      case BASE_LAYER_BOUNDARY_AVERAGE_RESPONSE_311:
+        return (
+          <BaseLayer checked name="Percent Service Calls Open 1 Month">
+            <GeoJsonBoundaryGroup
+              onClick={onClick}
+              onLoad={props.layerLoaded}
+              interactive={true}
+              features={props.features}
+              style={averageDaysToResolveServiceCalls}
+            />
+          </BaseLayer>
+        )
+      default:
+        return null
+    }
+  }
   return (
     <LayersControl collapsed={true} ref={props.layerControlRef} position="topright">
       <Overlay checked name="Street and Landmark Labels">
@@ -46,72 +138,7 @@ const ScopedMenu = props => {
           />
         </Pane>
       </Overlay>
-      <BaseLayer checked={props.baseLayer === BASE_LAYER_BOUNDARY_BLANK} name="Median Income, 2017">
-        <GeoJsonBoundaryGroup
-          onClick={onClick}
-          onLoad={props.layerLoaded}
-          interactive={true}
-          features={props.features}
-          style={boundaryStyle}
-        />
-      </BaseLayer>
-      <BaseLayer checked={props.baseLayer === BASE_LAYER_BOUNDARY_MEDIAN_INCOME} name="Median Income, 2017">
-        <GeoJsonBoundaryGroup
-          onClick={onClick}
-          onLoad={props.layerLoaded}
-          interactive={true}
-          features={props.features}
-          style={incomeMedianLayerStyle}
-        />
-      </BaseLayer>
-      <BaseLayer checked={props.baseLayer === BASE_LAYER_BOUNDARY_MEDIAN_RENT} name="Median Rent, 2017">
-        <GeoJsonBoundaryGroup
-          onClick={onClick}
-          onLoad={props.layerLoaded}
-          interactive={true}
-          features={props.features}
-          style={rentMedianLayerStyle}
-        />
-      </BaseLayer>
-      <BaseLayer checked={props.baseLayer === BASE_LAYER_BOUNDARY_MEDIAN_RENT_CHANGE} name="Rent Change, 2011 - 2017">
-        <GeoJsonBoundaryGroup
-          onClick={onClick}
-          onLoad={props.layerLoaded}
-          interactive={true}
-          features={props.features}
-          style={rentChangeLayerStyle}
-        />
-      </BaseLayer>
-      <BaseLayer checked={props.baseLayer === BASE_LAYER_BOUNDARY_WHITE_POPULATION} name="% White 2010">
-        <GeoJsonBoundaryGroup
-          onClick={onClick}
-          onLoad={props.layerLoaded}
-          interactive={true}
-          features={props.features}
-          style={racePercentWhite2010}
-        />
-      </BaseLayer>
-      <BaseLayer checked={props.baseLayer === BASE_LAYER_BOUNDARY_OPEN_311} name="Percent Service Calls Open 1 Month">
-        <GeoJsonBoundaryGroup
-          onClick={onClick}
-          onLoad={props.layerLoaded}
-          interactive={true}
-          features={props.features}
-          style={serviceCallsPercentOpenOneMonth}
-        />
-      </BaseLayer>
-      <BaseLayer
-        checked={props.baseLayer === BASE_LAYER_BOUNDARY_AVERAGE_RESPONSE_311}
-        name="Percent Service Calls Open 1 Month"
-      >
-        <GeoJsonBoundaryGroup
-          onClick={onClick}
-          onLoad={props.layerLoaded}
-          interactive={true}
-          features={props.features}
-          style={averageDaysToResolveServiceCalls}
-        />
-      </BaseLayer>
+      {getLayer()}
     </LayersControl>
   )
 }
