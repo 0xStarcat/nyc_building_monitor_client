@@ -10,8 +10,8 @@ const StoryContent = () => {
       </div>
       <div className="content-body">
         <p>
-          This project began after a personal experience that threw my living situation into disarray and set me on a
-          path of lies, revenge, and knowledge.
+          This project began after a personal experience threw my living situation into disarray and set me on a path of
+          lies, revenge, and knowledge.
         </p>
         <h6>Losing the gas</h6>
         <p>
@@ -39,20 +39,26 @@ const StoryContent = () => {
           suspicious that this was never an issue in the past decade for the building.
         </p>
         <p>
-          I was naive and believed their story. My head was full of the righteous anger of having my living situation
-          destabilized by outside forces. So I started my journey through the data stores of the NYC open data portal to
+          I was naive and believed their story. My head was full of anger from having my living situation destabilized
+          by outside forces. I had just left my job, and I was willing to do whatever I could to fight anything that
+          threatened my tenuous stability. I started my journey in the public data files of the NYC open data portal to
           learn more about this conspiracy. I wanted to know if I could find evidence of a bad actor using violations as
           a wedge to push owners to sell in gentrifying areas like my neighborhood.
         </p>
         <p>
-          I spent countless days scraping data from NYC databases, running statistical formulas on it to find any
-          city-wide correlation of building violations, building sales, and the gentrifying neighborhoods they occured
-          in. I came up with nothing.
+          Full disclosure - I am not a native of Williamsburg or NYC and I have privileges that some residents of
+          Williamsburg do not. With that said, I cannot afford to live in one of the new developments that have sprung
+          up on my block in recent years and I do NOT eat Kale or call the cops on people.
         </p>
         <p>
-          I needed someone to blame for my misery. In the months since, two of my roommates moved out and had to be
+          I spent countless days scraping data from the NYC databases, running statistical formulas on it to find any
+          city-wide correlation between building violations, building sales, and the gentrifying neighborhoods they
+          occured in. I came up with nothing.
+        </p>
+        <p>
+          But I needed someone to blame for my misery. In the months since, two of my roommates moved out and had to be
           replaced. I couldn't cook my favorite meals anymore because of the lack of a working oven. This issue was
-          becoming a real burden on top of my normal day to day burdens.
+          becoming a real pain on top of my normal day to day burdens.
         </p>
         <h6>Finding the truth</h6>
         <p>
@@ -63,13 +69,14 @@ const StoryContent = () => {
         </p>
         <p>
           The violation described the discovery of an illegal gas connection. THAT was why we lost gas - not because of
-          the sprinkler system. The landlords decided to hide the fact that they were operating an illegal gas
-          connection in the building from us the whole time.
+          the sprinkler system. The landlords decided to hide the fact that they were operating an illegal gas line from
+          us the whole time.
         </p>
         <p>
           On top of this lie, I saw more violations piling up since that January for their failure to certify that they
           had fixed the violation. Not only did they hide their actions, but they weren’t taking the steps they needed
-          to to put the building in compliance. As of 7 months at the time of this writing, I still don’t have gas.
+          to to put the building in compliance. Seven months later, at the time of this writing, I still don’t have gas.
+          Nor is my situation stable enough yet to move.
         </p>
         <h6>Knowledge is power</h6>
         <p>
@@ -78,8 +85,8 @@ const StoryContent = () => {
           compliance. I was now informed, aware, and empowered as a tenant.
         </p>
         <p>
-          I knew my time at this building was probably is not long for this world and I would need to get ready to move
-          in the near future. I also had the leverage I needed to renegotiate my rent when it came time to re-sign my
+          I knew my time at this building was probably not long for this world and I would need to get ready to move in
+          the near future. I also had the leverage I needed to renegotiate my rent when it came time to re-sign my
           lease. Knowing that the landlord didn’t want to go through the trouble of finding all new tenants for a place
           that had this many issues - issues they weren’t trying to fix - gave me the power to lower my rent by a couple
           hundred dollars a month.
