@@ -1,18 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import AppLink from '../../SharedComponents/AppLink'
+import IconRow from '../SharedComponents/IconRow'
+import { AboutIcon, StoryIcon, SupportIcon } from '../../SharedStyles/icons'
 
 import './style.scss'
 
 const LinkMenu = () => {
   return (
     <div className="link-menu">
-      <AppLink className="hover-shadow" href="/about">
-        <div className="menu-section menu-link">About this</div>
-      </AppLink>
-      <AppLink className="hover-shadow" href="/story">
-        <div className="menu-section menu-link">The story</div>
-      </AppLink>
+      <div className="menu-section">
+        <AppLink className="menu-link" href="/about">
+          <IconRow icon={AboutIcon}>About this project</IconRow>
+        </AppLink>
+        <AppLink className="menu-link" href="/story">
+          <IconRow icon={StoryIcon}>The story</IconRow>
+        </AppLink>
+        <AppLink className="menu-link" href="/support">
+          <IconRow icon={SupportIcon}>Support the work</IconRow>
+        </AppLink>
+      </div>
     </div>
   )
 }

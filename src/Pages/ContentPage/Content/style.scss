@@ -1,0 +1,48 @@
+@import '../../../SharedStyles/index';
+
+.text-content {
+  h5 {
+    margin: 40% 0 20% 0;
+  }
+
+  .content-body {
+    margin-left: $medium-spacing;
+  }
+
+  p {
+    font-family: 'Hind-Light';
+    line-height: 250%;
+    margin: $medium-spacing 0;
+    text-align: justify;
+    text-indent: $small-spacing;
+  }
+
+  h6 {
+    text-align: center;
+    margin: 10% 0;
+  }
+
+  margin: 0 auto;
+  margin-bottom: 20%;
+  width: 500px;
+}
+
+@media screen and (orientation: portrait) {
+  .text-content {
+    h5 {
+      margin: 30% 0;
+      text-align: center;
+    }
+    width: 100%;
+    padding: $medium-spacing;
+
+    .content-body {
+      margin-left: 0;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 240%;
+    }
+  }
+}

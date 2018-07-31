@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import SideBar from './SideBar'
 import MapPage from './Pages/MapPage'
-import AboutPage from './Pages/AboutPage'
-import Loading from './SharedComponents/Loading'
+import ContentPage from './Pages/ContentPage'
+import AboutContent from './Pages/ContentPage/Content/AboutContent'
+import StoryContent from './Pages/ContentPage/Content/StoryContent'
+import SupportContent from './Pages/ContentPage/Content/SupportContent'
+
 import { readCensusTracts } from './Store/CensusTracts/actions'
-import { readNeighborhoods } from './Store/Neighborhoods/actions'
 import { checkOrientation } from './Store/AppState/actions'
 
 import { history } from './Store/store'
@@ -37,8 +38,34 @@ class App extends Component {
       <div className="App">
         <Router history={history}>
           <Switch>
-            <Route exact path="/" render={routeProps => <MapPage />} />
-            <Route exact path="/about" render={routeProps => <AboutPage />} />
+            <Route exact path="/" render={() => <MapPage />} />
+            <Route
+              exact
+              path="/about"
+              render={() => (
+                <ContentPage>
+                  <AboutContent />
+                </ContentPage>
+              )}
+            />
+            <Route
+              exact
+              path="/story"
+              render={() => (
+                <ContentPage>
+                  <StoryContent />
+                </ContentPage>
+              )}
+            />
+            <Route
+              exact
+              path="/support"
+              render={() => (
+                <ContentPage>
+                  <SupportContent />
+                </ContentPage>
+              )}
+            />
           </Switch>
         </Router>
       </div>

@@ -43,6 +43,13 @@
   src: local('hind-regular'), url('./SharedStyles/fonts/hind-regular.otf') format('opentype');
 }
 
+@font-face {
+  font-family: 'Hind-Light';
+  font-style: normal;
+  font-weight: 100;
+  src: local('hind-light'), url('./SharedStyles/fonts/hind-light.otf') format('opentype');
+}
+
 body {
   background-color: white;
   font-family: 'Hind', Helvetica, Arial, sans-serif;
