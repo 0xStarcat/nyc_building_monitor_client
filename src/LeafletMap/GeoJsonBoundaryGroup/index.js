@@ -1,71 +1,29 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 
 import { GeoJSON, LayerGroup, Pane } from 'react-leaflet'
-import {
-  openLegend,
-  setLegendScopeBuildings,
-  changeSidebarScope,
-  changeSidebarView,
-  SCOPE_NEIGHBORHOODS,
-  SCOPE_CENSUS_TRACTS,
-  SIDEBAR_VIEW_SELECTED_OBJECT
-} from '../../Store/AppState/actions'
-
-import { selectNewSelectedCTObject } from '../../Store/CensusTracts/actions'
-import { selectNewSelectedNeighborhoodObject } from '../../Store/Neighborhoods/actions'
-
-import { readBuildingsByScope } from '../../Store/Buildings/actions'
 
 export class GeoJsonBoundaryGroup extends Component {
   constructor(props) {
     super(props)
 
-    this.onClick = this.onClick.bind(this)
     this.onEachFeature = this.onEachFeature.bind(this)
-    this.getSelectedObjectFunction = this.getSelectedObjectFunction.bind(this)
   }
 
   onEachFeature(feature, layer) {
     layer.on({
-      click: this.onClick
+      click: this.props.onClick
     })
-  }
-
-  getSelectedObjectFunction(event) {
-    switch (this.props.scope) {
-      case SCOPE_NEIGHBORHOODS:
-        return selectNewSelectedNeighborhoodObject(event.target.feature.properties)
-      case SCOPE_CENSUS_TRACTS:
-        return selectNewSelectedCTObject(event.target.feature.properties)
-    }
-  }
-
-  onClick(event) {
-    const layerProperties = event.target.feature.properties
-    this.props.setViewCoordinates(
-      layerProperties.representativePoint,
-      this.props.scope === SCOPE_NEIGHBORHOODS ? 14 : 15
-    )
-    this.props.dispatch(setLegendScopeBuildings())
-    this.props.dispatch(openLegend())
-    this.props.dispatch(changeSidebarScope(this.props.scope))
-    this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
-    this.props.dispatch(this.props.sidebarAction())
-    if (layerProperties.id !== this.props.getSelectedObjectId())
-      this.props.dispatch(readBuildingsByScope(this.props.baseLayerScope, layerProperties.id))
-    this.props.dispatch(this.getSelectedObjectFunction(event))
-  }
-
-  shouldComponentUpdate() {
-    return this.props.allLayersLoaded
   }
 
   componentDidMount() {
     if (this.props.onLoad) {
       this.props.onLoad()
     }
+  }
+
+  shouldComponentUpdate() {
+    return false
   }
 
   render() {
@@ -92,21 +50,11 @@ export class GeoJsonBoundaryGroup extends Component {
 }
 
 GeoJsonBoundaryGroup.propTypes = {
-  baseLayerScope: PropTypes.string,
   features: PropTypes.array,
   interactive: PropTypes.bool,
+  onClick: PropTypes.func,
   onLoad: PropTypes.func,
-  setViewCoordinates: PropTypes.func,
-  getSelectedObjectId: PropTypes.func,
-  scope: PropTypes.string,
-  sidebarAction: PropTypes.func,
   style: PropTypes.func
 }
 
-const mapStateToProps = state => {
-  return {
-    allLayersLoaded: state.appState.allLayersLoaded
-  }
-}
-
-export default connect(mapStateToProps)(GeoJsonBoundaryGroup)
+export default GeoJsonBoundaryGroup

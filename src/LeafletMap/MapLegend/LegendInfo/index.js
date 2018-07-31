@@ -7,11 +7,11 @@ export const LegendInfo = props => {
     if (props.landscapeOrientation) {
       return props.legendScopeBoundaries
         ? 'Load region details from the sidebar menu.'
-        : 'Load building details from the sidebar menu.'
+        : 'Tap on a region to load its buildings.'
     } else {
       return props.legendScopeBoundaries
         ? "Tap 'Map Details' and choose a region detail"
-        : "Tap 'Map Details' and choose a building detail."
+        : 'Tap on a region to load its buildings.'
     }
   }
   return (

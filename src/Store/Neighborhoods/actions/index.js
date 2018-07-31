@@ -36,7 +36,6 @@ export const clearNeighborhoods = event => ({
 })
 
 export const selectNewSelectedNeighborhoodObject = event => dispatch => {
-  console.log(store.getState().neighborhoods)
   if ((store.getState().neighborhoods.selectedObject || {}).id === event.id) return null
   dispatch(updateSelectedNeighborhoodObject(event))
   dispatch(clearBuildings())

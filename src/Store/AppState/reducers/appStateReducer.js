@@ -4,7 +4,7 @@ export const initialState = {
   allLayersLoaded: false,
   baseLayer: appStateActions.BASE_LAYER_BOUNDARY_BLANK,
   baseLayerScope: appStateActions.SCOPE_CENSUS_TRACTS,
-  buildingBaseLayer: appStateActions.BASE_LAYER_BUILDING_CATEGORIES,
+  buildingBaseLayer: null,
   informationContentCode: '',
   landscapeOrientation: window.matchMedia('(orientation: landscape)').matches,
   legendOpen: false,

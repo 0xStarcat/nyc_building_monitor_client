@@ -1,32 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { LayersControl, TileLayer, Pane } from 'react-leaflet'
-
-import {
-  incomeMedianLayerStyle,
-  rentMedianLayerStyle,
-  rentChangeLayerStyle,
-  racePercentWhite2010,
-  serviceCallsPercentOpenOneMonth,
-  neighborhoodBoundaryStyle
-} from '../GeoJsonBoundaryStyles'
 
 import ScopedMenu from './ScopedMenu'
 
-import GeoJsonBoundaryGroup from '../GeoJsonBoundaryGroup'
-import {
-  allLayersLoaded,
-  SCOPE_CENSUS_TRACTS,
-  SCOPE_NEIGHBORHOODS,
-  BASE_LAYER_BOUNDARY_MEDIAN_INCOME,
-  BASE_LAYER_BOUNDARY_MEDIAN_RENT,
-  BASE_LAYER_BOUNDARY_MEDIAN_RENT_CHANGE,
-  BASE_LAYER_BOUNDARY_WHITE_POPULATION,
-  BASE_LAYER_BOUNDARY_OPEN_311
-} from '../../Store/AppState/actions'
-
-const { BaseLayer, Overlay } = LayersControl
+import { allLayersLoaded } from '../../Store/AppState/actions'
 
 class BoundaryLayersMenu extends Component {
   constructor(props) {
@@ -42,10 +20,6 @@ class BoundaryLayersMenu extends Component {
     this.checkLayerLoadStatus = this.checkLayerLoadStatus.bind(this)
   }
 
-  shouldComponentUpdate() {
-    return !this.props.store.allLayersLoaded
-  }
-
   componentDidMount() {
     if (this.layerControlRef.current) {
       this.layerControlRef.current.leafletElement._container.style.display = 'none'
@@ -53,8 +27,7 @@ class BoundaryLayersMenu extends Component {
   }
 
   getSelectedObjectId() {
-    const selectedObject = (this.props.store[this.props.store.appState.baseLayerScope] || {}).selectedObject
-    return selectedObject ? selectedObject.id : null
+    return this.props.selectedObject ? this.props.selectedObject.id : null
   }
   layerLoaded() {
     this.layersLoaded++
@@ -82,8 +55,11 @@ class BoundaryLayersMenu extends Component {
   render() {
     return (
       <ScopedMenu
-        appState={this.props.store.appState}
-        features={this.props.store[this.props.store.appState.baseLayerScope].features}
+        baseLayer={this.props.baseLayer}
+        baseLayerScope={this.props.baseLayerScope}
+        dispatch={this.props.dispatch}
+        features={this.props.features}
+        landscapeOrientation={this.props.landscapeOrientation}
         layerControlRef={this.layerControlRef}
         layerLoaded={this.layerLoaded}
         position={this.props.position}
@@ -97,13 +73,18 @@ class BoundaryLayersMenu extends Component {
 
 BoundaryLayersMenu.propTypes = {
   position: PropTypes.string,
-  setViewCoordinates: PropTypes.func,
-  store: PropTypes.object
+  setViewCoordinates: PropTypes.func
 }
 
 const mapStateToProps = state => {
   return {
-    store: state
+    allLayersLoaded: state.appState.allLayersLoaded,
+    baseLayer: state.appState.baseLayer,
+    baseLayerScope: state.appState.baseLayerScope,
+    buildingBaseLayer: state.appState.buildingBaseLayer,
+    features: state[state.appState.baseLayerScope].features,
+    landscapeOrientation: state.appState.landscapeOrientation,
+    selectedObject: (state[state.appState.baseLayerScope] || {}).selectedObject
   }
 }
 
