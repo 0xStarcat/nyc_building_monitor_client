@@ -30,7 +30,8 @@ const rentLayerData = [
   { value: 1600, label: '> $1600', color: '#74c476' },
   { value: 1200, label: '> $1200', color: '#a1d99b' },
   { value: 800, label: '> $800', color: '#c7e9c0' },
-  { value: 0, label: '> $0', color: '#edf8e9' }
+  { value: 0, label: '> $0', color: '#edf8e9' },
+  { value: null, label: '(no data)', color: 'CORNSILK' }
 ]
 const rentChangeLayerData = [
   { value: 500, label: '> $500', color: '#005a32' },
@@ -39,7 +40,8 @@ const rentChangeLayerData = [
   { value: 200, label: '> $200', color: '#74c476' },
   { value: 0, label: '> $0', color: '#d9f0a3' },
   { value: -100, label: '> $-100', color: '#fc8d59' },
-  { value: -100, label: '< $-100', color: '#d73027' }
+  { value: -100, label: '< $-100', color: '#d73027' },
+  { value: null, label: '(no data)', color: 'CORNSILK' }
 ]
 const populationLayerData = [
   { value: 80, label: '> 80%', color: '#fcfbfd' },
@@ -93,13 +95,13 @@ const buildingViolationLayerData = [
   { value: 0, label: '= 0', color: '#f7f4f9' }
 ]
 const buildingOpen311LayerData = [
-  { value: 20, label: '> 20 per bldg', color: '#2b8cbe' },
-  { value: 16, label: '> 16 per bldg', color: '#4eb3d3' },
-  { value: 12, label: '> 12 per bldg', color: '#7bccc4' },
-  { value: 8, label: '> 8 per bldg', color: '#a8ddb5' },
-  { value: 4, label: '> 4 per bldg', color: '#ccebc5' },
-  { value: 0, label: '> 0 per bldg', color: '#e0f3db' },
-  { value: 0, label: '= 0 per bldg', color: '#f7fcf0' }
+  { value: 20, label: '> 20', color: '#2b8cbe' },
+  { value: 16, label: '> 16', color: '#4eb3d3' },
+  { value: 12, label: '> 12', color: '#7bccc4' },
+  { value: 8, label: '> 8', color: '#a8ddb5' },
+  { value: 4, label: '> 4', color: '#ccebc5' },
+  { value: 0, label: '> 0', color: '#e0f3db' },
+  { value: 0, label: '= 0', color: '#f7fcf0' }
 ]
 const buildingAverageResponseLayerData = [
   { value: 90, label: '> 90 days', color: '#2b8cbe' },
@@ -173,7 +175,7 @@ export const getLegendTitle = baseLayer => {
     case BASE_LAYER_BOUNDARY_WHITE_POPULATION:
       return '% White Population 2010'
     case BASE_LAYER_BOUNDARY_OPEN_311:
-      return 'Open 311-Calls'
+      return '311-calls open over 1 month'
     case BASE_LAYER_BOUNDARY_AVERAGE_RESPONSE_311:
       return '311-Call Response Time'
     case BASE_LAYER_BUILDING_CATEGORIES:
@@ -181,7 +183,7 @@ export const getLegendTitle = baseLayer => {
     case BASE_LAYER_BUILDING_TOTAL_VIOLATIONS:
       return 'Building Violations'
     case BASE_LAYER_BUILDING_OPEN_311:
-      return 'Building Open 311-Calls'
+      return 'Building 311-calls open over 1 month'
     case BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311:
       return 'Building Average 311 Response Time'
     default:

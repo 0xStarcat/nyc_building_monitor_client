@@ -7,7 +7,7 @@ const averageDaysToResolveServiceCalls = feature => {
       fillColor: 'GRAY',
       opacity: 1,
       fillOpacity: 0.5,
-      weight: 2
+      weight: 1
     }
   } else if (feature.properties.averageDaysToResolveServiceCalls >= 90) {
     return {
@@ -15,7 +15,7 @@ const averageDaysToResolveServiceCalls = feature => {
       fillColor: '#2b8cbe',
       opacity: 0.5,
       fillOpacity: 0.8,
-      weight: 2
+      weight: 1
     }
   } else if (feature.properties.averageDaysToResolveServiceCalls >= 75) {
     return {
@@ -23,7 +23,7 @@ const averageDaysToResolveServiceCalls = feature => {
       fillColor: '#4eb3d3',
       opacity: 0.5,
       fillOpacity: 0.8,
-      weight: 2
+      weight: 1
     }
   } else if (feature.properties.averageDaysToResolveServiceCalls >= 60) {
     return {
@@ -31,7 +31,7 @@ const averageDaysToResolveServiceCalls = feature => {
       fillColor: '#7bccc4',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 2
+      weight: 1
     }
   } else if (feature.properties.averageDaysToResolveServiceCalls >= 45) {
     return {
@@ -39,7 +39,7 @@ const averageDaysToResolveServiceCalls = feature => {
       fillColor: '#a8ddb5',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 2
+      weight: 1
     }
   } else if (feature.properties.averageDaysToResolveServiceCalls >= 30) {
     return {
@@ -47,7 +47,7 @@ const averageDaysToResolveServiceCalls = feature => {
       fillColor: '#ccebc5',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 2
+      weight: 1
     }
   } else if (feature.properties.averageDaysToResolveServiceCalls >= 15) {
     return {
@@ -55,7 +55,7 @@ const averageDaysToResolveServiceCalls = feature => {
       fillColor: '#e0f3db',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 2
+      weight: 1
     }
   } else if (feature.properties.averageDaysToResolveServiceCalls >= 0) {
     return {
@@ -63,7 +63,7 @@ const averageDaysToResolveServiceCalls = feature => {
       fillColor: '#f7fcf0',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 2
+      weight: 1
     }
   } else {
     return {
@@ -71,7 +71,7 @@ const averageDaysToResolveServiceCalls = feature => {
       fillColor: 'GRAY',
       opacity: 1,
       fillOpacity: 0.8,
-      weight: 2
+      weight: 1
     }
   }
 }

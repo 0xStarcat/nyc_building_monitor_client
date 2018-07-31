@@ -14,10 +14,16 @@ const LegendScopeToggle = props => {
   }
   return (
     <div className="legend-scope-toggle">
-      <div onClick={openRegionLegend} className={classNames({ disabled: props.legendScopeBoundaries })}>
+      <div
+        onClick={openRegionLegend}
+        className={classNames('legend-button', { disabled: !props.legendScopeBoundaries })}
+      >
         Regions
       </div>
-      <div onClick={openBuildingLegend} className={classNames({ disabled: !props.legendScopeBoundaries })}>
+      <div
+        onClick={openBuildingLegend}
+        className={classNames('legend-button', { disabled: props.legendScopeBoundaries })}
+      >
         Buildings
       </div>
     </div>

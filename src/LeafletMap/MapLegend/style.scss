@@ -46,9 +46,18 @@ $legend-icon-size: 20px;
   justify-content: center;
   height: 30px;
 
+  .legend-button {
+    background-color: $primaryColor;
+    border: 1px inset $DARKGRAY;
+  }
+
+  .legend-button:active {
+    background-color: $tertiaryColor;
+  }
+
   .disabled {
-    border: 1px solid $DARKGRAY;
-    background-color: $DARKGRAY;
+    border: 1px outset $DARKGRAY;
+    background-color: WHITE;
   }
 
   div {
@@ -59,14 +68,6 @@ $legend-icon-size: 20px;
     flex-basis: 50%;
     height: 100%;
     text-align: center;
-  }
-
-  div:hover {
-    border: 1px solid $secondaryColor;
-  }
-
-  div:active {
-    border: 1px solid $tertiaryColor;
   }
 }
 
