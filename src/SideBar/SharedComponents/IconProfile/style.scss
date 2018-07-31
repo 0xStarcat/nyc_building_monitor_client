@@ -1,3 +1,5 @@
+@import '../../../SharedStyles/index.scss';
+
 .icon-profile {
   align-items: center;
   display: flex;
@@ -10,9 +12,18 @@
   }
 
   label {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 160%;
     text-align: center;
+  }
+}
+
+.active-icon-profile {
+  box-shadow: inset 1px -1px 1px 1px $tertiaryColor;
+  border-radius: 50%;
+
+  path {
+    fill: $tertiaryColor;
   }
 }
 

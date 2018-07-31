@@ -24,7 +24,11 @@ export class SwitchViewButton extends React.Component {
   render() {
     return (
       <div className={classNames('button', 'switch-view-button', this.props.className)} onClick={this.onClick}>
-        {this.props.children}
+        {React.Children.map(this.props.children, child => {
+          if (typeof child === 'object')
+            return React.cloneElement(child, { active: this.props.active, disabled: this.props.disabled })
+          else return child
+        })}
       </div>
     )
   }

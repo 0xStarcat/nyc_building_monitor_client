@@ -11,7 +11,11 @@ const SwitchLayerButton = props => {
       className={classNames('button', 'layer-menu-button', { 'active-button': props.active }, props.className)}
       onClick={switchLayer}
     >
-      {props.children}
+      {React.Children.map(props.children, child => {
+        if (typeof child === 'object')
+          return React.cloneElement(child, { active: props.active, disabled: props.disabled })
+        else return child
+      })}
     </div>
   )
 }

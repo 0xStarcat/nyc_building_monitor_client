@@ -15,13 +15,7 @@
 }
 
 .active-button {
-  box-shadow: inset 1px -1px 1px 1px $tertiaryColor;
-  border-radius: 50%;
   cursor: initial;
-
-  path {
-    fill: $tertiaryColor;
-  }
 }
 
 .round {

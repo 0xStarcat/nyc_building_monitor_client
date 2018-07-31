@@ -12,8 +12,8 @@
     border-radius: 50%;
     border: 1px solid transparent;
     margin: $tiny-spacing;
-    height: 80px;
-    width: 80px;
+    height: 90px;
+    width: 90px;
   }
 }
 
@@ -25,10 +25,7 @@
 @media screen and (orientation: portrait) {
   .button-row {
     .button-row-child {
-      border-radius: 8px;
-      height: 90px;
-      margin: 0;
-      width: 90px;
+      margin: 4px;
     }
   }
 }
