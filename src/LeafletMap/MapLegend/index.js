@@ -47,7 +47,12 @@ export default class MapLegend extends React.Component {
           )}
           onClick={this.toggleLegend}
         >
-          {!this.props.open && <RightArrow className="svg-flip" />}
+          {!this.props.open && (
+            <div className="legend-label-wrapper">
+              <RightArrow className="svg-flip" />
+              <div className="legend-label">Legend</div>
+            </div>
+          )}
           {this.props.open && <CloseIcon />}
         </div>
       </div>

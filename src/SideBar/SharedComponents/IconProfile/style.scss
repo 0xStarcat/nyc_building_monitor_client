@@ -19,8 +19,11 @@
 }
 
 .active-icon-profile {
-  box-shadow: inset 1px -1px 4px 1px $tertiaryColor;
+  box-sizing: border-box;
+  // box-shadow: inset 1px -1px 4px 1px $tertiaryColor;
   border-radius: 50%;
+  border-top: 1px solid $tertiaryColor;
+  border-bottom: 1px solid $tertiaryColor;
 
   path {
     fill: $tertiaryColor;

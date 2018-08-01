@@ -1,4 +1,11 @@
+@import '../SharedStyles/index.scss';
+
 #leaflet-map {
   height: 100vh;
   width: 100%;
+
+  .leaflet-bar a,
+  .leaflet-bar a:hover {
+    color: $secondaryColor;
+  }
 }
