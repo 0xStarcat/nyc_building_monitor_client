@@ -21,8 +21,7 @@ const incomeValueClass = value => {
   if (value > 70000) return 'value-4'
   if (value > 50000) return 'value-3'
   if (value > 30000) return 'value-2'
-
-  return 'value-1'
+  if (value >= 0) return 'value-1'
 }
 
 const rentValueClass = value => {
@@ -30,8 +29,7 @@ const rentValueClass = value => {
   if (value > 2000) return 'value-4'
   if (value > 1600) return 'value-3'
   if (value > 1200) return 'value-2'
-
-  return 'value-1'
+  if (value >= 0) return 'value-1'
 }
 
 const raceValueClass = value => {
@@ -39,8 +37,7 @@ const raceValueClass = value => {
   if (value > 60) return 'value-4'
   if (value > 40) return 'value-3'
   if (value > 20) return 'value-2'
-
-  return 'value-1'
+  if (value >= 0) return 'value-1'
 }
 
 const rentChangeValueClass = value => {
@@ -49,6 +46,46 @@ const rentChangeValueClass = value => {
   if (value > 0) return 'value-3-diverge'
   if (value >= -100) return 'value-2-diverge'
   if (value < -100) return 'value-1-diverge'
+}
+
+const violationValueClass = value => {
+  if (value > 2500) return 'value-5'
+  if (value > 2000) return 'value-4'
+  if (value > 1500) return 'value-3'
+  if (value > 500) return 'value-2'
+  if (value >= 0) return 'value-1'
+}
+
+const violationPerBldgValueClass = value => {
+  if (value > 40) return 'value-5'
+  if (value > 30) return 'value-4'
+  if (value > 20) return 'value-3'
+  if (value > 10) return 'value-2'
+  if (value >= 0) return 'value-1'
+}
+
+const serviceCallValueClass = value => {
+  if (value > 4000) return 'value-5'
+  if (value > 3000) return 'value-4'
+  if (value > 2000) return 'value-3'
+  if (value > 1000) return 'value-2'
+  if (value >= 0) return 'value-1'
+}
+
+const responseTimeValueClass = value => {
+  if (value > 120) return 'value-5'
+  if (value > 90) return 'value-4'
+  if (value > 60) return 'value-3'
+  if (value > 30) return 'value-2'
+  if (value >= 0) return 'value-1'
+}
+
+const open311CallValueClass = value => {
+  if (value > 16) return 'value-5'
+  if (value > 12) return 'value-4'
+  if (value > 8) return 'value-3'
+  if (value > 4) return 'value-2'
+  if (value >= 0) return 'value-1'
 }
 
 export const IncomeRow = props => {
@@ -116,7 +153,7 @@ export const TotalBuildingsRow = props => {
 export const RentChangeRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={RentChangeIcon}>
-      {props.value ? (
+      {props.value && props.value !== 'NaN' ? (
         <div>
           <span>
             The rent changed by{' '}
@@ -133,7 +170,18 @@ export const RentChangeRow = props => {
 export const TotalViolationsRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={ViolationIcon}>
-      There are <span>{props.value} total violations.</span>
+      {props.value >= 0 ? (
+        <div>
+          <span>
+            There are{' '}
+            <span className={classNames('value-text', violationValueClass(props.value))}>
+              {props.value} total violations.
+            </span>
+          </span>
+        </div>
+      ) : (
+        <span>(No violation data available)</span>
+      )}
     </IconRow>
   )
 }
@@ -141,7 +189,17 @@ export const TotalViolationsRow = props => {
 export const ViolationsPerBuildingRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={ViolationPerBuildingIcon}>
-      There are <span>{props.value} violations per building.</span>
+      {props.value >= 0 ? (
+        <div>
+          <span>
+            There are{' '}
+            <span className={classNames('value-text', violationPerBldgValueClass(props.value))}>{props.value}</span>{' '}
+            violations per building.
+          </span>
+        </div>
+      ) : (
+        <span>(No calculated data available)</span>
+      )}
     </IconRow>
   )
 }
@@ -149,7 +207,17 @@ export const ViolationsPerBuildingRow = props => {
 export const TotalServiceCallsRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={ServiceCallIcon}>
-      There are <span>{props.value} total 311-calls.</span>
+      {props.value >= 0 ? (
+        <div>
+          <span>
+            There are{' '}
+            <span className={classNames('value-text', serviceCallValueClass(props.value))}>{props.value}</span> total
+            311-calls.
+          </span>
+        </div>
+      ) : (
+        <span>(No 311-call data available)</span>
+      )}
     </IconRow>
   )
 }
@@ -157,7 +225,17 @@ export const TotalServiceCallsRow = props => {
 export const TimeToResolveCallsRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={TimeToResolveCallsIcon}>
-      It takes an average of {props.value} days for the city to resolve 311-calls here.{' '}
+      {props.value >= 0 ? (
+        <div>
+          <span>
+            It takes an average of{' '}
+            <span className={classNames('value-text', responseTimeValueClass(props.value))}>{props.value}</span> days
+            for the city to resolve 311-calls here.
+          </span>
+        </div>
+      ) : (
+        <span>(No response time data available)</span>
+      )}
     </IconRow>
   )
 }
@@ -165,7 +243,14 @@ export const TimeToResolveCallsRow = props => {
 export const ServiceCallsOpenRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={ServiceCallOpenIcon}>
-      {props.value}% of current 311-calls have been open over 1 month.
+      {props.value >= 0 ? (
+        <div>
+          <span className={classNames('value-text', open311CallValueClass(props.value))}>{props.value}%</span>
+          <span> of current 311-calls have been open over 1 month.</span>
+        </div>
+      ) : (
+        <span>(No open 311 call available)</span>
+      )}
     </IconRow>
   )
 }

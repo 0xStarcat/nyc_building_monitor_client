@@ -80,30 +80,18 @@ const BoundaryInformation = props => {
           <div className="sub-section-title">
             <h5>2010 - Present</h5>
           </div>
-
           <RentChangeRow className="card info-card" value={props.selectedObject.rentChange20112017} />
-
-          {!!props.selectedObject.violationsTotal && (
-            <TotalViolationsRow className="card info-card" value={props.selectedObject.violationsTotal} />
-          )}
-          {!!props.selectedObject.violationsTotal && (
-            <ViolationsPerBuildingRow className="card info-card" value={props.selectedObject.violationsPerBuilding} />
-          )}
-          {!!props.selectedObject.serviceCallsTotal && (
-            <TotalServiceCallsRow className="card info-card" value={props.selectedObject.serviceCallsTotal} />
-          )}
-          {!!props.selectedObject.serviceCallsTotal && (
-            <TimeToResolveCallsRow
-              className="card info-card"
-              value={props.selectedObject.averageDaysToResolveServiceCalls}
-            />
-          )}
-          {!!props.selectedObject.serviceCallsTotal && (
-            <ServiceCallsOpenRow
-              className="card info-card"
-              value={props.selectedObject.serviceCallsPercentOpenOneMonth}
-            />
-          )}
+          <TotalViolationsRow className="card info-card" value={props.selectedObject.violationsTotal} />
+          <ViolationsPerBuildingRow className="card info-card" value={props.selectedObject.violationsPerBuilding} />
+          <TotalServiceCallsRow className="card info-card" value={props.selectedObject.serviceCallsTotal} />
+          <TimeToResolveCallsRow
+            className="card info-card"
+            value={props.selectedObject.averageDaysToResolveServiceCalls}
+          />
+          <ServiceCallsOpenRow
+            className="card info-card"
+            value={props.selectedObject.serviceCallsPercentOpenOneMonth}
+          />
         </section>
       </article>
     )
