@@ -8,7 +8,7 @@ import MobileButtonContainer from '../../MobileButtonContainer'
 import MapLegend from '../../LeafletMap/MapLegend'
 import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
 
-import { activateSidebar, SIDEBAR_VIEW_LINKS_MENU } from '../../Store/AppState/actions'
+import { activateSidebar, previewSidebar, SIDEBAR_VIEW_LINKS_MENU } from '../../Store/AppState/actions'
 
 import './style.scss'
 
@@ -68,7 +68,7 @@ export class MapPage extends React.Component {
         />
         <SwitchViewButton
           className="more-info-button hover-shadow"
-          dispatchAction={activateSidebar}
+          dispatchAction={this.props.store.appState.landscapeOrientation ? activateSidebar : previewSidebar}
           viewSwitch={SIDEBAR_VIEW_LINKS_MENU}
         >
           ?

@@ -73,9 +73,7 @@ export const ControlBackButton = props => {
     if (appState.sidebarView === SIDEBAR_VIEW_LINKS_MENU) return SIDEBAR_STATE_INACTIVE
     if (appState.landscapeOrientation) return props.appState.sidebarState
 
-    if (appState.sidebarView === SIDEBAR_VIEW_LINKS_MENU) return SIDEBAR_STATE_PREVIEW
-
-    if (appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU) return SIDEBAR_STATE_ACTIVE
+    if (appState.sidebarView === SIDEBAR_VIEW_MAP_DETAILS_MENU) return SIDEBAR_STATE_PREVIEW
 
     if (appState.sidebarScope === SCOPE_CENSUS_TRACTS || appState.sidebarScope === SCOPE_NEIGHBORHOODS) {
       return SIDEBAR_STATE_PREVIEW

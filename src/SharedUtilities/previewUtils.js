@@ -1,4 +1,4 @@
-import { SIDEBAR_VIEW_MAP_DETAILS_MENU } from '../Store/AppState/actions'
+import { SIDEBAR_VIEW_LINKS_MENU, SIDEBAR_VIEW_MAP_DETAILS_MENU } from '../Store/AppState/actions'
 
 import {
   MOBILE_SIDEBAR_PREVIEW_Y_TRANSLATION,
@@ -11,6 +11,8 @@ import {
 
 export const getPreviewYTranslation = (sidebarView, buildingsPresent) => {
   switch (sidebarView) {
+    case SIDEBAR_VIEW_LINKS_MENU:
+      return MOBILE_SIDEBAR_LARGE_PREVIEW_Y_TRANSLATION
     case SIDEBAR_VIEW_MAP_DETAILS_MENU:
       if (buildingsPresent) return MOBILE_SIDEBAR_XL_PREVIEW_Y_TRANSLATION
       else return MOBILE_SIDEBAR_LARGE_PREVIEW_Y_TRANSLATION
