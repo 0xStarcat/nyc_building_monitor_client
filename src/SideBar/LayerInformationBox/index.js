@@ -9,7 +9,6 @@ import ServiceCallsTable from './ServiceCallsTable'
 import ServiceCallInformation from './ServiceCallInformation'
 
 import {
-  SIDEBAR_VIEW_SELECTED_OBJECT,
   SIDEBAR_VIEW_SCOPED_OBJECTS,
   SCOPE_NEIGHBORHOODS,
   SCOPE_CENSUS_TRACTS,
@@ -27,10 +26,6 @@ class LayerInformationBox extends React.Component {
     this.displayInformationBox = this.displayInformationBox.bind(this)
   }
 
-  onExploreClick(event) {
-    this.props.dispatch(readBuildingsByScope(this.props.selectedObject.id))
-  }
-
   displayInformationBox() {
     switch (this.props.appState.sidebarScope) {
       case SCOPE_NEIGHBORHOODS:
@@ -38,6 +33,7 @@ class LayerInformationBox extends React.Component {
           <BoundaryInformation
             baseLayer={this.props.appState.baseLayer}
             selectedObject={this.props.selectedObject}
+            sidebarScope={this.props.appState.sidebarScope}
             sidebarState={this.props.appState.sidebarState}
           />
         )
@@ -46,6 +42,7 @@ class LayerInformationBox extends React.Component {
           <BoundaryInformation
             baseLayer={this.props.appState.baseLayer}
             selectedObject={this.props.selectedObject}
+            sidebarScope={this.props.appState.sidebarScope}
             sidebarState={this.props.appState.sidebarState}
           />
         )

@@ -3,6 +3,8 @@ import classNames from 'classnames'
 
 import IconRow from '../../../SharedComponents/IconRow'
 
+import { SCOPE_NEIGHBORHOODS, SCOPE_CENSUS_TRACTS } from '../../../../Store/AppState/actions'
+
 import {
   IncomeIcon,
   RentIcon,
@@ -48,11 +50,14 @@ const rentChangeValueClass = value => {
   if (value < -100) return 'value-1-diverge'
 }
 
-const violationValueClass = value => {
-  if (value > 2500) return 'value-5'
-  if (value > 2000) return 'value-4'
-  if (value > 1500) return 'value-3'
-  if (value > 500) return 'value-2'
+const violationValueClass = (value, sidebarScope) => {
+  const nonZeroMin = sidebarScope === SCOPE_CENSUS_TRACTS ? 500 : 30000
+  const factor = sidebarScope === SCOPE_CENSUS_TRACTS ? 1000 : 30000
+
+  if (value > nonZeroMin + factor * 3) return 'value-5'
+  if (value > nonZeroMin + factor * 2) return 'value-4'
+  if (value > nonZeroMin + factor * 1) return 'value-3'
+  if (value > nonZeroMin + factor * 0) return 'value-2'
   if (value >= 0) return 'value-1'
 }
 
@@ -64,11 +69,14 @@ const violationPerBldgValueClass = value => {
   if (value >= 0) return 'value-1'
 }
 
-const serviceCallValueClass = value => {
-  if (value > 4000) return 'value-5'
-  if (value > 3000) return 'value-4'
-  if (value > 2000) return 'value-3'
-  if (value > 1000) return 'value-2'
+const serviceCallValueClass = (value, sidebarScope) => {
+  const nonZeroMin = sidebarScope === SCOPE_CENSUS_TRACTS ? 1000 : 20000
+  const factor = sidebarScope === SCOPE_CENSUS_TRACTS ? 1000 : 20000
+
+  if (value > nonZeroMin + factor * 3) return 'value-5'
+  if (value > nonZeroMin + factor * 2) return 'value-4'
+  if (value > nonZeroMin + factor * 1) return 'value-3'
+  if (value > nonZeroMin + factor * 0) return 'value-2'
   if (value >= 0) return 'value-1'
 }
 
@@ -85,6 +93,14 @@ const open311CallValueClass = value => {
   if (value > 12) return 'value-4'
   if (value > 8) return 'value-3'
   if (value > 4) return 'value-2'
+  if (value >= 0) return 'value-1'
+}
+
+const serviceCallPerBuildingValueClass = value => {
+  if (value > 40) return 'value-5'
+  if (value > 30) return 'value-4'
+  if (value > 20) return 'value-3'
+  if (value > 10) return 'value-2'
   if (value >= 0) return 'value-1'
 }
 
@@ -170,13 +186,16 @@ export const RentChangeRow = props => {
 export const TotalViolationsRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={ViolationIcon}>
-      {props.value >= 0 ? (
+      {props.value1 >= 0 ? (
         <div>
           <span>
             There are{' '}
-            <span className={classNames('value-text', violationValueClass(props.value))}>
-              {props.value} total violations.
+            <span className={classNames('value-text', violationPerBldgValueClass(props.value2))}>{props.value2}</span>{' '}
+            violations per building and
+            <span className={classNames('value-text', violationValueClass(props.value1, props.sidebarScope))}>
+              {props.value1}
             </span>
+            total.
           </span>
         </div>
       ) : (
@@ -207,12 +226,20 @@ export const ViolationsPerBuildingRow = props => {
 export const TotalServiceCallsRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={ServiceCallIcon}>
-      {props.value >= 0 ? (
+      {props.value1 >= 0 ? (
         <div>
           <span>
             There are{' '}
-            <span className={classNames('value-text', serviceCallValueClass(props.value))}>{props.value}</span> total
-            311-calls.
+            <span
+              className={classNames('value-text', serviceCallPerBuildingValueClass(props.value2, props.sidebarScope))}
+            >
+              {props.value2}
+            </span>{' '}
+            311-calls per building and
+            <span className={classNames('value-text', serviceCallValueClass(props.value1, props.sidebarScope))}>
+              {props.value1}
+            </span>{' '}
+            total.
           </span>
         </div>
       ) : (

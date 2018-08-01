@@ -81,9 +81,18 @@ const BoundaryInformation = props => {
             <h5>2010 - Present</h5>
           </div>
           <RentChangeRow className="card info-card" value={props.selectedObject.rentChange20112017} />
-          <TotalViolationsRow className="card info-card" value={props.selectedObject.violationsTotal} />
-          <ViolationsPerBuildingRow className="card info-card" value={props.selectedObject.violationsPerBuilding} />
-          <TotalServiceCallsRow className="card info-card" value={props.selectedObject.serviceCallsTotal} />
+          <TotalViolationsRow
+            className="card info-card"
+            sidebarScope={props.sidebarScope}
+            value1={props.selectedObject.violationsTotal}
+            value2={props.selectedObject.violationsPerBuilding}
+          />
+          <TotalServiceCallsRow
+            className="card info-card"
+            sidebarScope={props.sidebarScope}
+            value1={props.selectedObject.serviceCallsTotal}
+            value2={props.selectedObject.serviceCallsPerBuilding}
+          />
           <TimeToResolveCallsRow
             className="card info-card"
             value={props.selectedObject.averageDaysToResolveServiceCalls}
@@ -99,8 +108,9 @@ const BoundaryInformation = props => {
 }
 
 BoundaryInformation.propTypes = {
-  baseLaye: PropTypes.string,
+  baseLayer: PropTypes.string,
   sidebarState: PropTypes.string,
+  sidebarScope: PropTypes.string,
   selectedObject: PropTypes.object
 }
 
