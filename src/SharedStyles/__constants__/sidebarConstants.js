@@ -13,6 +13,6 @@ export const MOBILE_SIDEBAR_XL_PREVIEW_Y_TRANSLATION = `calc(100vh - ${xlPReview
 export const MOBILE_SIDEBAR_INACTIVE_Y_TRANSLATION = '100vh'
 
 export const MOBILE_BUTTONS_INACTIVE_Y_TRANSLATION = '0'
-export const MOBILE_BUTTONS_PREVIEW_Y_TRANSLATION = `calc(-${previewHeight} + 40px)`
+export const MOBILE_BUTTONS_PREVIEW_Y_TRANSLATION = `calc(-${previewHeight} + 50px)`
 export const MOBILE_BUTTONS_LARGE_PREVIEW_Y_TRANSLATION = `-${largePreviewHeight}`
 export const MOBILE_BUTTONS_XL_PREVIEW_Y_TRANSLATION = `-${xlPReviewHeight}`
