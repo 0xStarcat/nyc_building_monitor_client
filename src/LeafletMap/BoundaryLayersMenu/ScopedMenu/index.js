@@ -133,7 +133,7 @@ const ScopedMenu = props => {
         <Pane style={{ zIndex: 430 }}>
           <TileLayer
             onLoad={props.tileLayerLoadComplete}
-            url="https://api.mapbox.com/styles/v1/starcat/cjk7pxxpx4f492rpemzfn2blk/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3RhcmNhdCIsImEiOiJjamlpYmlsc28wbjlmM3FwbXdwaXozcWEzIn0.kLmWiUbmdqNLA1atmnTXXA"
+            url="https://api.mapbox.com/styles/v1/starcat/cjkan2o8a5k1m2ro6esamupjc/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3RhcmNhdCIsImEiOiJjamlpYmlsc28wbjlmM3FwbXdwaXozcWEzIn0.kLmWiUbmdqNLA1atmnTXXA"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           />
         </Pane>
