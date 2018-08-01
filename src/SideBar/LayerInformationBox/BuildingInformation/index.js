@@ -67,7 +67,7 @@ const BuildingInformation = props => {
             scopeSwitch={SCOPE_VIOLATIONS}
           >
             <ActionCard>
-              <ViolationRow value={props.selectedObject.violationsTotal} />
+              <ViolationRow sidebarScope={props.sidebarScope} value={props.selectedObject.violationsTotal} />
             </ActionCard>
           </SwitchViewFetchButton>
           <SwitchViewFetchButton
@@ -76,21 +76,17 @@ const BuildingInformation = props => {
             scopeSwitch={SCOPE_SERVICE_CALLS}
           >
             <ActionCard>
-              <ServiceCallRow value={props.selectedObject.serviceCallsTotal} />
+              <ServiceCallRow sidebarScope={props.sidebarScope} value={props.selectedObject.serviceCallsTotal} />
             </ActionCard>
           </SwitchViewFetchButton>
-          {!!props.selectedObject.serviceCallsTotal && (
-            <TimeToResolveCallsRow
-              className="card info-card"
-              value={props.selectedObject.averageDaysToResolveServiceCalls}
-            />
-          )}
-          {!!props.selectedObject.serviceCallsTotal && (
-            <ServiceCallsOpenRow
-              className="card info-card"
-              value={props.selectedObject.serviceCallsPercentOpenOneMonth}
-            />
-          )}
+          <TimeToResolveCallsRow
+            className="card info-card"
+            value={props.selectedObject.averageDaysToResolveServiceCalls}
+          />
+          <ServiceCallsOpenRow
+            className="card info-card"
+            value={props.selectedObject.serviceCallsPercentOpenOneMonth}
+          />
           <IconRow className="card info-card" icon={ViolationIcon}>
             <a
               href={`http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?boro=${

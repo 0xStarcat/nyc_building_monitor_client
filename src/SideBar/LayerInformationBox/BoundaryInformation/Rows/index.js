@@ -3,8 +3,6 @@ import classNames from 'classnames'
 
 import IconRow from '../../../SharedComponents/IconRow'
 
-import { SCOPE_NEIGHBORHOODS, SCOPE_CENSUS_TRACTS } from '../../../../Store/AppState/actions'
-
 import {
   IncomeIcon,
   RentIcon,
@@ -18,91 +16,18 @@ import {
   TimeToResolveCallsIcon
 } from '../../../../SharedStyles/icons'
 
-const incomeValueClass = value => {
-  if (value > 90000) return 'value-5'
-  if (value > 70000) return 'value-4'
-  if (value > 50000) return 'value-3'
-  if (value > 30000) return 'value-2'
-  if (value >= 0) return 'value-1'
-}
-
-const rentValueClass = value => {
-  if (value > 2400) return 'value-5'
-  if (value > 2000) return 'value-4'
-  if (value > 1600) return 'value-3'
-  if (value > 1200) return 'value-2'
-  if (value >= 0) return 'value-1'
-}
-
-const raceValueClass = value => {
-  if (value > 80) return 'value-5'
-  if (value > 60) return 'value-4'
-  if (value > 40) return 'value-3'
-  if (value > 20) return 'value-2'
-  if (value >= 0) return 'value-1'
-}
-
-const rentChangeValueClass = value => {
-  if (value > 500) return 'value-5-diverge'
-  if (value > 300) return 'value-4-diverge'
-  if (value > 0) return 'value-3-diverge'
-  if (value >= -100) return 'value-2-diverge'
-  if (value < -100) return 'value-1-diverge'
-}
-
-const violationValueClass = (value, sidebarScope) => {
-  const nonZeroMin = sidebarScope === SCOPE_CENSUS_TRACTS ? 500 : 30000
-  const factor = sidebarScope === SCOPE_CENSUS_TRACTS ? 1000 : 30000
-
-  if (value > nonZeroMin + factor * 3) return 'value-5'
-  if (value > nonZeroMin + factor * 2) return 'value-4'
-  if (value > nonZeroMin + factor * 1) return 'value-3'
-  if (value > nonZeroMin + factor * 0) return 'value-2'
-  if (value >= 0) return 'value-1'
-}
-
-const violationPerBldgValueClass = value => {
-  if (value > 40) return 'value-5'
-  if (value > 30) return 'value-4'
-  if (value > 20) return 'value-3'
-  if (value > 10) return 'value-2'
-  if (value >= 0) return 'value-1'
-}
-
-const serviceCallValueClass = (value, sidebarScope) => {
-  const nonZeroMin = sidebarScope === SCOPE_CENSUS_TRACTS ? 1000 : 20000
-  const factor = sidebarScope === SCOPE_CENSUS_TRACTS ? 1000 : 20000
-
-  if (value > nonZeroMin + factor * 3) return 'value-5'
-  if (value > nonZeroMin + factor * 2) return 'value-4'
-  if (value > nonZeroMin + factor * 1) return 'value-3'
-  if (value > nonZeroMin + factor * 0) return 'value-2'
-  if (value >= 0) return 'value-1'
-}
-
-const responseTimeValueClass = value => {
-  if (value > 120) return 'value-5'
-  if (value > 90) return 'value-4'
-  if (value > 60) return 'value-3'
-  if (value > 30) return 'value-2'
-  if (value >= 0) return 'value-1'
-}
-
-const open311CallValueClass = value => {
-  if (value > 16) return 'value-5'
-  if (value > 12) return 'value-4'
-  if (value > 8) return 'value-3'
-  if (value > 4) return 'value-2'
-  if (value >= 0) return 'value-1'
-}
-
-const serviceCallPerBuildingValueClass = value => {
-  if (value > 40) return 'value-5'
-  if (value > 30) return 'value-4'
-  if (value > 20) return 'value-3'
-  if (value > 10) return 'value-2'
-  if (value >= 0) return 'value-1'
-}
+import {
+  incomeValueClass,
+  rentValueClass,
+  raceValueClass,
+  rentChangeValueClass,
+  violationValueClass,
+  violationPerBldgValueClass,
+  serviceCallValueClass,
+  responseTimeValueClass,
+  open311CallValueClass,
+  serviceCallPerBuildingValueClass
+} from '../../../../SharedUtilities/rowHelpers.js'
 
 export const IncomeRow = props => {
   return (
@@ -152,11 +77,11 @@ export const RaceRow = props => {
 export const TotalBuildingsRow = props => {
   return (
     <IconRow className={classNames(props.className)} icon={BuildingIcon}>
-      {props.value1 ? (
+      {props.value1 >= 0 ? (
         <div>
           <span>
-            There are <span>{props.value1}</span> buildings and <span>{props.value2}</span> residential buildings in
-            this area.
+            There are <span className="value-text value-blank">{props.value1}</span> buildings and{' '}
+            <span className="value-text value-blank">{props.value2}</span> residential buildings in this area.
           </span>
         </div>
       ) : (

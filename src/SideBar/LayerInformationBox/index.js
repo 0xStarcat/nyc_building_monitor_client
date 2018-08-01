@@ -51,6 +51,7 @@ class LayerInformationBox extends React.Component {
           <BuildingInformation
             buildingBaseLayer={this.props.appState.buildingBaseLayer}
             selectedObject={this.props.selectedObject}
+            sidebarScope={this.props.appState.sidebarScope}
             sidebarState={this.props.appState.sidebarState}
           />
         )

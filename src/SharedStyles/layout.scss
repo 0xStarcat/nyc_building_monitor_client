@@ -54,7 +54,7 @@ article {
 }
 
 .scroll-container {
-  height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeight} - 20px);
+  height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeight} + 40px);
   overflow-y: scroll;
 }
 

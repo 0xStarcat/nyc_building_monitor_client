@@ -9,7 +9,7 @@ const IconRow = props => {
   return (
     <div className={classNames('icon-row', props.className, { 'active-icon-row': props.active })}>
       <i>{props.icon()}</i>
-      <p>{props.children}</p>
+      <div>{props.children}</div>
     </div>
   )
 }

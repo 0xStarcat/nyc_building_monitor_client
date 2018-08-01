@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import IconRow from '../../../SharedComponents/IconRow'
 
@@ -12,14 +13,20 @@ import {
   TimeToResolveCallsIcon
 } from '../../../../SharedStyles/icons'
 
+import {
+  violationValueClass,
+  serviceCallValueClass,
+  responseTimeValueClass,
+  open311CallValueClass
+} from '../../../../SharedUtilities/rowHelpers.js'
+
 export const BuildingClassRow = props => {
   return (
     <IconRow className={props.className} icon={BuildingClassIcon}>
-      This building class is:{' '}
-      <span>
-        {props.value} which is a:{' '}
+      <div>
+        This building class is: <span className="value-text value-blank">{props.value}</span> which is a:{' '}
         <span className="building-class-description">{convertBuildingCodeToDescription(props.value)}</span>
-      </span>
+      </div>
     </IconRow>
   )
 }
@@ -27,7 +34,19 @@ export const BuildingClassRow = props => {
 export const ViolationRow = props => {
   return (
     <IconRow className={props.className} icon={ViolationIcon}>
-      There are <span>{props.value} total violations.</span>
+      {props.value >= 0 ? (
+        <div>
+          <span>
+            There are{' '}
+            <span className={classNames('value-text', violationValueClass(props.value, props.sidebarScope))}>
+              {props.value}
+            </span>{' '}
+            total violations.
+          </span>
+        </div>
+      ) : (
+        <span>(No open violation data)</span>
+      )}
     </IconRow>
   )
 }
@@ -35,7 +54,19 @@ export const ViolationRow = props => {
 export const ServiceCallRow = props => {
   return (
     <IconRow className={props.className} icon={ServiceCallIcon}>
-      There are <span>{props.value} total 311-calls.</span>
+      {props.value >= 0 ? (
+        <div>
+          <span>
+            There are{' '}
+            <span className={classNames('value-text', serviceCallValueClass(props.value, props.sidebarScope))}>
+              {props.value}
+            </span>{' '}
+            total 311-calls.
+          </span>
+        </div>
+      ) : (
+        <span>(No 311-call data)</span>
+      )}
     </IconRow>
   )
 }
@@ -43,7 +74,17 @@ export const ServiceCallRow = props => {
 export const TimeToResolveCallsRow = props => {
   return (
     <IconRow className={props.className} icon={TimeToResolveCallsIcon}>
-      It takes an average of {props.value} days for the city to resolve 311-calls here.
+      {props.value > 0 ? (
+        <div>
+          <span>
+            It takes an average of{' '}
+            <span className={classNames('value-text', responseTimeValueClass(props.value))}>{props.value}</span> days
+            for the city to resolve 311-calls here.
+          </span>
+        </div>
+      ) : (
+        <span>(No response time data)</span>
+      )}
     </IconRow>
   )
 }
@@ -51,7 +92,14 @@ export const TimeToResolveCallsRow = props => {
 export const ServiceCallsOpenRow = props => {
   return (
     <IconRow className={props.className} icon={ServiceCallOpenIcon}>
-      {props.value}% of current 311-calls have been open over 1 month.
+      {props.value >= 0 ? (
+        <div>
+          <span className={classNames('value-text', open311CallValueClass(props.value))}>{props.value}</span>% of
+          current 311-calls have been open over 1 month.
+        </div>
+      ) : (
+        <span>(No open 311-call data)</span>
+      )}
     </IconRow>
   )
 }
