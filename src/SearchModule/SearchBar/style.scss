@@ -17,6 +17,7 @@
 
   input:focus {
     border: 1px dotted $secondaryColor;
+    border-bottom: 4px double $secondaryColor;
     box-shadow: 0 2px 2px 0 $secondaryColor;
     cursor: text;
   }
