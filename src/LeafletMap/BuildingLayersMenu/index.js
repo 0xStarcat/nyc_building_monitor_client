@@ -101,7 +101,6 @@ class BuildingLayersMenu extends Component {
   }
 
   render() {
-    console.log(this.props.buildings)
     return (
       <LayersControl className="hidden" collapsed={true} position={this.props.position} ref={this.layerControlRef}>
         {this.getLayer()}

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { getInformationContent } from './utils/informationDisplayBoxUtils'
 
 const InformationDisplayBox = props => {
-  console.log('hi')
   return <div className="information-display-box">{getInformationContent(props.informationContentCode)}</div>
 }
 

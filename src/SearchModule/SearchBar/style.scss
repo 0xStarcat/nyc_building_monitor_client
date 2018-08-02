@@ -5,8 +5,19 @@
   width: 100%;
 
   input {
+    border: 1px dotted transparent;
     height: $search-bar-height;
+    line-height: 200%;
+    font-size: 13px;
     width: 100%;
     z-index: 501;
+    padding: 2px;
+    cursor: pointer;
+  }
+
+  input:focus {
+    border: 1px dotted $secondaryColor;
+    box-shadow: 0 2px 2px 0 $secondaryColor;
+    cursor: text;
   }
 }

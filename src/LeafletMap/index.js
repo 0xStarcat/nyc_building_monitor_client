@@ -16,14 +16,14 @@ export default class LeafletMap extends Component {
   }
 
   render() {
-    const position = [40.6881, -73.9671]
+    const position = [40.71, -73.98]
     return (
       <div>
         <Map
           center={position}
           doubleClickZoom={false}
           id="leaflet-map"
-          minZoom={12}
+          minZoom={13}
           maxZoom={20}
           ref={this.props.mapRef}
           zoom={13}
@@ -32,8 +32,8 @@ export default class LeafletMap extends Component {
           {!nothingLoading(this.props.store) && <Loading />}
           <ZoomControl position="topright" />
           <TileLayer
-            attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-            url="https://api.mapbox.com/styles/v1/starcat/cjjmbqf4pg6vq2rlqun4aquq9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3RhcmNhdCIsImEiOiJjamlpYmlsc28wbjlmM3FwbXdwaXozcWEzIn0.kLmWiUbmdqNLA1atmnTXXA"
+            attribution="<a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            url="https://api.mapbox.com/styles/v1/starcat/cjkbtgt9c33u82snss936paf9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3RhcmNhdCIsImEiOiJjamlpYmlsc28wbjlmM3FwbXdwaXozcWEzIn0.kLmWiUbmdqNLA1atmnTXXA"
           />
 
           {initialBoundaryDataLoaded(this.props.store) && (

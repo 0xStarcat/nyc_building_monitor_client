@@ -2,10 +2,11 @@
 
 .search-results {
   background-color: $transluscentColor;
+  box-sizing: border-box;
   height: fit-content;
   position: absolute;
   top: $search-bar-height;
-  width: 200px;
+  width: 100%;
 }
 
 @media screen and (orientation: portrait) {

@@ -29,10 +29,10 @@ const { BaseLayer, Overlay } = LayersControl
 
 const ScopedMenu = props => {
   const onClick = event => {
-    props.setViewCoordinates(
-      event.target.feature.properties.representativePoint,
-      props.baseLayerScope === SCOPE_NEIGHBORHOODS ? 14 : 15
-    )
+    // props.setViewCoordinates(
+    //   event.target.feature.properties.representativePoint,
+    //   props.baseLayerScope === SCOPE_NEIGHBORHOODS ? 14 : 15
+    // )
     props.dispatch(onRegionClick(event))
   }
 

@@ -31,7 +31,7 @@ export class MapPage extends React.Component {
 
     const leftLandscapeZoomOffset = zoomLevel > 14 ? -(0.035 / zoomLevel - 0.001) : -(0.5 / zoomLevel - 0.02)
     const leftOffset = this.props.store.appState.landscapeOrientation ? leftLandscapeZoomOffset : 0 //-0.01 : 0
-    const latLon = [point['coordinates'][1] + topOffset, point['coordinates'][0] + leftOffset]
+    const latLon = point ? [point['coordinates'][1] + topOffset, point['coordinates'][0] + leftOffset] : undefined
 
     if (this.mapRef.current) {
       this.mapRef.current.leafletElement.setView([latLon[0], latLon[1]], zoomLevel, {
