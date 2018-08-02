@@ -1,0 +1,12 @@
+@import '../../SharedStyles/index.scss';
+
+.search-bar {
+  position: relative;
+  width: 100%;
+
+  input {
+    height: $search-bar-height;
+    width: 100%;
+    z-index: 501;
+  }
+}

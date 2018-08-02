@@ -22,7 +22,7 @@ export const serviceCallsReducer = (serviceCallsState = Object.freeze(initialSta
     }
 
     case serviceCallsActions.HANDLE_READ_SERVICE_CALLS_RESPONSE: {
-      console.log('serviceCalls data received', action.data['features'])
+      // console.log('serviceCalls data received')
       return {
         ...serviceCallsState,
         features: action.data['features']

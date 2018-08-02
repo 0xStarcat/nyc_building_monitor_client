@@ -163,7 +163,6 @@ export const onRegionClick = event => dispatch => {
   const selectedObject = (store.getState()[store.getState().appState.baseLayerScope] || {}).selectedObject
   dispatch(setLegendScopeBuildings())
   if (store.getState().appState.landscapeOrientation) dispatch(openLegend())
-  if (!store.getState().appState.buildingBaseLayer) dispatch(changeBuildingBaseLayer(BASE_LAYER_BUILDING_CATEGORIES))
   dispatch(changeSidebarScope(store.getState().appState.baseLayerScope))
   dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
   dispatch(store.getState().appState.landscapeOrientation ? activateSidebar() : previewSidebar())

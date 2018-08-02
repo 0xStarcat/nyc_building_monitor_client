@@ -39,7 +39,7 @@ export default class LeafletMap extends Component {
           {initialBoundaryDataLoaded(this.props.store) && (
             <BoundaryLayersMenu setViewCoordinates={this.props.setViewCoordinates} />
           )}
-          {!!this.props.store.buildings.features.length && (
+          {this.props.buildingsPresent && (
             <BuildingLayersMenu position="topright" setViewCoordinates={this.props.setViewCoordinates} />
           )}
         </Map>
@@ -49,6 +49,7 @@ export default class LeafletMap extends Component {
 }
 
 LeafletMap.propTypes = {
+  buildingsPresent: PropTypes.bool,
   dispatch: PropTypes.func,
   setViewCoordinates: PropTypes.func,
   store: PropTypes.object,

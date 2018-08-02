@@ -41,7 +41,7 @@ export const clearServiceCalls = event => ({
 })
 
 export const readServiceCallsByBuilding = id => dispatch => {
-  console.log('******FETCHING SERVICE_CALLS DATA for building', id)
+  // console.log('******FETCHING SERVICE_CALLS DATA for building', id)
   dispatch(awaitingServiceCallsResponse())
   return Axios.get(`/buildings/${id}/service-calls`)
     .then(response => {

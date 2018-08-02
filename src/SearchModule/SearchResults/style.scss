@@ -1,0 +1,15 @@
+@import '../../SharedStyles/index.scss';
+
+.search-results {
+  background-color: $transluscentColor;
+  height: fit-content;
+  position: absolute;
+  top: $search-bar-height;
+  width: 200px;
+}
+
+@media screen and (orientation: portrait) {
+  .search-results {
+    // top: -$search-bar-height;
+  }
+}

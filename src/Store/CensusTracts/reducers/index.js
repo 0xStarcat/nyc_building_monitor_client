@@ -24,7 +24,6 @@ export const censusTractsReducer = (censusTractsState = Object.freeze(initialSta
     }
 
     case censusTractsActions.HANDLE_READ_CENSUS_TRACTS_RESPONSE: {
-      console.log('Census tracts data received')
       return {
         ...censusTractsState,
         features: action.data['features'],

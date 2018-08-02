@@ -42,7 +42,7 @@ export const clearViolations = event => ({
 })
 
 export const readViolationsByBuilding = id => dispatch => {
-  console.log('******FETCHING VIOLATIONS DATA for building', id)
+  // console.log('******FETCHING VIOLATIONS DATA for building', id)
   dispatch(awaitingViolationsResponse())
   return Axios.get(`/buildings/${id}/violations`)
     .then(response => {

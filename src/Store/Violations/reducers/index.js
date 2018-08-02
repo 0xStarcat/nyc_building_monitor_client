@@ -23,7 +23,7 @@ export const violationsReducer = (violationsState = Object.freeze(initialState),
     }
 
     case violationsActions.HANDLE_READ_VIOLATIONS_RESPONSE: {
-      console.log('violations data received')
+      // console.log('violations data received')
       return {
         ...violationsState,
         features: action.data['features']

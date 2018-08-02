@@ -31,7 +31,7 @@ export const updateSelectedCTObject = event => ({
   data: event
 })
 
-export const clearCensusTracts = event => ({
+export const clearCensusTracts = () => ({
   type: CLEAR_CENSUS_TRACTS
 })
 
@@ -42,7 +42,7 @@ export const selectNewSelectedCTObject = event => dispatch => {
 }
 
 export const readCensusTracts = () => dispatch => {
-  console.log('******FETCHING CENSUS TRACTS')
+  // console.log('******FETCHING CENSUS TRACTS')
   dispatch(awaitingCensusTractsResponse())
   return Axios.get(url)
     .then(response => {

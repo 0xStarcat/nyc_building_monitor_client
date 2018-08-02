@@ -31,7 +31,7 @@ export const updateSelectedNeighborhoodObject = event => ({
   data: event
 })
 
-export const clearNeighborhoods = event => ({
+export const clearNeighborhoods = () => ({
   type: CLEAR_NEIGHBORHOODS
 })
 
@@ -42,7 +42,7 @@ export const selectNewSelectedNeighborhoodObject = event => dispatch => {
 }
 
 export const readNeighborhoods = () => dispatch => {
-  console.log('******FETCHING NEIGHBORHOODS')
+  // console.log('******FETCHING NEIGHBORHOODS')
   dispatch(awaitingNeighborhoodsResponse())
   return Axios.get(neighborhoods_url)
     .then(response => {

@@ -20,7 +20,6 @@ export const buildingsReducer = (buildingsState = Object.freeze(initialState), a
       }
     }
     case buildingsActions.HANDLE_READ_BUILDINGS_RESPONSE: {
-      console.log('buildings data received')
       return {
         ...buildingsState,
         awaitingResponse: false,

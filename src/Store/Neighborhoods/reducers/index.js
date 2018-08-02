@@ -23,7 +23,6 @@ export const neighborhoodsReducer = (neighborhoodsState = Object.freeze(initialS
     }
 
     case neighborhoodsActions.HANDLE_READ_NEIGHBORHOODS_RESPONSE: {
-      console.log('Neighborhoods data received', action.data)
       return {
         ...neighborhoodsState,
         features: action.data['features'],

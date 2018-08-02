@@ -7,6 +7,7 @@ import SideBar from '../../SideBar'
 import MobileButtonContainer from '../../MobileButtonContainer'
 import MapLegend from '../../LeafletMap/MapLegend'
 import SwitchViewButton from '../../SharedComponents/SwitchViewButton'
+import SearchModule from '../../SearchModule'
 
 import { activateSidebar, previewSidebar, SIDEBAR_VIEW_LINKS_MENU } from '../../Store/AppState/actions'
 
@@ -73,7 +74,9 @@ export class MapPage extends React.Component {
         >
           ?
         </SwitchViewButton>
+        <SearchModule setViewCoordinates={this.setViewCoordinates} />
         <LeafletMap
+          buildingsPresent={this.props.buildingsPresent}
           dispatch={this.props.dispatch}
           mapRef={this.mapRef}
           setViewCoordinates={this.setViewCoordinates}

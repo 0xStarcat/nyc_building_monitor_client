@@ -1,0 +1,17 @@
+@import '../SharedStyles/index.scss';
+
+.search-module {
+  position: fixed;
+  top: $small-spacing;
+  right: $large-spacing;
+  height: 60px;
+  width: 400px;
+  z-index: 500;
+}
+
+@media screen and (orientation: portrait) {
+  .search-module {
+    right: $large-spacing;
+    width: 200px;
+  }
+}
