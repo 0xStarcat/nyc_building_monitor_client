@@ -12,9 +12,7 @@ $legend-icon-size: 20px;
   border: 2px solid rgba(55, 55, 55, 0.3);
   bottom: 80px;
   display: block;
-  flex-direction: column;
   height: 33px;
-  justify-content: flex-start;
   position: absolute;
   right: 10px;
   transition: height 0.2s linear, width 0.2s linear;
@@ -23,6 +21,7 @@ $legend-icon-size: 20px;
 }
 
 .legend-info {
+  font-size: 13px;
   text-align: center;
 }
 
@@ -108,7 +107,7 @@ $legend-icon-size: 20px;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: calc(100% - 40px);
+  height: calc(100% - 50px);
 }
 
 .legend-title {
