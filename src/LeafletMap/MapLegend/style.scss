@@ -5,18 +5,20 @@ $legend-width-mobile: 100px;
 $legend-icon-size: 20px;
 
 .map-legend {
-  background-color: white;
+  background-color: transparent;
   border-radius: 2px;
+
   box-sizing: border-box;
+  border: 2px solid rgba(55, 55, 55, 0.3);
   bottom: 80px;
-  display: flex;
+  display: block;
   flex-direction: column;
-  height: 40px;
+  height: 33px;
   justify-content: flex-start;
   position: absolute;
-  right: 12px;
+  right: 10px;
   transition: height 0.2s linear, width 0.2s linear;
-  width: 30px;
+  width: 33px;
   z-index: 500;
 }
 
@@ -53,8 +55,12 @@ $legend-icon-size: 20px;
 }
 
 .legend-close {
+  background-color: white;
+
   border-radius: 2px;
-  height: 40px;
+  box-sizing: border-box;
+
+  height: 100%;
 }
 
 .legend-scope-toggle {
@@ -90,13 +96,19 @@ $legend-icon-size: 20px;
   }
 }
 
+.legend-button {
+  background-color: white;
+}
+
 .legend-wrapper {
+  background-color: white;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 40px);
 }
 
 .legend-title {
@@ -163,7 +175,6 @@ div.open-legend {
 @media screen and (orientation: portrait) {
   .map-legend {
     top: 80px;
-    right: 12px;
   }
 
   .scale-marker {

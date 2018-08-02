@@ -41,10 +41,7 @@ export default class MapLegend extends React.Component {
           </div>
         )}
         <div
-          className={classNames(
-            'legend-button',
-            this.props.open ? ['highlight-button-bottom', 'legend-open'] : ['highlight-button-left', 'legend-close']
-          )}
+          className={classNames('legend-button', this.props.open ? ['legend-open'] : ['legend-close'])}
           onClick={this.toggleLegend}
         >
           {!this.props.open && (
