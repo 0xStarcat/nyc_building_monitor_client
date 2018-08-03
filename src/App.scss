@@ -16,27 +16,6 @@
 }
 
 @font-face {
-  font-family: 'Gandhi';
-  font-style: normal;
-  font-weight: 300;
-  src: local('GandhiSans-Regular'), url('./SharedStyles/fonts/GandhiSans-Regular.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Caviar';
-  font-style: normal;
-  font-weight: 300;
-  src: local('CaviarDreams'), url('./SharedStyles/fonts/CaviarDreams.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'FreeSans';
-  font-style: normal;
-  font-weight: 300;
-  src: local('FreeSans'), url('./SharedStyles/fonts/FreeSans.ttf') format('truetype');
-}
-
-@font-face {
   font-family: 'Hind';
   font-style: normal;
   font-weight: 300;
@@ -62,6 +41,7 @@ input {
   border: none;
   padding: 0;
   outline: 0;
+  font-family: 'Hind-Light';
 }
 
 .hidden {

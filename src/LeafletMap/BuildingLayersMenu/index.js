@@ -16,10 +16,11 @@ import {
   BASE_LAYER_BUILDING_CATEGORIES,
   BASE_LAYER_BUILDING_TOTAL_VIOLATIONS,
   BASE_LAYER_BUILDING_OPEN_311,
-  BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311
+  BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311,
+  SIDEBAR_STATE_PREVIEW
 } from '../../Store/AppState/actions'
 
-const { BaseLayer, Overlay } = LayersControl
+const { BaseLayer } = LayersControl
 
 class BuildingLayersMenu extends Component {
   constructor(props) {
@@ -27,6 +28,21 @@ class BuildingLayersMenu extends Component {
 
     this.layerControlRef = React.createRef()
     this.getLayer = this.getLayer.bind(this)
+    this.sidebarAction = this.sidebarAction.bind(this)
+  }
+
+  sidebarAction(id) {
+    if (this.props.appState.landscapeOrientation) {
+      return activateSidebar()
+    } else {
+      if (
+        this.props.appState.sidebarState === SIDEBAR_STATE_PREVIEW &&
+        (this.props.buildings.selectedObject || {}).id === id
+      ) {
+        console.log('hey')
+        return activateSidebar()
+      } else return previewSidebar()
+    }
   }
 
   getLayer() {
@@ -36,9 +52,9 @@ class BuildingLayersMenu extends Component {
           <BaseLayer checked name="Building Categories">
             <GeoJsonBuildingLayer
               setViewCoordinates={this.props.setViewCoordinates}
-              features={this.props.buildings}
+              features={this.props.buildings.features}
               interactive={true}
-              sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
+              sidebarAction={this.sidebarAction}
               style={buildingClassStyle}
             />
           </BaseLayer>
@@ -48,9 +64,9 @@ class BuildingLayersMenu extends Component {
           <BaseLayer checked name="Building Categories">
             <GeoJsonBuildingLayer
               setViewCoordinates={this.props.setViewCoordinates}
-              features={this.props.buildings}
+              features={this.props.buildings.features}
               interactive={true}
-              sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
+              sidebarAction={this.sidebarAction}
               style={buildingClassStyle}
             />
           </BaseLayer>
@@ -60,9 +76,9 @@ class BuildingLayersMenu extends Component {
           <BaseLayer checked name="Building Violations">
             <GeoJsonBuildingLayer
               setViewCoordinates={this.props.setViewCoordinates}
-              features={this.props.buildings}
+              features={this.props.buildings.features}
               interactive={true}
-              sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
+              sidebarAction={this.sidebarAction}
               style={violationBuildingStyle}
             />
           </BaseLayer>
@@ -72,9 +88,9 @@ class BuildingLayersMenu extends Component {
           <BaseLayer checked name="Building Open 311 Calls">
             <GeoJsonBuildingLayer
               setViewCoordinates={this.props.setViewCoordinates}
-              features={this.props.buildings}
+              features={this.props.buildings.features}
               interactive={true}
-              sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
+              sidebarAction={this.sidebarAction}
               style={serviceCallOpenBuildingStyle}
             />
           </BaseLayer>
@@ -84,9 +100,9 @@ class BuildingLayersMenu extends Component {
           <BaseLayer checked name="311 call average response">
             <GeoJsonBuildingLayer
               setViewCoordinates={this.props.setViewCoordinates}
-              features={this.props.buildings}
+              features={this.props.buildings.features}
               interactive={true}
-              sidebarAction={this.props.appState.landscapeOrientation ? activateSidebar : previewSidebar}
+              sidebarAction={this.sidebarAction}
               style={averageDaysToResolveServiceCalls}
             />
           </BaseLayer>
@@ -111,7 +127,7 @@ class BuildingLayersMenu extends Component {
 
 const mapStateToProps = state => {
   return {
-    buildings: state.buildings.features,
+    buildings: state.buildings,
     appState: state.appState
   }
 }

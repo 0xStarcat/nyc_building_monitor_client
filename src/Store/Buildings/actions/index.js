@@ -76,7 +76,6 @@ export const handleReadBuildingByIdResponse = response => dispatch => {
   dispatch(updateSelectedBuildingObject(response.data.features[0].properties))
   dispatch(changeSidebarScope(SCOPE_BUILDINGS))
   dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
-  console.log(response.data.features[0].properties)
 
-  dispatch(store.getState().appState.landscapeOrientation ? activateSidebar() : previewSidebar())
+  // dispatch(store.getState().appState.landscapeOrientation ? activateSidebar() : previewSidebar())
 }

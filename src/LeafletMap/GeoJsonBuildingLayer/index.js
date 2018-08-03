@@ -36,14 +36,15 @@ export class GeoJsonBuildingLayer extends Component {
   }
 
   onClick(event) {
-    this.props.setViewCoordinates(event.target.feature.properties.representativePoint, 17)
+    const featureProperties = event.target.feature.properties
+    this.props.setViewCoordinates(featureProperties.representativePoint, 17)
     this.props.dispatch(setLegendScopeBuildings())
+    this.props.dispatch(this.props.sidebarAction(featureProperties.id))
     this.props.dispatch(updateSelectedBuildingObject(event.target.feature.properties))
     this.props.dispatch(changeSidebarScope(SCOPE_BUILDINGS))
     this.props.dispatch(changeSidebarView(SIDEBAR_VIEW_SELECTED_OBJECT))
     this.props.dispatch(clearViolations())
     this.props.dispatch(clearServiceCalls())
-    this.props.dispatch(this.props.sidebarAction())
   }
 
   componentWillReceiveProps(nextProps) {
