@@ -58,11 +58,33 @@ article {
   overflow-y: scroll;
 }
 
+.info-scroll-container {
+  height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeight} + 40px);
+  overflow-y: scroll;
+}
+
+@media screen and (orientation: portrait) {
+  .scroll-container {
+    height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeight} + 30px);
+    overflow-y: scroll;
+  }
+
+  .info-scroll-container {
+    height: 380px;
+    overflow-y: scroll;
+  }
+}
+
 .info-section {
   padding: $small-spacing 0;
   padding-bottom: 0;
 }
 
+@media screen and (orientation: portrait) {
+  .info-section {
+    padding-top: $small-spacing;
+  }
+}
 .card {
   box-sizing: border-box;
   margin: 5px 0;
@@ -71,13 +93,6 @@ article {
 
 .info-card {
   padding-right: $medium-spacing;
+  padding-bottom: $medium-spacing;
 }
 
-@media screen and (orientation: portrait) {
-  .scroll-container {
-    height: calc(100% - #{$top-bar-height} - #{$infoHeaderHeightMobile} + 40px);
-  }
-  .info-section {
-    padding-top: $small-spacing;
-  }
-}

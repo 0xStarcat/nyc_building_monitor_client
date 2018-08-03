@@ -74,10 +74,6 @@ a:visited {
   text-decoration: underline;
 }
 
-div.text-box {
-  height: calc(100% - #{$top-bar-height} - 160px);
-}
-
 .text-section-title {
   margin-bottom: $small-spacing;
 }

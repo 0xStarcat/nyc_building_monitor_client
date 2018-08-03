@@ -14,7 +14,7 @@ const ViolationCodeInformation = props => {
         <div className="text-section-title">
           <h5>{props.title}</h5>
         </div>
-        <div className="scroll-container text-box info-card">{props.children}</div>
+        <div className="info-scroll-container info-card">{props.children}</div>
       </div>
     </section>
   )
