@@ -198,7 +198,7 @@ export const ServiceCallsOpenRow = props => {
       {props.value >= 0 ? (
         <div>
           <span className={classNames('value-text', open311CallValueClass(props.value))}>{props.value}%</span>
-          <span> of current 311-calls have been open over 1 month.</span>
+          <span> of unresolved 311-calls have been open over 1 month.</span>
         </div>
       ) : (
         <span>(No open 311 call available)</span>
