@@ -34,7 +34,8 @@ export const ControlBackButton = props => {
       case SCOPE_CENSUS_TRACTS:
         return SIDEBAR_VIEW_MAP_DETAILS_MENU
       case SCOPE_BUILDINGS:
-        return SIDEBAR_VIEW_SELECTED_OBJECT
+        if (props.selectedNeighborhood || props.selectedCensusTract) return SIDEBAR_VIEW_SELECTED_OBJECT
+        else return SIDEBAR_VIEW_MAP_DETAILS_MENU
       case SCOPE_VIOLATIONS:
         if (appState.sidebarView === SIDEBAR_VIEW_SCOPED_OBJECTS || appState.sidebarView === SIDEBAR_VIEW_INFORMATION)
           return SIDEBAR_VIEW_SELECTED_OBJECT
@@ -54,7 +55,8 @@ export const ControlBackButton = props => {
     switch (appState.sidebarScope) {
       case SCOPE_BUILDINGS:
         if (props.selectedCensusTract) return SCOPE_CENSUS_TRACTS
-        else return SCOPE_NEIGHBORHOODS
+        else if (props.selectedNeighborhood) return SCOPE_NEIGHBORHOODS
+        else return appState.sidebarScope
       case SCOPE_VIOLATIONS:
         if (appState.sidebarView === SIDEBAR_VIEW_SELECTED_OBJECT || appState.sidebarView === SIDEBAR_VIEW_INFORMATION)
           return SCOPE_VIOLATIONS
@@ -96,7 +98,9 @@ export const ControlBackButton = props => {
         if (props.buildingsPresent && !appState.landscapeOrientation) return 'Map Details'
         else return 'Map Details'
       case SCOPE_BUILDINGS:
-        return (props.selectedNeighborhood || {}).name || `#${(props.selectedCensusTract || {}).name}`
+        if (props.selectedCensusTract || props.selectedNeighborhood)
+          return (props.selectedNeighborhood || {}).name || `#${(props.selectedCensusTract || {}).name}`
+        else return 'Map Details'
       case SCOPE_VIOLATIONS:
         if (appState.sidebarView === SIDEBAR_VIEW_SELECTED_OBJECT) return 'Violations'
         if (appState.sidebarView === SIDEBAR_VIEW_INFORMATION) return `Violation #${props.selectedViolation.name}`

@@ -48,7 +48,7 @@ export default class SearchBar extends React.Component {
         <form autoComplete="off" className="search-form" onSubmit={this.onFormSubmit}>
           <input
             tabIndex={0}
-            placeholder="123 type address to search"
+            placeholder="Type an address to search"
             type="text"
             onChange={this.onInputChange}
             value={this.state.searchValue}
