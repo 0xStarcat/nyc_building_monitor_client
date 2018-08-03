@@ -17,7 +17,8 @@ import {
   BASE_LAYER_BUILDING_TOTAL_VIOLATIONS,
   BASE_LAYER_BUILDING_OPEN_311,
   BASE_LAYER_BUILDING_AVERAGE_RESPONSE_311,
-  SIDEBAR_STATE_PREVIEW
+  SIDEBAR_STATE_PREVIEW,
+  SCOPE_BUILDINGS
 } from '../../Store/AppState/actions'
 
 const { BaseLayer } = LayersControl
@@ -37,6 +38,7 @@ class BuildingLayersMenu extends Component {
     } else {
       if (
         this.props.appState.sidebarState === SIDEBAR_STATE_PREVIEW &&
+        this.props.appState.sidebarScope === SCOPE_BUILDINGS &&
         (this.props.buildings.selectedObject || {}).id === id
       ) {
         console.log('hey')
