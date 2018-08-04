@@ -10,10 +10,10 @@ const StoryContent = () => {
       </div>
       <div className="content-body">
         <p>
-          This project began after a personal experience threw my living situation into disarray and set me on a path of
-          lies, revenge, and knowledge.
+          This project began after a personal experience put my living situation into jeopardy and set me on the path of
+          data justice.
         </p>
-        <h6>Losing the gas</h6>
+        <h6>Losing gas</h6>
         <p>
           At the end of January, 2018, with temperatures outside consistently cold and freezing, a building inspector
           came by my apartment. He looked around the common areas and into each unit, and then left. I went about my day
@@ -21,7 +21,7 @@ const StoryContent = () => {
           light. I called the landlord and got the news that the gas in the entire building had just been shut off.
         </p>
         <p>
-          The ensuing days were full of stress and anxiety - we had no hot water to shower with, no heat keep warm at
+          The ensuing days were full of stress and anxiety - we had no hot water to shower with, no heat to keep warm at
           night, and no stove to cook on. We didn’t know who could solve our issues - the landlord? The city? A lawyer?
           We demanded a solution from the landlord and thankfully, they replaced the hot water heaters - which ran on
           gas - with electric ones and they gave us space-heaters and electric stovetops within a few days. They knew
@@ -47,8 +47,8 @@ const StoryContent = () => {
         </p>
         <p>
           Full disclosure - I am not a native of Williamsburg or NYC and I have privileges that some residents of
-          Williamsburg do not. With that said, I cannot afford to live in one of the new developments that have sprung
-          up on my block in recent years and I do NOT eat Quinoa salad or call the cops on people.
+          Williamsburg do not. With that said, I cannot afford to live in the new developments that have sprung up on my
+          block in recent years.
         </p>
         <p>
           I spent countless days scraping data from the NYC databases, running statistical formulas on it to find any
@@ -87,9 +87,10 @@ const StoryContent = () => {
         <p>
           I knew my time at this building was probably not long for this world and I would need to get ready to move in
           the near future. I also had the leverage I needed to renegotiate my rent when it came time to re-sign my
-          lease. Knowing that the landlord didn’t want to go through the trouble of finding all new tenants for a place
-          that had this many issues - issues they weren’t trying to fix - gave me the power to lower my rent by a couple
-          hundred dollars a month.
+          lease. I reasoned that my landlord's primary focus was to keep the factory running and keep income from the
+          apartments flowing until they sold the place. Knowing that the landlord didn’t want to go through the trouble
+          of finding all new tenants for a place that had this many issues - issues they weren’t trying to fix - gave me
+          the power to lower my rent by a couple hundred dollars a month.
         </p>
         <h6>Conclusion</h6>
         <p>

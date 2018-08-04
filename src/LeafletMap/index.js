@@ -32,6 +32,7 @@ export default class LeafletMap extends Component {
           {!nothingLoading(this.props.store) && <Loading />}
           <ZoomControl position="topright" />
           <TileLayer
+            maxZoom={20}
             attribution="<a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             url="https://api.mapbox.com/styles/v1/starcat/cjkbtgt9c33u82snss936paf9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3RhcmNhdCIsImEiOiJjamlpYmlsc28wbjlmM3FwbXdwaXozcWEzIn0.kLmWiUbmdqNLA1atmnTXXA"
           />

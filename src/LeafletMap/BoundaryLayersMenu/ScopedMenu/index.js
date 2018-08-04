@@ -21,7 +21,6 @@ import {
   BASE_LAYER_BOUNDARY_WHITE_POPULATION,
   BASE_LAYER_BOUNDARY_OPEN_311,
   BASE_LAYER_BOUNDARY_AVERAGE_RESPONSE_311,
-  SCOPE_NEIGHBORHOODS,
   onRegionClick
 } from '../../../Store/AppState/actions'
 
@@ -29,10 +28,6 @@ const { BaseLayer, Overlay } = LayersControl
 
 const ScopedMenu = props => {
   const onClick = event => {
-    // props.setViewCoordinates(
-    //   event.target.feature.properties.representativePoint,
-    //   props.baseLayerScope === SCOPE_NEIGHBORHOODS ? 14 : 15
-    // )
     props.dispatch(onRegionClick(event))
   }
 
@@ -132,9 +127,10 @@ const ScopedMenu = props => {
       <Overlay checked name="Street and Landmark Labels">
         <Pane style={{ zIndex: 430 }}>
           <TileLayer
+            maxZoom={20}
             onLoad={props.tileLayerLoadComplete}
             url="https://api.mapbox.com/styles/v1/starcat/cjkan2o8a5k1m2ro6esamupjc/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3RhcmNhdCIsImEiOiJjamlpYmlsc28wbjlmM3FwbXdwaXozcWEzIn0.kLmWiUbmdqNLA1atmnTXXA"
-            attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            attribution=""
           />
         </Pane>
       </Overlay>
