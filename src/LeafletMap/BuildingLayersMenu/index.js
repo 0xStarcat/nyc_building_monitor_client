@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { FeatureGroup, LayerGroup, LayersControl, GeoJSON, TileLayer, Pane } from 'react-leaflet'
+import { LayersControl } from 'react-leaflet'
 
 import GeoJsonBuildingLayer from '../GeoJsonBuildingLayer'
 
