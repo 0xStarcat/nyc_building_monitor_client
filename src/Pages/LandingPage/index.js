@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 
 import { readLastUpdate } from '../../Store/Updates/actions'
 import { convertTimestampToData } from '../../SharedUtilities/informationUtils.js'
@@ -25,7 +26,7 @@ class LandingPage extends React.Component {
     if (this.props.updates.rows.length) {
       const lastUpdate = this.props.updates.rows[0]
       return (
-        <div className="landing-update-table">
+        <div className="landing-update-table" id="update">
           <div className="landing-table-row">
             <div className="landing-table-header">Last Updated</div>
             <div className="landing-table-header">New Violations</div>
@@ -33,7 +34,7 @@ class LandingPage extends React.Component {
             <div className="landing-table-header">Resolved Violations</div>
             <div className="landing-table-header">Resolved 311-calls</div>
           </div>
-          <div className="landing-table-row">
+          <div className="landing-table-row" id="update">
             <div className="landing-table-cell">{convertTimestampToData(lastUpdate.date)}</div>
             <div className="landing-table-cell">{lastUpdate.newViolations}</div>
             <div className="landing-table-cell">{lastUpdate.newServiceCalls}</div>
@@ -56,9 +57,9 @@ class LandingPage extends React.Component {
               <Link to="/">Map</Link>
               <Link to="/story">Story</Link>
               <Link to="/support">Support</Link>
-              <Link to="#update">Last Update</Link>
-              <Link to="#about">About</Link>
-              <Link to="#goals">Future goals</Link>
+              <HashLink to="/about#update">Last Update</HashLink>
+              <HashLink to="/about#about">About</HashLink>
+              <HashLink to="/about#goals">Future goals</HashLink>
             </div>
             <div className="landing-header-title-wrapper">
               <h1 className="landing-header-title">NYC Building Monitor</h1>
@@ -79,19 +80,19 @@ class LandingPage extends React.Component {
           <SpacerSvg3 />
         </div>
         <div className="text-content">
-          <div className="content-title">
+          <div className="content-title" id="about">
             <h5>About</h5>
           </div>
           <div className="content-body">
             <p>
               The NYC Building Monitor is an ongoing project created to serve the needs of NYC tenants. If you are a NYC
-              tenant or housing advocacy group and would like to dicuss your ideas on how to steer this site, please
+              tenant or housing advocacy group and would like to discuss your ideas on how to steer this site, please
               contact me at <span className="text-hightlight">hello@buildingmonitor.nyc</span>.
             </p>
             <p>
               This site is a daily updated resource of public city data on building violations, building-related 311
               calls, and other neighborhood information such as median rent, income, and demographics. A map is provided
-              to make searching for these records are more manageable and friendly than the public data portals.
+              to make searching for these records more manageable and friendly than the public data portals.
             </p>
             <p>
               Work is ongoing to process this data to provide useful insights into the trends and behaviors of NYC
@@ -104,7 +105,7 @@ class LandingPage extends React.Component {
           <SpacerSvg1 />
         </div>
         <div className="text-content">
-          <div className="content-title">
+          <div className="content-title" id="goals">
             <h5>Future goals</h5>
             <ul>
               <li>
@@ -125,8 +126,8 @@ class LandingPage extends React.Component {
                   100 Worst Landlords in New York City
                 </a>)
               </li>
-              <li>Create map detail layers about bed bugs, gas-related, and other noteworthy violations & 311 calls</li>
-              <li>Create map detail showing possible rent stabilized housing.</li>
+              <li>Create map detail layers about bed bugs, hazardous violations, and other noteworthy data.</li>
+              <li>Create a map detail showing possible rent stabilized housing.</li>
               <li>Include data and map details about building sales and new permits.</li>
               <li>
                 Send emails to visitors who sign up about new violations, service calls, and status updates on their
