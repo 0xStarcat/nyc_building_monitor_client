@@ -44,7 +44,7 @@ describe('readLastUpdate', () => {
       response: error
     })
 
-    await store.dispatch(updatesActions.readUpdates())
+    await store.dispatch(updatesActions.readLastUpdate())
     const actions = store.getActions()
     const expectedActions = [
       updatesActions.awaitingUpdatesResponse(),

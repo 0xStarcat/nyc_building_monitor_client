@@ -43,6 +43,8 @@ class LandingPage extends React.Component {
           </div>
         </div>
       )
+    } else if (this.props.updates.awaitingResponse) {
+      return <div className="landing-update-table">Loading...</div>
     } else {
       return <div className="landing-update-table">No update date available</div>
     }
@@ -58,7 +60,7 @@ class LandingPage extends React.Component {
               <Link to="/story">Story</Link>
               <Link to="/support">Support</Link>
               <HashLink to="/about#update">Last Update</HashLink>
-              <HashLink to="/about#about">About</HashLink>
+              <HashLink to="/about#description">About</HashLink>
               <HashLink to="/about#goals">Future goals</HashLink>
             </div>
             <div className="landing-header-title-wrapper">
@@ -80,7 +82,7 @@ class LandingPage extends React.Component {
           <SpacerSvg3 />
         </div>
         <div className="text-content">
-          <div className="content-title" id="about">
+          <div className="content-title" id="description">
             <h5>About</h5>
           </div>
           <div className="content-body">

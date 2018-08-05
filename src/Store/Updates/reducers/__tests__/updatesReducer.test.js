@@ -29,11 +29,10 @@ describe('updates reducer', () => {
   })
 
   describe('HANDLE_READ_UPDATES_RESPONSE', () => {
-    const response = { features: [] }
+    const response = { rows: [] }
     it('fetches the updates if present', () => {
       expect(reducer.updatesReducer(undefined, updatesActions.handleReadUpdatesResponse({ data: response }))).toEqual({
-        ...reducer.initialState,
-        initialFetchCompleted: true
+        ...reducer.initialState
       })
     })
   })
