@@ -1,0 +1,71 @@
+@import '../../SharedStyles/index.scss';
+
+.landing-spacer {
+  box-sizing: border-box;
+  padding: $large-spacing 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-header-bar {
+  background-color: $primaryColor;
+  display: block;
+  height: $landingHeaderBarHeight;
+  width: 100vw;
+}
+
+.landing-header-bar-wrapper {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.landing-header-link-menu {
+  align-items: flex-end;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 80px;
+  justify-content: flex-start;
+  padding-left: $huge-spacing;
+  width: 100%;
+
+  a {
+    color: white;
+    font-size: 16px;
+    margin: 0 $small-spacing;
+  }
+}
+
+.landing-header-title-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.landing-header-title {
+  color: white;
+  font-size: 46px;
+}
+
+.landing-main-picture-wrapper {
+  display: block;
+  margin: 0 auto;
+  img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    width: 60vw;
+  }
+}

@@ -5,7 +5,7 @@ import ContentPage from './Pages/ContentPage'
 import AboutContent from './Pages/ContentPage/Content/AboutContent'
 import StoryContent from './Pages/ContentPage/Content/StoryContent'
 import SupportContent from './Pages/ContentPage/Content/SupportContent'
-
+import LandingPage from './Pages/LandingPage'
 import { readCensusTracts } from './Store/CensusTracts/actions'
 import { checkOrientation } from './Store/AppState/actions'
 
@@ -42,11 +42,7 @@ class App extends Component {
             <Route
               exact
               path="/about"
-              render={router => (
-                <ContentPage landscapeOrientation={this.props.landscapeOrientation} router={router}>
-                  <AboutContent />
-                </ContentPage>
-              )}
+              render={router => <LandingPage landscapeOrientation={this.props.landscapeOrientation} router={router} />}
             />
             <Route
               exact

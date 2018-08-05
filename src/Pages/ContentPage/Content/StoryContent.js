@@ -4,7 +4,7 @@ import './style.scss'
 
 const StoryContent = () => {
   return (
-    <div className="text-content">
+    <div className="story-content text-content">
       <div className="content-title">
         <h5>The story behind this project.</h5>
       </div>

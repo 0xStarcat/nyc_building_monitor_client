@@ -18,7 +18,7 @@ export default class SidebarLayerMenu extends React.Component {
     return (
       <div
         className={classNames('sidebar-layer-menu', 'sidebar-wrapper', {
-          'content-box headerless-scroll-container': this.props.landscapeOrientation
+          'headerless-scroll-container': this.props.landscapeOrientation
         })}
       >
         <div

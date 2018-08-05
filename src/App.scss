@@ -77,12 +77,28 @@ input {
   fill: $svg-primary-color;
 }
 
+.svg-line-primary-color {
+  stroke: $svg-primary-color;
+}
+
 .svg-icon-secondary-color {
   fill: $svg-secondary-color;
 }
 
+.svg-line-secondary-color {
+  stroke: $svg-secondary-color;
+}
+
 .svg-icon-dark-color {
   fill: $svg-dark-color;
+}
+
+.svg-line-dark-color {
+  stroke: $svg-dark-color;
+}
+
+.svg-line-tertiary-color {
+  stroke: $svg-tertiary-color;
 }
 
 .svg-rotate-right {
