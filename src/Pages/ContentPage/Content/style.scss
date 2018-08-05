@@ -4,31 +4,10 @@
   h5 {
     margin: 40% 0 20% 0;
   }
-}
 
-.text-content {
-  box-sizing: border-box;
-
-  .content-body {
-    margin-left: $medium-spacing;
+  .text-content {
+    margin-bottom: 20%;
   }
-
-  p {
-    font-family: 'Hind-Light';
-    line-height: 250%;
-    margin: $medium-spacing 0;
-    text-align: justify;
-    text-indent: $small-spacing;
-  }
-
-  h6 {
-    text-align: center;
-    margin: 10% 0;
-  }
-
-  margin: 0 auto;
-  margin-bottom: 20%;
-  width: 500px;
 }
 
 @media screen and (orientation: portrait) {

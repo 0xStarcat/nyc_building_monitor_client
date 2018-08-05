@@ -6,6 +6,8 @@ import { buildingsReducer } from './Buildings/reducers'
 import { violationsReducer } from './Violations/reducers'
 import { serviceCallsReducer } from './ServiceCalls/reducers'
 import { searchReducer } from './Search/reducers'
+import { updatesReducer } from './Updates/reducers'
+
 import { appStateReducer } from './AppState/reducers/appStateReducer'
 export default combineReducers({
   appState: appStateReducer,
@@ -14,5 +16,6 @@ export default combineReducers({
   neighborhoods: neighborhoodsReducer,
   buildings: buildingsReducer,
   violations: violationsReducer,
-  serviceCalls: serviceCallsReducer
+  serviceCalls: serviceCallsReducer,
+  updates: updatesReducer
 })

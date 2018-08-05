@@ -8,7 +8,11 @@ import ActionCard from '../../SharedComponents/ActionCard'
 
 import { RightArrow } from '../../../SharedStyles/icons'
 
-import { convertDepartmentToName, convertTimestampToData, fillEmptyString } from '../utils/informationUtils.js'
+import {
+  convertDepartmentToName,
+  convertTimestampToData,
+  fillEmptyString
+} from '../../../SharedUtilities/informationUtils.js'
 
 import { prevSelectedViolation, nextSelectedViolation } from '../../../Store/Violations/actions'
 import { openInformationBox } from '../../../Store/AppState/actions'

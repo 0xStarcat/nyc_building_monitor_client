@@ -6,7 +6,7 @@ import SwitchViewButton from '../../../../SharedComponents/SwitchViewButton'
 import ActionCard from '../../../SharedComponents/ActionCard'
 import { SCOPE_SERVICE_CALLS, SIDEBAR_VIEW_SELECTED_OBJECT } from '../../../../Store/AppState/actions'
 import { updateSelectedServiceCall } from '../../../../Store/ServiceCalls/actions'
-import { convertTimestampToData, fillEmptyString } from '../../utils/informationUtils.js'
+import { convertTimestampToData, fillEmptyString } from '../../../../SharedUtilities/informationUtils.js'
 
 import './style.scss'
 

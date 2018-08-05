@@ -6,11 +6,15 @@ import DispatchActionButton from '../../../SharedComponents/DispatchActionButton
 import ButtonRow from '../../../SharedComponents/ButtonRow'
 import { RightArrow } from '../../../SharedStyles/icons'
 
-import { convertDepartmentToName, convertTimestampToData, fillEmptyString } from '../utils/informationUtils.js'
+import {
+  convertDepartmentToName,
+  convertTimestampToData,
+  fillEmptyString
+} from '../../../SharedUtilities/informationUtils.js'
 
 import { prevSelectedServiceCall, nextSelectedServiceCall } from '../../../Store/ServiceCalls/actions'
 
-import { ServiceCallIcon, ServiceCallOpenIcon, TimeToResolveCallsIcon } from '../../../SharedStyles/icons'
+import { ServiceCallIcon } from '../../../SharedStyles/icons'
 
 import '../SharedStyles/style.scss'
 

@@ -29,7 +29,7 @@ export class MapPage extends React.Component {
     const topPortraitOffset = zoomLevel > 18 ? -(0.003 / zoomLevel) : -(0.017 / zoomLevel)
     const topOffset = this.props.store.appState.landscapeOrientation ? 0 : topPortraitOffset // -0.0075
 
-    const leftLandscapeZoomOffset = zoomLevel > 14 ? -(0.035 / zoomLevel - 0.001) : -(0.5 / zoomLevel - 0.02)
+    const leftLandscapeZoomOffset = zoomLevel > 14 ? -(0.03 / zoomLevel - 0.0015) : -(0.5 / zoomLevel - 0.02)
     const leftOffset = this.props.store.appState.landscapeOrientation ? leftLandscapeZoomOffset : 0 //-0.01 : 0
     const latLon = point ? [point['coordinates'][1] + topOffset, point['coordinates'][0] + leftOffset] : undefined
 

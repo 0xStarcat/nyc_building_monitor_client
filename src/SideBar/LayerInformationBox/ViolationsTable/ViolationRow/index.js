@@ -6,8 +6,7 @@ import SwitchViewButton from '../../../../SharedComponents/SwitchViewButton'
 import ActionCard from '../../../SharedComponents/ActionCard'
 import { SCOPE_VIOLATIONS, SIDEBAR_VIEW_SELECTED_OBJECT } from '../../../../Store/AppState/actions'
 import { updateSelectedViolation } from '../../../../Store/Violations/actions'
-import { convertTimestampToData, fillEmptyString } from '../../utils/informationUtils.js'
-import { InfoIcon, OpenIcon } from '../../../../SharedStyles/icons'
+import { convertTimestampToData, fillEmptyString } from '../../../../SharedUtilities/informationUtils.js'
 import './style.scss'
 
 const ViolationRow = props => {

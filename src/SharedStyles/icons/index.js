@@ -19,7 +19,7 @@ export const IncomeIcon = () => {
 
 export const RightArrow = props => {
   return (
-    <svg className={classNames('svg-icon', props.className)} viewBox="0 0 20 20">
+    <svg className={classNames('svg-icon', (props || {}).className)} viewBox="0 0 20 20">
       <path
         className="svg-icon-primary-color"
         width="100%"
@@ -34,7 +34,7 @@ export const RightArrow = props => {
 
 export const LeftArrow = props => {
   return (
-    <svg className={classNames('svg-icon', props.className)} viewBox="0 0 20 20">
+    <svg className={classNames('svg-icon', (props || {}).className)} viewBox="0 0 20 20">
       <path
         className="svg-icon-primary-color"
         fill="none"
@@ -299,7 +299,7 @@ export const SearchIcon = () => {
 
 export const InfoIcon = () => {
   return (
-    <svg className="svg-icon" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24">
+    <svg className="svg-icon" x="0px" y="0px" viewBox="0 0 24 24" enableBackground="new 0 0 24 24">
       <g id="Bounding_Boxes">
         <g id="ui_x5F_spec_x5F_header_copy_3" display="none" />
         <path fill="none" d="M0,0h24v24H0V0z" />
@@ -418,11 +418,11 @@ export const SupportIcon = () => {
   )
 }
 
-export const HomeIcon = () => {
+export const HomeIcon = props => {
   return (
     <svg className="svg-icon" viewBox="0 0 20 20">
       <path
-        className="svg-icon-primary-color"
+        className={classNames('svg-icon-primary-color', (props || {}).className)}
         fill="none"
         d="M13.22,2.984c-1.125,0-2.504,0.377-3.53,1.182C8.756,3.441,7.502,2.984,6.28,2.984c-2.6,0-4.714,2.116-4.714,4.716c0,0.32,0.032,0.644,0.098,0.96c0.799,4.202,6.781,7.792,7.46,8.188c0.193,0.111,0.41,0.168,0.627,0.168c0.187,0,0.376-0.041,0.55-0.127c0.011-0.006,1.349-0.689,2.91-1.865c0.021-0.016,0.043-0.031,0.061-0.043c0.021-0.016,0.045-0.033,0.064-0.053c3.012-2.309,4.6-4.805,4.6-7.229C17.935,5.1,15.819,2.984,13.22,2.984z M12.544,13.966c-0.004,0.004-0.018,0.014-0.021,0.018s-0.018,0.012-0.023,0.016c-1.423,1.076-2.674,1.734-2.749,1.771c0,0-6.146-3.576-6.866-7.363C2.837,8.178,2.811,7.942,2.811,7.7c0-1.917,1.554-3.47,3.469-3.47c1.302,0,2.836,0.736,3.431,1.794c0.577-1.121,2.161-1.794,3.509-1.794c1.914,0,3.469,1.553,3.469,3.47C16.688,10.249,14.474,12.495,12.544,13.966z"
       />
@@ -470,8 +470,6 @@ export const SpacerSvg1 = () => {
           strokeWidth="2"
           strokeDasharray="2,2"
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_3"
           y2="62.5"
           x2="151.5"
@@ -485,8 +483,6 @@ export const SpacerSvg1 = () => {
           strokeWidth="2"
           strokeDasharray="2,2"
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_4"
           y2="44.5"
           x2="103.5"
@@ -499,8 +495,6 @@ export const SpacerSvg1 = () => {
         <line
           strokeWidth="2"
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_5"
           y2="92"
           x2="30"
@@ -513,8 +507,6 @@ export const SpacerSvg1 = () => {
         <line
           strokeWidth="2"
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_6"
           y2="149"
           x2="130"
@@ -528,8 +520,6 @@ export const SpacerSvg1 = () => {
           strokeWidth="2"
           strokeDasharray="2,2"
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_8"
           y2="152.5"
           x2="20"
@@ -590,8 +580,6 @@ export const SpacerSvg1 = () => {
         <line
           strokeDasharray="2,2"
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_17"
           y2="54.5"
           x2="9.5"
@@ -604,8 +592,6 @@ export const SpacerSvg1 = () => {
         />
         <line
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_18"
           y2="147.5"
           x2="80"
@@ -630,8 +616,6 @@ export const SpacerSvg1 = () => {
         />
         <line
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_20"
           y2="149"
           x2="120"
@@ -662,8 +646,6 @@ export const SpacerSvg2 = () => {
           strokeWidth="2"
           strokeDasharray="2,2"
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_3"
           y2="49.5"
           x2="90.5"
@@ -677,8 +659,6 @@ export const SpacerSvg2 = () => {
           strokeWidth="2"
           strokeDasharray="2,2"
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_4"
           y2="44.5"
           x2="68.5"
@@ -690,8 +670,6 @@ export const SpacerSvg2 = () => {
         />
         <line
           strokeWidth="2"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_5"
           y2="147"
           x2="30"
@@ -705,8 +683,6 @@ export const SpacerSvg2 = () => {
         <line
           strokeWidth="2"
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_6"
           y2="130"
           x2="130"
@@ -719,8 +695,6 @@ export const SpacerSvg2 = () => {
         <line
           strokeWidth="2"
           strokeDasharray="2,2"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_8"
           y2="122.5"
           x2="150"
@@ -734,8 +708,6 @@ export const SpacerSvg2 = () => {
         <line
           strokeWidth="2"
           strokeDasharray="2,2"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_8"
           y2="72.5"
           x2="18"
@@ -798,8 +770,6 @@ export const SpacerSvg2 = () => {
           strokeWidth="2"
           strokeDasharray="2,2"
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_17"
           y2="60"
           x2="52.5"
@@ -810,8 +780,6 @@ export const SpacerSvg2 = () => {
           fill="none"
         />
         <line
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_18"
           y2="147.5"
           x2="62"
@@ -836,8 +804,6 @@ export const SpacerSvg2 = () => {
           fill="none"
         />
         <line
-          strokeLinecap="null"
-          strokeLinejoin="null"
           strokeDasharray="5,2,2,2,2,2"
           id="svg_20"
           y2="149"
@@ -894,8 +860,6 @@ export const SpacerSvg3 = () => {
           strokeDasharray="2,2"
           strokeWidth="2"
           stroke="#000"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_3"
           y2="65.5"
           x2="98.5"
@@ -910,8 +874,6 @@ export const SpacerSvg3 = () => {
           strokeDasharray="2,2"
           strokeWidth="2"
           stroke="#000"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_4"
           y2="44.5"
           x2="68.5"
@@ -924,8 +886,6 @@ export const SpacerSvg3 = () => {
         <line
           className="svg-line-tertiary-color"
           strokeWidth="2"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_5"
           y2="144"
           x2="19"
@@ -940,8 +900,6 @@ export const SpacerSvg3 = () => {
           className="svg-line-tertiary-color"
           strokeWidth="2"
           stroke="#000"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_6"
           y2="144"
           x2="143"
@@ -954,8 +912,6 @@ export const SpacerSvg3 = () => {
         <line
           className="svg-line-tertiary-color"
           strokeDasharray="2,2"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_8"
           y2="112.5"
           x2="9"
@@ -1024,8 +980,6 @@ export const SpacerSvg3 = () => {
           strokeDasharray="2,2"
           strokeWidth="2"
           stroke="#000"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_17"
           y2="47"
           x2="29.5"
@@ -1037,8 +991,6 @@ export const SpacerSvg3 = () => {
         />
         <line
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_18"
           y2="147.5"
           x2="108"
@@ -1053,8 +1005,6 @@ export const SpacerSvg3 = () => {
         <line
           className="svg-line-tertiary-color"
           strokeDasharray="5,2,2,2,2,2"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_20"
           y2="149"
           x2="90"
@@ -1107,8 +1057,6 @@ export const SpacerSvg3 = () => {
         />
         <line
           className="svg-line-tertiary-color"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_24"
           y2="147.5"
           x2="52"
@@ -1125,8 +1073,6 @@ export const SpacerSvg3 = () => {
           strokeDasharray="2,2"
           strokeWidth="2"
           stroke="#000"
-          strokeLinecap="null"
-          strokeLinejoin="null"
           id="svg_25"
           y2="59.5"
           x2="129.5"
@@ -1169,8 +1115,6 @@ export const SpacerSvg4 = () => {
           x2="98.5"
           y2="65.5"
           id="svg_3"
-          strokLinejoin="null"
-          strokeLinecap="null"
           stroke="#000"
           strokeWidth="2"
           className="svg-line-tertiary-color"
@@ -1185,8 +1129,6 @@ export const SpacerSvg4 = () => {
           x2="77.5"
           y2="78.5"
           id="svg_4"
-          strokLinejoin="null"
-          strokeLinecap="null"
           stroke="#000"
           strokeWidth="2"
           className="svg-line-tertiary-color"
@@ -1200,10 +1142,8 @@ export const SpacerSvg4 = () => {
           x1="19"
           y1="64"
           x2="19"
-          y2="144"
+          y2="124"
           id="svg_5"
-          strokLinejoin="null"
-          strokeLinecap="null"
           strokeWidth="2"
           className="svg-line-tertiary-color"
         />
@@ -1216,8 +1156,6 @@ export const SpacerSvg4 = () => {
           x2="143"
           y2="144"
           id="svg_6"
-          strokLinejoin="null"
-          strokeLinecap="null"
           stroke="#000"
           strokeWidth="2"
           className="svg-line-tertiary-color"
@@ -1234,8 +1172,6 @@ export const SpacerSvg4 = () => {
           x2="51"
           y2="56.5"
           id="svg_8"
-          strokLinejoin="null"
-          strokeLinecap="null"
           strokeDasharray="2,2"
         />
         <rect
@@ -1273,8 +1209,6 @@ export const SpacerSvg4 = () => {
           x2="29.5"
           y2="47"
           id="svg_17"
-          strokLinejoin="null"
-          strokeLinecap="null"
           stroke="#000"
           strokeWidth="2"
           className="svg-line-tertiary-color"
@@ -1292,8 +1226,6 @@ export const SpacerSvg4 = () => {
           x2="90"
           y2="144"
           id="svg_20"
-          strokLinejoin="null"
-          strokeLinecap="null"
           strokeDasharray="5,2,2,2,2,2"
         />
         <rect
@@ -1321,8 +1253,6 @@ export const SpacerSvg4 = () => {
           x2="80"
           y2="135.5"
           id="svg_24"
-          strokLinejoin="null"
-          strokeLinecap="null"
         />
         <line
           fill="none"
@@ -1333,8 +1263,6 @@ export const SpacerSvg4 = () => {
           x2="132.5"
           y2="30.5"
           id="svg_25"
-          strokLinejoin="null"
-          strokeLinecap="null"
           stroke="#000"
           strokeWidth="2"
           className="svg-line-tertiary-color"
@@ -1342,8 +1270,6 @@ export const SpacerSvg4 = () => {
         />
         <line
           strokeDasharray="5,2,2,2,2,2"
-          strokeLinecap="null"
-          strokLinejoin="null"
           id="svg_9"
           y2="150.5"
           x2="56.5"
@@ -1358,8 +1284,6 @@ export const SpacerSvg4 = () => {
         />
         <line
           strokeDasharray="5,2,2,2,2,2"
-          strokeLinecap="null"
-          strokLinejoin="null"
           id="svg_12"
           y2="149.5"
           x2="107.5"
@@ -1433,8 +1357,6 @@ export const SpacerSvg4 = () => {
           x2="64.5"
           y2="54.5"
           id="svg_19"
-          strokLinejoin="null"
-          strokeLinecap="null"
           stroke="#000"
           strokeWidth="2"
           className="svg-line-tertiary-color"
@@ -1452,8 +1374,6 @@ export const SpacerSvg4 = () => {
           x2="58"
           y2="150"
           id="svg_21"
-          strokLinejoin="null"
-          strokeLinecap="null"
           strokeDasharray="5,2,2,2,2,2"
         />
       </g>

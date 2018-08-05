@@ -52,6 +52,15 @@ a {
   line-height: 200%;
 }
 
+li {
+  list-style-type: square;
+  margin: $small-spacing 0;
+}
+
+.text-hightlight {
+  color: $tertiaryColor;
+}
+
 .sub-section-title {
   color: gray;
   padding: 0 $small-spacing;
@@ -169,4 +178,32 @@ a {
   background: $LIGHTGRAY;
   border: 1px dotted black;
   color: black;
+}
+
+.text-content {
+  box-sizing: border-box;
+
+  .content-title {
+    margin-bottom: $medium-spacing;
+  }
+
+  .content-body {
+    margin-left: $medium-spacing;
+  }
+
+  p {
+    font-family: 'Hind-Light';
+    line-height: 250%;
+    margin: $medium-spacing 0;
+    text-align: justify;
+    text-indent: $small-spacing;
+  }
+
+  h6 {
+    text-align: center;
+    margin: 10% 0;
+  }
+
+  margin: 0 auto;
+  width: 500px;
 }

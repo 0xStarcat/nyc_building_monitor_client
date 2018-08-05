@@ -45,9 +45,7 @@ describe('LayerInformationBox', () => {
           selectedObject={selectedObject}
         />
       )
-      expect(wrapper.instance().displayInformationBox()).toEqual(
-        <BoundaryInformation selectedObject={selectedObject} />
-      )
+      expect(wrapper.find(BoundaryInformation).length).toEqual(1)
     })
   })
 

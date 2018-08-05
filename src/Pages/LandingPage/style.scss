@@ -8,6 +8,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  svg {
+    height: 160px;
+  }
 }
 
 .landing-header-bar {
@@ -68,4 +72,42 @@
     margin: 0 auto;
     width: 60vw;
   }
+}
+
+.landing-update-table {
+  min-width: 800px;
+  margin: 0 auto;
+  background: $secondaryColor;
+  padding: $medium-spacing;
+}
+
+.landing-table-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.landing-table-header {
+  text-align: left;
+  border-bottom: 1px dashed white;
+}
+
+.landing-table-header,
+.landing-table-cell {
+  padding: $tiny-spacing;
+  width: 160px;
+  border-right: 1px dashed white;
+  color: white;
+}
+
+.landing-table-cell {
+  text-align: right;
+}
+
+.landing-footer {
+  background-color: $svg-dark-color;
+
+  height: $landingFooterHeight;
 }
