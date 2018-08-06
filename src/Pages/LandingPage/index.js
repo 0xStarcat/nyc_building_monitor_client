@@ -29,7 +29,7 @@ class LandingPage extends React.Component {
         return (
           <div className="landing-update-table" id="update">
             <div className="landing-table-row">
-              <div className="landing-table-header">Last Updated</div>
+              <div className="landing-table-header">Last Update</div>
               <div className="landing-table-header">New Violations</div>
               <div className="landing-table-header">New 311-calls</div>
               <div className="landing-table-header">Resolved Violations</div>
@@ -48,7 +48,7 @@ class LandingPage extends React.Component {
         return (
           <div className="landing-update-table" id="update">
             <div className="landing-table-row">
-              <div className="landing-table-header">Last Updated</div>
+              <div className="landing-table-header">Last Update</div>
               <div className="landing-table-cell">{convertTimestampToData(lastUpdate.date)}</div>
             </div>
             <div className="landing-table-row">
