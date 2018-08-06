@@ -182,6 +182,8 @@ li {
 
 .text-content {
   box-sizing: border-box;
+  margin: 0 auto;
+  width: 500px;
 
   .content-title {
     margin-bottom: $medium-spacing;
@@ -203,7 +205,13 @@ li {
     text-align: center;
     margin: 10% 0;
   }
+}
 
-  margin: 0 auto;
-  width: 500px;
+@media screen and (orientation: portrait) {
+  .text-content {
+    width: 100%;
+    .content-body {
+      margin-left: 0;
+    }
+  }
 }

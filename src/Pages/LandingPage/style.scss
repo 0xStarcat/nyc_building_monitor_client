@@ -1,5 +1,7 @@
 @import '../../SharedStyles/index.scss';
 
+$link-row-height: 40px;
+
 .landing-spacer {
   box-sizing: border-box;
   padding: $large-spacing 0;
@@ -36,7 +38,7 @@
   flex-direction: row;
   flex-grow: 0;
   flex-shrink: 0;
-  height: 80px;
+  height: $link-row-height;
   justify-content: flex-start;
   padding-left: $huge-spacing;
   width: 100%;
@@ -55,7 +57,6 @@
   justify-content: center;
   flex-grow: 1;
   flex-shrink: 0;
-  height: 100%;
 }
 
 .landing-header-title {
@@ -75,6 +76,7 @@
 }
 
 .landing-update-table {
+  box-sizing: border-box;
   min-width: 800px;
   margin: 0 auto;
   background: $secondaryColor;
@@ -111,4 +113,40 @@
   background-color: $svg-dark-color;
 
   height: $landingFooterHeight;
+}
+
+@media screen and (orientation: portrait) {
+  h5 {
+    margin: $small-spacing 0;
+  }
+
+  .landing-header-title {
+    text-align: center;
+  }
+
+  .landing-header-link-menu {
+    padding-left: $tiny-spacing;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .landing-main-picture-wrapper {
+    img {
+      width: 100vw;
+    }
+  }
+
+  .landing-update-table {
+    min-width: initial;
+    width: 100vw;
+  }
+
+  .landing-table-header {
+    border-bottom: 1px dashed transparent;
+  }
+
+  .landing-table-cell {
+    border-right: 1px dashed transparent;
+    text-align: right;
+  }
 }

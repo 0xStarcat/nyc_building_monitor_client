@@ -25,24 +25,51 @@ class LandingPage extends React.Component {
   displayUpdateTable() {
     if (this.props.updates.rows.length) {
       const lastUpdate = this.props.updates.rows[0]
-      return (
-        <div className="landing-update-table" id="update">
-          <div className="landing-table-row">
-            <div className="landing-table-header">Last Updated</div>
-            <div className="landing-table-header">New Violations</div>
-            <div className="landing-table-header">New 311-calls</div>
-            <div className="landing-table-header">Resolved Violations</div>
-            <div className="landing-table-header">Resolved 311-calls</div>
+      if (this.props.landScapeOrientation) {
+        return (
+          <div className="landing-update-table" id="update">
+            <div className="landing-table-row">
+              <div className="landing-table-header">Last Updated</div>
+              <div className="landing-table-header">New Violations</div>
+              <div className="landing-table-header">New 311-calls</div>
+              <div className="landing-table-header">Resolved Violations</div>
+              <div className="landing-table-header">Resolved 311-calls</div>
+            </div>
+            <div className="landing-table-row">
+              <div className="landing-table-cell">{convertTimestampToData(lastUpdate.date)}</div>
+              <div className="landing-table-cell">{lastUpdate.newViolations}</div>
+              <div className="landing-table-cell">{lastUpdate.newServiceCalls}</div>
+              <div className="landing-table-cell">{lastUpdate.resolvedViolations}</div>
+              <div className="landing-table-cell">{lastUpdate.resolvedServiceCalls}</div>
+            </div>
           </div>
-          <div className="landing-table-row" id="update">
-            <div className="landing-table-cell">{convertTimestampToData(lastUpdate.date)}</div>
-            <div className="landing-table-cell">{lastUpdate.newViolations}</div>
-            <div className="landing-table-cell">{lastUpdate.newServiceCalls}</div>
-            <div className="landing-table-cell">{lastUpdate.resolvedViolations}</div>
-            <div className="landing-table-cell">{lastUpdate.resolvedServiceCalls}</div>
+        )
+      } else {
+        return (
+          <div className="landing-update-table" id="update">
+            <div className="landing-table-row">
+              <div className="landing-table-header">Last Updated</div>
+              <div className="landing-table-cell">{convertTimestampToData(lastUpdate.date)}</div>
+            </div>
+            <div className="landing-table-row">
+              <div className="landing-table-header">New Violations</div>
+              <div className="landing-table-cell">{lastUpdate.newViolations}</div>
+            </div>
+            <div className="landing-table-row">
+              <div className="landing-table-header">New 311-calls</div>
+              <div className="landing-table-cell">{lastUpdate.newServiceCalls}</div>
+            </div>
+            <div className="landing-table-row">
+              <div className="landing-table-header">Resolved Violations</div>
+              <div className="landing-table-cell">{lastUpdate.resolvedViolations}</div>
+            </div>
+            <div className="landing-table-row">
+              <div className="landing-table-header">Resolved 311-calls</div>
+              <div className="landing-table-cell">{lastUpdate.resolvedServiceCalls}</div>
+            </div>
           </div>
-        </div>
-      )
+        )
+      }
     } else if (this.props.updates.awaitingResponse) {
       return <div className="landing-update-table">Loading...</div>
     } else {
@@ -88,8 +115,8 @@ class LandingPage extends React.Component {
           <div className="content-body">
             <p>
               The NYC Building Monitor is an ongoing project created to serve the needs of NYC tenants. If you are a NYC
-              tenant or housing advocacy group and would like to discuss your ideas on how to steer this site, please
-              contact me at <span className="text-hightlight">hello@buildingmonitor.nyc</span>.
+              tenant or housing advocate and would like to discuss your ideas on how to steer this site, please contact
+              me at <span className="text-hightlight">hello@buildingmonitor.nyc</span>.
             </p>
             <p>
               This site is a daily updated resource of public city data on building violations, building-related 311
@@ -109,7 +136,7 @@ class LandingPage extends React.Component {
         <div className="text-content">
           <div className="content-title" id="goals">
             <h5>Future goals</h5>
-            <ul>
+            <ul className="content-body">
               <li>
                 Write general information guides about city departments, the 311 service, and building violation codes.
               </li>
