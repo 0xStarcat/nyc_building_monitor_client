@@ -1,5 +1,4 @@
 'use strict'
-
 const autoprefixer = require('autoprefixer')
 const path = require('path')
 const webpack = require('webpack')
@@ -108,16 +107,16 @@ module.exports = {
       {
         test: /\.(js|jsx|mjs)$/,
         enforce: 'pre',
-        // use: [
-        //   {
-        //     options: {
-        //       formatter: eslintFormatter,
-        //       eslintPath: require.resolve('eslint'),
-        //       emitWarning: true
-        //     },
-        //     loader: require.resolve('eslint-loader')
-        //   }
-        // ],
+        use: [
+          {
+            options: {
+              formatter: eslintFormatter,
+              eslintPath: require.resolve('eslint'),
+              emitWarning: true
+            },
+            loader: require.resolve('eslint-loader')
+          }
+        ],
         include: paths.appSrc
       },
       {
