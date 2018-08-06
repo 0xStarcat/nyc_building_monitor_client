@@ -116,8 +116,10 @@ $link-row-height: 40px;
 }
 
 @media screen and (orientation: portrait) {
-  h5 {
-    margin: $small-spacing 0;
+  .content-title {
+    h5 {
+      margin: $small-spacing 0;
+    }
   }
 
   .landing-header-title {
