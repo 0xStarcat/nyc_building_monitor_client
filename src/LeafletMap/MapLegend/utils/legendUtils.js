@@ -96,13 +96,13 @@ const buildingViolationLayerData = [
   { value: 0, label: '= 0', color: '#f7f4f9' }
 ]
 const buildingOpen311LayerData = [
-  { value: 20, label: '> 20', color: '#2b8cbe' },
-  { value: 16, label: '> 16', color: '#4eb3d3' },
-  { value: 12, label: '> 12', color: '#7bccc4' },
-  { value: 8, label: '> 8', color: '#a8ddb5' },
-  { value: 4, label: '> 4', color: '#ccebc5' },
-  { value: 0, label: '> 0', color: '#e0f3db' },
-  { value: 0, label: '= 0', color: '#f7fcf0' }
+  { value: 20, label: '> 20%', color: '#2b8cbe' },
+  { value: 16, label: '> 16%', color: '#4eb3d3' },
+  { value: 12, label: '> 12%', color: '#7bccc4' },
+  { value: 8, label: '> 8%', color: '#a8ddb5' },
+  { value: 4, label: '> 4%', color: '#ccebc5' },
+  { value: 0, label: '> 0%', color: '#e0f3db' },
+  { value: 0, label: '= 0%', color: '#f7fcf0' }
 ]
 const buildingAverageResponseLayerData = [
   { value: 90, label: '> 90 days', color: '#2b8cbe' },
