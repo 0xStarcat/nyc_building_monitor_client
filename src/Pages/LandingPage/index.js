@@ -140,7 +140,8 @@ class LandingPage extends React.Component {
               <li>
                 Write general information guides about city departments, the 311 service, and building violation codes.
               </li>
-              <li>Translation all text into Spanish.</li>
+              <li>Translate all text into Spanish.</li>
+              <li>Improve accessibility for screen readers.</li>
               <li>Include more options to choose from for the racial demographic map detail layer.</li>
               <li>Improve map search functionality for buildings and neighborhoods.</li>
               <li>Make specific information linkable and shareable.</li>
