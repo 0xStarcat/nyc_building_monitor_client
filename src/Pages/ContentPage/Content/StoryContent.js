@@ -13,6 +13,12 @@ const StoryContent = () => {
           This project began after a personal experience put my living situation into jeopardy and set me on the path of
           data justice.
         </p>
+        <p>
+          <bold>TL;DR</bold>
+          The city shut off our gas, the landlord lied about why, I used NYC Open Data to find the landlord was
+          operating an illegal gas line,, I confronted the landlord, I lowered my rent as a result.
+        </p>
+
         <h6>Losing gas</h6>
         <p>
           At the end of January, 2018, with temperatures outside consistently cold and freezing, a building inspector
