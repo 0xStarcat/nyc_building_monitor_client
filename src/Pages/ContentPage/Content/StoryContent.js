@@ -14,7 +14,8 @@ const StoryContent = () => {
           data justice.
         </p>
         <p>
-          <bold>TL;DR</bold>
+          <bold>TL;DR:</bold>
+          <br>
           The city shut off our gas, the landlord lied about why, I used NYC Open Data to find the landlord was
           operating an illegal gas line,, I confronted the landlord, I lowered my rent as a result.
         </p>
