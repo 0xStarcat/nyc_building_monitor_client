@@ -23,6 +23,7 @@ export const updatesReducer = (updatesState = Object.freeze(initialState), actio
     case updatesActions.HANDLE_READ_UPDATES_RESPONSE: {
       return {
         ...updatesState,
+        errors: [],
         rows: action.data['rows'].sort((a, b) => {
           return b.date - a.date
         }),

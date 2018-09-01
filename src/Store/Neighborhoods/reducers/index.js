@@ -25,6 +25,7 @@ export const neighborhoodsReducer = (neighborhoodsState = Object.freeze(initialS
     case neighborhoodsActions.HANDLE_READ_NEIGHBORHOODS_RESPONSE: {
       return {
         ...neighborhoodsState,
+        errors: [],
         features: action.data['features'],
         awaitingResponse: false,
         initialFetchCompleted: true

@@ -26,6 +26,7 @@ export const censusTractsReducer = (censusTractsState = Object.freeze(initialSta
     case censusTractsActions.HANDLE_READ_CENSUS_TRACTS_RESPONSE: {
       return {
         ...censusTractsState,
+        errors: [],
         features: action.data['features'],
         awaitingResponse: false,
         initialFetchCompleted: true
