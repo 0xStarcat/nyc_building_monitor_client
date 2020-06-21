@@ -1,4 +1,4 @@
-@import './index.scss';
+@import "./index.scss";
 
 a,
 p {
@@ -93,7 +93,7 @@ li {
 
 .text-container {
   background: white;
-  font-family: 'Hind', Helvetica, Arial, sans-serif;
+  font-family: "Hind", Helvetica, Arial, sans-serif;
   padding: 0 $medium-spacing;
 
   p {
@@ -189,16 +189,16 @@ li {
     margin-bottom: $medium-spacing;
   }
 
-  .content-body {
-    margin-left: $medium-spacing;
-  }
+  // .content-body {
+  //   margin-left: $medium-spacing;
+  // }
 
   p {
-    font-family: 'Hind-Light';
+    font-family: "Hind-Light";
     line-height: 250%;
     margin: $medium-spacing 0;
-    text-align: justify;
-    text-indent: $small-spacing;
+    text-align: left;
+    // text-indent: $small-spacing;
   }
 
   h6 {

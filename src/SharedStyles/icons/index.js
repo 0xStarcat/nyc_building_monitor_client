@@ -444,6 +444,7 @@ export const MapMarkerIcon = () => {
   )
 }
 
+
 export const SearchGlassIcon = () => {
   return (
     <svg className="svg-icon" viewBox="0 0 20 20">
