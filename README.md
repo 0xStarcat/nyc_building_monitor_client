@@ -17,5 +17,4 @@ The NYC Building monitor is a tool that NYC tenants can use to help them make in
 
 ## Deploying
 
-1. build locally with `npm run build`
-2. push to server, restart api server w/ `pm2 restart buildingmonitor_server`
+1. push to server `git push production master` (automates build and deploy of client)
