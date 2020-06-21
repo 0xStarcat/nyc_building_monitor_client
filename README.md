@@ -14,3 +14,8 @@ The NYC Building monitor is a tool that NYC tenants can use to help them make in
 3.  Start the backend server with `npm run-script nodemon`
 4.  Start the frontend client with `npm run-script dev`
 5.  Visit `localhost:3000`
+
+## Deploying
+
+1. build locally with `npm run build`
+2. push to server, restart api server w/ `pm2 restart buildingmonitor_server`
