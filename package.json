@@ -48,7 +48,7 @@
     "postcss-loader": "2.0.8",
     "raf": "3.4.0",
     "react": "^16.4.1",
-    "react-dev-utils": "^5.0.1",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.4.1",
     "react-leaflet": "1.9.1",
     "react-leaflet-marker-stack": "^0.1.7",
